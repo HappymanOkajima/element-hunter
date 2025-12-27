@@ -3,8 +3,6 @@
 export type Direction = 'up' | 'down' | 'left' | 'right' |
                         'up-left' | 'up-right' | 'down-left' | 'down-right';
 
-export type EnemyType = 'p' | 'div' | 'h1';
-
 export type EnemyBehavior = 'patrol' | 'orbit' | 'chase';
 
 export interface EnemyConfig {
@@ -19,12 +17,14 @@ export interface EnemyConfig {
 }
 
 export interface EnemySpawn {
-  type: EnemyType;
+  type: string;
   x: number;
   y: number;
 }
 
 export interface StageConfig {
+  name: string;
+  width: number;
   enemies: EnemySpawn[];
   goalX: number;
 }
@@ -34,4 +34,47 @@ export interface PlayerState {
   maxHp: number;
   isAttacking: boolean;
   direction: Direction;
+}
+
+// クロールJSONの型定義
+export interface CrawlOutput {
+  siteId: string;
+  siteName: string;
+  baseUrl: string;
+  metadata: {
+    crawledAt: string;
+    crawlerVersion: string;
+    totalPages: number;
+    totalElements: number;
+    maxDepth: number;
+    crawlDuration: number;
+  };
+  pages: CrawlPage[];
+  deepestPages: string[];
+  rareElements: string[];
+  commonLinks: string[];
+  elementStats: Record<string, ElementStat>;
+}
+
+export interface CrawlPage {
+  path: string;
+  depth: number;
+  title: string;
+  elements: ElementCount[];
+  totalElementCount: number;
+  links: string[];
+  parentLink: string | null;
+  contentLength: number;
+  estimatedWidth: number;
+}
+
+export interface ElementCount {
+  tag: string;
+  count: number;
+}
+
+export interface ElementStat {
+  totalCount: number;
+  pageCount: number;
+  rarity: number;
 }

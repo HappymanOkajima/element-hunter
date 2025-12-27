@@ -1,10 +1,20 @@
 import type { KaboomCtx } from 'kaboom';
 import { createPlayer, type PlayerObject } from '../entities/player';
 import { createEnemy, type EnemyObject } from '../entities/enemy';
-import type { EnemyType, StageConfig } from '../types';
+import type { StageConfig } from '../types';
 
-// チュートリアルステージ設定
-const TUTORIAL_STAGE: StageConfig = {
+// 現在のステージ設定（外部から設定可能）
+let currentStage: StageConfig | null = null;
+
+// ステージを設定
+export function setStage(stage: StageConfig) {
+  currentStage = stage;
+}
+
+// デフォルトステージ
+const DEFAULT_STAGE: StageConfig = {
+  name: 'Tutorial',
+  width: 800,
   enemies: [
     { type: 'p', x: 300, y: 200 },
     { type: 'p', x: 400, y: 400 },
@@ -15,9 +25,15 @@ const TUTORIAL_STAGE: StageConfig = {
 };
 
 export function gameScene(k: KaboomCtx) {
+  // ステージ設定を取得（設定されていなければデフォルト）
+  const stage = currentStage || DEFAULT_STAGE;
+
   // ゲーム状態
   let isPaused = false;
   let player: PlayerObject | null = null;
+
+  // カメラのオフセット（横スクロール用）
+  let cameraX = 0;
 
   // --- UI描画 ---
 
@@ -31,10 +47,19 @@ export function gameScene(k: KaboomCtx) {
 
   // ステージ名表示
   k.add([
-    k.text('TUTORIAL', { size: 16 }),
+    k.text(stage.name.slice(0, 30), { size: 14 }),
     k.pos(k.width() - 20, 20),
     k.anchor('topright'),
     k.color(150, 150, 150),
+    k.fixed(),
+  ]);
+
+  // 敵カウント表示
+  const enemyCountLabel = k.add([
+    k.text('', { size: 14 }),
+    k.pos(k.width() - 20, 40),
+    k.anchor('topright'),
+    k.color(100, 150, 100),
     k.fixed(),
   ]);
 
@@ -46,31 +71,46 @@ export function gameScene(k: KaboomCtx) {
     hpLabel.text = `HP: ${hearts}`;
   }
 
-  // 毎フレームHP更新
+  // 敵カウント更新
+  function updateEnemyCount() {
+    const enemies = k.get('enemy');
+    enemyCountLabel.text = `Enemies: ${enemies.length}`;
+  }
+
+  // 毎フレーム更新
   k.onUpdate(() => {
     if (!isPaused) {
       updateHpDisplay();
+      updateEnemyCount();
+
+      // カメラの横スクロール（プレイヤー追従）
+      if (player && stage.width > k.width()) {
+        const targetX = Math.max(0, Math.min(player.pos.x - k.width() / 2, stage.width - k.width()));
+        cameraX = targetX;
+        k.camPos(k.width() / 2 + cameraX, k.height() / 2);
+      }
     }
   });
 
   // --- プレイヤー生成 ---
-  player = createPlayer(k);
+  player = createPlayer(k, stage.width);
 
   // --- 敵生成 ---
-  TUTORIAL_STAGE.enemies.forEach((enemyData) => {
+  stage.enemies.forEach((enemyData) => {
     createEnemy(
       k,
-      enemyData.type as EnemyType,
+      enemyData.type,
       enemyData.x,
       enemyData.y,
-      () => player
+      () => player,
+      stage.width
     );
   });
 
   // --- ゴール生成 ---
   k.add([
     k.text('[GOAL]', { size: 24 }),
-    k.pos(TUTORIAL_STAGE.goalX, k.height() / 2),
+    k.pos(stage.goalX, k.height() / 2),
     k.area({ shape: new k.Rect(k.vec2(-30, -50), 60, 100) }),
     k.anchor('center'),
     k.color(0, 255, 100),
@@ -102,7 +142,6 @@ export function gameScene(k: KaboomCtx) {
     isPaused = !isPaused;
 
     if (isPaused) {
-      // ポーズオーバーレイ表示
       k.add([
         k.rect(k.width(), k.height()),
         k.pos(0, 0),
@@ -129,9 +168,7 @@ export function gameScene(k: KaboomCtx) {
         k.fixed(),
         'pauseOverlay',
       ]);
-
     } else {
-      // ポーズオーバーレイ削除
       k.get('pauseOverlay').forEach((obj) => k.destroy(obj));
     }
   });

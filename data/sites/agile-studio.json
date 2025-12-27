@@ -1,0 +1,2939 @@
+{
+  "siteId": "agile-studio",
+  "siteName": "Agile Studio | アジャイルで日本の組織を元気に | 永和システムマネジメント",
+  "baseUrl": "https://www.agile-studio.jp",
+  "metadata": {
+    "crawledAt": "2025-12-27T11:37:37.848Z",
+    "crawlerVersion": "0.1.0",
+    "totalPages": 30,
+    "totalElements": 7385,
+    "maxDepth": 2,
+    "crawlDuration": 154345
+  },
+  "pages": [
+    {
+      "path": "/",
+      "depth": 0,
+      "title": "Agile Studio | アジャイルで日本の組織を元気に | 永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 150
+        },
+        {
+          "tag": "p",
+          "count": 122
+        },
+        {
+          "tag": "img",
+          "count": 78
+        },
+        {
+          "tag": "a",
+          "count": 68
+        },
+        {
+          "tag": "br",
+          "count": 17
+        },
+        {
+          "tag": "h2",
+          "count": 13
+        },
+        {
+          "tag": "section",
+          "count": 11
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "strong",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 469,
+      "links": [
+        "/post/scrum-master-training-202603",
+        "/post/rsgt2026",
+        "/post/agile-cafe",
+        "/post/agile-fungo",
+        "/post/category/news",
+        "/wkwk-soshiki",
+        "/post/agile-principles-deep-dive-1",
+        "/post/tskaigi2025_staff",
+        "/post/looking-back-at-2025",
+        "/post/apm-ai-driven",
+        "/case/0101-agile-training",
+        "/case/torishima-3",
+        "/case/nttcw-community",
+        "/case/slc-agile-week",
+        "/people/hiranabe",
+        "/people/okajima",
+        "/people/kinoshita",
+        "/people/amano",
+        "/people/hashimoto",
+        "/tour/contact"
+      ],
+      "parentLink": null,
+      "contentLength": 170073,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/about",
+      "depth": 1,
+      "title": "Agile Studioについて | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 125
+        },
+        {
+          "tag": "p",
+          "count": 108
+        },
+        {
+          "tag": "a",
+          "count": 63
+        },
+        {
+          "tag": "img",
+          "count": 47
+        },
+        {
+          "tag": "br",
+          "count": 24
+        },
+        {
+          "tag": "section",
+          "count": 8
+        },
+        {
+          "tag": "h3",
+          "count": 8
+        },
+        {
+          "tag": "h2",
+          "count": 6
+        },
+        {
+          "tag": "strong",
+          "count": 3
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 402,
+      "links": [
+        "/people/hiranabe",
+        "/people/okajima",
+        "/people/kinoshita",
+        "/people/amano",
+        "/people/ienaga",
+        "/people/ichijo",
+        "/people/hashimoto",
+        "/people/sakai",
+        "/people/murakami",
+        "/people/nakamoto",
+        "/people/okajima-kazuki",
+        "/people/fujita",
+        "/people/okamoto",
+        "/people/imamura",
+        "/people/kobayashi",
+        "/people/seiya",
+        "/people/nakamura",
+        "/post/8steps-leading-agile-transformation",
+        "/post/agile-journey-3-user-cases",
+        "/post/sfo-2022",
+        "/post/difference-try-action",
+        "/download/agile-in-sourcing",
+        "/download/remote-agile-knowhow-vol1",
+        "/download/agile-tips",
+        "/download/remote-agile-knowhow-vol2"
+      ],
+      "parentLink": "/",
+      "contentLength": 146086,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/service",
+      "depth": 2,
+      "title": "サービス | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 69
+        },
+        {
+          "tag": "p",
+          "count": 41
+        },
+        {
+          "tag": "a",
+          "count": 39
+        },
+        {
+          "tag": "img",
+          "count": 25
+        },
+        {
+          "tag": "h3",
+          "count": 8
+        },
+        {
+          "tag": "br",
+          "count": 5
+        },
+        {
+          "tag": "h2",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 3
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 204,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 105333,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/case",
+      "depth": 2,
+      "title": "事例 | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 84
+        },
+        {
+          "tag": "p",
+          "count": 57
+        },
+        {
+          "tag": "a",
+          "count": 44
+        },
+        {
+          "tag": "img",
+          "count": 33
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "button",
+          "count": 2
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 236,
+      "links": [
+        "/case/0101-agile-training",
+        "/case/torishima-3",
+        "/case/nttcw-community",
+        "/case/torishima-2",
+        "/case/torishima-1",
+        "/case/slc-agile-week",
+        "/case/scrum-for-nursing-team",
+        "/case/slc-kaiden-1"
+      ],
+      "parentLink": "/",
+      "contentLength": 85577,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/post",
+      "depth": 2,
+      "title": "ブログ | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 96
+        },
+        {
+          "tag": "p",
+          "count": 75
+        },
+        {
+          "tag": "a",
+          "count": 54
+        },
+        {
+          "tag": "img",
+          "count": 27
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "button",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "form",
+          "count": 1
+        },
+        {
+          "tag": "input",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 273,
+      "links": [
+        "/post/category/blog",
+        "/post/category/news",
+        "/post/category/agile-studio-webinar",
+        "/post/category/apm",
+        "/post/category/agile-studio-park",
+        "/post/category/banso",
+        "/post/category/wkwk-soshiki",
+        "/post/agile-principles-deep-dive-1",
+        "/post/tskaigi2025_staff",
+        "/post/looking-back-at-2025",
+        "/post/agile-fungo",
+        "/post/furikaeri-2025-banso",
+        "/post/rsgt2026",
+        "/post/agile-cafe",
+        "/post/apm-ai-driven",
+        "/post/remote-trainer-environment-2025",
+        "/post/agile-japan-2009-2025-reboot"
+      ],
+      "parentLink": "/",
+      "contentLength": 90560,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/agile-knowledge",
+      "depth": 2,
+      "title": "Agileナレッジ | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 156
+        },
+        {
+          "tag": "p",
+          "count": 88
+        },
+        {
+          "tag": "img",
+          "count": 81
+        },
+        {
+          "tag": "a",
+          "count": 79
+        },
+        {
+          "tag": "button",
+          "count": 9
+        },
+        {
+          "tag": "br",
+          "count": 7
+        },
+        {
+          "tag": "h2",
+          "count": 6
+        },
+        {
+          "tag": "section",
+          "count": 4
+        },
+        {
+          "tag": "h3",
+          "count": 4
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 443,
+      "links": [
+        "/post/when-scrum-event-day-2026",
+        "/post/agile_misunderstanding_2024",
+        "/post/when-scrum-event-day-2025",
+        "/post/when-scrum-event-day-2024",
+        "/post/5th-understanding-of-agile",
+        "/post/scrum-guide-update-2020",
+        "/post/tips-to-finish-daily-scrum-on-time",
+        "/post/daily-meeting-facilitator-rotation",
+        "/post/good-problem",
+        "/post/facilitation-round-robin",
+        "/post/re-retrospective-guide-01",
+        "/post/tips-to-finish-KPTA-meetings-on-time",
+        "/post/difference-try-action",
+        "/post/kpt-focus-on-strengths",
+        "/post/six-thinking-hats-retrospective",
+        "/post/twop-tdd",
+        "/post/twop-refactor-now",
+        "/post/offline-camp",
+        "/post/agile-way-of-working-and-hr-development",
+        "/post/2022-2weeks-internship",
+        "/post/agile-contracts",
+        "/post/multiple-job-concurrently",
+        "/agile-faq/0019",
+        "/agile-faq/0018",
+        "/agile-faq/0017",
+        "/agile-faq/0016",
+        "/agile-faq/0015"
+      ],
+      "parentLink": "/",
+      "contentLength": 123360,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/ai",
+      "depth": 2,
+      "title": "AIナレッジ | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 139
+        },
+        {
+          "tag": "p",
+          "count": 72
+        },
+        {
+          "tag": "a",
+          "count": 53
+        },
+        {
+          "tag": "img",
+          "count": 25
+        },
+        {
+          "tag": "ul",
+          "count": 9
+        },
+        {
+          "tag": "li",
+          "count": 8
+        },
+        {
+          "tag": "br",
+          "count": 5
+        },
+        {
+          "tag": "button",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "h2",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "form",
+          "count": 1
+        },
+        {
+          "tag": "input",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 329,
+      "links": [
+        "/ai/tag/case",
+        "/ai/tag/know-how",
+        "/ai/tag/column",
+        "/ai/ai-pair-analysis-ga4",
+        "/ai/ai-ocr",
+        "/ai/writing-book-with-claude-code",
+        "/ai/claude-code-hoshu-automation",
+        "/ai/praise-ai-agent",
+        "/post/storytelling-genai",
+        "/post/GenAI-Autonomy",
+        "/post/GenAI-UserStoryMapping-2"
+      ],
+      "parentLink": "/",
+      "contentLength": 95015,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/tour",
+      "depth": 2,
+      "title": "スタジオ見学 | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 74
+        },
+        {
+          "tag": "p",
+          "count": 55
+        },
+        {
+          "tag": "a",
+          "count": 51
+        },
+        {
+          "tag": "img",
+          "count": 38
+        },
+        {
+          "tag": "br",
+          "count": 19
+        },
+        {
+          "tag": "section",
+          "count": 5
+        },
+        {
+          "tag": "h3",
+          "count": 5
+        },
+        {
+          "tag": "h2",
+          "count": 3
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 260,
+      "links": [
+        "/post/agile-studio-park-concept",
+        "/post/agile-studio-park-facility",
+        "/post/agile-studio-park-access",
+        "/tour/contact",
+        "/post/panasonicis-visited-agilestudio"
+      ],
+      "parentLink": "/",
+      "contentLength": 128079,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/contact",
+      "depth": 2,
+      "title": "お問い合わせ | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 40
+        },
+        {
+          "tag": "a",
+          "count": 35
+        },
+        {
+          "tag": "p",
+          "count": 22
+        },
+        {
+          "tag": "img",
+          "count": 14
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "iframe",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "section",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 126,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 70640,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/hiranabe",
+      "depth": 2,
+      "title": "平鍋 健児  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48
+        },
+        {
+          "tag": "a",
+          "count": 39
+        },
+        {
+          "tag": "p",
+          "count": 31
+        },
+        {
+          "tag": "img",
+          "count": 18
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "li",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 151,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 115414,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/okajima",
+      "depth": 2,
+      "title": "​岡島 幸男  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 87
+        },
+        {
+          "tag": "p",
+          "count": 54
+        },
+        {
+          "tag": "a",
+          "count": 51
+        },
+        {
+          "tag": "img",
+          "count": 32
+        },
+        {
+          "tag": "li",
+          "count": 13
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 252,
+      "links": [
+        "/post/se-meets-ml",
+        "/post/sfo-2022"
+      ],
+      "parentLink": null,
+      "contentLength": 145002,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/kinoshita",
+      "depth": 2,
+      "title": "木下 史彦 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "p",
+          "count": 143
+        },
+        {
+          "tag": "div",
+          "count": 97
+        },
+        {
+          "tag": "a",
+          "count": 53
+        },
+        {
+          "tag": "li",
+          "count": 44
+        },
+        {
+          "tag": "img",
+          "count": 34
+        },
+        {
+          "tag": "h4",
+          "count": 8
+        },
+        {
+          "tag": "strong",
+          "count": 8
+        },
+        {
+          "tag": "br",
+          "count": 6
+        },
+        {
+          "tag": "h2",
+          "count": 6
+        },
+        {
+          "tag": "ul",
+          "count": 5
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "ol",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 415,
+      "links": [
+        "/post/agile-way-of-working-and-hr-development",
+        "/post/alistair-cockburn-rethink",
+        "/post/scrum-guide-update-2020",
+        "/post/multiple-job-concurrently"
+      ],
+      "parentLink": null,
+      "contentLength": 222562,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/amano",
+      "depth": 2,
+      "title": "天野 勝  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 110
+        },
+        {
+          "tag": "p",
+          "count": 81
+        },
+        {
+          "tag": "a",
+          "count": 61
+        },
+        {
+          "tag": "img",
+          "count": 33
+        },
+        {
+          "tag": "li",
+          "count": 16
+        },
+        {
+          "tag": "br",
+          "count": 13
+        },
+        {
+          "tag": "h3",
+          "count": 4
+        },
+        {
+          "tag": "h2",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "ul",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 333,
+      "links": [
+        "/post/difference-try-action",
+        "/post/good-problem",
+        "/post/apm-sprint-retrospective",
+        "/post/remote-trainer-environment-2024",
+        "/post/tips-to-finish-daily-scrum-on-time",
+        "/post/re-retrospective-guide-01",
+        "/post/when-scrum-event-day-2026",
+        "/post/tips-to-finish-KPTA-meetings-on-time",
+        "/case/torishima-1",
+        "/case/scrum-for-nursing-team",
+        "/case/slc-agile-week",
+        "/case/0101-agile-training"
+      ],
+      "parentLink": null,
+      "contentLength": 317109,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/ienaga",
+      "depth": 2,
+      "title": "家永 英治  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 102
+        },
+        {
+          "tag": "p",
+          "count": 74
+        },
+        {
+          "tag": "a",
+          "count": 52
+        },
+        {
+          "tag": "img",
+          "count": 31
+        },
+        {
+          "tag": "li",
+          "count": 9
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "strong",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "h3",
+          "count": 2
+        },
+        {
+          "tag": "h2",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "ul",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 291,
+      "links": [
+        "/post/twop-tdd",
+        "/post/twop-tdd-habitability",
+        "/post/apm-pairing",
+        "/post/apm-refactoring",
+        "/post/apm-test-driven-develpment",
+        "/post/apm-daily-scrum",
+        "/post/apm-inception-deck",
+        "/post/apm-mob-programming"
+      ],
+      "parentLink": null,
+      "contentLength": 438145,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/ichijo",
+      "depth": 2,
+      "title": "一條 凌佑 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48
+        },
+        {
+          "tag": "p",
+          "count": 43
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "img",
+          "count": 19
+        },
+        {
+          "tag": "br",
+          "count": 8
+        },
+        {
+          "tag": "h3",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "li",
+          "count": 2
+        },
+        {
+          "tag": "strong",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 174,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 119550,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/hashimoto",
+      "depth": 2,
+      "title": "橋本 憲洋  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 50
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 33
+        },
+        {
+          "tag": "img",
+          "count": 20
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 158,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 116668,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/sakai",
+      "depth": 2,
+      "title": "​酒井 義仁  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 50
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 33
+        },
+        {
+          "tag": "img",
+          "count": 20
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 158,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 116588,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/murakami",
+      "depth": 2,
+      "title": "村上 雅彦  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 50
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 32
+        },
+        {
+          "tag": "img",
+          "count": 20
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 157,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 116631,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/nakamoto",
+      "depth": 2,
+      "title": "中本 美歩  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 31
+        },
+        {
+          "tag": "img",
+          "count": 19
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "li",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 152,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 115910,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/okajima-kazuki",
+      "depth": 2,
+      "title": "​岡島 一樹  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 76
+        },
+        {
+          "tag": "p",
+          "count": 48
+        },
+        {
+          "tag": "a",
+          "count": 42
+        },
+        {
+          "tag": "img",
+          "count": 25
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "li",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 210,
+      "links": [
+        "/post/wf-project-kaizen1",
+        "/post/agile-try1",
+        "/post/agile100",
+        "/post/esm-rsm-training"
+      ],
+      "parentLink": null,
+      "contentLength": 153766,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/fujita",
+      "depth": 2,
+      "title": "藤田 みゆき  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 31
+        },
+        {
+          "tag": "img",
+          "count": 19
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "li",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 152,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 115882,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/okamoto",
+      "depth": 2,
+      "title": "岡本 卓也  | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 121
+        },
+        {
+          "tag": "p",
+          "count": 76
+        },
+        {
+          "tag": "a",
+          "count": 57
+        },
+        {
+          "tag": "img",
+          "count": 37
+        },
+        {
+          "tag": "li",
+          "count": 11
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 317,
+      "links": [
+        "/post/agile-with-technical-excellence",
+        "/post/mindmap-as-outline-processor",
+        "/post/our-current-scrum-fdp",
+        "/post/open-scrum-event-fdp",
+        "/post/webinar-from-engineer-perspective",
+        "/post/agile-tech-advent-calendar-2020",
+        "/post/agile-tech-expo-lt",
+        "/post/on-line-meeting",
+        "/post/techboost-lt-in-asp"
+      ],
+      "parentLink": null,
+      "contentLength": 287625,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/imamura",
+      "depth": 2,
+      "title": "今村 恭子 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 50
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 32
+        },
+        {
+          "tag": "img",
+          "count": 20
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 157,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 116507,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/kobayashi",
+      "depth": 2,
+      "title": "小林 洋平 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 31
+        },
+        {
+          "tag": "img",
+          "count": 19
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "li",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 152,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 115888,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/seiya",
+      "depth": 2,
+      "title": "上坂 静耶 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 62
+        },
+        {
+          "tag": "a",
+          "count": 41
+        },
+        {
+          "tag": "p",
+          "count": 39
+        },
+        {
+          "tag": "img",
+          "count": 21
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "li",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 180,
+      "links": [
+        "/post/agile-japan-hokuriku-2023",
+        "/post/offline-camp"
+      ],
+      "parentLink": null,
+      "contentLength": 142441,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/people/nakamura",
+      "depth": 2,
+      "title": "仲村 新太 | ピープル | Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 46
+        },
+        {
+          "tag": "a",
+          "count": 38
+        },
+        {
+          "tag": "p",
+          "count": 30
+        },
+        {
+          "tag": "img",
+          "count": 18
+        },
+        {
+          "tag": "br",
+          "count": 3
+        },
+        {
+          "tag": "section",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "li",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 147,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 115098,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/post/8steps-leading-agile-transformation",
+      "depth": 2,
+      "title": "アジャイル組織変革の8段階 | ブログ |  Agile Studio",
+      "elements": [
+        {
+          "tag": "p",
+          "count": 102
+        },
+        {
+          "tag": "div",
+          "count": 73
+        },
+        {
+          "tag": "a",
+          "count": 48
+        },
+        {
+          "tag": "img",
+          "count": 25
+        },
+        {
+          "tag": "h3",
+          "count": 9
+        },
+        {
+          "tag": "li",
+          "count": 8
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "h2",
+          "count": 4
+        },
+        {
+          "tag": "u",
+          "count": 3
+        },
+        {
+          "tag": "blockquote",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "figure",
+          "count": 1
+        },
+        {
+          "tag": "figcaption",
+          "count": 1
+        },
+        {
+          "tag": "ol",
+          "count": 1
+        },
+        {
+          "tag": "i",
+          "count": 1
+        },
+        {
+          "tag": "section",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 293,
+      "links": [
+        "/people/kinoshita",
+        "/post/scrum-master-training-202603",
+        "/post/looking-back-at-2025",
+        "/post/tskaigi2025_speaking",
+        "/post/apm-ai-driven"
+      ],
+      "parentLink": "/post",
+      "contentLength": 204714,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/post/agile-journey-3-user-cases",
+      "depth": 2,
+      "title": "日本の最新アジャイル事例3つ | ブログ |  Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 73
+        },
+        {
+          "tag": "p",
+          "count": 59
+        },
+        {
+          "tag": "a",
+          "count": 51
+        },
+        {
+          "tag": "img",
+          "count": 24
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "ul",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "u",
+          "count": 1
+        },
+        {
+          "tag": "strong",
+          "count": 1
+        },
+        {
+          "tag": "i",
+          "count": 1
+        },
+        {
+          "tag": "section",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 231,
+      "links": [
+        "/people/hiranabe",
+        "/post/scrum-master-training-202603",
+        "/post/looking-back-at-2025",
+        "/post/tskaigi2025_speaking",
+        "/post/apm-ai-driven"
+      ],
+      "parentLink": "/post",
+      "contentLength": 118416,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/post/sfo-2022",
+      "depth": 2,
+      "title": "アジャイルベンダーの未来 | ブログ |  Agile Studio",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 73
+        },
+        {
+          "tag": "p",
+          "count": 63
+        },
+        {
+          "tag": "a",
+          "count": 47
+        },
+        {
+          "tag": "img",
+          "count": 28
+        },
+        {
+          "tag": "br",
+          "count": 4
+        },
+        {
+          "tag": "figure",
+          "count": 4
+        },
+        {
+          "tag": "figcaption",
+          "count": 4
+        },
+        {
+          "tag": "li",
+          "count": 3
+        },
+        {
+          "tag": "u",
+          "count": 2
+        },
+        {
+          "tag": "h3",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "ol",
+          "count": 1
+        },
+        {
+          "tag": "i",
+          "count": 1
+        },
+        {
+          "tag": "section",
+          "count": 1
+        },
+        {
+          "tag": "h2",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 244,
+      "links": [
+        "/people/okajima",
+        "/post/scrum-master-training-202603",
+        "/post/looking-back-at-2025",
+        "/post/tskaigi2025_speaking",
+        "/post/apm-ai-driven"
+      ],
+      "parentLink": "/post",
+      "contentLength": 133711,
+      "estimatedWidth": 4000
+    },
+    {
+      "path": "/post/difference-try-action",
+      "depth": 2,
+      "title": "KPTAのTryとActionの違い | ブログ |  Agile Studio",
+      "elements": [
+        {
+          "tag": "p",
+          "count": 89
+        },
+        {
+          "tag": "div",
+          "count": 73
+        },
+        {
+          "tag": "a",
+          "count": 63
+        },
+        {
+          "tag": "img",
+          "count": 26
+        },
+        {
+          "tag": "li",
+          "count": 22
+        },
+        {
+          "tag": "br",
+          "count": 10
+        },
+        {
+          "tag": "h2",
+          "count": 7
+        },
+        {
+          "tag": "h3",
+          "count": 6
+        },
+        {
+          "tag": "u",
+          "count": 4
+        },
+        {
+          "tag": "ul",
+          "count": 3
+        },
+        {
+          "tag": "figure",
+          "count": 2
+        },
+        {
+          "tag": "figcaption",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "header",
+          "count": 1
+        },
+        {
+          "tag": "button",
+          "count": 1
+        },
+        {
+          "tag": "main",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "i",
+          "count": 1
+        },
+        {
+          "tag": "section",
+          "count": 1
+        },
+        {
+          "tag": "footer",
+          "count": 1
+        },
+        {
+          "tag": "iframe",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 319,
+      "links": [
+        "/post/tips-to-finish-KPTA-meetings-on-time",
+        "/people/amano",
+        "/post/scrum-master-training-202603",
+        "/post/looking-back-at-2025",
+        "/post/tskaigi2025_speaking",
+        "/post/apm-ai-driven"
+      ],
+      "parentLink": "/post",
+      "contentLength": 251198,
+      "estimatedWidth": 4000
+    }
+  ],
+  "deepestPages": [
+    "/service",
+    "/case",
+    "/post",
+    "/agile-knowledge",
+    "/ai",
+    "/tour",
+    "/contact",
+    "/people/hiranabe",
+    "/people/okajima",
+    "/people/kinoshita",
+    "/people/amano",
+    "/people/ienaga",
+    "/people/ichijo",
+    "/people/hashimoto",
+    "/people/sakai",
+    "/people/murakami",
+    "/people/nakamoto",
+    "/people/okajima-kazuki",
+    "/people/fujita",
+    "/people/okamoto",
+    "/people/imamura",
+    "/people/kobayashi",
+    "/people/seiya",
+    "/people/nakamura",
+    "/post/8steps-leading-agile-transformation",
+    "/post/agile-journey-3-user-cases",
+    "/post/sfo-2022",
+    "/post/difference-try-action"
+  ],
+  "rareElements": [
+    "blockquote",
+    "form",
+    "i",
+    "input",
+    "ol"
+  ],
+  "commonLinks": [
+    "/",
+    "/about",
+    "/service",
+    "/case",
+    "/post",
+    "/agile-knowledge",
+    "/ai",
+    "/tour",
+    "/contact",
+    "/agile-practice-map",
+    "/service/agile-training",
+    "/service/agile-transformation",
+    "/service/agile-development",
+    "/agile-faq",
+    "/email-newsletter",
+    "/privacy-policy"
+  ],
+  "elementStats": {
+    "div": {
+      "totalCount": 2366,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "p": {
+      "totalCount": 1795,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "img": {
+      "totalCount": 876,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "a": {
+      "totalCount": 1433,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "br": {
+      "totalCount": 184,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "h2": {
+      "totalCount": 74,
+      "pageCount": 29,
+      "rarity": 3
+    },
+    "section": {
+      "totalCount": 76,
+      "pageCount": 30,
+      "rarity": 3
+    },
+    "html": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "head": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "title": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "body": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "header": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "button": {
+      "totalCount": 43,
+      "pageCount": 30,
+      "rarity": 2
+    },
+    "main": {
+      "totalCount": 13,
+      "pageCount": 13,
+      "rarity": 2
+    },
+    "strong": {
+      "totalCount": 19,
+      "pageCount": 6,
+      "rarity": 3
+    },
+    "footer": {
+      "totalCount": 30,
+      "pageCount": 30,
+      "rarity": 1
+    },
+    "iframe": {
+      "totalCount": 31,
+      "pageCount": 30,
+      "rarity": 3
+    },
+    "h3": {
+      "totalCount": 51,
+      "pageCount": 10,
+      "rarity": 3
+    },
+    "h1": {
+      "totalCount": 12,
+      "pageCount": 12,
+      "rarity": 3
+    },
+    "form": {
+      "totalCount": 2,
+      "pageCount": 2,
+      "rarity": 4
+    },
+    "input": {
+      "totalCount": 2,
+      "pageCount": 2,
+      "rarity": 4
+    },
+    "ul": {
+      "totalCount": 22,
+      "pageCount": 6,
+      "rarity": 3
+    },
+    "li": {
+      "totalCount": 165,
+      "pageCount": 22,
+      "rarity": 1
+    },
+    "h4": {
+      "totalCount": 8,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "ol": {
+      "totalCount": 3,
+      "pageCount": 3,
+      "rarity": 3
+    },
+    "u": {
+      "totalCount": 10,
+      "pageCount": 4,
+      "rarity": 3
+    },
+    "blockquote": {
+      "totalCount": 2,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "figure": {
+      "totalCount": 7,
+      "pageCount": 3,
+      "rarity": 3
+    },
+    "figcaption": {
+      "totalCount": 7,
+      "pageCount": 3,
+      "rarity": 3
+    },
+    "i": {
+      "totalCount": 4,
+      "pageCount": 4,
+      "rarity": 3
+    }
+  }
+}

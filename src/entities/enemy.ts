@@ -1,9 +1,9 @@
 import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp } from 'kaboom';
-import type { EnemyType, EnemyConfig } from '../types';
-import { ENEMY_CONFIGS } from '../data/elements';
+import type { EnemyConfig } from '../types';
+import { getEnemyConfig } from '../data/elements';
 import type { PlayerObject } from './player';
 
-// 敵の巡回ルート（div用）
+// 敵の巡回ルート
 const ORBIT_POINTS = [
   { x: 0, y: -50 },
   { x: 50, y: 0 },
@@ -33,30 +33,36 @@ export interface EnemyObject extends EnemyBaseObj {
 
 export function createEnemy(
   k: KaboomCtx,
-  type: EnemyType,
+  tag: string,
   startX: number,
   startY: number,
-  getPlayer: () => PlayerObject | null
-): EnemyObject {
-  const config = ENEMY_CONFIGS[type];
+  getPlayer: () => PlayerObject | null,
+  stageWidth: number = 800
+): EnemyObject | null {
+  // タグから設定を取得
+  const config = getEnemyConfig(tag);
+  if (!config) {
+    return null;  // 無効なタグ
+  }
+
   let hp = config.hp;
 
   // 行動パターン用の状態
-  let patrolDirection = 1;
-  let orbitIndex = 0;
+  let patrolDirection = Math.random() > 0.5 ? 1 : -1;  // ランダムな初期方向
+  let orbitIndex = Math.floor(Math.random() * ORBIT_POINTS.length);  // ランダムな初期位置
   const originPos = { x: startX, y: startY };
 
   const textWidth = config.displayName.length * 12;
 
   // 敵オブジェクト
   const enemy = k.add([
-    k.text(config.displayName, { size: 20 }),
+    k.text(config.displayName, { size: 16 }),
     k.pos(startX, startY),
-    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -12), textWidth, 24) }),
+    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -10), textWidth, 20) }),
     k.anchor('center'),
     k.color(...hexToRgb(config.color)),
     'enemy',
-    type,
+    tag,
   ]) as unknown as EnemyObject;
 
   // カスタムメソッドを追加
@@ -75,10 +81,14 @@ export function createEnemy(
 
     if (hp <= 0) {
       // 撃破エフェクト
-      spawnDestroyEffect(k, enemy.pos.x, enemy.pos.y);
+      spawnDestroyEffect(k, enemy.pos.x, enemy.pos.y, config.color);
       k.destroy(enemy);
     }
   };
+
+  // 移動範囲の制限
+  const minX = 50;
+  const maxX = stageWidth - 50;
 
   // 毎フレーム更新
   enemy.onUpdate(() => {
@@ -98,21 +108,21 @@ export function createEnemy(
     }
 
     // 画面内に制限
-    enemy.pos.x = Math.max(50, Math.min(750, enemy.pos.x));
+    enemy.pos.x = Math.max(minX, Math.min(maxX, enemy.pos.x));
     enemy.pos.y = Math.max(50, Math.min(550, enemy.pos.y));
   });
 
-  // 往復移動（<p>用）
+  // 往復移動
   function updatePatrol() {
-    enemy.pos.x += config.speed * patrolDirection * k.dt();
+    enemy.pos.x += config!.speed * patrolDirection * k.dt();
 
     // 壁で反転
-    if (enemy.pos.x < 100 || enemy.pos.x > 700) {
+    if (enemy.pos.x < minX + 50 || enemy.pos.x > maxX - 50) {
       patrolDirection *= -1;
     }
   }
 
-  // 巡回移動（<div>用）
+  // 巡回移動
   function updateOrbit() {
     const target = {
       x: originPos.x + ORBIT_POINTS[orbitIndex].x,
@@ -123,35 +133,33 @@ export function createEnemy(
     const dist = diff.len();
 
     if (dist < 5) {
-      // 次の巡回点へ
       orbitIndex = (orbitIndex + 1) % ORBIT_POINTS.length;
     } else {
-      // 目標に向かって移動
       const dir = diff.unit();
-      enemy.move(dir.scale(config.speed));
+      enemy.move(dir.scale(config!.speed));
     }
   }
 
-  // 追尾移動（<h1>用）
+  // 追尾移動
   function updateChase(player: PlayerObject) {
     const diff = k.vec2(
       player.pos.x - enemy.pos.x,
       player.pos.y - enemy.pos.y
     );
     const dir = diff.unit();
-    enemy.move(dir.scale(config.speed));
+    enemy.move(dir.scale(config!.speed));
   }
 
   return enemy;
 }
 
 // 撃破エフェクト
-function spawnDestroyEffect(k: KaboomCtx, x: number, y: number) {
+function spawnDestroyEffect(k: KaboomCtx, x: number, y: number, color: string) {
   const effect = k.add([
     k.text('*', { size: 32 }),
     k.pos(x, y),
     k.anchor('center'),
-    k.color(255, 255, 0),
+    k.color(...hexToRgb(color)),
     k.opacity(1),
     k.scale(1),
   ]);

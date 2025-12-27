@@ -53,7 +53,7 @@ export interface PlayerObject extends PlayerBaseObj {
   takeDamage: (amount: number) => void;
 }
 
-export function createPlayer(k: KaboomCtx): PlayerObject {
+export function createPlayer(k: KaboomCtx, stageWidth: number = 800): PlayerObject {
   // プレイヤー状態
   const state: PlayerState = {
     hp: 5,
@@ -132,8 +132,8 @@ export function createPlayer(k: KaboomCtx): PlayerObject {
       }
     }
 
-    // 画面内に制限
-    player.pos.x = Math.max(20, Math.min(780, player.pos.x));
+    // ステージ内に制限
+    player.pos.x = Math.max(20, Math.min(stageWidth - 20, player.pos.x));
     player.pos.y = Math.max(50, Math.min(550, player.pos.y));
   });
 

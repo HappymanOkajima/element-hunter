@@ -1,0 +1,115 @@
+{
+  "siteId": "example",
+  "siteName": "Example Domain",
+  "baseUrl": "https://example.com",
+  "metadata": {
+    "crawledAt": "2025-12-27T11:33:45.031Z",
+    "crawlerVersion": "0.1.0",
+    "totalPages": 1,
+    "totalElements": 9,
+    "maxDepth": 0,
+    "crawlDuration": 5203
+  },
+  "pages": [
+    {
+      "path": "/",
+      "depth": 0,
+      "title": "Example Domain",
+      "elements": [
+        {
+          "tag": "p",
+          "count": 2
+        },
+        {
+          "tag": "html",
+          "count": 1
+        },
+        {
+          "tag": "head",
+          "count": 1
+        },
+        {
+          "tag": "title",
+          "count": 1
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "div",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "a",
+          "count": 1
+        }
+      ],
+      "totalElementCount": 9,
+      "links": [],
+      "parentLink": null,
+      "contentLength": 126,
+      "estimatedWidth": 858
+    }
+  ],
+  "deepestPages": [
+    "/"
+  ],
+  "rareElements": [
+    "a",
+    "body",
+    "div",
+    "h1",
+    "head",
+    "html",
+    "p",
+    "title"
+  ],
+  "commonLinks": [],
+  "elementStats": {
+    "p": {
+      "totalCount": 2,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "html": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "head": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "title": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "body": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "div": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    },
+    "h1": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 3
+    },
+    "a": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 1
+    }
+  }
+}

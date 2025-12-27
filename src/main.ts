@@ -1,5 +1,10 @@
 import kaboom from 'kaboom';
-import { gameScene } from './scenes/game';
+import { gameScene, setStage } from './scenes/game';
+import { loadStageFromCrawl } from './systems/stageLoader';
+import type { CrawlOutput } from './types';
+
+// JSONデータをインポート
+import agileStudioData from '../data/sites/agile-studio.json';
 
 // Kaboom.js 初期化
 const k = kaboom({
@@ -11,6 +16,11 @@ const k = kaboom({
   debug: false,
   global: false,
 });
+
+// agile-studioのトップページをステージとして読み込み
+const crawlData = agileStudioData as CrawlOutput;
+const stage = loadStageFromCrawl(crawlData, 0);  // 0 = トップページ
+setStage(stage);
 
 // ゲームシーン登録
 k.scene('game', () => gameScene(k));
