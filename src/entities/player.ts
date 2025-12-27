@@ -1,5 +1,6 @@
 import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp } from 'kaboom';
 import type { Direction, PlayerState } from '../types';
+import { contentPanel } from '../ui/ContentPanel';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
@@ -86,6 +87,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
     if (state.hp <= 0) {
       if (blinkTimer) clearInterval(blinkTimer);
+      contentPanel.stopTimer();
       k.go('gameover');
       return;
     }
