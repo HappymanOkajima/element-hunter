@@ -47,10 +47,64 @@ export function gameScene(k: KaboomCtx) {
 
   // ゲーム状態
   let isPaused = false;
+  let isWarping = false;  // ワープ中フラグ
   let player: PlayerObject | null = null;
 
   // カメラのオフセット（横スクロール用）
   let cameraX = 0;
+
+  // ワープ演出を実行してからシーン遷移
+  function warpToPage(targetIndex: number, targetPath: string) {
+    if (isWarping) return;
+    isWarping = true;
+
+    // 現在のページの状態を保存
+    saveCurrentPageStates();
+
+    // 履歴にプッシュ
+    gameState.pushPage(targetPath);
+
+    // フェードオーバーレイ
+    const overlay = k.add([
+      k.rect(k.width(), k.height()),
+      k.pos(0, 0),
+      k.color(0, 0, 0),
+      k.opacity(0),
+      k.fixed(),
+      k.z(100),
+    ]);
+
+    // ワープテキスト
+    const warpText = k.add([
+      k.text('WARP', { size: 32 }),
+      k.pos(k.width() / 2, k.height() / 2),
+      k.anchor('center'),
+      k.color(0, 200, 255),
+      k.opacity(0),
+      k.fixed(),
+      k.z(101),
+    ]);
+
+    // フェードアウト（0.3秒）
+    k.tween(
+      0,
+      1,
+      0.3,
+      (val) => {
+        overlay.opacity = val;
+        warpText.opacity = val;
+      },
+      k.easings.easeOutQuad
+    ).onEnd(() => {
+      // ステージ遷移
+      if (crawlData) {
+        const newStage = loadStageFromCrawl(crawlData, targetIndex);
+        setStage(newStage);
+        setCurrentPageIndex(targetIndex);
+        k.go('game');
+      }
+    });
+  }
 
   // --- UI描画 ---
 
@@ -131,7 +185,7 @@ export function gameScene(k: KaboomCtx) {
     }
   }
 
-  // 現在のページの状態を保存（敵のみ）
+  // 現在のページの状態を保存（敵 + プレイヤーHP）
   function saveCurrentPageStates() {
     const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
 
@@ -147,6 +201,11 @@ export function gameScene(k: KaboomCtx) {
     }));
 
     gameState.savePageState(currentPath, enemySnapshots, pageCleared);
+
+    // プレイヤーHPを保存
+    if (player) {
+      gameState.setPlayerHp(player.getState().hp);
+    }
   }
 
   // 毎フレーム更新
@@ -165,8 +224,9 @@ export function gameScene(k: KaboomCtx) {
     }
   });
 
-  // --- プレイヤー生成 ---
-  player = createPlayer(k, stage.width);
+  // --- プレイヤー生成（HPを復元）---
+  const savedHp = gameState.getPlayerHp();
+  player = createPlayer(k, stage.width, savedHp);
 
   // --- 敵生成（保存状態があれば復元）---
   const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
@@ -219,7 +279,8 @@ export function gameScene(k: KaboomCtx) {
       portalData.x,
       portalData.y,
       stage.width,
-      isVisited
+      isVisited,
+      portalData.pageTitle
     );
   });
 
@@ -255,19 +316,8 @@ export function gameScene(k: KaboomCtx) {
     const targetIndex = portalObj.getTargetPageIndex();
 
     if (targetIndex !== null && crawlData) {
-      // 現在のページの状態を保存
-      saveCurrentPageStates();
-
-      // 履歴にプッシュ
       const targetPath = crawlData.pages[targetIndex]?.path || '/';
-      gameState.pushPage(targetPath);
-
-      // ステージ遷移
-      const newStage = loadStageFromCrawl(crawlData, targetIndex);
-      setStage(newStage);
-      setCurrentPageIndex(targetIndex);
-
-      k.go('game');
+      warpToPage(targetIndex, targetPath);
     }
   });
 
@@ -276,24 +326,16 @@ export function gameScene(k: KaboomCtx) {
     // 既にトップページにいる場合は何もしない
     if (currentPageIndex === 0) {
       messageLabel.text = 'Already at top page';
+      messageLabel.opacity = 1;
       if (messageTimeout) clearTimeout(messageTimeout);
       messageTimeout = setTimeout(() => {
-        messageLabel.text = '';
+        messageLabel.opacity = 0;
       }, 2000);
       return;
     }
 
-    // 現在のページの敵状態を保存
-    saveCurrentPageStates();
-
-    if (crawlData) {
-      // トップページ（インデックス0）に戻る
-      gameState.pushPage('/');
-      const newStage = loadStageFromCrawl(crawlData, 0);
-      setStage(newStage);
-      setCurrentPageIndex(0);
-      k.go('game');
-    }
+    // ワープ演出付きで遷移
+    warpToPage(0, '/');
   });
 
   // プレイヤー vs ポータル - 何も起きない（剣で叩く必要あり）
@@ -301,10 +343,11 @@ export function gameScene(k: KaboomCtx) {
   // メッセージ表示用
   let messageTimeout: ReturnType<typeof setTimeout> | null = null;
   const messageLabel = k.add([
-    k.text('', { size: 16 }),
+    k.text(' ', { size: 16 }),  // 空文字だとエラーになるのでスペース
     k.pos(k.width() / 2, k.height() - 40),
     k.anchor('center'),
     k.color(255, 200, 100),
+    k.opacity(0),  // 初期は非表示
     k.fixed(),
   ]);
 
@@ -313,10 +356,11 @@ export function gameScene(k: KaboomCtx) {
     const link = portalObj.getLink();
 
     messageLabel.text = `${link} is not crawled`;
+    messageLabel.opacity = 1;
 
     if (messageTimeout) clearTimeout(messageTimeout);
     messageTimeout = setTimeout(() => {
-      messageLabel.text = '';
+      messageLabel.opacity = 0;
     }, 2000);
   });
 

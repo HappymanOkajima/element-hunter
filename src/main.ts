@@ -14,8 +14,6 @@ const k = kaboom({
   width: 800,
   height: 600,
   background: [20, 20, 30],
-  font: 'monospace',
-  crisp: true,
   debug: false,
   global: false,
   root: gameArea || undefined,

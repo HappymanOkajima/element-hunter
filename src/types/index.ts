@@ -25,6 +25,7 @@ export interface EnemySpawn {
 export interface PortalSpawn {
   link: string;
   targetPageIndex: number | null;  // null = クロール済みでない
+  pageTitle: string;  // リンク先ページのタイトル
   x: number;
   y: number;
 }

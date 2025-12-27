@@ -1,6 +1,7 @@
-import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp, OpacityComp } from 'kaboom';
+import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp, OpacityComp, RectComp } from 'kaboom';
 
-type PortalBaseObj = GameObj<TextComp | PosComp | AreaComp | AnchorComp | ColorComp | OpacityComp>;
+type PortalBaseObj = GameObj<RectComp | PosComp | AreaComp | AnchorComp | ColorComp | OpacityComp>;
+type LabelObj = GameObj<TextComp | PosComp | AnchorComp | ColorComp | OpacityComp>;
 
 export interface PortalObject extends PortalBaseObj {
   getLink: () => string;
@@ -23,11 +24,17 @@ export function createPortal(
   startX: number,
   startY: number,
   stageWidth: number = 800,
-  isVisited: boolean = false
+  isVisited: boolean = false,
+  pageTitle: string = ''
 ): PortalObject {
   const accessible = targetPageIndex !== null;
-  const displayText = `<a>${link.slice(0, 15)}${link.length > 15 ? '...' : ''}>`;
-  const textWidth = displayText.length * 10;
+  // タイトルがあればタイトルを表示、なければURLを表示
+  // 空文字やundefined、ゼロ幅スペース等を防ぐ
+  const rawText = (pageTitle || link || '???')
+    .replace(/[\u200B-\u200D\uFEFF]/g, '')  // ゼロ幅文字を除去
+    .trim() || '?';
+  const truncated = rawText.slice(0, 12) || '?';
+  const displayText = `[${truncated}${rawText.length > 12 ? '..' : ''}]`;
 
   // 色を決定: アクセス不可 → グレー、訪問済み → 紫、未訪問 → 水色
   const color = !accessible
@@ -36,16 +43,33 @@ export function createPortal(
       ? PORTAL_COLOR_VISITED
       : PORTAL_COLOR_UNVISITED;
 
+  // rectベースのポータル（テキスト幅測定エラー回避）
   const portal = k.add([
-    k.text(displayText, { size: 14 }),
+    k.rect(120, 24),
     k.pos(startX, startY),
-    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -10), textWidth, 20) }),
+    k.area({ shape: new k.Rect(k.vec2(-60, -12), 120, 24) }),
     k.anchor('center'),
     k.color(...color),
-    k.opacity(1),
+    k.opacity(0.3),
     'portal',
     accessible ? 'portal-accessible' : 'portal-inaccessible',
   ]) as unknown as PortalObject;
+
+  // テキストラベルを別オブジェクトとして追加（1フレーム遅延でエラー回避）
+  let label: LabelObj | null = null;
+  k.wait(0, () => {
+    try {
+      label = k.add([
+        k.text(displayText, { size: 12 }),
+        k.pos(portal.pos.x, portal.pos.y),
+        k.anchor('center'),
+        k.color(...color),
+        k.opacity(1),
+      ]) as unknown as LabelObj;
+    } catch {
+      // テキスト描画エラーは無視（Kaboomのフォント測定バグ）
+    }
+  });
 
   // カスタムメソッド
   portal.getLink = () => link;
@@ -77,10 +101,19 @@ export function createPortal(
     portal.pos.x = Math.max(minX, Math.min(maxX, portal.pos.x));
     portal.pos.y = Math.max(60, Math.min(540, portal.pos.y));
 
+    // ラベルをポータルに追従
+    if (label) {
+      label.pos.x = portal.pos.x;
+      label.pos.y = portal.pos.y;
+    }
+
     // アクセス可能なポータルは点滅
     if (accessible) {
       const alpha = 0.7 + Math.sin(time * 1.5) * 0.3;
-      portal.opacity = alpha;
+      portal.opacity = alpha * 0.3;
+      if (label) {
+        label.opacity = alpha;
+      }
     }
   });
 

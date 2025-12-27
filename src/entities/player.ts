@@ -53,10 +53,10 @@ export interface PlayerObject extends PlayerBaseObj {
   takeDamage: (amount: number) => void;
 }
 
-export function createPlayer(k: KaboomCtx, stageWidth: number = 800): PlayerObject {
+export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: number = 5): PlayerObject {
   // プレイヤー状態
   const state: PlayerState = {
-    hp: 5,
+    hp: initialHp,
     maxHp: 5,
     isAttacking: false,
     direction: 'right',

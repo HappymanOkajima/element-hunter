@@ -96,6 +96,10 @@ export function convertPageToStage(
     // リンク先のページインデックスを検索
     const targetPageIndex = findPageIndex(allPages, link);
 
+    // リンク先ページのタイトルを取得
+    const targetPage = targetPageIndex !== null ? allPages[targetPageIndex] : null;
+    const pageTitle = targetPage?.title || link;
+
     // X座標: ステージ全体に分散
     const x = MARGIN_LEFT + (portalCount / MAX_PORTALS) * playAreaWidth;
     // Y座標: 上下にばらつかせる
@@ -104,6 +108,7 @@ export function convertPageToStage(
     portals.push({
       link,
       targetPageIndex,
+      pageTitle,
       x: Math.round(x),
       y: Math.round(y),
     });

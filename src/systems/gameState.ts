@@ -20,6 +20,9 @@ export class GameState {
   // 現在のページパス
   private currentPagePath: string = '/';
 
+  // プレイヤーHP（ページ間で保持）
+  private playerHp: number = 5;
+
   // ターゲットページをランダム選択（到達可能なページのみ）
   selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
     // 到達可能なページを探索（トップページから辿れるページ）
@@ -38,6 +41,7 @@ export class GameState {
     this.clearedPages.clear();
     this.pageHistory = [];
     this.pageStates.clear();
+    this.playerHp = 5;  // HPもリセット
     this.startTime = Date.now();
   }
 
@@ -158,6 +162,16 @@ export class GameState {
   // ページの敵状態があるか
   hasPageState(path: string): boolean {
     return this.pageStates.has(path);
+  }
+
+  // プレイヤーHPを保存
+  setPlayerHp(hp: number): void {
+    this.playerHp = hp;
+  }
+
+  // プレイヤーHPを取得
+  getPlayerHp(): number {
+    return this.playerHp;
   }
 }
 
