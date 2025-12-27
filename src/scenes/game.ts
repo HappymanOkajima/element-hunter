@@ -131,11 +131,13 @@ export function gameScene(k: KaboomCtx) {
     }
   }
 
-  // 現在のページの敵状態を保存
-  function saveCurrentEnemyStates() {
+  // 現在のページの状態を保存（敵のみ）
+  function saveCurrentPageStates() {
     const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
+
+    // 敵の状態
     const enemies = k.get('enemy') as EnemyObject[];
-    const snapshots: EnemySnapshot[] = enemies.map(e => ({
+    const enemySnapshots: EnemySnapshot[] = enemies.map(e => ({
       id: e.getId(),
       type: e.getConfig().tag,
       x: e.pos.x,
@@ -143,7 +145,8 @@ export function gameScene(k: KaboomCtx) {
       hp: e.getHp(),
       stopped: e.isStopped(),
     }));
-    gameState.savePageState(currentPath, snapshots, pageCleared);
+
+    gameState.savePageState(currentPath, enemySnapshots, pageCleared);
   }
 
   // 毎フレーム更新
@@ -207,24 +210,27 @@ export function gameScene(k: KaboomCtx) {
 
   // --- ポータル生成 ---
   stage.portals.forEach((portalData) => {
+    // 訪問済みかどうかを判定（ページ状態が保存されていれば訪問済み）
+    const isVisited = gameState.hasPageState(portalData.link);
     createPortal(
       k,
       portalData.link,
       portalData.targetPageIndex,
       portalData.x,
       portalData.y,
-      stage.width
+      stage.width,
+      isVisited
     );
   });
 
-  // --- 戻るポータル生成 ---
+  // --- トップに戻るポータル生成 ---
   k.add([
-    k.text('[BACK]', { size: 24 }),
+    k.text('[TOP]', { size: 24 }),
     k.pos(stage.goalX, k.height() / 2),
     k.area({ shape: new k.Rect(k.vec2(-30, -50), 60, 100) }),
     k.anchor('center'),
     k.color(255, 200, 100),
-    'back-portal',
+    'top-portal',
   ]);
 
   // --- 衝突判定 ---
@@ -243,39 +249,14 @@ export function gameScene(k: KaboomCtx) {
     (e as EnemyObject).takeDamage(1);
   });
 
-  // プレイヤー vs 戻るポータル
-  k.onCollide('player', 'back-portal', () => {
-    // 現在のページの敵状態を保存
-    saveCurrentEnemyStates();
-
-    const prevPath = gameState.popPage();
-    if (prevPath && crawlData) {
-      // 前のページに戻る
-      const pageIndex = crawlData.pages.findIndex(p => p.path === prevPath);
-      if (pageIndex >= 0) {
-        const newStage = loadStageFromCrawl(crawlData, pageIndex);
-        setStage(newStage);
-        setCurrentPageIndex(pageIndex);
-        k.go('game');
-      }
-    } else {
-      // スタート地点（トップページ）では戻れない
-      messageLabel.text = 'This is the start page';
-      if (messageTimeout) clearTimeout(messageTimeout);
-      messageTimeout = setTimeout(() => {
-        messageLabel.text = '';
-      }, 2000);
-    }
-  });
-
-  // プレイヤー vs ポータル（アクセス可能）
-  k.onCollide('player', 'portal-accessible', (_p, portal) => {
+  // 剣 vs ポータル（アクセス可能）→ ページ遷移
+  k.onCollide('sword', 'portal-accessible', (_s, portal) => {
     const portalObj = portal as PortalObject;
     const targetIndex = portalObj.getTargetPageIndex();
 
     if (targetIndex !== null && crawlData) {
-      // 現在のページの敵状態を保存
-      saveCurrentEnemyStates();
+      // 現在のページの状態を保存
+      saveCurrentPageStates();
 
       // 履歴にプッシュ
       const targetPath = crawlData.pages[targetIndex]?.path || '/';
@@ -286,18 +267,38 @@ export function gameScene(k: KaboomCtx) {
       setStage(newStage);
       setCurrentPageIndex(targetIndex);
 
-      // コンテンツパネル更新
-      const targetPage = crawlData.pages[targetIndex];
-      if (targetPage) {
-        const savedState = gameState.loadPageState(targetPath);
-        contentPanel.updateContent(targetPage, savedState?.cleared || false);
-      }
-
       k.go('game');
     }
   });
 
-  // プレイヤー vs ポータル（アクセス不可）- メッセージ表示
+  // プレイヤー vs トップポータル（常にトップページに戻る）
+  k.onCollide('player', 'top-portal', () => {
+    // 既にトップページにいる場合は何もしない
+    if (currentPageIndex === 0) {
+      messageLabel.text = 'Already at top page';
+      if (messageTimeout) clearTimeout(messageTimeout);
+      messageTimeout = setTimeout(() => {
+        messageLabel.text = '';
+      }, 2000);
+      return;
+    }
+
+    // 現在のページの敵状態を保存
+    saveCurrentPageStates();
+
+    if (crawlData) {
+      // トップページ（インデックス0）に戻る
+      gameState.pushPage('/');
+      const newStage = loadStageFromCrawl(crawlData, 0);
+      setStage(newStage);
+      setCurrentPageIndex(0);
+      k.go('game');
+    }
+  });
+
+  // プレイヤー vs ポータル - 何も起きない（剣で叩く必要あり）
+
+  // メッセージ表示用
   let messageTimeout: ReturnType<typeof setTimeout> | null = null;
   const messageLabel = k.add([
     k.text('', { size: 16 }),

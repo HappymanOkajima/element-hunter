@@ -29,7 +29,8 @@ setCrawlData(crawlData);
 contentPanel.setAllPages(crawlData.pages);
 
 // ターゲットページをランダム選択（5ページ）
-gameState.selectTargetPages(crawlData.pages, 5);
+// 共通リンク（ナビメニュー）も経路として考慮
+gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
 
 // コンテンツパネルの初期表示
 contentPanel.updateTargetList();
@@ -68,7 +69,7 @@ k.scene('gameover', () => {
 
   k.onKeyPress('space', () => {
     // ゲームリセット
-    gameState.selectTargetPages(crawlData.pages, 5);
+    gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
     contentPanel.updateTargetList();
     contentPanel.updateProgress();
     contentPanel.startTimer();
@@ -111,7 +112,7 @@ k.scene('complete', () => {
 
   k.onKeyPress('space', () => {
     // ゲームリセット
-    gameState.selectTargetPages(crawlData.pages, 5);
+    gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
     contentPanel.updateTargetList();
     contentPanel.updateProgress();
     contentPanel.startTimer();

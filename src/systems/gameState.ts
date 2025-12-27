@@ -20,10 +20,13 @@ export class GameState {
   // 現在のページパス
   private currentPagePath: string = '/';
 
-  // ターゲットページをランダム選択（トップページ除外）
-  selectTargetPages(allPages: CrawlPage[], count: number = 5): void {
+  // ターゲットページをランダム選択（到達可能なページのみ）
+  selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
+    // 到達可能なページを探索（トップページから辿れるページ）
+    const reachable = this.findReachablePages(allPages, commonLinks);
+
     // トップページ以外をフィルタ
-    const candidates = allPages.filter(p => p.path !== '/');
+    const candidates = allPages.filter(p => p.path !== '/' && reachable.has(p.path));
 
     // シャッフル
     const shuffled = [...candidates].sort(() => Math.random() - 0.5);
@@ -36,6 +39,35 @@ export class GameState {
     this.pageHistory = [];
     this.pageStates.clear();
     this.startTime = Date.now();
+  }
+
+  // トップページから到達可能なページを探索（BFS）
+  // commonLinksはナビゲーションメニューなど、どのページからでもアクセス可能なリンク
+  private findReachablePages(allPages: CrawlPage[], commonLinks: string[] = []): Set<string> {
+    const reachable = new Set<string>();
+    const pageMap = new Map(allPages.map(p => [p.path, p]));
+    const queue: string[] = ['/'];
+
+    reachable.add('/');
+
+    while (queue.length > 0) {
+      const currentPath = queue.shift()!;
+      const currentPage = pageMap.get(currentPath);
+
+      if (!currentPage) continue;
+
+      // このページからリンクしている先を探索（通常リンク + 共通リンク）
+      const allLinks = [...currentPage.links, ...commonLinks];
+      for (const link of allLinks) {
+        // リンク先がクロール済みページにあり、まだ到達済みでない場合
+        if (pageMap.has(link) && !reachable.has(link)) {
+          reachable.add(link);
+          queue.push(link);
+        }
+      }
+    }
+
+    return reachable;
   }
 
   // ターゲットページ一覧を取得
@@ -109,7 +141,7 @@ export class GameState {
     return this.currentPagePath;
   }
 
-  // ページの敵状態を保存
+  // ページの状態を保存（敵のみ）
   savePageState(path: string, enemies: EnemySnapshot[], cleared: boolean): void {
     this.pageStates.set(path, {
       path,

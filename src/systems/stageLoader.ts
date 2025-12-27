@@ -17,14 +17,15 @@ export function loadStageFromCrawl(
     throw new Error(`Page index ${pageIndex} not found`);
   }
 
-  return convertPageToStage(page, crawlData.siteName, crawlData.pages);
+  return convertPageToStage(page, crawlData.siteName, crawlData.pages, crawlData.commonLinks);
 }
 
 // ページデータをステージ設定に変換
 export function convertPageToStage(
   page: CrawlPage,
   siteName: string,
-  allPages: CrawlPage[] = []
+  allPages: CrawlPage[] = [],
+  commonLinks: string[] = []
 ): StageConfig {
   const stageWidth = Math.max(800, page.estimatedWidth);
   const enemies: EnemySpawn[] = [];
@@ -76,17 +77,20 @@ export function convertPageToStage(
     }
   }
 
-  // ポータル（aタグ）を配置
-  const uniqueLinks = [...new Set(page.links)];  // 重複除去
+  // ポータル（aタグ）を配置 - クロール済みリンクのみ表示
+  // 通常リンク + 共通リンク（ナビメニュー）を結合
+  const allLinksForPortal = [...page.links, ...commonLinks];
+  const uniqueLinks = [...new Set(allLinksForPortal)];  // 重複除去
 
-  // クロール済みリンクを優先（アクセス可能なものを先に配置）
-  const accessibleLinks = uniqueLinks.filter(link => findPageIndex(allPages, link) !== null);
-  const inaccessibleLinks = uniqueLinks.filter(link => findPageIndex(allPages, link) === null);
-  const sortedLinks = [...accessibleLinks, ...inaccessibleLinks];
+  // クロール済みリンクのみ抽出（アクセス不可なリンクは表示しない）
+  // 現在のページ自身へのリンクは除外
+  const accessibleLinks = uniqueLinks.filter(link =>
+    link !== page.path && findPageIndex(allPages, link) !== null
+  );
 
   let portalCount = 0;
 
-  for (const link of sortedLinks) {
+  for (const link of accessibleLinks) {
     if (portalCount >= MAX_PORTALS) break;
 
     // リンク先のページインデックスを検索

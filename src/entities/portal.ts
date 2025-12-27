@@ -9,7 +9,8 @@ export interface PortalObject extends PortalBaseObj {
 }
 
 // ポータルの色
-const PORTAL_COLOR_ACCESSIBLE: [number, number, number] = [0, 200, 255];  // 水色（遷移可能）
+const PORTAL_COLOR_UNVISITED: [number, number, number] = [0, 200, 255];  // 水色（未訪問）
+const PORTAL_COLOR_VISITED: [number, number, number] = [180, 100, 255];  // 紫（訪問済み）
 const PORTAL_COLOR_INACCESSIBLE: [number, number, number] = [100, 100, 100];  // グレー（遷移不可）
 
 // ポータルの速度
@@ -21,13 +22,19 @@ export function createPortal(
   targetPageIndex: number | null,
   startX: number,
   startY: number,
-  stageWidth: number = 800
+  stageWidth: number = 800,
+  isVisited: boolean = false
 ): PortalObject {
   const accessible = targetPageIndex !== null;
   const displayText = `<a>${link.slice(0, 15)}${link.length > 15 ? '...' : ''}>`;
   const textWidth = displayText.length * 10;
 
-  const color = accessible ? PORTAL_COLOR_ACCESSIBLE : PORTAL_COLOR_INACCESSIBLE;
+  // 色を決定: アクセス不可 → グレー、訪問済み → 紫、未訪問 → 水色
+  const color = !accessible
+    ? PORTAL_COLOR_INACCESSIBLE
+    : isVisited
+      ? PORTAL_COLOR_VISITED
+      : PORTAL_COLOR_UNVISITED;
 
   const portal = k.add([
     k.text(displayText, { size: 14 }),
