@@ -1,14 +1,22 @@
 import type { KaboomCtx } from 'kaboom';
 import { createPlayer, type PlayerObject } from '../entities/player';
 import { createEnemy, type EnemyObject } from '../entities/enemy';
-import type { StageConfig } from '../types';
+import { createPortal, type PortalObject } from '../entities/portal';
+import type { StageConfig, CrawlOutput } from '../types';
+import { loadStageFromCrawl } from '../systems/stageLoader';
 
 // 現在のステージ設定（外部から設定可能）
 let currentStage: StageConfig | null = null;
+let crawlData: CrawlOutput | null = null;
 
 // ステージを設定
 export function setStage(stage: StageConfig) {
   currentStage = stage;
+}
+
+// クロールデータを設定（ポータル遷移用）
+export function setCrawlData(data: CrawlOutput) {
+  crawlData = data;
 }
 
 // デフォルトステージ
@@ -21,6 +29,7 @@ const DEFAULT_STAGE: StageConfig = {
     { type: 'div', x: 500, y: 300 },
     { type: 'h1', x: 650, y: 300 },
   ],
+  portals: [],
   goalX: 770,
 };
 
@@ -39,27 +48,27 @@ export function gameScene(k: KaboomCtx) {
 
   // HP表示ラベル
   const hpLabel = k.add([
-    k.text('HP: *****', { size: 20 }),
-    k.pos(20, 20),
+    k.text('HP: *****', { size: 14 }),
+    k.pos(10, 8),
     k.color(255, 100, 100),
-    k.fixed(),
-  ]);
-
-  // ステージ名表示
-  k.add([
-    k.text(stage.name.slice(0, 30), { size: 14 }),
-    k.pos(k.width() - 20, 20),
-    k.anchor('topright'),
-    k.color(150, 150, 150),
     k.fixed(),
   ]);
 
   // 敵カウント表示
   const enemyCountLabel = k.add([
-    k.text('', { size: 14 }),
-    k.pos(k.width() - 20, 40),
+    k.text('', { size: 12 }),
+    k.pos(k.width() - 10, 8),
     k.anchor('topright'),
-    k.color(100, 150, 100),
+    k.color(100, 200, 100),
+    k.fixed(),
+  ]);
+
+  // 現在のページパス表示（下部に配置）
+  k.add([
+    k.text(stage.name, { size: 12 }),
+    k.pos(k.width() / 2, k.height() - 10),
+    k.anchor('bot'),
+    k.color(100, 180, 220),
     k.fixed(),
   ]);
 
@@ -107,6 +116,18 @@ export function gameScene(k: KaboomCtx) {
     );
   });
 
+  // --- ポータル生成 ---
+  stage.portals.forEach((portalData) => {
+    createPortal(
+      k,
+      portalData.link,
+      portalData.targetPageIndex,
+      portalData.x,
+      portalData.y,
+      stage.width
+    );
+  });
+
   // --- ゴール生成 ---
   k.add([
     k.text('[GOAL]', { size: 24 }),
@@ -135,6 +156,41 @@ export function gameScene(k: KaboomCtx) {
   // プレイヤー vs ゴール
   k.onCollide('player', 'goal', () => {
     k.go('clear');
+  });
+
+  // プレイヤー vs ポータル（アクセス可能）
+  k.onCollide('player', 'portal-accessible', (_p, portal) => {
+    const portalObj = portal as PortalObject;
+    const targetIndex = portalObj.getTargetPageIndex();
+
+    if (targetIndex !== null && crawlData) {
+      // ステージ遷移
+      const newStage = loadStageFromCrawl(crawlData, targetIndex);
+      setStage(newStage);
+      k.go('game');
+    }
+  });
+
+  // プレイヤー vs ポータル（アクセス不可）- メッセージ表示
+  let messageTimeout: ReturnType<typeof setTimeout> | null = null;
+  const messageLabel = k.add([
+    k.text('', { size: 16 }),
+    k.pos(k.width() / 2, k.height() - 40),
+    k.anchor('center'),
+    k.color(255, 200, 100),
+    k.fixed(),
+  ]);
+
+  k.onCollide('player', 'portal-inaccessible', (_p, portal) => {
+    const portalObj = portal as PortalObject;
+    const link = portalObj.getLink();
+
+    messageLabel.text = `${link} is not crawled`;
+
+    if (messageTimeout) clearTimeout(messageTimeout);
+    messageTimeout = setTimeout(() => {
+      messageLabel.text = '';
+    }, 2000);
   });
 
   // --- ポーズ機能 ---

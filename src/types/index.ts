@@ -22,10 +22,18 @@ export interface EnemySpawn {
   y: number;
 }
 
+export interface PortalSpawn {
+  link: string;
+  targetPageIndex: number | null;  // null = クロール済みでない
+  x: number;
+  y: number;
+}
+
 export interface StageConfig {
   name: string;
   width: number;
   enemies: EnemySpawn[];
+  portals: PortalSpawn[];
   goalX: number;
 }
 

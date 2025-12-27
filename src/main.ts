@@ -1,5 +1,5 @@
 import kaboom from 'kaboom';
-import { gameScene, setStage } from './scenes/game';
+import { gameScene, setStage, setCrawlData } from './scenes/game';
 import { loadStageFromCrawl } from './systems/stageLoader';
 import type { CrawlOutput } from './types';
 
@@ -19,6 +19,7 @@ const k = kaboom({
 
 // agile-studioのトップページをステージとして読み込み
 const crawlData = agileStudioData as CrawlOutput;
+setCrawlData(crawlData);  // ポータル遷移用にクロールデータを保持
 const stage = loadStageFromCrawl(crawlData, 0);  // 0 = トップページ
 setStage(stage);
 
