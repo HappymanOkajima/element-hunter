@@ -1,12 +1,15 @@
 import kaboom from 'kaboom';
-import { gameScene, setStage, setCrawlData } from './scenes/game';
+import { gameScene, setStage, setCrawlData, setCurrentPageIndex } from './scenes/game';
 import { loadStageFromCrawl } from './systems/stageLoader';
+import { gameState } from './systems/gameState';
+import { contentPanel } from './ui/ContentPanel';
 import type { CrawlOutput } from './types';
 
 // JSONデータをインポート
 import agileStudioData from '../data/sites/agile-studio.json';
 
-// Kaboom.js 初期化
+// Kaboom.js 初期化（game-area要素に描画）
+const gameArea = document.getElementById('game-area');
 const k = kaboom({
   width: 800,
   height: 600,
@@ -15,13 +18,35 @@ const k = kaboom({
   crisp: true,
   debug: false,
   global: false,
+  root: gameArea || undefined,
 });
 
-// agile-studioのトップページをステージとして読み込み
+// クロールデータを設定
 const crawlData = agileStudioData as CrawlOutput;
-setCrawlData(crawlData);  // ポータル遷移用にクロールデータを保持
-const stage = loadStageFromCrawl(crawlData, 0);  // 0 = トップページ
+setCrawlData(crawlData);
+
+// コンテンツパネルに全ページデータを設定
+contentPanel.setAllPages(crawlData.pages);
+
+// ターゲットページをランダム選択（5ページ）
+gameState.selectTargetPages(crawlData.pages, 5);
+
+// コンテンツパネルの初期表示
+contentPanel.updateTargetList();
+contentPanel.updateProgress();
+contentPanel.startTimer();
+
+// トップページをステージとして読み込み
+const stage = loadStageFromCrawl(crawlData, 0);
 setStage(stage);
+setCurrentPageIndex(0);
+gameState.pushPage('/');
+
+// 初期コンテンツを表示
+const topPage = crawlData.pages[0];
+if (topPage) {
+  contentPanel.updateContent(topPage, false);
+}
 
 // ゲームシーン登録
 k.scene('game', () => gameScene(k));
@@ -41,25 +66,68 @@ k.scene('gameover', () => {
     k.anchor('center'),
   ]);
 
-  k.onKeyPress('space', () => k.go('game'));
+  k.onKeyPress('space', () => {
+    // ゲームリセット
+    gameState.selectTargetPages(crawlData.pages, 5);
+    contentPanel.updateTargetList();
+    contentPanel.updateProgress();
+    contentPanel.startTimer();
+
+    const stage = loadStageFromCrawl(crawlData, 0);
+    setStage(stage);
+    setCurrentPageIndex(0);
+    gameState.pushPage('/');
+
+    k.go('game');
+  });
 });
 
-// クリアシーン
-k.scene('clear', () => {
+// ゲーム完了シーン
+k.scene('complete', () => {
+  contentPanel.showGameComplete();
+
+  const finalTime = gameState.getFormattedTime();
+
   k.add([
-    k.text('STAGE CLEAR!', { size: 48 }),
-    k.pos(k.width() / 2, k.height() / 2 - 50),
+    k.text('COMPLETE!', { size: 48 }),
+    k.pos(k.width() / 2, k.height() / 2 - 80),
     k.anchor('center'),
-    k.color(0, 255, 100),
+    k.color(76, 175, 80),
   ]);
 
   k.add([
-    k.text('Press SPACE to continue', { size: 24 }),
-    k.pos(k.width() / 2, k.height() / 2 + 50),
+    k.text(`Time: ${finalTime}`, { size: 32 }),
+    k.pos(k.width() / 2, k.height() / 2),
     k.anchor('center'),
+    k.color(255, 204, 0),
   ]);
 
-  k.onKeyPress('space', () => k.go('game'));
+  k.add([
+    k.text('Press SPACE to play again', { size: 20 }),
+    k.pos(k.width() / 2, k.height() / 2 + 80),
+    k.anchor('center'),
+    k.color(200, 200, 200),
+  ]);
+
+  k.onKeyPress('space', () => {
+    // ゲームリセット
+    gameState.selectTargetPages(crawlData.pages, 5);
+    contentPanel.updateTargetList();
+    contentPanel.updateProgress();
+    contentPanel.startTimer();
+
+    const stage = loadStageFromCrawl(crawlData, 0);
+    setStage(stage);
+    setCurrentPageIndex(0);
+    gameState.pushPage('/');
+
+    const topPage = crawlData.pages[0];
+    if (topPage) {
+      contentPanel.updateContent(topPage, false);
+    }
+
+    k.go('game');
+  });
 });
 
 // ゲーム開始

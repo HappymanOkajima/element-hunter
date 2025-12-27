@@ -107,6 +107,10 @@ async function crawlPage(
       allLinks: parseResult.links,  // 後で共通リンク除外用
       contentLength: parseResult.contentLength,
       parentPath: depth > 0 ? findParentPath(normalizedPath, pages) : null,
+      // コンテンツ表示用
+      textContent: parseResult.textContent,
+      imageUrls: parseResult.imageUrls,
+      ogImage: parseResult.ogImage,
     };
 
     pages.push(pageData);
@@ -144,6 +148,10 @@ function generateOutput(context: CrawlContext, options: CrawlOptions): CrawlOutp
     parentLink: p.parentPath,
     contentLength: p.contentLength,
     estimatedWidth: calculateRoomWidth(p.totalElementCount, p.contentLength),
+    // コンテンツ表示用
+    textContent: p.textContent,
+    imageUrls: p.imageUrls,
+    ogImage: p.ogImage,
   }));
 
   // サイトIDを生成

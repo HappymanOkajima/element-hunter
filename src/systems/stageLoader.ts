@@ -41,8 +41,8 @@ export function convertPageToStage(
 
   // 最大数をステージ幅に応じて動的に設定
   const widthMultiplier = stageWidth / 800;  // 800pxを基準
-  const MAX_ENEMIES = Math.floor(50 * widthMultiplier);  // 基準50体
-  const MAX_PORTALS = Math.floor(20 * widthMultiplier);  // 基準20個
+  const MAX_ENEMIES = 1;  // テスト用: 1体のみ
+  const MAX_PORTALS = Math.floor(5 * widthMultiplier);  // 基準5個
 
   // 要素を敵として配置（aタグはポータルなので除外）
   let enemyCount = 0;

@@ -29,6 +29,10 @@ export interface PageData {
   allLinks: string[];  // 共通リンク含む全リンク
   contentLength: number;
   parentPath: string | null;
+  // コンテンツ表示用
+  textContent: string;      // ページ要約テキスト（500文字程度）
+  imageUrls: string[];      // 主要画像URL（最大5枚）
+  ogImage: string | null;   // OGP画像
 }
 
 // クロール出力JSON
@@ -62,6 +66,10 @@ export interface PageOutput {
   parentLink: string | null;
   contentLength: number;
   estimatedWidth: number;
+  // コンテンツ表示用
+  textContent: string;      // ページ要約テキスト（500文字程度）
+  imageUrls: string[];      // 主要画像URL（最大5枚）
+  ogImage: string | null;   // OGP画像
 }
 
 // 要素統計

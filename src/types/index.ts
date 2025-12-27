@@ -74,6 +74,10 @@ export interface CrawlPage {
   parentLink: string | null;
   contentLength: number;
   estimatedWidth: number;
+  // コンテンツ表示用
+  textContent: string;
+  imageUrls: string[];
+  ogImage: string | null;
 }
 
 export interface ElementCount {
@@ -85,4 +89,20 @@ export interface ElementStat {
   totalCount: number;
   pageCount: number;
   rarity: number;
+}
+
+// ゲーム状態管理
+export interface EnemySnapshot {
+  id: string;
+  type: string;
+  x: number;
+  y: number;
+  hp: number;
+  stopped: boolean;
+}
+
+export interface PageState {
+  path: string;
+  enemies: EnemySnapshot[];
+  cleared: boolean;
 }
