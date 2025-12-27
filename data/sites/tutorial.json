@@ -1,0 +1,51 @@
+{
+  "stageId": "tutorial",
+  "stageName": "Tutorial",
+  "description": "Basic controls tutorial stage",
+  "room": {
+    "width": 800,
+    "height": 600,
+    "background": "#14141E"
+  },
+  "player": {
+    "startX": 100,
+    "startY": 300
+  },
+  "enemies": [
+    {
+      "type": "p",
+      "x": 300,
+      "y": 200,
+      "patrolRange": { "minX": 200, "maxX": 400 }
+    },
+    {
+      "type": "p",
+      "x": 400,
+      "y": 400,
+      "patrolRange": { "minX": 300, "maxX": 500 }
+    },
+    {
+      "type": "div",
+      "x": 500,
+      "y": 300,
+      "orbitRadius": 50
+    },
+    {
+      "type": "h1",
+      "x": 650,
+      "y": 300,
+      "chaseSpeed": 30
+    }
+  ],
+  "goal": {
+    "x": 770,
+    "y": 300,
+    "width": 60,
+    "height": 100
+  },
+  "metadata": {
+    "difficulty": 1,
+    "estimatedTime": 60,
+    "recommendedLevel": 1
+  }
+}
