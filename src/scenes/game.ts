@@ -460,16 +460,17 @@ export function gameScene(k: KaboomCtx) {
 
   // 剣 vs 敵（通常レーザー）
   k.onCollide('sword', 'enemy', (s, e) => {
+    const enemy = e as EnemyObject;
     const laserData = s as unknown as { damage?: number };
     const damage = laserData.damage || 1;
-    (e as EnemyObject).takeDamage(damage);
+    enemy.takeDamage(damage);
   });
 
   // 貫通レーザー vs 敵（同じ敵には1回だけダメージ）
   k.onCollide('sword-piercing', 'enemy', (s, e) => {
     const enemy = e as EnemyObject;
     const enemyId = enemy.getId();
-    const laserData = s as unknown as { hitEnemies: Set<string>; damage: number };
+    const laserData = s as unknown as { hitEnemies: Set<string>; damage: number; killedEnemies: Set<string> };
 
     // 既にこの敵にヒットしていたらスキップ
     if (laserData.hitEnemies.has(enemyId)) return;
@@ -477,8 +478,15 @@ export function gameScene(k: KaboomCtx) {
     // ヒット記録
     laserData.hitEnemies.add(enemyId);
 
-    // ダメージを与える（ブーストダメージ）
+    // 倒す前のHP
+    const beforeHp = enemy.getHp();
     enemy.takeDamage(laserData.damage);
+    const afterHp = enemy.getHp();
+
+    // 倒したらキルセットに追加
+    if (beforeHp > 0 && afterHp <= 0) {
+      laserData.killedEnemies.add(enemyId);
+    }
   });
 
   // 剣 vs ポータル（アクセス可能）→ ページ遷移

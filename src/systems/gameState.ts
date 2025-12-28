@@ -23,6 +23,12 @@ export class GameState {
   // プレイヤーHP（ページ間で保持）
   private playerHp: number = 5;
 
+  // タイムボーナス（マイナス値でタイム短縮）
+  private timeBonus: number = 0;
+
+  // 累計コンボ数（統計用）
+  private totalCombos: number = 0;
+
   // ターゲットページをランダム選択（到達可能なページのみ）
   selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
     // 到達可能なページを探索（トップページから辿れるページ）
@@ -84,6 +90,8 @@ export class GameState {
     this.pageHistory = [];
     this.pageStates.clear();
     this.playerHp = 5;
+    this.timeBonus = 0;
+    this.totalCombos = 0;
     this.startTime = Date.now();
   }
 
@@ -143,8 +151,14 @@ export class GameState {
     return this.targetPages.every(p => this.clearedPages.has(p));
   }
 
-  // 経過時間を取得（ミリ秒）
+  // 経過時間を取得（ミリ秒）- タイムボーナス込み
   getElapsedTime(): number {
+    const raw = Date.now() - this.startTime;
+    return Math.max(0, raw + this.timeBonus);  // 0未満にはならない
+  }
+
+  // 生の経過時間を取得（ボーナス無し）
+  getRawElapsedTime(): number {
     return Date.now() - this.startTime;
   }
 
@@ -214,6 +228,41 @@ export class GameState {
   // プレイヤーHPを取得
   getPlayerHp(): number {
     return this.playerHp;
+  }
+
+  // コンボボーナスを計算して適用
+  // comboCount: 同時に倒した敵の数
+  // 戻り値: ボーナス秒数（表示用）
+  applyComboBonus(comboCount: number): number {
+    if (comboCount < 2) return 0;
+
+    // 難易度係数（ターゲットページ数に応じて）
+    // EASY(2ページ): 1.0倍、NORMAL(5ページ): 1.5倍
+    const difficultyMultiplier = this.targetPages.length <= 2 ? 1.0 : 1.5;
+
+    // コンボ数に応じたベースボーナス（秒）
+    // 2コンボ: 4秒、3コンボ: 8秒、4コンボ: 16秒...
+    // 指数関数的に増加（リスクに見合うリターン）
+    const baseBonus = Math.pow(2, comboCount);  // 4, 8, 16, 32, ...
+
+    // 最終ボーナス（秒）
+    const bonusSeconds = baseBonus * difficultyMultiplier;
+
+    // ミリ秒に変換してタイムボーナスに加算（マイナス値で時間短縮）
+    this.timeBonus -= bonusSeconds * 1000;
+    this.totalCombos++;
+
+    return bonusSeconds;
+  }
+
+  // 累計タイムボーナスを取得（秒）
+  getTotalTimeBonus(): number {
+    return -this.timeBonus / 1000;  // プラス値で返す
+  }
+
+  // 累計コンボ数を取得
+  getTotalCombos(): number {
+    return this.totalCombos;
   }
 }
 

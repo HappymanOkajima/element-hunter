@@ -2,6 +2,7 @@ import type { GameObj, KaboomCtx, PosComp, AreaComp, AnchorComp, ColorComp, Rota
 import type { Direction, PlayerState } from '../types';
 import { contentPanel } from '../ui/ContentPanel';
 import { isGamePaused } from '../scenes/game';
+import { gameState } from '../systems/gameState';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
@@ -283,6 +284,8 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
     // 貫通レーザー用: ヒット済み敵を追跡
     const hitEnemies = new Set<string>();
+    // コンボ用: このレーザーで倒した敵を追跡
+    const killedEnemies = new Set<string>();
 
     // レーザービーム生成
     const laser = k.add([
@@ -295,7 +298,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
       k.opacity(1),
       k.outline(isPiercing ? 2 : 1, k.rgb(255, 200, 50)),
       isPiercing ? 'sword-piercing' : 'sword',
-      { hitEnemies, isPiercing, damage },
+      { hitEnemies, isPiercing, damage, killedEnemies },
     ]);
 
     // レーザーのグロー効果
@@ -341,9 +344,55 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     // 一定時間後に消える（高速時は少し長め）
     const duration = PLAYER_CONFIG.attackDuration + speedRatio * 0.05;
     k.wait(duration, () => {
+      // コンボボーナス処理（レーザー消滅前に）
+      if (killedEnemies.size >= 2) {
+        const bonusSeconds = gameState.applyComboBonus(killedEnemies.size);
+        showComboEffect(k, killedEnemies.size, bonusSeconds);
+      }
+
       k.destroy(laser);
       k.destroy(glow);
       state.isAttacking = false;
+    });
+  }
+
+  // コンボエフェクト表示
+  function showComboEffect(k: KaboomCtx, comboCount: number, bonusSeconds: number) {
+    // コンボテキスト
+    const comboText = k.add([
+      k.text(`${comboCount} COMBO!`, { size: 28 }),
+      k.pos(k.width() / 2, k.height() / 2 - 60),
+      k.anchor('center'),
+      k.color(255, 200, 50),
+      k.opacity(1),
+      k.fixed(),
+      k.z(50),
+    ]);
+
+    // タイムボーナステキスト
+    const bonusText = k.add([
+      k.text(`-${bonusSeconds.toFixed(1)}s`, { size: 20 }),
+      k.pos(k.width() / 2, k.height() / 2 - 30),
+      k.anchor('center'),
+      k.color(100, 255, 100),
+      k.opacity(1),
+      k.fixed(),
+      k.z(50),
+    ]);
+
+    // アニメーション: 上に浮かびながらフェードアウト
+    k.tween(
+      0, 1, 1.0,
+      (t) => {
+        comboText.pos.y = k.height() / 2 - 60 - t * 40;
+        comboText.opacity = 1 - t;
+        bonusText.pos.y = k.height() / 2 - 30 - t * 40;
+        bonusText.opacity = 1 - t;
+      },
+      k.easings.easeOutQuad
+    ).onEnd(() => {
+      k.destroy(comboText);
+      k.destroy(bonusText);
     });
   }
 

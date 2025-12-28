@@ -6,9 +6,6 @@ import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
 import type { CrawlOutput } from './types';
 
-// 現在のゲームモード
-let currentGameMode: GameMode = 'normal';
-
 // JSONデータをインポート
 import agileStudioData from '../data/sites/agile-studio.json';
 
@@ -32,8 +29,6 @@ contentPanel.setAllPages(crawlData.pages);
 
 // ゲーム初期化処理
 function initGame(mode: GameMode) {
-  currentGameMode = mode;
-
   // モードに応じてターゲットページを選択
   if (mode === 'easy') {
     gameState.selectEasyTargetPages(crawlData.pages, crawlData.commonLinks);
@@ -77,28 +72,15 @@ k.scene('gameover', () => {
   ]);
 
   k.add([
-    k.text('Press SPACE to retry', { size: 24 }),
+    k.text('Press SPACE to return to title', { size: 20 }),
     k.pos(k.width() / 2, k.height() / 2 + 50),
     k.anchor('center'),
+    k.color(200, 200, 200),
   ]);
 
   k.onKeyPress('space', () => {
-    // 同じモードでゲームリセット
-    if (currentGameMode === 'easy') {
-      gameState.selectEasyTargetPages(crawlData.pages, crawlData.commonLinks);
-    } else {
-      gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
-    }
-    contentPanel.updateTargetList();
-    contentPanel.updateProgress();
-    contentPanel.startTimer();
-
-    const stage = loadStageFromCrawl(crawlData, 0);
-    setStage(stage);
-    setCurrentPageIndex(0);
-    gameState.pushPage('/');
-
-    k.go('game');
+    // タイトルに戻る
+    k.go('title');
   });
 });
 
