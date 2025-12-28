@@ -267,7 +267,24 @@ export class VirtualJoystick {
     // 最大距離を制限
     const maxDist = this.JOYSTICK_SIZE / 2 - this.KNOB_SIZE / 2;
     const clampedDist = Math.min(dist, maxDist);
-    const angle = Math.atan2(dy, dx);
+    let angle = Math.atan2(dy, dx);
+
+    // 軸スナップ: 水平・垂直方向に入力しやすくする
+    // 角度が軸から±20度以内なら軸にスナップ
+    const SNAP_THRESHOLD = 20 * (Math.PI / 180); // 20度
+    const snapAngles = [0, Math.PI / 2, Math.PI, -Math.PI / 2]; // 右、下、左、上
+
+    for (const snapAngle of snapAngles) {
+      let diff = angle - snapAngle;
+      // -PI〜PIに正規化
+      while (diff > Math.PI) diff -= 2 * Math.PI;
+      while (diff < -Math.PI) diff += 2 * Math.PI;
+
+      if (Math.abs(diff) < SNAP_THRESHOLD) {
+        angle = snapAngle;
+        break;
+      }
+    }
 
     // ノブ位置更新
     if (this.joystickKnob) {
