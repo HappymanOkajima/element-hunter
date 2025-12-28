@@ -1,10 +1,13 @@
 import type { GameObj, KaboomCtx, PosComp, AreaComp, AnchorComp, ColorComp, RotateComp, OpacityComp } from 'kaboom';
 import type { Direction, PlayerState } from '../types';
 import { contentPanel } from '../ui/ContentPanel';
+import { isGamePaused } from '../scenes/game';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
-  speed: 200,
+  maxSpeed: 250,        // 最高速度
+  acceleration: 400,    // 加速度
+  friction: 0.98,       // 摩擦（1に近いほど滑る）
   attackDuration: 0.15,
   attackRange: 50,
   invincibleTime: 1.0,
@@ -66,6 +69,10 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
   let isInvincible = false;
   let blinkTimer: ReturnType<typeof setInterval> | null = null;
   let isMoving = false;
+
+  // 慣性用の速度ベクトル
+  let velocityX = 0;
+  let velocityY = 0;
 
   // 宇宙船の形状（三角形ベース）
   // 右向き（0度）がデフォルト
@@ -145,28 +152,71 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
   // 移動処理（毎フレーム）
   player.onUpdate(() => {
-    const dir = k.vec2(0, 0);
+    // ポーズ中は処理しない
+    if (isGamePaused()) return;
+
+    const dt = k.dt();
+    const inputDir = k.vec2(0, 0);
 
     // 8方向入力チェック
-    if (k.isKeyDown('left') || k.isKeyDown('a')) dir.x -= 1;
-    if (k.isKeyDown('right') || k.isKeyDown('d')) dir.x += 1;
-    if (k.isKeyDown('up') || k.isKeyDown('w')) dir.y -= 1;
-    if (k.isKeyDown('down') || k.isKeyDown('s')) dir.y += 1;
+    if (k.isKeyDown('left') || k.isKeyDown('a')) inputDir.x -= 1;
+    if (k.isKeyDown('right') || k.isKeyDown('d')) inputDir.x += 1;
+    if (k.isKeyDown('up') || k.isKeyDown('w')) inputDir.y -= 1;
+    if (k.isKeyDown('down') || k.isKeyDown('s')) inputDir.y += 1;
 
-    // 移動がある場合
-    if (dir.x !== 0 || dir.y !== 0) {
+    // 入力がある場合は加速
+    if (inputDir.x !== 0 || inputDir.y !== 0) {
       isMoving = true;
       // 正規化（斜め移動の速度補正）
-      const normalized = dir.unit();
-      player.move(normalized.scale(PLAYER_CONFIG.speed));
+      const normalized = inputDir.unit();
 
-      // 方向更新
-      state.direction = getDirection(dir.x, dir.y);
+      // 加速
+      velocityX += normalized.x * PLAYER_CONFIG.acceleration * dt;
+      velocityY += normalized.y * PLAYER_CONFIG.acceleration * dt;
 
-      // 宇宙船の向きを更新
+      // 方向更新（入力方向に向く）
+      state.direction = getDirection(inputDir.x, inputDir.y);
       player.angle = DIRECTION_ANGLES[state.direction];
     } else {
       isMoving = false;
+    }
+
+    // 摩擦を適用（徐々に減速）
+    velocityX *= PLAYER_CONFIG.friction;
+    velocityY *= PLAYER_CONFIG.friction;
+
+    // 速度制限
+    const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+    if (speed > PLAYER_CONFIG.maxSpeed) {
+      const scale = PLAYER_CONFIG.maxSpeed / speed;
+      velocityX *= scale;
+      velocityY *= scale;
+    }
+
+    // 微小な速度は0にする（完全停止）
+    if (Math.abs(velocityX) < 1) velocityX = 0;
+    if (Math.abs(velocityY) < 1) velocityY = 0;
+
+    // 位置更新
+    player.pos.x += velocityX * dt;
+    player.pos.y += velocityY * dt;
+
+    // ステージ端での跳ね返り（壁にぶつかったら速度反転）
+    if (player.pos.x < 20) {
+      player.pos.x = 20;
+      velocityX = -velocityX * 0.5;  // 反発係数0.5
+    }
+    if (player.pos.x > stageWidth - 20) {
+      player.pos.x = stageWidth - 20;
+      velocityX = -velocityX * 0.5;
+    }
+    if (player.pos.y < 50) {
+      player.pos.y = 50;
+      velocityY = -velocityY * 0.5;
+    }
+    if (player.pos.y > 550) {
+      player.pos.y = 550;
+      velocityY = -velocityY * 0.5;
     }
 
     // エンジン噴射の更新
@@ -175,7 +225,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     thruster.pos.y = player.pos.y - dirVec.y * shipSize;
     thruster.angle = DIRECTION_ANGLES[state.direction];
 
-    // 移動中のみ噴射を表示（ちらつき効果）
+    // 入力中のみ噴射を表示（ちらつき効果）
     if (isMoving) {
       thruster.opacity = 0.6 + Math.random() * 0.4;
       // 噴射の長さを変動
@@ -188,21 +238,40 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     } else {
       thruster.opacity = 0;
     }
-
-    // ステージ内に制限
-    player.pos.x = Math.max(20, Math.min(stageWidth - 20, player.pos.x));
-    player.pos.y = Math.max(50, Math.min(550, player.pos.y));
   });
 
   // レーザー攻撃処理
   function attack() {
+    if (isGamePaused()) return;
     if (state.isAttacking) return;
 
     state.isAttacking = true;
 
+    // 現在の速度を計算
+    const currentSpeed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+    const speedRatio = currentSpeed / PLAYER_CONFIG.maxSpeed;  // 0〜1
+
+    // 速度に応じてレーザーのパラメータを変化
+    const baseLaserLength = 50;
+    const baseLaserWidth = 8;
+
+    // 高速時: レーザーが長く、太くなる
+    const laserLength = baseLaserLength + speedRatio * 100;  // 50〜150
+    const laserWidth = baseLaserWidth + speedRatio * 8;       // 8〜16
+
+    // 貫通フラグ（速度50%以上で貫通）
+    const isPiercing = speedRatio >= 0.5;
+
+    // ダメージ量（速度に応じて増加）
+    // 通常: 1、50%: 2、100%: 3
+    const damage = isPiercing ? Math.floor(1 + speedRatio * 2) : 1;
+
+    // 色も変化（黄色→オレンジ→赤）
+    const laserR = 255;
+    const laserG = Math.floor(255 - speedRatio * 155);  // 255→100
+    const laserB = Math.floor(100 - speedRatio * 100);  // 100→0
+
     const dirVec = DIRECTION_VECTORS[state.direction];
-    const laserLength = 50;
-    const laserWidth = 8;
 
     // レーザーの開始位置（宇宙船の先端）
     const startX = player.pos.x + dirVec.x * shipSize;
@@ -212,46 +281,66 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     const laserX = startX + dirVec.x * (laserLength / 2);
     const laserY = startY + dirVec.y * (laserLength / 2);
 
+    // 貫通レーザー用: ヒット済み敵を追跡
+    const hitEnemies = new Set<string>();
+
     // レーザービーム生成
     const laser = k.add([
       k.rect(laserLength, laserWidth),
       k.pos(laserX, laserY),
       k.area(),
       k.anchor('center'),
-      k.color(255, 255, 100),
+      k.color(laserR, laserG, laserB),
       k.rotate(DIRECTION_ANGLES[state.direction]),
       k.opacity(1),
-      k.outline(1, k.rgb(255, 200, 50)),
-      'sword',  // 既存の衝突判定を維持
+      k.outline(isPiercing ? 2 : 1, k.rgb(255, 200, 50)),
+      isPiercing ? 'sword-piercing' : 'sword',
+      { hitEnemies, isPiercing, damage },
     ]);
 
     // レーザーのグロー効果
     const glow = k.add([
-      k.rect(laserLength + 4, laserWidth + 4),
+      k.rect(laserLength + 8, laserWidth + 8),
       k.pos(laserX, laserY),
       k.anchor('center'),
-      k.color(255, 255, 200),
+      k.color(laserR, laserG, Math.min(200, laserB + 100)),
       k.rotate(DIRECTION_ANGLES[state.direction]),
-      k.opacity(0.4),
+      k.opacity(isPiercing ? 0.6 : 0.4),
       k.z(-1),
     ]);
 
-    // 発射時のマズルフラッシュ
+    // 発射時のマズルフラッシュ（高速時は大きく）
+    const flashSize = 8 + speedRatio * 8;
     const flash = k.add([
-      k.circle(8),
+      k.circle(flashSize),
       k.pos(startX, startY),
       k.anchor('center'),
-      k.color(255, 255, 200),
+      k.color(laserR, laserG, Math.min(200, laserB + 100)),
       k.opacity(0.8),
     ]);
+
+    // 高速時は「BOOST!」エフェクト表示
+    if (isPiercing) {
+      const boostLabel = k.add([
+        k.text('BOOST!', { size: 12 }),
+        k.pos(player.pos.x, player.pos.y - 30),
+        k.anchor('center'),
+        k.color(255, 150, 50),
+        k.opacity(1),
+      ]);
+      k.wait(0.3, () => {
+        k.destroy(boostLabel);
+      });
+    }
 
     // フラッシュを即座に消す
     k.wait(0.05, () => {
       k.destroy(flash);
     });
 
-    // 一定時間後に消える
-    k.wait(PLAYER_CONFIG.attackDuration, () => {
+    // 一定時間後に消える（高速時は少し長め）
+    const duration = PLAYER_CONFIG.attackDuration + speedRatio * 0.05;
+    k.wait(duration, () => {
       k.destroy(laser);
       k.destroy(glow);
       state.isAttacking = false;

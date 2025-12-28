@@ -1,4 +1,5 @@
 import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp, OpacityComp } from 'kaboom';
+import { isGamePaused } from '../scenes/game';
 
 type PortalBaseObj = GameObj<TextComp | PosComp | AreaComp | AnchorComp | ColorComp | OpacityComp>;
 
@@ -68,6 +69,9 @@ export function createPortal(
   const maxX = stageWidth - 50;
 
   portal.onUpdate(() => {
+    // ポーズ中は処理しない
+    if (isGamePaused()) return;
+
     time += k.dt() * 3;
 
     // 横方向に往復移動

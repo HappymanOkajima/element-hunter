@@ -12,6 +12,13 @@ let currentStage: StageConfig | null = null;
 let crawlData: CrawlOutput | null = null;
 let currentPageIndex: number = 0;
 
+// ゲームのポーズ状態（各エンティティから参照可能）
+let gamePaused = false;
+
+export function isGamePaused(): boolean {
+  return gamePaused;
+}
+
 // ステージを設定
 export function setStage(stage: StageConfig) {
   currentStage = stage;
@@ -45,8 +52,8 @@ export function gameScene(k: KaboomCtx) {
   // ステージ設定を取得（設定されていなければデフォルト）
   const stage = currentStage || DEFAULT_STAGE;
 
-  // ゲーム状態
-  let isPaused = false;
+  // ゲーム状態（グローバル変数を初期化）
+  gamePaused = false;
   let isWarping = false;  // ワープ中フラグ
   let player: PlayerObject | null = null;
 
@@ -342,7 +349,7 @@ export function gameScene(k: KaboomCtx) {
 
   // 毎フレーム更新
   k.onUpdate(() => {
-    if (!isPaused) {
+    if (!gamePaused) {
       updateHpDisplay();
       updateEnemyCount();
       checkPageClear();
@@ -451,13 +458,42 @@ export function gameScene(k: KaboomCtx) {
     }
   });
 
-  // 剣 vs 敵
-  k.onCollide('sword', 'enemy', (_s, e) => {
-    (e as EnemyObject).takeDamage(1);
+  // 剣 vs 敵（通常レーザー）
+  k.onCollide('sword', 'enemy', (s, e) => {
+    const laserData = s as unknown as { damage?: number };
+    const damage = laserData.damage || 1;
+    (e as EnemyObject).takeDamage(damage);
+  });
+
+  // 貫通レーザー vs 敵（同じ敵には1回だけダメージ）
+  k.onCollide('sword-piercing', 'enemy', (s, e) => {
+    const enemy = e as EnemyObject;
+    const enemyId = enemy.getId();
+    const laserData = s as unknown as { hitEnemies: Set<string>; damage: number };
+
+    // 既にこの敵にヒットしていたらスキップ
+    if (laserData.hitEnemies.has(enemyId)) return;
+
+    // ヒット記録
+    laserData.hitEnemies.add(enemyId);
+
+    // ダメージを与える（ブーストダメージ）
+    enemy.takeDamage(laserData.damage);
   });
 
   // 剣 vs ポータル（アクセス可能）→ ページ遷移
   k.onCollide('sword', 'portal-accessible', (_s, portal) => {
+    const portalObj = portal as PortalObject;
+    const targetIndex = portalObj.getTargetPageIndex();
+
+    if (targetIndex !== null && crawlData) {
+      const targetPath = crawlData.pages[targetIndex]?.path || '/';
+      warpToPage(targetIndex, targetPath);
+    }
+  });
+
+  // 貫通レーザー vs ポータル（アクセス可能）→ ページ遷移
+  k.onCollide('sword-piercing', 'portal-accessible', (_s, portal) => {
     const portalObj = portal as PortalObject;
     const targetIndex = portalObj.getTargetPageIndex();
 
@@ -512,9 +548,9 @@ export function gameScene(k: KaboomCtx) {
 
   // --- ポーズ機能 ---
   k.onKeyPress('escape', () => {
-    isPaused = !isPaused;
+    gamePaused = !gamePaused;
 
-    if (isPaused) {
+    if (gamePaused) {
       k.add([
         k.rect(k.width(), k.height()),
         k.pos(0, 0),

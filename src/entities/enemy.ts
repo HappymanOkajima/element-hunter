@@ -2,6 +2,7 @@ import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, Color
 import type { EnemyConfig } from '../types';
 import { getEnemyConfig } from '../data/elements';
 import type { PlayerObject } from './player';
+import { isGamePaused } from '../scenes/game';
 
 // 敵の巡回ルート
 const ORBIT_POINTS = [
@@ -138,6 +139,9 @@ export function createEnemy(
 
   // 毎フレーム更新
   enemy.onUpdate(() => {
+    // ポーズ中は処理しない
+    if (isGamePaused()) return;
+
     // 停止中は動かない
     if (stopped) return;
 
