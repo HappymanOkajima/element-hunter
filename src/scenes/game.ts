@@ -108,37 +108,50 @@ export function gameScene(k: KaboomCtx) {
 
   // --- 背景描画 ---
 
-  // サイトスタイルから背景色を取得（暗くして使用）
-  function getSiteBackgroundColors(): { bg: [number, number, number]; accent: [number, number, number] } {
+  // サイトスタイルから背景色を取得
+  function getSiteBackgroundColors(): { bg: [number, number, number]; grid: [number, number, number] } {
     const defaultBg: [number, number, number] = [20, 20, 30];
-    const defaultAccent: [number, number, number] = [40, 40, 60];
+    const defaultGrid: [number, number, number] = [60, 80, 120];
 
     if (!crawlData?.siteStyle) {
-      return { bg: defaultBg, accent: defaultAccent };
+      return { bg: defaultBg, grid: defaultGrid };
     }
 
     const style = crawlData.siteStyle;
 
-    // 16進数をRGBに変換して暗くする
-    function hexToRgbDark(hex: string, factor: number = 0.15): [number, number, number] {
+    // 16進数をRGBに変換
+    function hexToRgb(hex: string): [number, number, number] | null {
       const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-      if (!match) return defaultBg;
+      if (!match) return null;
       return [
-        Math.floor(parseInt(match[1], 16) * factor),
-        Math.floor(parseInt(match[2], 16) * factor),
-        Math.floor(parseInt(match[3], 16) * factor),
+        parseInt(match[1], 16),
+        parseInt(match[2], 16),
+        parseInt(match[3], 16),
       ];
     }
 
-    const bg = hexToRgbDark(style.backgroundColor, 0.1);
-    const accent = hexToRgbDark(style.primaryColor, 0.2);
+    // プライマリカラーをベースに暗い背景を作成
+    const primary = hexToRgb(style.primaryColor) || defaultGrid;
 
-    return { bg, accent };
+    // 背景: プライマリカラーを非常に暗くして青みを加える
+    const bg: [number, number, number] = [
+      Math.floor(primary[0] * 0.08) + 10,
+      Math.floor(primary[1] * 0.08) + 10,
+      Math.floor(primary[2] * 0.15) + 20,  // 青みを強調
+    ];
+
+    // グリッド: プライマリカラーを暗めに
+    const grid: [number, number, number] = [
+      Math.floor(primary[0] * 0.4),
+      Math.floor(primary[1] * 0.4),
+      Math.floor(primary[2] * 0.6),
+    ];
+
+    return { bg, grid };
   }
 
-  const { bg, accent } = getSiteBackgroundColors();
+  const { bg, grid } = getSiteBackgroundColors();
 
-  // 背景グラデーション風（複数の矩形でレイヤー表現）
   // ベース背景
   k.add([
     k.rect(stage.width, k.height()),
@@ -153,8 +166,8 @@ export function gameScene(k: KaboomCtx) {
     k.add([
       k.rect(1, k.height()),
       k.pos(x, 0),
-      k.color(...accent),
-      k.opacity(0.3),
+      k.color(...grid),
+      k.opacity(0.5),
       k.z(-99),
     ]);
   }
@@ -162,8 +175,8 @@ export function gameScene(k: KaboomCtx) {
     k.add([
       k.rect(stage.width, 1),
       k.pos(0, y),
-      k.color(...accent),
-      k.opacity(0.3),
+      k.color(...grid),
+      k.opacity(0.5),
       k.z(-99),
     ]);
   }
