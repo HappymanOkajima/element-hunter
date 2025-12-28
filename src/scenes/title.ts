@@ -14,7 +14,9 @@ const DIRECTION_VECTORS: Record<string, { x: number; y: number }> = {
 
 const DIRECTIONS = ['up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-left', 'down-right'];
 
-export function titleScene(k: KaboomCtx, siteName: string, onStart: () => void) {
+export type GameMode = 'easy' | 'normal';
+
+export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameMode) => void) {
   // 背景（ベース）
   k.add([
     k.rect(k.width(), k.height()),
@@ -257,8 +259,101 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: () => void) 
     portalLabel.opacity = 0.7 + Math.sin(portalTime * 1.5) * 0.3;
   });
 
-  // "PRESS SPACE TO START" 点滅
+  // --- モード選択UI ---
   yOffset += 25;
+
+  // 選択状態
+  let selectedMode: GameMode = 'normal';
+  let isStarting = false;
+
+  // 選択ラベル説明
+  k.add([
+    k.text('SELECT MODE:', { size: 14 }),
+    k.pos(k.width() / 2, yOffset),
+    k.anchor('center'),
+    k.color(150, 150, 150),
+  ]);
+  yOffset += 25;
+
+  // モード選択肢
+  const modeSpacing = 140;
+  const easyLabel = k.add([
+    k.text('EASY', { size: 18 }),
+    k.pos(k.width() / 2 - modeSpacing / 2, yOffset),
+    k.anchor('center'),
+    k.color(100, 200, 100),
+    k.opacity(0.5),
+  ]);
+  const easyDesc = k.add([
+    k.text('2 PAGES', { size: 10 }),
+    k.pos(k.width() / 2 - modeSpacing / 2, yOffset + 18),
+    k.anchor('center'),
+    k.color(100, 200, 100),
+    k.opacity(0.4),
+  ]);
+
+  const normalLabel = k.add([
+    k.text('NORMAL', { size: 18 }),
+    k.pos(k.width() / 2 + modeSpacing / 2, yOffset),
+    k.anchor('center'),
+    k.color(255, 200, 100),
+    k.opacity(1),
+  ]);
+  const normalDesc = k.add([
+    k.text('5 PAGES', { size: 10 }),
+    k.pos(k.width() / 2 + modeSpacing / 2, yOffset + 18),
+    k.anchor('center'),
+    k.color(255, 200, 100),
+    k.opacity(0.7),
+  ]);
+
+  // 選択カーソル（矢印）
+  const cursorLeft = k.add([
+    k.text('>', { size: 20 }),
+    k.pos(k.width() / 2 + modeSpacing / 2 - 50, yOffset),
+    k.anchor('center'),
+    k.color(255, 255, 255),
+    k.opacity(1),
+  ]);
+  const cursorRight = k.add([
+    k.text('<', { size: 20 }),
+    k.pos(k.width() / 2 + modeSpacing / 2 + 50, yOffset),
+    k.anchor('center'),
+    k.color(255, 255, 255),
+    k.opacity(1),
+  ]);
+
+  // 選択更新関数
+  function updateModeSelection() {
+    if (selectedMode === 'easy') {
+      easyLabel.opacity = 1;
+      easyDesc.opacity = 0.7;
+      normalLabel.opacity = 0.5;
+      normalDesc.opacity = 0.4;
+      cursorLeft.pos.x = k.width() / 2 - modeSpacing / 2 - 40;
+      cursorRight.pos.x = k.width() / 2 - modeSpacing / 2 + 40;
+    } else {
+      easyLabel.opacity = 0.5;
+      easyDesc.opacity = 0.4;
+      normalLabel.opacity = 1;
+      normalDesc.opacity = 0.7;
+      cursorLeft.pos.x = k.width() / 2 + modeSpacing / 2 - 50;
+      cursorRight.pos.x = k.width() / 2 + modeSpacing / 2 + 50;
+    }
+  }
+
+  // カーソル点滅
+  let cursorTime = 0;
+  cursorLeft.onUpdate(() => {
+    cursorTime += k.dt();
+    const opacity = 0.5 + 0.5 * Math.sin(cursorTime * 6);
+    cursorLeft.opacity = opacity;
+    cursorRight.opacity = opacity;
+  });
+
+  yOffset += 50;
+
+  // "PRESS SPACE TO START" 点滅
   const startLabel = k.add([
     k.text('[ PRESS SPACE TO START ]', { size: 20 }),
     k.pos(k.width() / 2, yOffset),
@@ -275,8 +370,23 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: () => void) 
     startLabel.opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(blinkTime * 4));
   });
 
+  // 左右キーでモード選択
+  k.onKeyPress('left', () => {
+    if (isStarting) return;
+    selectedMode = 'easy';
+    updateModeSelection();
+  });
+  k.onKeyPress('right', () => {
+    if (isStarting) return;
+    selectedMode = 'normal';
+    updateModeSelection();
+  });
+
   // SPACEキーでゲーム開始
   k.onKeyPress('space', () => {
+    if (isStarting) return;
+    isStarting = true;
+
     // フェードアウト演出
     const overlay = k.add([
       k.rect(k.width(), k.height()),
@@ -295,7 +405,7 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: () => void) 
       },
       k.easings.easeOutQuad
     ).onEnd(() => {
-      onStart();
+      onStart(selectedMode);
     });
   });
 

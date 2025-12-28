@@ -1,5 +1,6 @@
 import type { CrawlOutput, CrawlPage, StageConfig, EnemySpawn, PortalSpawn } from '../types';
 import { isValidEnemyTag } from '../data/elements';
+import { gameState } from './gameState';
 
 // パスからページインデックスを検索
 function findPageIndex(pages: CrawlPage[], path: string): number | null {
@@ -125,9 +126,15 @@ export function convertPageToStage(
 
   // クロール済みリンクのみ抽出（アクセス不可なリンクは表示しない）
   // 現在のページ自身へのリンクは除外
-  const accessibleLinks = uniqueLinks.filter(link =>
+  let accessibleLinks = uniqueLinks.filter(link =>
     link !== page.path && findPageIndex(allPages, link) !== null
   );
+
+  // EASYモードの場合、ターゲットページへのリンクのみ表示
+  const targetPages = gameState.getTargetPages();
+  if (targetPages.length === 2) {  // EASYモード判定（2ページのみ）
+    accessibleLinks = accessibleLinks.filter(link => targetPages.includes(link));
+  }
 
   let portalCount = 0;
 

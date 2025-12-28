@@ -1,10 +1,13 @@
 import kaboom from 'kaboom';
 import { gameScene, setStage, setCrawlData, setCurrentPageIndex } from './scenes/game';
-import { titleScene } from './scenes/title';
+import { titleScene, type GameMode } from './scenes/title';
 import { loadStageFromCrawl } from './systems/stageLoader';
 import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
 import type { CrawlOutput } from './types';
+
+// 現在のゲームモード
+let currentGameMode: GameMode = 'normal';
 
 // JSONデータをインポート
 import agileStudioData from '../data/sites/agile-studio.json';
@@ -28,10 +31,15 @@ setCrawlData(crawlData);
 contentPanel.setAllPages(crawlData.pages);
 
 // ゲーム初期化処理
-function initGame() {
-  // ターゲットページをランダム選択（5ページ）
-  // 共通リンク（ナビメニュー）も経路として考慮
-  gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
+function initGame(mode: GameMode) {
+  currentGameMode = mode;
+
+  // モードに応じてターゲットページを選択
+  if (mode === 'easy') {
+    gameState.selectEasyTargetPages(crawlData.pages, crawlData.commonLinks);
+  } else {
+    gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
+  }
 
   // コンテンツパネルの初期表示
   contentPanel.updateTargetList();
@@ -75,8 +83,12 @@ k.scene('gameover', () => {
   ]);
 
   k.onKeyPress('space', () => {
-    // ゲームリセット
-    gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
+    // 同じモードでゲームリセット
+    if (currentGameMode === 'easy') {
+      gameState.selectEasyTargetPages(crawlData.pages, crawlData.commonLinks);
+    } else {
+      gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
+    }
     contentPanel.updateTargetList();
     contentPanel.updateProgress();
     contentPanel.startTimer();
@@ -118,23 +130,8 @@ k.scene('complete', () => {
   ]);
 
   k.onKeyPress('space', () => {
-    // ゲームリセット
-    gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
-    contentPanel.updateTargetList();
-    contentPanel.updateProgress();
-    contentPanel.startTimer();
-
-    const stage = loadStageFromCrawl(crawlData, 0);
-    setStage(stage);
-    setCurrentPageIndex(0);
-    gameState.pushPage('/');
-
-    const topPage = crawlData.pages[0];
-    if (topPage) {
-      contentPanel.updateContent(topPage, false);
-    }
-
-    k.go('game');
+    // タイトルに戻る（モード選択し直し）
+    k.go('title');
   });
 });
 

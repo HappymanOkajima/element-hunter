@@ -28,8 +28,8 @@ export class GameState {
     // 到達可能なページを探索（トップページから辿れるページ）
     const reachable = this.findReachablePages(allPages, commonLinks);
 
-    // トップページ以外をフィルタ
-    const candidates = allPages.filter(p => p.path !== '/' && reachable.has(p.path));
+    // 到達可能なページをフィルタ（トップページも含む）
+    const candidates = allPages.filter(p => reachable.has(p.path));
 
     // シャッフル
     const shuffled = [...candidates].sort(() => Math.random() - 0.5);
@@ -38,10 +38,52 @@ export class GameState {
     this.targetPages = shuffled.slice(0, count).map(p => p.path);
 
     // 状態リセット
+    this.resetState();
+  }
+
+  // イージーモード用ターゲット選択（トップページ + 浅いページ1つ）
+  selectEasyTargetPages(allPages: CrawlPage[], commonLinks: string[] = []): void {
+    // 到達可能なページを探索
+    const reachable = this.findReachablePages(allPages, commonLinks);
+
+    // トップページを必ず含める
+    const targets: string[] = ['/'];
+
+    // depth=1のページから1つ選ぶ（到達可能なもの）
+    const shallowPages = allPages.filter(p =>
+      p.path !== '/' &&
+      p.depth === 1 &&
+      reachable.has(p.path)
+    );
+
+    if (shallowPages.length > 0) {
+      // ランダムに1つ選択
+      const randomIndex = Math.floor(Math.random() * shallowPages.length);
+      targets.push(shallowPages[randomIndex].path);
+    } else {
+      // depth=1がなければ到達可能な任意のページから1つ
+      const otherPages = allPages.filter(p =>
+        p.path !== '/' &&
+        reachable.has(p.path)
+      );
+      if (otherPages.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherPages.length);
+        targets.push(otherPages[randomIndex].path);
+      }
+    }
+
+    this.targetPages = targets;
+
+    // 状態リセット
+    this.resetState();
+  }
+
+  // 状態をリセット（共通処理）
+  private resetState(): void {
     this.clearedPages.clear();
     this.pageHistory = [];
     this.pageStates.clear();
-    this.playerHp = 5;  // HPもリセット
+    this.playerHp = 5;
     this.startTime = Date.now();
   }
 
