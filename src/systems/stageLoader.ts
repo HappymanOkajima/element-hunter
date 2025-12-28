@@ -40,10 +40,11 @@ export function convertPageToStage(
   const playAreaWidth = stageWidth - MARGIN_LEFT - MARGIN_RIGHT;
   const playAreaHeight = 600 - MARGIN_TOP - MARGIN_BOTTOM;
 
-  // 最大数をステージ幅に応じて動的に設定
-  const widthMultiplier = stageWidth / 800;  // 800pxを基準
-  const MAX_ENEMIES = 1;  // テスト用: 1体のみ
-  const MAX_PORTALS = Math.floor(5 * widthMultiplier);  // 基準5個
+  // 最大数を設定（ステージ幅が広くても上限あり）
+  const widthMultiplier = Math.min(stageWidth / 800, 2);  // 最大2倍まで
+  const MAX_ENEMIES = Math.min(Math.floor(12 * widthMultiplier), 20);  // 最大20体
+  const MAX_ENEMIES_PER_TAG = 3;  // 1タグあたり最大3体
+  const MAX_PORTALS = Math.min(Math.floor(5 * widthMultiplier), 8);  // 最大8個
 
   // 要素を敵として配置（aタグはポータルなので除外）
   let enemyCount = 0;
@@ -54,8 +55,8 @@ export function convertPageToStage(
     if (element.tag === 'a') continue;  // aタグはポータルとして別処理
     if (enemyCount >= MAX_ENEMIES) break;
 
-    // このタグの配置数（実際のcount数まで、ただし最大15個）
-    const spawnCount = Math.min(element.count, 15);
+    // このタグの配置数（実際のcount数まで、ただしタグ毎上限あり）
+    const spawnCount = Math.min(element.count, MAX_ENEMIES_PER_TAG);
 
     for (let i = 0; i < spawnCount; i++) {
       if (enemyCount >= MAX_ENEMIES) break;
