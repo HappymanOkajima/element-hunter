@@ -219,8 +219,8 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   // 操作説明
   const isTouch = isTouchDevice();
   const manualLines = [
-    'MOVE ........ ARROWS / STICK',
-    'FIRE ........ SPACE / BUTTON',
+    'MOVE ........ ARROW KEYS / STICK',
+    'FIRE ........ SPACE KEY / BUTTON',
     'BOOST ....... SPEED = POWER!',
   ];
   for (const line of manualLines) {
