@@ -216,50 +216,52 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   ]);
   yOffset += 22;
 
-  // 操作説明
+  // 操作説明（左揃えで全体を中央配置）
   const isTouch = isTouchDevice();
+  const manualLeftX = k.width() / 2 - 130;  // 左端位置
+
   const manualLines = [
-    'MOVE ........ ARROW KEYS / STICK',
-    'FIRE ........ SPACE KEY / BUTTON',
+    'MOVE .... ARROW KEYS / STICK',
+    'FIRE .... SPACE KEY / BUTTON',
   ];
   for (const line of manualLines) {
     k.add([
       k.text(line, { size: 11 }),
-      k.pos(k.width() / 2, yOffset),
-      k.anchor('center'),
+      k.pos(manualLeftX, yOffset),
+      k.anchor('left'),
       k.color(150, 150, 150),
     ]);
-    yOffset += 18;
+    yOffset += 16;
   }
 
   // HINTは[PORTALS]部分だけ別色＆点滅
-  yOffset += 8;
+  yOffset += 4;
   k.add([
-    k.text('HINT: SHOOT ', { size: 11 }),
-    k.pos(k.width() / 2 - 70, yOffset),
-    k.anchor('center'),
+    k.text('HINT .... SHOOT ', { size: 11 }),
+    k.pos(manualLeftX, yOffset),
+    k.anchor('left'),
     k.color(150, 150, 150),
   ]);
   const portalLabel = k.add([
     k.text('[PORTALS]', { size: 11 }),
-    k.pos(k.width() / 2 + 10, yOffset),
-    k.anchor('center'),
+    k.pos(manualLeftX + 107, yOffset),
+    k.anchor('left'),
     k.color(0, 200, 255),  // ポータルと同じ水色
     k.opacity(1),
   ]);
   k.add([
     k.text(' TO WARP', { size: 11 }),
-    k.pos(k.width() / 2 + 75, yOffset),
-    k.anchor('center'),
+    k.pos(manualLeftX + 170, yOffset),
+    k.anchor('left'),
     k.color(150, 150, 150),
   ]);
-  yOffset += 14;
+  yOffset += 16;
 
   // HINT2: SPEED = POWER!
   k.add([
-    k.text('HINT: SPEED = POWER!', { size: 11 }),
-    k.pos(k.width() / 2, yOffset),
-    k.anchor('center'),
+    k.text('HINT .... SPEED = POWER!', { size: 11 }),
+    k.pos(manualLeftX, yOffset),
+    k.anchor('left'),
     k.color(150, 150, 150),
   ]);
   yOffset += 18;
