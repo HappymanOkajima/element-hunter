@@ -7,6 +7,7 @@ import { loadStageFromCrawl } from '../systems/stageLoader';
 import { gameState } from '../systems/gameState';
 import { contentPanel } from '../ui/ContentPanel';
 import { playWarpSound, playPageClearSound, playGameClearSound } from '../systems/sound';
+import { isTouchDevice, getVirtualJoystick, type VirtualJoystick } from '../ui/VirtualJoystick';
 
 // 現在のステージ設定（外部から設定可能）
 let currentStage: StageConfig | null = null;
@@ -60,6 +61,13 @@ export function gameScene(k: KaboomCtx) {
 
   // カメラのオフセット（横スクロール用）
   let cameraX = 0;
+
+  // タッチデバイス用仮想ジョイスティック
+  let virtualJoystick: VirtualJoystick | null = null;
+  if (isTouchDevice()) {
+    virtualJoystick = getVirtualJoystick(k);
+    virtualJoystick.create();
+  }
 
   // ワープ演出を実行してからシーン遷移
   function warpToPage(targetIndex: number, targetPath: string) {
@@ -373,7 +381,13 @@ export function gameScene(k: KaboomCtx) {
 
   // --- プレイヤー生成（HPを復元）---
   const savedHp = gameState.getPlayerHp();
-  player = createPlayer(k, stage.width, savedHp);
+
+  // タッチ入力取得関数
+  const getTouchInput = virtualJoystick
+    ? () => virtualJoystick!.getState()
+    : undefined;
+
+  player = createPlayer(k, stage.width, savedHp, getTouchInput);
 
   // --- 敵生成（保存状態があれば復元）---
   const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
@@ -567,7 +581,7 @@ export function gameScene(k: KaboomCtx) {
   });
 
   // --- ポーズ機能 ---
-  k.onKeyPress('escape', () => {
+  function togglePause() {
     gamePaused = !gamePaused;
 
     if (gamePaused) {
@@ -589,8 +603,9 @@ export function gameScene(k: KaboomCtx) {
         'pauseOverlay',
       ]);
 
+      const resumeText = isTouchDevice() ? 'Tap pause button to resume' : 'Press ESC to resume';
       k.add([
-        k.text('Press ESC to resume', { size: 20 }),
+        k.text(resumeText, { size: 20 }),
         k.pos(k.width() / 2, k.height() / 2 + 60),
         k.anchor('center'),
         k.color(200, 200, 200),
@@ -600,5 +615,22 @@ export function gameScene(k: KaboomCtx) {
     } else {
       k.get('pauseOverlay').forEach((obj) => k.destroy(obj));
     }
-  });
+  }
+
+  k.onKeyPress('escape', togglePause);
+
+  // タッチ: ポーズボタン監視
+  if (virtualJoystick) {
+    k.onUpdate(() => {
+      const touchInput = virtualJoystick!.getState();
+      if (touchInput.pausePressed) {
+        virtualJoystick!.clearPausePressed();
+        togglePause();
+      }
+      // firePressed をクリア（使用後）
+      if (touchInput.firePressed) {
+        virtualJoystick!.clearFirePressed();
+      }
+    });
+  }
 }

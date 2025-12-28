@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>ELEMENT HUNTER</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,6 +29,14 @@
 
     #game-area canvas {
       display: block;
+      touch-action: none;
+    }
+
+    /* タッチデバイス用スタイル */
+    #game-area {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     #content-panel {

@@ -4,6 +4,7 @@ import { contentPanel } from '../ui/ContentPanel';
 import { isGamePaused } from '../scenes/game';
 import { gameState } from '../systems/gameState';
 import { playLaserSound, playDamageSound, playComboSound } from '../systems/sound';
+import type { TouchInputState } from '../ui/VirtualJoystick';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
@@ -59,7 +60,12 @@ export interface PlayerObject extends PlayerBaseObj {
   takeDamage: (amount: number) => void;
 }
 
-export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: number = 5): PlayerObject {
+export function createPlayer(
+  k: KaboomCtx,
+  stageWidth: number = 800,
+  initialHp: number = 5,
+  getTouchInput?: () => TouchInputState | null
+): PlayerObject {
   // プレイヤー状態
   const state: PlayerState = {
     hp: initialHp,
@@ -161,11 +167,19 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     const dt = k.dt();
     const inputDir = k.vec2(0, 0);
 
-    // 8方向入力チェック
-    if (k.isKeyDown('left') || k.isKeyDown('a')) inputDir.x -= 1;
-    if (k.isKeyDown('right') || k.isKeyDown('d')) inputDir.x += 1;
-    if (k.isKeyDown('up') || k.isKeyDown('w')) inputDir.y -= 1;
-    if (k.isKeyDown('down') || k.isKeyDown('s')) inputDir.y += 1;
+    // タッチ入力またはキーボード入力
+    const touchInput = getTouchInput?.();
+    if (touchInput && (touchInput.moveX !== 0 || touchInput.moveY !== 0)) {
+      // タッチ入力を使用
+      inputDir.x = touchInput.moveX;
+      inputDir.y = touchInput.moveY;
+    } else {
+      // 8方向キーボード入力チェック
+      if (k.isKeyDown('left') || k.isKeyDown('a')) inputDir.x -= 1;
+      if (k.isKeyDown('right') || k.isKeyDown('d')) inputDir.x += 1;
+      if (k.isKeyDown('up') || k.isKeyDown('w')) inputDir.y -= 1;
+      if (k.isKeyDown('down') || k.isKeyDown('s')) inputDir.y += 1;
+    }
 
     // 入力がある場合は加速
     if (inputDir.x !== 0 || inputDir.y !== 0) {
@@ -405,6 +419,16 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
   // 攻撃入力
   k.onKeyPress('space', attack);
   k.onKeyPress('z', attack);
+
+  // タッチ攻撃入力をチェック（毎フレーム）
+  if (getTouchInput) {
+    player.onUpdate(() => {
+      const touchInput = getTouchInput();
+      if (touchInput?.firePressed) {
+        attack();
+      }
+    });
+  }
 
   return player;
 }

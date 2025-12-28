@@ -1,5 +1,6 @@
 import type { KaboomCtx } from 'kaboom';
 import { playSelectSound, playStartSound } from '../systems/sound';
+import { isTouchDevice } from '../ui/VirtualJoystick';
 
 // 方向に対応するベクトル
 const DIRECTION_VECTORS: Record<string, { x: number; y: number }> = {
@@ -215,11 +216,19 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   ]);
   yOffset += 22;
 
-  const manualLines = [
-    'MOVE ........ ARROW KEYS',
-    'FIRE ........ SPACE KEY',
-    'BOOST ....... SPEED = POWER!',
-  ];
+  // タッチデバイスかどうかで操作説明を切り替え
+  const isTouch = isTouchDevice();
+  const manualLines = isTouch
+    ? [
+        'MOVE ........ JOYSTICK (LEFT)',
+        'FIRE ........ FIRE BTN (RIGHT)',
+        'BOOST ....... SPEED = POWER!',
+      ]
+    : [
+        'MOVE ........ ARROW KEYS',
+        'FIRE ........ SPACE KEY',
+        'BOOST ....... SPEED = POWER!',
+      ];
   for (const line of manualLines) {
     k.add([
       k.text(line, { size: 11 }),
@@ -267,42 +276,52 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   let selectedMode: GameMode = 'normal';
   let isStarting = false;
 
-  // 選択ラベル説明
+  // 選択ラベル説明（タッチデバイスでは異なる説明）
+  const modeInstructionText = isTouch
+    ? 'TAP MODE TO SELECT & START'
+    : 'CHOOSE MODE, THEN PRESS SPACE';
   k.add([
-    k.text('CHOOSE MODE, THEN PRESS SPACE', { size: 14 }),
+    k.text(modeInstructionText, { size: 14 }),
     k.pos(k.width() / 2, yOffset),
     k.anchor('center'),
     k.color(150, 150, 150),
   ]);
   yOffset += 25;
 
-  // モード選択肢
+  // モード選択肢（タッチ用にareaを追加）
   const modeSpacing = 140;
+  const easyButtonX = k.width() / 2 - modeSpacing / 2;
+  const modeButtonY = yOffset; // ボタンのY位置を保存
   const easyLabel = k.add([
     k.text('EASY', { size: 18 }),
-    k.pos(k.width() / 2 - modeSpacing / 2, yOffset),
+    k.pos(easyButtonX, yOffset),
+    k.area({ shape: new k.Rect(k.vec2(-40, -15), 80, 50) }),
     k.anchor('center'),
     k.color(100, 200, 100),
     k.opacity(0.5),
+    'mode-easy',
   ]);
   const easyDesc = k.add([
     k.text('2 PAGES', { size: 10 }),
-    k.pos(k.width() / 2 - modeSpacing / 2, yOffset + 18),
+    k.pos(easyButtonX, yOffset + 18),
     k.anchor('center'),
     k.color(100, 200, 100),
     k.opacity(0.4),
   ]);
 
+  const normalButtonX = k.width() / 2 + modeSpacing / 2;
   const normalLabel = k.add([
     k.text('NORMAL', { size: 18 }),
-    k.pos(k.width() / 2 + modeSpacing / 2, yOffset),
+    k.pos(normalButtonX, yOffset),
+    k.area({ shape: new k.Rect(k.vec2(-45, -15), 90, 50) }),
     k.anchor('center'),
     k.color(255, 200, 100),
     k.opacity(1),
+    'mode-normal',
   ]);
   const normalDesc = k.add([
     k.text('5 PAGES', { size: 10 }),
-    k.pos(k.width() / 2 + modeSpacing / 2, yOffset + 18),
+    k.pos(normalButtonX, yOffset + 18),
     k.anchor('center'),
     k.color(255, 200, 100),
     k.opacity(0.7),
@@ -354,22 +373,25 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
 
   yOffset += 50;
 
-  // "PRESS SPACE TO START" 点滅
+  // "PRESS SPACE TO START" 点滅（タッチデバイスでは非表示）
+  const startLabelText = isTouch ? '' : '[ PRESS SPACE TO START ]';
   const startLabel = k.add([
-    k.text('[ PRESS SPACE TO START ]', { size: 20 }),
+    k.text(startLabelText, { size: 20 }),
     k.pos(k.width() / 2, yOffset),
     k.anchor('center'),
     k.color(255, 255, 255),
-    k.opacity(1),
+    k.opacity(isTouch ? 0 : 1),
   ]);
 
-  // 点滅アニメーション
+  // 点滅アニメーション（PC用）
   let blinkTime = 0;
-  startLabel.onUpdate(() => {
-    blinkTime += k.dt();
-    // sin波で0.3〜1.0の間を往復
-    startLabel.opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(blinkTime * 4));
-  });
+  if (!isTouch) {
+    startLabel.onUpdate(() => {
+      blinkTime += k.dt();
+      // sin波で0.3〜1.0の間を往復
+      startLabel.opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(blinkTime * 4));
+    });
+  }
 
   // 左右キーでモード選択
   k.onKeyPress('left', () => {
@@ -389,8 +411,8 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     }
   });
 
-  // SPACEキーでゲーム開始
-  k.onKeyPress('space', () => {
+  // ゲーム開始処理（共通）
+  function startGame() {
     if (isStarting) return;
     isStarting = true;
     playStartSound();
@@ -415,7 +437,37 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     ).onEnd(() => {
       onStart(selectedMode);
     });
-  });
+  }
+
+  // SPACEキーでゲーム開始
+  k.onKeyPress('space', startGame);
+
+  // タッチ操作: モードボタンをタップでゲーム開始
+  if (isTouch) {
+    k.onTouchStart((pos) => {
+      if (isStarting) return;
+
+      // EASYボタン判定
+      const easyDx = pos.x - easyButtonX;
+      const easyDy = pos.y - modeButtonY;
+      if (Math.abs(easyDx) < 50 && Math.abs(easyDy) < 30) {
+        selectedMode = 'easy';
+        updateModeSelection();
+        startGame();
+        return;
+      }
+
+      // NORMALボタン判定
+      const normalDx = pos.x - normalButtonX;
+      const normalDy = pos.y - modeButtonY;
+      if (Math.abs(normalDx) < 55 && Math.abs(normalDy) < 30) {
+        selectedMode = 'normal';
+        updateModeSelection();
+        startGame();
+        return;
+      }
+    });
+  }
 
   // デモ用レーザー発射
   function fireDemoLaser(k: KaboomCtx, x: number, y: number, angle: number, speedRatio: number) {

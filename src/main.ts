@@ -5,6 +5,7 @@ import { loadStageFromCrawl } from './systems/stageLoader';
 import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
 import { playGameOverSound } from './systems/sound';
+import { isTouchDevice } from './ui/VirtualJoystick';
 import type { CrawlOutput } from './types';
 
 // JSONデータをインポート
@@ -74,17 +75,24 @@ k.scene('gameover', () => {
     k.color(255, 0, 0),
   ]);
 
+  const isTouch = isTouchDevice();
+  const returnText = isTouch ? 'Tap to return to title' : 'Press SPACE to return to title';
   k.add([
-    k.text('Press SPACE to return to title', { size: 20 }),
+    k.text(returnText, { size: 20 }),
     k.pos(k.width() / 2, k.height() / 2 + 50),
     k.anchor('center'),
     k.color(200, 200, 200),
   ]);
 
-  k.onKeyPress('space', () => {
-    // タイトルに戻る
+  const returnToTitle = () => {
     k.go('title');
-  });
+  };
+
+  k.onKeyPress('space', returnToTitle);
+
+  if (isTouch) {
+    k.onTouchStart(returnToTitle);
+  }
 });
 
 // ゲーム完了シーン
@@ -107,17 +115,24 @@ k.scene('complete', () => {
     k.color(255, 204, 0),
   ]);
 
+  const isTouch = isTouchDevice();
+  const playAgainText = isTouch ? 'Tap to play again' : 'Press SPACE to play again';
   k.add([
-    k.text('Press SPACE to play again', { size: 20 }),
+    k.text(playAgainText, { size: 20 }),
     k.pos(k.width() / 2, k.height() / 2 + 80),
     k.anchor('center'),
     k.color(200, 200, 200),
   ]);
 
-  k.onKeyPress('space', () => {
-    // タイトルに戻る（モード選択し直し）
+  const returnToTitle = () => {
     k.go('title');
-  });
+  };
+
+  k.onKeyPress('space', returnToTitle);
+
+  if (isTouch) {
+    k.onTouchStart(returnToTitle);
+  }
 });
 
 // タイトル画面から開始

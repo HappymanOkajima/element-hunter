@@ -6,6 +6,10 @@ WebサイトのHTML要素をハントする2Dシューティングゲーム。
 
 **[今すぐプレイ](https://happymanokajima.github.io/element-hunter/)**
 
+スマホでプレイ:
+
+![QRコード](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://happymanokajima.github.io/element-hunter/)
+
 ## ゲーム概要
 
 - **ジャンル**: 2Dシューティング / タイムアタック
@@ -16,11 +20,19 @@ WebサイトのHTML要素をハントする2Dシューティングゲーム。
 
 ### 操作
 
+**PC (キーボード)**
 | キー | 操作 |
 |------|------|
 | 矢印キー | 移動（慣性あり） |
 | スペース | レーザー発射 |
 | ESC | ポーズ |
+
+**スマホ (タッチ)**
+| 操作 | 説明 |
+|------|------|
+| 左下ジョイスティック | 移動 |
+| 右下FIREボタン | レーザー発射 |
+| 右上||ボタン | ポーズ |
 
 ### ルール
 

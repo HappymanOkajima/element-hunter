@@ -13,7 +13,18 @@
       "Bash(node -e:*)",
       "Bash(npx tsc:*)",
       "Bash(node check-texts.js:*)",
-      "Bash(node dist/index.js:*)"
+      "Bash(node dist/index.js:*)",
+      "Bash(winget install:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" --version)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status)",
+      "Bash(git push:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo edit HappymanOkajima/element-hunter --visibility private)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" api repos/HappymanOkajima/element-hunter/pages -X POST -f build_type=workflow)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20553411511 --repo HappymanOkajima/element-hunter --log-failed)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" workflow run deploy.yml --repo HappymanOkajima/element-hunter)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo HappymanOkajima/element-hunter --limit 2)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20553427929 --repo HappymanOkajima/element-hunter)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo HappymanOkajima/element-hunter --limit 1)"
     ]
   }
 }
