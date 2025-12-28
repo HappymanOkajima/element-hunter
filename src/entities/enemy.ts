@@ -44,7 +44,8 @@ export function createEnemy(
   startX: number,
   startY: number,
   getPlayer: () => PlayerObject | null,
-  stageWidth: number = 800
+  stageWidth: number = 800,
+  sampleText?: string
 ): EnemyObject | null {
   // タグから設定を取得
   const config = getEnemyConfig(tag);
@@ -120,8 +121,8 @@ export function createEnemy(
       enemy.color = k.rgb(100, 100, 100);  // グレー化
       enemy.opacity = 0.5;
 
-      // 停止エフェクト
-      spawnStopEffect(k, enemy.pos.x, enemy.pos.y);
+      // 停止エフェクト（サンプルテキストがあれば表示）
+      spawnStopEffect(k, enemy.pos.x, enemy.pos.y, sampleText);
     }
   };
 
@@ -195,22 +196,58 @@ export function createEnemy(
   return enemy;
 }
 
-// 停止エフェクト
-function spawnStopEffect(k: KaboomCtx, x: number, y: number) {
-  const effect = k.add([
-    k.text('STOP', { size: 16 }),
+// ハントエフェクト（サンプルテキストがあれば表示）
+function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string) {
+  // HUNT!ラベル
+  const huntLabel = k.add([
+    k.text('HUNT!', { size: 14 }),
     k.pos(x, y - 20),
     k.anchor('center'),
-    k.color(150, 150, 150),
+    k.color(255, 200, 100),
     k.opacity(1),
   ]);
 
   // 上に浮かんでフェードアウト
-  effect.onUpdate(() => {
-    effect.pos.y -= 30 * k.dt();
-    effect.opacity -= 1.5 * k.dt();
-    if (effect.opacity <= 0) {
-      k.destroy(effect);
+  huntLabel.onUpdate(() => {
+    huntLabel.pos.y -= 30 * k.dt();
+    huntLabel.opacity -= 1.5 * k.dt();
+    if (huntLabel.opacity <= 0) {
+      k.destroy(huntLabel);
     }
   });
+
+  // サンプルテキストがあれば表示
+  if (sampleText) {
+    const textEffect = k.add([
+      k.text(`"${sampleText}"`, { size: 12 }),
+      k.pos(x, y - 40),
+      k.anchor('center'),
+      k.color(200, 220, 255),
+      k.opacity(0),
+    ]);
+
+    // ふわっと表示してフェードアウト
+    let time = 0;
+    textEffect.onUpdate(() => {
+      time += k.dt();
+
+      // 最初の0.3秒でフェードイン
+      if (time < 0.3) {
+        textEffect.opacity = time / 0.3;
+      }
+      // 0.3〜1.5秒は表示
+      else if (time < 1.5) {
+        textEffect.opacity = 1;
+        textEffect.pos.y -= 10 * k.dt();  // ゆっくり上昇
+      }
+      // 1.5秒以降でフェードアウト
+      else {
+        textEffect.opacity -= 1.5 * k.dt();
+        textEffect.pos.y -= 20 * k.dt();
+        if (textEffect.opacity <= 0) {
+          k.destroy(textEffect);
+        }
+      }
+    });
+  }
 }

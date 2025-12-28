@@ -16,6 +16,7 @@ export interface CrawlOptions {
 export interface ElementCount {
   tag: string;
   count: number;
+  sampleTexts: string[];  // サンプルテキスト（最大5個、各30文字まで）
 }
 
 // ページデータ（クロール中）

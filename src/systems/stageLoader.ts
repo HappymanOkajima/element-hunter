@@ -53,6 +53,7 @@ export function convertPageToStage(
   for (const element of page.elements) {
     if (!isValidEnemyTag(element.tag)) continue;
     if (element.tag === 'a') continue;  // aタグはポータルとして別処理
+    if (!element.sampleTexts || element.sampleTexts.length === 0) continue;  // テキストを持たない要素は除外
     if (enemyCount >= MAX_ENEMIES) break;
 
     // このタグの配置数（実際のcount数まで、ただしタグ毎上限あり）
@@ -68,10 +69,17 @@ export function convertPageToStage(
       // Y座標: ランダム
       const y = MARGIN_TOP + Math.random() * playAreaHeight;
 
+      // サンプルテキストを取得（ランダムに1つ選択）
+      const sampleTexts = element.sampleTexts || [];
+      const sampleText = sampleTexts.length > 0
+        ? sampleTexts[Math.floor(Math.random() * sampleTexts.length)]
+        : undefined;
+
       enemies.push({
         type: element.tag,
         x: Math.round(x),
         y: Math.round(y),
+        sampleText,
       });
 
       enemyCount++;

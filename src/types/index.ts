@@ -20,6 +20,7 @@ export interface EnemySpawn {
   type: string;
   x: number;
   y: number;
+  sampleText?: string;  // この敵が持つテキスト
 }
 
 export interface PortalSpawn {
@@ -84,6 +85,7 @@ export interface CrawlPage {
 export interface ElementCount {
   tag: string;
   count: number;
+  sampleTexts: string[];  // サンプルテキスト（最大5個、各30文字まで）
 }
 
 export interface ElementStat {

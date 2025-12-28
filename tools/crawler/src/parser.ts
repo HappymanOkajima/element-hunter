@@ -17,21 +17,44 @@ export interface ParseResult {
 // ページのDOMを解析
 export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> {
   const result = await page.evaluate(() => {
-    // 全要素を取得してタグをカウント
+    // 全要素を取得してタグをカウント + サンプルテキスト収集
     const allElements = document.querySelectorAll('*');
     const tagCount = new Map<string, number>();
+    const tagTexts = new Map<string, string[]>();
 
     allElements.forEach(el => {
       const tag = el.tagName.toLowerCase();
       // script, style, meta等は除外
       if (!['script', 'style', 'meta', 'link', 'noscript'].includes(tag)) {
         tagCount.set(tag, (tagCount.get(tag) || 0) + 1);
+
+        // テキストコンテンツを取得（直接の子テキストのみ、最大5サンプル）
+        const texts = tagTexts.get(tag) || [];
+        if (texts.length < 5) {
+          // 直接のテキストノードのみ取得（子要素のテキストは含まない）
+          let directText = '';
+          el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              directText += node.textContent || '';
+            }
+          });
+          directText = directText.trim().replace(/\s+/g, ' ');
+          // 意味のあるテキストのみ（3文字以上）
+          if (directText.length >= 3) {
+            texts.push(directText.slice(0, 30));
+            tagTexts.set(tag, texts);
+          }
+        }
       }
     });
 
-    // 要素カウントを配列に変換
+    // 要素カウントを配列に変換（サンプルテキスト付き）
     const elements = Array.from(tagCount.entries())
-      .map(([tag, count]) => ({ tag, count }))
+      .map(([tag, count]) => ({
+        tag,
+        count,
+        sampleTexts: tagTexts.get(tag) || []
+      }))
       .sort((a, b) => b.count - a.count);
 
     const totalElementCount = elements.reduce((sum, e) => sum + e.count, 0);

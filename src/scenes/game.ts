@@ -257,7 +257,8 @@ export function gameScene(k: KaboomCtx) {
         enemyData.x,
         enemyData.y,
         () => player,
-        stage.width
+        stage.width,
+        enemyData.sampleText
       );
     });
   }
