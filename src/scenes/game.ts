@@ -437,15 +437,25 @@ export function gameScene(k: KaboomCtx) {
     );
   });
 
-  // --- トップに戻るポータル生成 ---
-  k.add([
-    k.text('[TOP]', { size: 24 }),
-    k.pos(stage.goalX, k.height() / 2),
-    k.area({ shape: new k.Rect(k.vec2(-30, -50), 60, 100) }),
+  // --- トップに戻るポータル生成（ポータルと同じスタイル、右端固定） ---
+  const topPortal = k.add([
+    k.text('[TOP]', { size: 16 }),
+    k.pos(stage.width - 40, k.height() / 2),
+    k.area({ shape: new k.Rect(k.vec2(-25, -15), 50, 30) }),
     k.anchor('center'),
-    k.color(255, 200, 100),
+    k.color(0, 200, 255),  // 水色（ポータルと同じ）
+    k.opacity(1),
     'top-portal',
+    'portal-accessible',  // レーザーで反応するように
   ]);
+
+  // 点滅アニメーション（ポータルと同じ）
+  let topPortalTime = 0;
+  topPortal.onUpdate(() => {
+    if (gamePaused) return;
+    topPortalTime += k.dt() * 3;
+    topPortal.opacity = 0.7 + Math.sin(topPortalTime * 1.5) * 0.3;
+  });
 
   // --- 衝突判定 ---
 
@@ -511,8 +521,8 @@ export function gameScene(k: KaboomCtx) {
     }
   });
 
-  // プレイヤー vs トップポータル（常にトップページに戻る）
-  k.onCollide('player', 'top-portal', () => {
+  // 剣 vs トップポータル（レーザーでトップページに戻る）
+  k.onCollide('sword', 'top-portal', () => {
     // 既にトップページにいる場合は何もしない
     if (currentPageIndex === 0) {
       messageLabel.text = 'Already at top page';
@@ -525,6 +535,12 @@ export function gameScene(k: KaboomCtx) {
     }
 
     // ワープ演出付きで遷移
+    warpToPage(0, '/');
+  });
+
+  // 貫通レーザー vs トップポータル
+  k.onCollide('sword-piercing', 'top-portal', () => {
+    if (currentPageIndex === 0) return;
     warpToPage(0, '/');
   });
 
