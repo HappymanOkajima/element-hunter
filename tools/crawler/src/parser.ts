@@ -1,5 +1,5 @@
 import type { Page } from 'playwright';
-import type { ElementCount } from './types.js';
+import type { ElementCount, SiteStyle } from './types.js';
 
 // DOM解析結果
 export interface ParseResult {
@@ -12,6 +12,11 @@ export interface ParseResult {
   textContent: string;      // ページ要約テキスト（500文字程度）
   imageUrls: string[];      // 主要画像URL（最大5枚）
   ogImage: string | null;   // OGP画像
+}
+
+// サイトスタイル解析結果
+export interface StyleParseResult {
+  siteStyle: SiteStyle;
 }
 
 // ページのDOMを解析
@@ -247,4 +252,103 @@ function normalizeLinks(links: string[], baseUrl: URL): string[] {
   }
 
   return Array.from(internalLinks);
+}
+
+// サイトスタイル情報を取得（トップページから）
+export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
+  const result = await page.evaluate(() => {
+    // ヘルパー: RGB文字列をHexに変換
+    function rgbToHex(rgb: string): string {
+      const match = rgb.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (match) {
+        const r = parseInt(match[1]).toString(16).padStart(2, '0');
+        const g = parseInt(match[2]).toString(16).padStart(2, '0');
+        const b = parseInt(match[3]).toString(16).padStart(2, '0');
+        return `#${r}${g}${b}`;
+      }
+      return rgb;
+    }
+
+    // ヘルパー: 色が明るいかどうか判定
+    function isLightColor(hex: string): boolean {
+      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+      if (!match) return true;
+      const r = parseInt(match[1], 16);
+      const g = parseInt(match[2], 16);
+      const b = parseInt(match[3], 16);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      return luminance > 0.5;
+    }
+
+    // body/htmlの背景色を取得
+    const bodyStyle = getComputedStyle(document.body);
+    const htmlStyle = getComputedStyle(document.documentElement);
+    let backgroundColor = bodyStyle.backgroundColor;
+    if (backgroundColor === 'rgba(0, 0, 0, 0)' || backgroundColor === 'transparent') {
+      backgroundColor = htmlStyle.backgroundColor;
+    }
+    if (backgroundColor === 'rgba(0, 0, 0, 0)' || backgroundColor === 'transparent') {
+      backgroundColor = '#ffffff';  // デフォルト白
+    }
+    backgroundColor = rgbToHex(backgroundColor);
+
+    // テキスト色
+    let textColor = bodyStyle.color;
+    textColor = rgbToHex(textColor);
+
+    // theme-colorメタタグ
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const themeColor = themeColorMeta?.getAttribute('content') || null;
+
+    // リンク色からプライマリカラーを推定
+    const links = document.querySelectorAll('a');
+    const colorCounts = new Map<string, number>();
+    links.forEach(link => {
+      const style = getComputedStyle(link);
+      const color = rgbToHex(style.color);
+      // 黒や白、灰色は除外
+      if (color !== '#000000' && color !== '#ffffff' && !color.match(/^#([0-9a-f])\1\1\1\1\1$/i)) {
+        colorCounts.set(color, (colorCounts.get(color) || 0) + 1);
+      }
+    });
+
+    // 最も使われている色をプライマリカラーに
+    let primaryColor = '#0088ff';  // デフォルト青
+    let maxCount = 0;
+    colorCounts.forEach((count, color) => {
+      if (count > maxCount) {
+        maxCount = count;
+        primaryColor = color;
+      }
+    });
+
+    // ボタンやヘッダーからアクセントカラーを推定
+    const accentElements = document.querySelectorAll('button, .btn, [class*="primary"], header, nav');
+    let accentColor = primaryColor;
+    for (let i = 0; i < accentElements.length; i++) {
+      const el = accentElements[i];
+      const style = getComputedStyle(el);
+      const bg = rgbToHex(style.backgroundColor);
+      // 有効な色があれば採用
+      if (bg !== '#000000' && bg !== '#ffffff' && bg !== 'rgba(0, 0, 0, 0)' && !bg.includes('transparent')) {
+        accentColor = bg;
+        break;
+      }
+    }
+
+    // themeColorがあればそれを優先
+    if (themeColor && themeColor.startsWith('#')) {
+      primaryColor = themeColor;
+    }
+
+    return {
+      backgroundColor,
+      primaryColor,
+      accentColor,
+      textColor,
+      themeColor
+    };
+  });
+
+  return result;
 }

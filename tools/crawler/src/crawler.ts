@@ -1,6 +1,6 @@
 import { chromium, type Browser, type Page } from 'playwright';
-import type { CrawlOptions, CrawlContext, PageData, CrawlOutput, PageOutput } from './types.js';
-import { parsePage } from './parser.js';
+import type { CrawlOptions, CrawlContext, PageData, CrawlOutput, PageOutput, SiteStyle } from './types.js';
+import { parsePage, parseSiteStyle } from './parser.js';
 import {
   detectCommonLinks,
   filterCommonLinks,
@@ -9,6 +9,15 @@ import {
   calculateElementStats,
   calculateRoomWidth,
 } from './analyzer.js';
+
+// デフォルトスタイル
+const DEFAULT_SITE_STYLE: SiteStyle = {
+  backgroundColor: '#ffffff',
+  primaryColor: '#0088ff',
+  accentColor: '#0088ff',
+  textColor: '#333333',
+  themeColor: null,
+};
 
 const CRAWLER_VERSION = '0.1.0';
 
@@ -26,6 +35,7 @@ export async function crawl(options: CrawlOptions): Promise<CrawlOutput> {
   };
 
   let browser: Browser | null = null;
+  let siteStyle: SiteStyle = DEFAULT_SITE_STYLE;
 
   try {
     // ブラウザ起動
@@ -35,11 +45,26 @@ export async function crawl(options: CrawlOptions): Promise<CrawlOutput> {
     // タイムアウト設定
     page.setDefaultTimeout(options.timeout);
 
-    // クロール開始
-    await crawlPage(page, '/', 0, context);
+    // トップページを読み込んでスタイルを取得
+    const fullUrl = new URL('/', baseUrl.origin).toString();
+    await page.goto(fullUrl, { waitUntil: 'networkidle' });
+
+    try {
+      siteStyle = await parseSiteStyle(page);
+      if (options.verbose) {
+        console.log(`Site style: bg=${siteStyle.backgroundColor}, primary=${siteStyle.primaryColor}`);
+      }
+    } catch (e) {
+      if (options.verbose) {
+        console.log('Failed to parse site style, using defaults');
+      }
+    }
+
+    // クロール開始（トップページは既に読み込み済みなので特別処理）
+    await crawlPage(page, '/', 0, context, true);
 
     // 結果を生成
-    return generateOutput(context, options);
+    return generateOutput(context, options, siteStyle);
   } finally {
     if (browser) {
       await browser.close();
@@ -52,7 +77,8 @@ async function crawlPage(
   page: Page,
   path: string,
   depth: number,
-  context: CrawlContext
+  context: CrawlContext,
+  alreadyLoaded: boolean = false
 ): Promise<void> {
   const { options, baseUrl, visited, pages } = context;
 
@@ -85,8 +111,10 @@ async function crawlPage(
   }
 
   try {
-    // ページ読み込み
-    await page.goto(fullUrl, { waitUntil: 'networkidle' });
+    // ページ読み込み（既に読み込み済みの場合はスキップ）
+    if (!alreadyLoaded) {
+      await page.goto(fullUrl, { waitUntil: 'networkidle' });
+    }
 
     // 遅延
     if (options.delay > 0) {
@@ -131,7 +159,7 @@ async function crawlPage(
 }
 
 // 出力データを生成
-function generateOutput(context: CrawlContext, options: CrawlOptions): CrawlOutput {
+function generateOutput(context: CrawlContext, options: CrawlOptions, siteStyle: SiteStyle): CrawlOutput {
   const { pages, baseUrl, startTime } = context;
 
   // 共通リンクを検出
@@ -176,6 +204,7 @@ function generateOutput(context: CrawlContext, options: CrawlOptions): CrawlOutp
       maxDepth: Math.max(...pages.map(p => p.depth), 0),
       crawlDuration: Date.now() - startTime,
     },
+    siteStyle,
     pages: pagesWithFilteredLinks,
     deepestPages: findDeepestPages(pages),
     rareElements: findRareElements(pages),

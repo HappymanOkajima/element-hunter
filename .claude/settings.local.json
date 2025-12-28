@@ -12,7 +12,8 @@
       "Bash(cat:*)",
       "Bash(node -e:*)",
       "Bash(npx tsc:*)",
-      "Bash(node check-texts.js:*)"
+      "Bash(node check-texts.js:*)",
+      "Bash(node dist/index.js:*)"
     ]
   }
 }

@@ -37,6 +37,15 @@ export interface PageData {
   ogImage: string | null;   // OGP画像
 }
 
+// サイトスタイル情報
+export interface SiteStyle {
+  backgroundColor: string;      // 背景色 (hex)
+  primaryColor: string;         // メインカラー (hex)
+  accentColor: string;          // アクセントカラー (hex)
+  textColor: string;            // テキスト色 (hex)
+  themeColor: string | null;    // meta theme-color
+}
+
 // クロール出力JSON
 export interface CrawlOutput {
   siteId: string;
@@ -50,6 +59,7 @@ export interface CrawlOutput {
     maxDepth: number;
     crawlDuration: number;
   };
+  siteStyle: SiteStyle;         // サイトスタイル情報
   pages: PageOutput[];
   deepestPages: string[];
   rareElements: string[];

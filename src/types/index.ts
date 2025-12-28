@@ -48,6 +48,15 @@ export interface PlayerState {
   direction: Direction;
 }
 
+// サイトスタイル情報
+export interface SiteStyle {
+  backgroundColor: string;      // 背景色 (hex)
+  primaryColor: string;         // メインカラー (hex)
+  accentColor: string;          // アクセントカラー (hex)
+  textColor: string;            // テキスト色 (hex)
+  themeColor: string | null;    // meta theme-color
+}
+
 // クロールJSONの型定義
 export interface CrawlOutput {
   siteId: string;
@@ -61,6 +70,7 @@ export interface CrawlOutput {
     maxDepth: number;
     crawlDuration: number;
   };
+  siteStyle?: SiteStyle;        // サイトスタイル情報（オプショナル、後方互換性）
   pages: CrawlPage[];
   deepestPages: string[];
   rareElements: string[];

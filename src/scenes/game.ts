@@ -106,6 +106,68 @@ export function gameScene(k: KaboomCtx) {
     });
   }
 
+  // --- 背景描画 ---
+
+  // サイトスタイルから背景色を取得（暗くして使用）
+  function getSiteBackgroundColors(): { bg: [number, number, number]; accent: [number, number, number] } {
+    const defaultBg: [number, number, number] = [20, 20, 30];
+    const defaultAccent: [number, number, number] = [40, 40, 60];
+
+    if (!crawlData?.siteStyle) {
+      return { bg: defaultBg, accent: defaultAccent };
+    }
+
+    const style = crawlData.siteStyle;
+
+    // 16進数をRGBに変換して暗くする
+    function hexToRgbDark(hex: string, factor: number = 0.15): [number, number, number] {
+      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+      if (!match) return defaultBg;
+      return [
+        Math.floor(parseInt(match[1], 16) * factor),
+        Math.floor(parseInt(match[2], 16) * factor),
+        Math.floor(parseInt(match[3], 16) * factor),
+      ];
+    }
+
+    const bg = hexToRgbDark(style.backgroundColor, 0.1);
+    const accent = hexToRgbDark(style.primaryColor, 0.2);
+
+    return { bg, accent };
+  }
+
+  const { bg, accent } = getSiteBackgroundColors();
+
+  // 背景グラデーション風（複数の矩形でレイヤー表現）
+  // ベース背景
+  k.add([
+    k.rect(stage.width, k.height()),
+    k.pos(0, 0),
+    k.color(...bg),
+    k.z(-100),
+  ]);
+
+  // グリッドパターン（サイトの雰囲気を出す）
+  const gridSize = 50;
+  for (let x = 0; x < stage.width; x += gridSize) {
+    k.add([
+      k.rect(1, k.height()),
+      k.pos(x, 0),
+      k.color(...accent),
+      k.opacity(0.3),
+      k.z(-99),
+    ]);
+  }
+  for (let y = 0; y < k.height(); y += gridSize) {
+    k.add([
+      k.rect(stage.width, 1),
+      k.pos(0, y),
+      k.color(...accent),
+      k.opacity(0.3),
+      k.z(-99),
+    ]);
+  }
+
   // --- UI描画 ---
 
   // HP表示ラベル
