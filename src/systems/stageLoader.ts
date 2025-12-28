@@ -49,6 +49,7 @@ export function convertPageToStage(
   // 要素を敵として配置（aタグはポータルなので除外）
   let enemyCount = 0;
   let xOffset = 0;
+  const usedImageUrls = new Set<string>();  // 使用済み画像URLを追跡
 
   for (const element of page.elements) {
     if (!isValidEnemyTag(element.tag)) continue;
@@ -68,42 +69,52 @@ export function convertPageToStage(
 
     if (enemyCount >= MAX_ENEMIES) break;
 
-    // このタグの配置数（実際のcount数まで、ただしタグ毎上限あり）
-    const spawnCount = Math.min(element.count, MAX_ENEMIES_PER_TAG);
+    // imgタグ: ユニークな画像URLごとに1体ずつ配置
+    // その他タグ: 従来通りspawnCount体配置
+    if (isImg) {
+      for (const imageUrl of validImageUrls) {
+        if (enemyCount >= MAX_ENEMIES) break;
+        if (usedImageUrls.has(imageUrl)) continue;  // 既に使用済みの画像はスキップ
 
-    for (let i = 0; i < spawnCount; i++) {
-      if (enemyCount >= MAX_ENEMIES) break;
+        usedImageUrls.add(imageUrl);
 
-      // X座標: 左から右へ順番に配置
-      const x = MARGIN_LEFT + (xOffset % playAreaWidth);
-      xOffset += playAreaWidth / MAX_ENEMIES;
+        const x = MARGIN_LEFT + (xOffset % playAreaWidth);
+        xOffset += playAreaWidth / MAX_ENEMIES;
+        const y = MARGIN_TOP + Math.random() * playAreaHeight;
 
-      // Y座標: ランダム
-      const y = MARGIN_TOP + Math.random() * playAreaHeight;
+        enemies.push({
+          type: element.tag,
+          x: Math.round(x),
+          y: Math.round(y),
+          sampleImageUrl: imageUrl,
+        });
 
-      // サンプルテキスト/画像URLを取得（ランダムに1つ選択、フィルタリング済み配列を使用）
-      let sampleText: string | undefined;
-      let sampleImageUrl: string | undefined;
+        enemyCount++;
+      }
+    } else {
+      // このタグの配置数（実際のcount数まで、ただしタグ毎上限あり）
+      const spawnCount = Math.min(element.count, MAX_ENEMIES_PER_TAG);
 
-      if (isImg) {
-        sampleImageUrl = validImageUrls.length > 0
-          ? validImageUrls[Math.floor(Math.random() * validImageUrls.length)]
-          : undefined;
-      } else {
-        sampleText = validTexts.length > 0
+      for (let i = 0; i < spawnCount; i++) {
+        if (enemyCount >= MAX_ENEMIES) break;
+
+        const x = MARGIN_LEFT + (xOffset % playAreaWidth);
+        xOffset += playAreaWidth / MAX_ENEMIES;
+        const y = MARGIN_TOP + Math.random() * playAreaHeight;
+
+        const sampleText = validTexts.length > 0
           ? validTexts[Math.floor(Math.random() * validTexts.length)]
           : undefined;
+
+        enemies.push({
+          type: element.tag,
+          x: Math.round(x),
+          y: Math.round(y),
+          sampleText,
+        });
+
+        enemyCount++;
       }
-
-      enemies.push({
-        type: element.tag,
-        x: Math.round(x),
-        y: Math.round(y),
-        sampleText,
-        sampleImageUrl,
-      });
-
-      enemyCount++;
     }
   }
 
