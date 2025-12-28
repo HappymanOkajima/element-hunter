@@ -221,7 +221,6 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   const manualLines = [
     'MOVE ........ ARROW KEYS / STICK',
     'FIRE ........ SPACE KEY / BUTTON',
-    'BOOST ....... SPEED = POWER!',
   ];
   for (const line of manualLines) {
     k.add([
@@ -251,6 +250,15 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   k.add([
     k.text(' TO WARP', { size: 11 }),
     k.pos(k.width() / 2 + 75, yOffset),
+    k.anchor('center'),
+    k.color(150, 150, 150),
+  ]);
+  yOffset += 14;
+
+  // HINT2: SPEED = POWER!
+  k.add([
+    k.text('HINT: SPEED = POWER!', { size: 11 }),
+    k.pos(k.width() / 2, yOffset),
     k.anchor('center'),
     k.color(150, 150, 150),
   ]);
