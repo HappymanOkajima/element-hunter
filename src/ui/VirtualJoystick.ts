@@ -137,63 +137,92 @@ export class VirtualJoystick {
     this.setupTouchEvents();
   }
 
-  // タッチイベント設定
+  // タッチイベント設定（ネイティブDOM イベント使用）
   private setupTouchEvents(): void {
-    const k = this.k;
+    const canvas = this.k.canvas;
+
+    // キャンバス座標に変換
+    const getCanvasPos = (touch: Touch): { x: number; y: number } => {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = this.k.width() / rect.width;
+      const scaleY = this.k.height() / rect.height;
+      return {
+        x: (touch.clientX - rect.left) * scaleX,
+        y: (touch.clientY - rect.top) * scaleY,
+      };
+    };
 
     // タッチ開始
-    k.onTouchStart((pos, touch) => {
-      const touchId = touch.identifier;
+    canvas.addEventListener('touchstart', (e: TouchEvent) => {
+      e.preventDefault();
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const touch = e.changedTouches[i];
+        const pos = getCanvasPos(touch);
+        const touchId = touch.identifier;
 
-      // ジョイスティック領域チェック
-      if (this.isInJoystickArea(pos) && this.joystickTouchId === null) {
-        this.joystickTouchId = touchId;
-        this.updateJoystick(pos);
-        return;
-      }
-
-      // 攻撃ボタンチェック
-      if (this.isInFireButton(pos) && this.fireTouchId === null) {
-        this.fireTouchId = touchId;
-        this.state.firePressed = true;
-        if (this.fireButton) {
-          this.fireButton.opacity = 0.8;
+        // ジョイスティック領域チェック
+        if (this.isInJoystickArea(pos) && this.joystickTouchId === null) {
+          this.joystickTouchId = touchId;
+          this.updateJoystick(pos);
+          continue;
         }
-        return;
-      }
 
-      // ポーズボタンチェック
-      if (this.isInPauseButton(pos)) {
-        this.state.pausePressed = true;
-        return;
+        // 攻撃ボタンチェック
+        if (this.isInFireButton(pos) && this.fireTouchId === null) {
+          this.fireTouchId = touchId;
+          this.state.firePressed = true;
+          if (this.fireButton) {
+            this.fireButton.opacity = 0.8;
+          }
+          continue;
+        }
+
+        // ポーズボタンチェック
+        if (this.isInPauseButton(pos)) {
+          this.state.pausePressed = true;
+          continue;
+        }
       }
-    });
+    }, { passive: false });
 
     // タッチ移動
-    k.onTouchMove((pos, touch) => {
-      if (touch.identifier === this.joystickTouchId) {
-        this.updateJoystick(pos);
-      }
-    });
-
-    // タッチ終了
-    k.onTouchEnd((_pos, touch) => {
-      // ジョイスティック解除
-      if (touch.identifier === this.joystickTouchId) {
-        this.joystickTouchId = null;
-        this.state.moveX = 0;
-        this.state.moveY = 0;
-        this.resetKnobPosition();
-      }
-
-      // 攻撃ボタン解除
-      if (touch.identifier === this.fireTouchId) {
-        this.fireTouchId = null;
-        if (this.fireButton) {
-          this.fireButton.opacity = 0.5;
+    canvas.addEventListener('touchmove', (e: TouchEvent) => {
+      e.preventDefault();
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const touch = e.changedTouches[i];
+        if (touch.identifier === this.joystickTouchId) {
+          const pos = getCanvasPos(touch);
+          this.updateJoystick(pos);
         }
       }
-    });
+    }, { passive: false });
+
+    // タッチ終了
+    const handleTouchEnd = (e: TouchEvent) => {
+      e.preventDefault();
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const touch = e.changedTouches[i];
+
+        // ジョイスティック解除
+        if (touch.identifier === this.joystickTouchId) {
+          this.joystickTouchId = null;
+          this.state.moveX = 0;
+          this.state.moveY = 0;
+          this.resetKnobPosition();
+        }
+
+        // 攻撃ボタン解除
+        if (touch.identifier === this.fireTouchId) {
+          this.fireTouchId = null;
+          if (this.fireButton) {
+            this.fireButton.opacity = 0.5;
+          }
+        }
+      }
+    };
+
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
   }
 
   // ジョイスティック領域判定
