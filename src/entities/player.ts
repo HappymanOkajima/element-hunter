@@ -201,8 +201,8 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     state.isAttacking = true;
 
     const dirVec = DIRECTION_VECTORS[state.direction];
-    const laserLength = 35;
-    const laserWidth = 4;
+    const laserLength = 50;
+    const laserWidth = 8;
 
     // レーザーの開始位置（宇宙船の先端）
     const startX = player.pos.x + dirVec.x * shipSize;

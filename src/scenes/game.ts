@@ -264,7 +264,8 @@ export function gameScene(k: KaboomCtx) {
   function updateHpDisplay() {
     if (!player) return;
     const state = player.getState();
-    const hearts = '*'.repeat(state.hp) + '-'.repeat(state.maxHp - state.hp);
+    const hp = Math.max(0, state.hp);
+    const hearts = '*'.repeat(hp) + '-'.repeat(state.maxHp - hp);
     hpLabel.text = `HP: ${hearts}`;
   }
 
