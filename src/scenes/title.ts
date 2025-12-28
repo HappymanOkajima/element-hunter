@@ -276,12 +276,9 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   let selectedMode: GameMode = 'normal';
   let isStarting = false;
 
-  // 選択ラベル説明（タッチデバイスでは異なる説明）
-  const modeInstructionText = isTouch
-    ? 'USE JOYSTICK, THEN FIRE'
-    : 'CHOOSE MODE, THEN PRESS SPACE';
+  // 選択ラベル説明
   k.add([
-    k.text(modeInstructionText, { size: 14 }),
+    k.text('SELECT MODE TO START', { size: 14 }),
     k.pos(k.width() / 2, yOffset),
     k.anchor('center'),
     k.color(150, 150, 150),
