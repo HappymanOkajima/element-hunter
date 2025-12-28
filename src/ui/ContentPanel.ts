@@ -107,7 +107,7 @@ export class ContentPanel {
         const safeHtml = this.sanitizeHtml(page.textContent || '');
         this.pageContentEl.innerHTML = `<div class="content">${safeHtml || 'No content available'}</div>`;
       } else {
-        this.pageContentEl.innerHTML = '<div class="locked">Stop all enemies to unlock content</div>';
+        this.pageContentEl.innerHTML = '<div class="locked">HUNT ALL ELEMENTS TO UNLOCK CONTENT</div>';
       }
     }
 
