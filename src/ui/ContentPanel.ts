@@ -38,7 +38,10 @@ export class ContentPanel {
 
     this.targetListEl.innerHTML = targets.map(path => {
       const page = this.allPages.find(p => p.path === path);
-      const title = page?.title.slice(0, 30) || path;
+      const fullTitle = page?.title || path;
+      const isNarrow = window.innerWidth < 900;
+      const maxLen = isNarrow ? 20 : 50;
+      const title = fullTitle.length > maxLen ? fullTitle.slice(0, maxLen) + '...' : fullTitle;
       const isCleared = gameState.isPageCleared(path);
       const isCurrent = path === currentPath;
 
@@ -49,7 +52,7 @@ export class ContentPanel {
       return `
         <li class="${className}">
           <span class="target-check">${isCleared ? '✓' : '○'}</span>
-          <span>${title}${title.length >= 30 ? '...' : ''}</span>
+          <span>${title}</span>
         </li>
       `;
     }).join('');
@@ -92,9 +95,11 @@ export class ContentPanel {
 
   // 現在のページコンテンツを更新
   updateContent(page: CrawlPage, isUnlocked: boolean): void {
-    // タイトルとパス
+    // タイトルとパス（画面幅に応じて省略）
     if (this.pageTitleEl) {
-      this.pageTitleEl.textContent = page.title.slice(0, 50) + (page.title.length > 50 ? '...' : '');
+      const isNarrow = window.innerWidth < 900;
+      const maxLen = isNarrow ? 20 : 50;
+      this.pageTitleEl.textContent = page.title.slice(0, maxLen) + (page.title.length > maxLen ? '...' : '');
     }
     if (this.pagePathEl) {
       this.pagePathEl.textContent = page.path;
