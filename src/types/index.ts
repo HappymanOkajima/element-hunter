@@ -115,6 +115,8 @@ export interface EnemySnapshot {
   y: number;
   hp: number;
   stopped: boolean;
+  sampleText?: string;
+  sampleImageUrl?: string;
 }
 
 export interface PageState {

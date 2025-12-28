@@ -32,6 +32,8 @@ export interface EnemyObject extends EnemyBaseObj {
   isStopped: () => boolean;
   getHp: () => number;
   getId: () => string;
+  getSampleText: () => string | undefined;
+  getSampleImageUrl: () => string | undefined;
   setInitialState: (hp: number, stopped: boolean, x: number, y: number) => void;
 }
 
@@ -85,6 +87,8 @@ export function createEnemy(
   enemy.isStopped = () => stopped;
   enemy.getHp = () => hp;
   enemy.getId = () => enemyId;
+  enemy.getSampleText = () => sampleText;
+  enemy.getSampleImageUrl = () => sampleImageUrl;
 
   // 初期状態を設定（ページ再訪問時に使用）
   enemy.setInitialState = (initialHp: number, initialStopped: boolean, x: number, y: number) => {

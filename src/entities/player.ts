@@ -1,25 +1,25 @@
-import type { GameObj, KaboomCtx, TextComp, PosComp, AreaComp, AnchorComp, ColorComp } from 'kaboom';
+import type { GameObj, KaboomCtx, PosComp, AreaComp, AnchorComp, ColorComp, RotateComp, OpacityComp } from 'kaboom';
 import type { Direction, PlayerState } from '../types';
 import { contentPanel } from '../ui/ContentPanel';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
   speed: 200,
-  attackDuration: 0.2,
-  attackRange: 40,
+  attackDuration: 0.15,
+  attackRange: 50,
   invincibleTime: 1.0,
 };
 
-// 方向に対応する表示文字
-const DIRECTION_CHARS: Record<Direction, string> = {
-  'up': '^',
-  'down': 'v',
-  'left': '<',
-  'right': '>',
-  'up-left': '<',
-  'up-right': '>',
-  'down-left': '<',
-  'down-right': '>',
+// 方向に対応する角度（度）
+const DIRECTION_ANGLES: Record<Direction, number> = {
+  'up': -90,
+  'down': 90,
+  'left': 180,
+  'right': 0,
+  'up-left': -135,
+  'up-right': -45,
+  'down-left': 135,
+  'down-right': 45,
 };
 
 // 方向に対応するベクトル
@@ -47,7 +47,7 @@ function getDirection(x: number, y: number): Direction {
   return 'right';
 }
 
-type PlayerBaseObj = GameObj<TextComp | PosComp | AreaComp | AnchorComp | ColorComp>;
+type PlayerBaseObj = GameObj<PosComp | AreaComp | AnchorComp | ColorComp | RotateComp | OpacityComp>;
 
 export interface PlayerObject extends PlayerBaseObj {
   getState: () => PlayerState;
@@ -65,16 +65,46 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
   let isInvincible = false;
   let blinkTimer: ReturnType<typeof setInterval> | null = null;
+  let isMoving = false;
 
-  // プレイヤーオブジェクト（当たり判定は見た目より小さく）
+  // 宇宙船の形状（三角形ベース）
+  // 右向き（0度）がデフォルト
+  const shipSize = 16;
+  const shipPoints = [
+    k.vec2(shipSize, 0),         // 機首（右端）
+    k.vec2(-shipSize, -shipSize * 0.7),  // 左上翼
+    k.vec2(-shipSize * 0.5, 0),  // 中央くぼみ
+    k.vec2(-shipSize, shipSize * 0.7),   // 左下翼
+  ];
+
+  // プレイヤーオブジェクト（ポリゴンで宇宙船を描画）
   const player = k.add([
-    k.text('>', { size: 32 }),
+    k.polygon(shipPoints),
     k.pos(100, 300),
-    k.area({ shape: new k.Rect(k.vec2(-4, -4), 8, 8) }),
+    k.area({ shape: new k.Rect(k.vec2(-8, -8), 16, 16) }),
     k.anchor('center'),
-    k.color(255, 255, 255),
+    k.color(100, 200, 255),
+    k.rotate(0),
+    k.opacity(1),
+    k.outline(2, k.rgb(200, 230, 255)),
     'player',
   ]) as unknown as PlayerObject;
+
+  // エンジン噴射エフェクト（宇宙船の後ろに配置）
+  const thruster = k.add([
+    k.polygon([
+      k.vec2(0, 0),
+      k.vec2(-12, -5),
+      k.vec2(-12, 5),
+    ]),
+    k.pos(player.pos.x, player.pos.y),
+    k.anchor('center'),
+    k.color(255, 150, 50),
+    k.rotate(0),
+    k.opacity(0.8),
+    k.z(-1),
+    'thruster',
+  ]);
 
   // カスタムメソッドを追加
   player.getState = () => state;
@@ -88,7 +118,11 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     if (state.hp <= 0) {
       if (blinkTimer) clearInterval(blinkTimer);
       contentPanel.stopTimer();
-      k.go('gameover');
+      // 爆発エフェクト
+      spawnExplosion(k, player.pos.x, player.pos.y);
+      k.wait(0.5, () => {
+        k.go('gameover');
+      });
       return;
     }
 
@@ -98,12 +132,12 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     // 点滅エフェクト
     let blinkCount = 0;
     blinkTimer = setInterval(() => {
-      player.hidden = !player.hidden;
+      player.opacity = player.opacity === 1 ? 0.3 : 1;
       blinkCount++;
       if (blinkCount > 10) {
         if (blinkTimer) clearInterval(blinkTimer);
         blinkTimer = null;
-        player.hidden = false;
+        player.opacity = 1;
         isInvincible = false;
       }
     }, 100);
@@ -121,6 +155,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
     // 移動がある場合
     if (dir.x !== 0 || dir.y !== 0) {
+      isMoving = true;
       // 正規化（斜め移動の速度補正）
       const normalized = dir.unit();
       player.move(normalized.scale(PLAYER_CONFIG.speed));
@@ -128,10 +163,30 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
       // 方向更新
       state.direction = getDirection(dir.x, dir.y);
 
-      // 表示文字更新（攻撃中でなければ）
-      if (!state.isAttacking) {
-        player.text = DIRECTION_CHARS[state.direction];
-      }
+      // 宇宙船の向きを更新
+      player.angle = DIRECTION_ANGLES[state.direction];
+    } else {
+      isMoving = false;
+    }
+
+    // エンジン噴射の更新
+    const dirVec = DIRECTION_VECTORS[state.direction];
+    thruster.pos.x = player.pos.x - dirVec.x * shipSize;
+    thruster.pos.y = player.pos.y - dirVec.y * shipSize;
+    thruster.angle = DIRECTION_ANGLES[state.direction];
+
+    // 移動中のみ噴射を表示（ちらつき効果）
+    if (isMoving) {
+      thruster.opacity = 0.6 + Math.random() * 0.4;
+      // 噴射の長さを変動
+      const thrustLength = 10 + Math.random() * 8;
+      thruster.pts = [
+        k.vec2(0, 0),
+        k.vec2(-thrustLength, -4),
+        k.vec2(-thrustLength, 4),
+      ];
+    } else {
+      thruster.opacity = 0;
     }
 
     // ステージ内に制限
@@ -139,29 +194,66 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     player.pos.y = Math.max(50, Math.min(550, player.pos.y));
   });
 
-  // 攻撃処理
+  // レーザー攻撃処理
   function attack() {
     if (state.isAttacking) return;
 
     state.isAttacking = true;
 
     const dirVec = DIRECTION_VECTORS[state.direction];
-    const swordX = player.pos.x + dirVec.x * PLAYER_CONFIG.attackRange;
-    const swordY = player.pos.y + dirVec.y * PLAYER_CONFIG.attackRange;
+    const laserLength = 35;
+    const laserWidth = 4;
 
-    // 剣オブジェクト生成
-    const sword = k.add([
-      k.text('+', { size: 24 }),
-      k.pos(swordX, swordY),
-      k.area({ shape: new k.Rect(k.vec2(-15, -15), 30, 30) }),
+    // レーザーの開始位置（宇宙船の先端）
+    const startX = player.pos.x + dirVec.x * shipSize;
+    const startY = player.pos.y + dirVec.y * shipSize;
+
+    // レーザーの中心位置
+    const laserX = startX + dirVec.x * (laserLength / 2);
+    const laserY = startY + dirVec.y * (laserLength / 2);
+
+    // レーザービーム生成
+    const laser = k.add([
+      k.rect(laserLength, laserWidth),
+      k.pos(laserX, laserY),
+      k.area(),
       k.anchor('center'),
       k.color(255, 255, 100),
-      'sword',
+      k.rotate(DIRECTION_ANGLES[state.direction]),
+      k.opacity(1),
+      k.outline(1, k.rgb(255, 200, 50)),
+      'sword',  // 既存の衝突判定を維持
     ]);
+
+    // レーザーのグロー効果
+    const glow = k.add([
+      k.rect(laserLength + 4, laserWidth + 4),
+      k.pos(laserX, laserY),
+      k.anchor('center'),
+      k.color(255, 255, 200),
+      k.rotate(DIRECTION_ANGLES[state.direction]),
+      k.opacity(0.4),
+      k.z(-1),
+    ]);
+
+    // 発射時のマズルフラッシュ
+    const flash = k.add([
+      k.circle(8),
+      k.pos(startX, startY),
+      k.anchor('center'),
+      k.color(255, 255, 200),
+      k.opacity(0.8),
+    ]);
+
+    // フラッシュを即座に消す
+    k.wait(0.05, () => {
+      k.destroy(flash);
+    });
 
     // 一定時間後に消える
     k.wait(PLAYER_CONFIG.attackDuration, () => {
-      k.destroy(sword);
+      k.destroy(laser);
+      k.destroy(glow);
       state.isAttacking = false;
     });
   }
@@ -171,4 +263,29 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
   k.onKeyPress('z', attack);
 
   return player;
+}
+
+// 爆発エフェクト
+function spawnExplosion(k: KaboomCtx, x: number, y: number) {
+  const particleCount = 12;
+  for (let i = 0; i < particleCount; i++) {
+    const angle = (i / particleCount) * Math.PI * 2;
+    const speed = 80 + Math.random() * 60;
+    const particle = k.add([
+      k.circle(4 + Math.random() * 4),
+      k.pos(x, y),
+      k.anchor('center'),
+      k.color(255, 150 + Math.random() * 100, 50),
+      k.opacity(1),
+    ]);
+
+    particle.onUpdate(() => {
+      particle.pos.x += Math.cos(angle) * speed * k.dt();
+      particle.pos.y += Math.sin(angle) * speed * k.dt();
+      particle.opacity -= 2 * k.dt();
+      if (particle.opacity <= 0) {
+        k.destroy(particle);
+      }
+    });
+  }
 }

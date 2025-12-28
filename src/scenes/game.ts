@@ -152,33 +152,84 @@ export function gameScene(k: KaboomCtx) {
 
   const { bg, grid } = getSiteBackgroundColors();
 
+  // 明るい背景色（クリア時用）
+  const brightBg: [number, number, number] = [
+    Math.min(255, bg[0] + 60),
+    Math.min(255, bg[1] + 60),
+    Math.min(255, bg[2] + 40),
+  ];
+  const brightGrid: [number, number, number] = [
+    Math.min(255, grid[0] + 80),
+    Math.min(255, grid[1] + 80),
+    Math.min(255, grid[2] + 60),
+  ];
+
   // ベース背景
-  k.add([
+  const bgRect = k.add([
     k.rect(stage.width, k.height()),
     k.pos(0, 0),
     k.color(...bg),
     k.z(-100),
+    'background',
   ]);
 
   // グリッドパターン（サイトの雰囲気を出す）
   const gridSize = 50;
+  type GridLine = ReturnType<typeof k.add> & { color: ReturnType<typeof k.rgb>; opacity: number };
+  const gridLines: GridLine[] = [];
   for (let x = 0; x < stage.width; x += gridSize) {
-    k.add([
+    const line = k.add([
       k.rect(1, k.height()),
       k.pos(x, 0),
       k.color(...grid),
       k.opacity(0.5),
       k.z(-99),
-    ]);
+      'grid-line',
+    ]) as GridLine;
+    gridLines.push(line);
   }
   for (let y = 0; y < k.height(); y += gridSize) {
-    k.add([
+    const line = k.add([
       k.rect(stage.width, 1),
       k.pos(0, y),
       k.color(...grid),
       k.opacity(0.5),
       k.z(-99),
-    ]);
+      'grid-line',
+    ]) as GridLine;
+    gridLines.push(line);
+  }
+
+  // 背景を明るくする演出
+  function brightenBackground() {
+    // 背景色をアニメーション
+    k.tween(
+      0, 1, 0.5,
+      (t) => {
+        bgRect.color = k.rgb(
+          bg[0] + (brightBg[0] - bg[0]) * t,
+          bg[1] + (brightBg[1] - bg[1]) * t,
+          bg[2] + (brightBg[2] - bg[2]) * t
+        );
+      },
+      k.easings.easeOutQuad
+    );
+
+    // グリッド色もアニメーション
+    gridLines.forEach(line => {
+      k.tween(
+        0, 1, 0.5,
+        (t) => {
+          line.color = k.rgb(
+            grid[0] + (brightGrid[0] - grid[0]) * t,
+            grid[1] + (brightGrid[1] - grid[1]) * t,
+            grid[2] + (brightGrid[2] - grid[2]) * t
+          );
+          line.opacity = 0.5 + 0.3 * t;  // グリッドも明るく
+        },
+        k.easings.easeOutQuad
+      );
+    });
   }
 
   // --- UI描画 ---
@@ -240,6 +291,9 @@ export function gameScene(k: KaboomCtx) {
     pageCleared = true;
     const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
 
+    // 背景を明るくする演出
+    brightenBackground();
+
     // ターゲットページならクリア登録
     if (gameState.isTargetPage(currentPath)) {
       gameState.markPageCleared(currentPath);
@@ -273,6 +327,8 @@ export function gameScene(k: KaboomCtx) {
       y: e.pos.y,
       hp: e.getHp(),
       stopped: e.isStopped(),
+      sampleText: e.getSampleText(),
+      sampleImageUrl: e.getSampleImageUrl(),
     }));
 
     gameState.savePageState(currentPath, enemySnapshots, pageCleared);
@@ -310,6 +366,16 @@ export function gameScene(k: KaboomCtx) {
   if (savedState && savedState.enemies.length > 0) {
     // 保存された敵状態を復元
     pageCleared = savedState.cleared;
+
+    // クリア済みの場合は背景を即座に明るくする
+    if (pageCleared) {
+      bgRect.color = k.rgb(...brightBg);
+      gridLines.forEach(line => {
+        line.color = k.rgb(...brightGrid);
+        line.opacity = 0.8;
+      });
+    }
+
     savedState.enemies.forEach((snapshot) => {
       const enemy = createEnemy(
         k,
@@ -317,7 +383,9 @@ export function gameScene(k: KaboomCtx) {
         snapshot.x,
         snapshot.y,
         () => player,
-        stage.width
+        stage.width,
+        snapshot.sampleText,
+        snapshot.sampleImageUrl
       );
       if (enemy) {
         enemy.setInitialState(snapshot.hp, snapshot.stopped, snapshot.x, snapshot.y);

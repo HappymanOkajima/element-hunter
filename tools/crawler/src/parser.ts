@@ -280,6 +280,31 @@ export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
       return luminance > 0.5;
     }
 
+    // ヘルパー: 色の彩度を計算（0-1）
+    function getSaturation(hex: string): number {
+      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+      if (!match) return 0;
+      const r = parseInt(match[1], 16) / 255;
+      const g = parseInt(match[2], 16) / 255;
+      const b = parseInt(match[3], 16) / 255;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      if (max === 0) return 0;
+      return (max - min) / max;
+    }
+
+    // ヘルパー: 無彩色（白、黒、グレー）かどうか判定
+    function isNeutralColor(hex: string): boolean {
+      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+      if (!match) return true;
+      const r = parseInt(match[1], 16);
+      const g = parseInt(match[2], 16);
+      const b = parseInt(match[3], 16);
+      // RGB値が近ければグレー系
+      const diff = Math.max(r, g, b) - Math.min(r, g, b);
+      return diff < 30;  // 差が30未満ならほぼ無彩色
+    }
+
     // body/htmlの背景色を取得
     const bodyStyle = getComputedStyle(document.body);
     const htmlStyle = getComputedStyle(document.documentElement);
@@ -300,41 +325,85 @@ export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     const themeColor = themeColorMeta?.getAttribute('content') || null;
 
-    // リンク色からプライマリカラーを推定
-    const links = document.querySelectorAll('a');
-    const colorCounts = new Map<string, number>();
-    links.forEach(link => {
-      const style = getComputedStyle(link);
-      const color = rgbToHex(style.color);
-      // 黒や白、灰色は除外
-      if (color !== '#000000' && color !== '#ffffff' && !color.match(/^#([0-9a-f])\1\1\1\1\1$/i)) {
-        colorCounts.set(color, (colorCounts.get(color) || 0) + 1);
-      }
-    });
+    // 鮮やかな色を収集（彩度でスコアリング）
+    const colorScores = new Map<string, number>();
 
-    // 最も使われている色をプライマリカラーに
-    let primaryColor = '#0088ff';  // デフォルト青
-    let maxCount = 0;
-    colorCounts.forEach((count, color) => {
-      if (count > maxCount) {
-        maxCount = count;
-        primaryColor = color;
-      }
-    });
-
-    // ボタンやヘッダーからアクセントカラーを推定
-    const accentElements = document.querySelectorAll('button, .btn, [class*="primary"], header, nav');
-    let accentColor = primaryColor;
+    // 1. ボタン、CTA、アクセント要素から背景色を優先的に収集
+    const accentSelectors = [
+      'button', '.btn', '[class*="btn"]', '[class*="button"]',
+      '[class*="cta"]', '[class*="primary"]', '[class*="accent"]',
+      '[class*="hero"]', '[class*="banner"]', '[class*="highlight"]',
+      'a[class*="btn"]', 'a[class*="button"]'
+    ];
+    const accentElements = document.querySelectorAll(accentSelectors.join(', '));
     for (let i = 0; i < accentElements.length; i++) {
       const el = accentElements[i];
       const style = getComputedStyle(el);
       const bg = rgbToHex(style.backgroundColor);
-      // 有効な色があれば採用
-      if (bg !== '#000000' && bg !== '#ffffff' && bg !== 'rgba(0, 0, 0, 0)' && !bg.includes('transparent')) {
-        accentColor = bg;
-        break;
+      if (!isNeutralColor(bg) && getSaturation(bg) > 0.3) {
+        // ボタン/CTAの色は高スコア
+        colorScores.set(bg, (colorScores.get(bg) || 0) + 10);
       }
     }
+
+    // 2. ヘッダー、ナビゲーションから背景色を収集
+    const headerElements = document.querySelectorAll('header, nav, [class*="header"], [class*="nav"]');
+    for (let i = 0; i < headerElements.length; i++) {
+      const el = headerElements[i];
+      const style = getComputedStyle(el);
+      const bg = rgbToHex(style.backgroundColor);
+      if (!isNeutralColor(bg) && getSaturation(bg) > 0.3) {
+        colorScores.set(bg, (colorScores.get(bg) || 0) + 5);
+      }
+    }
+
+    // 3. リンク色も収集（スコア低め）
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      const style = getComputedStyle(link);
+      const color = rgbToHex(style.color);
+      if (!isNeutralColor(color) && getSaturation(color) > 0.3) {
+        colorScores.set(color, (colorScores.get(color) || 0) + 1);
+      }
+    });
+
+    // 4. 見出しや強調要素の色も収集
+    const headings = document.querySelectorAll('h1, h2, h3, strong, em, [class*="title"]');
+    for (let i = 0; i < headings.length; i++) {
+      const el = headings[i];
+      const style = getComputedStyle(el);
+      const color = rgbToHex(style.color);
+      if (!isNeutralColor(color) && getSaturation(color) > 0.3) {
+        colorScores.set(color, (colorScores.get(color) || 0) + 2);
+      }
+    }
+
+    // 最も高スコアの色をプライマリカラーに（彩度も考慮）
+    let primaryColor = '#ff8800';  // デフォルトオレンジ
+    let maxScore = 0;
+    colorScores.forEach((score, color) => {
+      // 彩度によるボーナス
+      const saturationBonus = getSaturation(color) * 5;
+      const totalScore = score + saturationBonus;
+      if (totalScore > maxScore) {
+        maxScore = totalScore;
+        primaryColor = color;
+      }
+    });
+
+    // アクセントカラー（プライマリと異なる2番目に高スコアの色）
+    let accentColor = primaryColor;
+    let secondMaxScore = 0;
+    colorScores.forEach((score, color) => {
+      if (color !== primaryColor) {
+        const saturationBonus = getSaturation(color) * 5;
+        const totalScore = score + saturationBonus;
+        if (totalScore > secondMaxScore) {
+          secondMaxScore = totalScore;
+          accentColor = color;
+        }
+      }
+    });
 
     // themeColorがあればそれを優先
     if (themeColor && themeColor.startsWith('#')) {
