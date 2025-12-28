@@ -1,6 +1,6 @@
 import type { KaboomCtx } from 'kaboom';
 import { playSelectSound, playStartSound } from '../systems/sound';
-import { isTouchDevice } from '../ui/VirtualJoystick';
+import { isTouchDevice, getVirtualJoystick, clearVirtualJoystick, type VirtualJoystick } from '../ui/VirtualJoystick';
 
 // 方向に対応するベクトル
 const DIRECTION_VECTORS: Record<string, { x: number; y: number }> = {
@@ -278,7 +278,7 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
 
   // 選択ラベル説明（タッチデバイスでは異なる説明）
   const modeInstructionText = isTouch
-    ? 'TAP LEFT=EASY / RIGHT=NORMAL'
+    ? 'USE JOYSTICK, THEN FIRE'
     : 'CHOOSE MODE, THEN PRESS SPACE';
   k.add([
     k.text(modeInstructionText, { size: 14 }),
@@ -410,11 +410,26 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     }
   });
 
+  // タッチ操作: 仮想ジョイスティックでモード選択、FIREでスタート
+  let titleJoystick: VirtualJoystick | null = null;
+  if (isTouch) {
+    // 前回のインスタンスをクリア
+    clearVirtualJoystick();
+    titleJoystick = getVirtualJoystick(k);
+    titleJoystick.create();
+  }
+
   // ゲーム開始処理（共通）
   function startGame() {
     if (isStarting) return;
     isStarting = true;
     playStartSound();
+
+    // タイトル画面の仮想ジョイスティックを削除
+    if (titleJoystick) {
+      titleJoystick.destroy();
+      clearVirtualJoystick();
+    }
 
     // フェードアウト演出
     const overlay = k.add([
@@ -441,22 +456,36 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   // SPACEキーでゲーム開始
   k.onKeyPress('space', startGame);
 
-  // タッチ操作: モードボタンをタップでゲーム開始
-  if (isTouch) {
-    k.onTouchStart((pos) => {
-      if (isStarting) return;
+  // タッチ入力監視
+  if (isTouch && titleJoystick) {
+    let lastMoveX = 0;
 
-      // 画面の左半分タップ → EASY
-      // 画面の右半分タップ → NORMAL
-      const screenCenterX = k.width() / 2;
+    k.onUpdate(() => {
+      if (isStarting || !titleJoystick) return;
 
-      if (pos.x < screenCenterX) {
-        selectedMode = 'easy';
-      } else {
-        selectedMode = 'normal';
+      const touchInput = titleJoystick.getState();
+
+      // 左右入力でモード切り替え（入力が変化した時のみ）
+      if (touchInput.moveX < -0.3 && lastMoveX >= -0.3) {
+        if (selectedMode !== 'easy') {
+          selectedMode = 'easy';
+          playSelectSound();
+          updateModeSelection();
+        }
+      } else if (touchInput.moveX > 0.3 && lastMoveX <= 0.3) {
+        if (selectedMode !== 'normal') {
+          selectedMode = 'normal';
+          playSelectSound();
+          updateModeSelection();
+        }
       }
-      updateModeSelection();
-      startGame();
+      lastMoveX = touchInput.moveX;
+
+      // FIREボタンでゲーム開始
+      if (touchInput.firePressed) {
+        titleJoystick.clearFirePressed();
+        startGame();
+      }
     });
   }
 
