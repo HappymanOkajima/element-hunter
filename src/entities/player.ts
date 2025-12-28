@@ -40,12 +40,16 @@ const DIRECTION_VECTORS: Record<Direction, { x: number; y: number }> = {
   'down-right': { x: 0.707, y: 0.707 },
 };
 
-// 入力から方向を判定
+// 入力から方向を判定（浮動小数点誤差を考慮）
 function getDirection(x: number, y: number): Direction {
-  if (x === 0 && y < 0) return 'up';
-  if (x === 0 && y > 0) return 'down';
-  if (x < 0 && y === 0) return 'left';
-  if (x > 0 && y === 0) return 'right';
+  const EPSILON = 0.1; // 閾値（0に近い値を0として扱う）
+  const isZeroX = Math.abs(x) < EPSILON;
+  const isZeroY = Math.abs(y) < EPSILON;
+
+  if (isZeroX && y < 0) return 'up';
+  if (isZeroX && y > 0) return 'down';
+  if (x < 0 && isZeroY) return 'left';
+  if (x > 0 && isZeroY) return 'right';
   if (x < 0 && y < 0) return 'up-left';
   if (x > 0 && y < 0) return 'up-right';
   if (x < 0 && y > 0) return 'down-left';
