@@ -1,5 +1,6 @@
 import kaboom from 'kaboom';
 import { gameScene, setStage, setCrawlData, setCurrentPageIndex } from './scenes/game';
+import { titleScene } from './scenes/title';
 import { loadStageFromCrawl } from './systems/stageLoader';
 import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
@@ -26,26 +27,34 @@ setCrawlData(crawlData);
 // コンテンツパネルに全ページデータを設定
 contentPanel.setAllPages(crawlData.pages);
 
-// ターゲットページをランダム選択（5ページ）
-// 共通リンク（ナビメニュー）も経路として考慮
-gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
+// ゲーム初期化処理
+function initGame() {
+  // ターゲットページをランダム選択（5ページ）
+  // 共通リンク（ナビメニュー）も経路として考慮
+  gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
 
-// コンテンツパネルの初期表示
-contentPanel.updateTargetList();
-contentPanel.updateProgress();
-contentPanel.startTimer();
+  // コンテンツパネルの初期表示
+  contentPanel.updateTargetList();
+  contentPanel.updateProgress();
+  contentPanel.startTimer();
 
-// トップページをステージとして読み込み
-const stage = loadStageFromCrawl(crawlData, 0);
-setStage(stage);
-setCurrentPageIndex(0);
-gameState.pushPage('/');
+  // トップページをステージとして読み込み
+  const stage = loadStageFromCrawl(crawlData, 0);
+  setStage(stage);
+  setCurrentPageIndex(0);
+  gameState.pushPage('/');
 
-// 初期コンテンツを表示
-const topPage = crawlData.pages[0];
-if (topPage) {
-  contentPanel.updateContent(topPage, false);
+  // 初期コンテンツを表示
+  const topPage = crawlData.pages[0];
+  if (topPage) {
+    contentPanel.updateContent(topPage, false);
+  }
+
+  k.go('game');
 }
+
+// タイトルシーン登録
+k.scene('title', () => titleScene(k, crawlData.siteName, initGame));
 
 // ゲームシーン登録
 k.scene('game', () => gameScene(k));
@@ -129,5 +138,5 @@ k.scene('complete', () => {
   });
 });
 
-// ゲーム開始
-k.go('game');
+// タイトル画面から開始
+k.go('title');

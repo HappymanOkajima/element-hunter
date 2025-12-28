@@ -225,8 +225,8 @@ function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string
     const screenY = y - cam.y + k.height() / 2;
     showHuntedImage(sampleImageUrl, screenX, screenY);
   }
-  // サンプルテキストがあれば表示
-  else if (sampleText) {
+  // サンプルテキストがあれば表示（空文字列は除外）
+  else if (sampleText && sampleText.trim().length > 0) {
     const textEffect = k.add([
       k.text(`"${sampleText}"`, { size: 12 }),
       k.pos(x, y - 40),

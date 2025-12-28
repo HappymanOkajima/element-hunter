@@ -55,11 +55,15 @@ export function convertPageToStage(
     if (element.tag === 'a') continue;  // aタグはポータルとして別処理
 
     // imgタグは画像URLを持つ場合のみ、それ以外はテキストを持つ場合のみ
+    // 空文字列は除外してフィルタリング
     const isImg = element.tag === 'img';
+    const validImageUrls = element.sampleImageUrls?.filter(url => url && url.trim().length > 0) || [];
+    const validTexts = element.sampleTexts?.filter(text => text && text.trim().length > 0) || [];
+
     if (isImg) {
-      if (!element.sampleImageUrls || element.sampleImageUrls.length === 0) continue;
+      if (validImageUrls.length === 0) continue;
     } else {
-      if (!element.sampleTexts || element.sampleTexts.length === 0) continue;
+      if (validTexts.length === 0) continue;
     }
 
     if (enemyCount >= MAX_ENEMIES) break;
@@ -77,19 +81,17 @@ export function convertPageToStage(
       // Y座標: ランダム
       const y = MARGIN_TOP + Math.random() * playAreaHeight;
 
-      // サンプルテキスト/画像URLを取得（ランダムに1つ選択）
+      // サンプルテキスト/画像URLを取得（ランダムに1つ選択、フィルタリング済み配列を使用）
       let sampleText: string | undefined;
       let sampleImageUrl: string | undefined;
 
       if (isImg) {
-        const urls = element.sampleImageUrls || [];
-        sampleImageUrl = urls.length > 0
-          ? urls[Math.floor(Math.random() * urls.length)]
+        sampleImageUrl = validImageUrls.length > 0
+          ? validImageUrls[Math.floor(Math.random() * validImageUrls.length)]
           : undefined;
       } else {
-        const texts = element.sampleTexts || [];
-        sampleText = texts.length > 0
-          ? texts[Math.floor(Math.random() * texts.length)]
+        sampleText = validTexts.length > 0
+          ? validTexts[Math.floor(Math.random() * validTexts.length)]
           : undefined;
       }
 
