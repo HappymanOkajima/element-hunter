@@ -1,4 +1,5 @@
 import type { KaboomCtx } from 'kaboom';
+import { playSelectSound, playStartSound } from '../systems/sound';
 
 // 方向に対応するベクトル
 const DIRECTION_VECTORS: Record<string, { x: number; y: number }> = {
@@ -373,19 +374,26 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   // 左右キーでモード選択
   k.onKeyPress('left', () => {
     if (isStarting) return;
-    selectedMode = 'easy';
-    updateModeSelection();
+    if (selectedMode !== 'easy') {
+      selectedMode = 'easy';
+      playSelectSound();
+      updateModeSelection();
+    }
   });
   k.onKeyPress('right', () => {
     if (isStarting) return;
-    selectedMode = 'normal';
-    updateModeSelection();
+    if (selectedMode !== 'normal') {
+      selectedMode = 'normal';
+      playSelectSound();
+      updateModeSelection();
+    }
   });
 
   // SPACEキーでゲーム開始
   k.onKeyPress('space', () => {
     if (isStarting) return;
     isStarting = true;
+    playStartSound();
 
     // フェードアウト演出
     const overlay = k.add([

@@ -4,6 +4,7 @@ import { titleScene, type GameMode } from './scenes/title';
 import { loadStageFromCrawl } from './systems/stageLoader';
 import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
+import { playGameOverSound } from './systems/sound';
 import type { CrawlOutput } from './types';
 
 // JSONデータをインポート
@@ -64,6 +65,8 @@ k.scene('game', () => gameScene(k));
 
 // ゲームオーバーシーン
 k.scene('gameover', () => {
+  playGameOverSound();
+
   k.add([
     k.text('GAME OVER', { size: 48 }),
     k.pos(k.width() / 2, k.height() / 2 - 50),

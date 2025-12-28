@@ -3,6 +3,7 @@ import type { Direction, PlayerState } from '../types';
 import { contentPanel } from '../ui/ContentPanel';
 import { isGamePaused } from '../scenes/game';
 import { gameState } from '../systems/gameState';
+import { playLaserSound, playDamageSound, playComboSound } from '../systems/sound';
 
 // プレイヤー設定
 const PLAYER_CONFIG = {
@@ -122,6 +123,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
 
     state.hp -= amount;
     k.shake(5);
+    playDamageSound();
 
     if (state.hp <= 0) {
       if (blinkTimer) clearInterval(blinkTimer);
@@ -287,6 +289,9 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
     // コンボ用: このレーザーで倒した敵を追跡
     const killedEnemies = new Set<string>();
 
+    // レーザー発射音
+    playLaserSound(isPiercing);
+
     // レーザービーム生成
     const laser = k.add([
       k.rect(laserLength, laserWidth),
@@ -347,6 +352,7 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
       // コンボボーナス処理（レーザー消滅前に）
       if (killedEnemies.size >= 2) {
         const bonusSeconds = gameState.applyComboBonus(killedEnemies.size);
+        playComboSound(killedEnemies.size);
         showComboEffect(k, killedEnemies.size, bonusSeconds);
       }
 

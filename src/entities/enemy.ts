@@ -3,6 +3,7 @@ import type { EnemyConfig } from '../types';
 import { getEnemyConfig } from '../data/elements';
 import type { PlayerObject } from './player';
 import { isGamePaused } from '../scenes/game';
+import { playHuntSound } from '../systems/sound';
 
 // 敵の巡回ルート
 const ORBIT_POINTS = [
@@ -127,6 +128,9 @@ export function createEnemy(
       hp = 0;
       enemy.color = k.rgb(100, 100, 100);  // グレー化
       enemy.opacity = 0.5;
+
+      // ハント音
+      playHuntSound();
 
       // 停止エフェクト（サンプルテキスト/画像があれば表示）
       spawnStopEffect(k, enemy.pos.x, enemy.pos.y, sampleText, sampleImageUrl);

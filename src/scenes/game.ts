@@ -6,6 +6,7 @@ import type { StageConfig, CrawlOutput, EnemySnapshot } from '../types';
 import { loadStageFromCrawl } from '../systems/stageLoader';
 import { gameState } from '../systems/gameState';
 import { contentPanel } from '../ui/ContentPanel';
+import { playWarpSound, playPageClearSound, playGameClearSound } from '../systems/sound';
 
 // 現在のステージ設定（外部から設定可能）
 let currentStage: StageConfig | null = null;
@@ -64,6 +65,9 @@ export function gameScene(k: KaboomCtx) {
   function warpToPage(targetIndex: number, targetPath: string) {
     if (isWarping) return;
     isWarping = true;
+
+    // ワープ音
+    playWarpSound();
 
     // 現在のページの状態を保存
     saveCurrentPageStates();
@@ -299,6 +303,9 @@ export function gameScene(k: KaboomCtx) {
     pageCleared = true;
     const currentPath = crawlData?.pages[currentPageIndex]?.path || '/';
 
+    // ページクリア音
+    playPageClearSound();
+
     // 背景を明るくする演出
     brightenBackground();
 
@@ -316,6 +323,7 @@ export function gameScene(k: KaboomCtx) {
 
     // ゲーム完了判定
     if (gameState.isGameComplete()) {
+      playGameClearSound();
       setTimeout(() => {
         k.go('complete');
       }, 1000);
