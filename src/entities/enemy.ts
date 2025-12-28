@@ -290,12 +290,19 @@ function showHuntedImage(imageUrl: string, gameX: number, gameY: number) {
 
   const rect = gameArea.getBoundingClientRect();
 
+  // キャンバスのスケール計算（800x600が実際の表示サイズに縮小されている）
+  const scaleX = rect.width / 800;
+  const scaleY = rect.height / 600;
+
   // 画像要素を作成
   const img = document.createElement('img');
   img.src = imageUrl;
   img.style.position = 'fixed';
-  img.style.maxWidth = '150px';
-  img.style.maxHeight = '100px';
+  // スケールに応じて画像サイズも調整
+  const maxImgWidth = Math.min(150 * scaleX, 150);
+  const maxImgHeight = Math.min(100 * scaleY, 100);
+  img.style.maxWidth = `${maxImgWidth}px`;
+  img.style.maxHeight = `${maxImgHeight}px`;
   img.style.borderRadius = '8px';
   img.style.boxShadow = '0 4px 12px rgba(0, 200, 255, 0.5)';
   img.style.border = '2px solid rgba(0, 200, 255, 0.8)';
@@ -305,11 +312,12 @@ function showHuntedImage(imageUrl: string, gameX: number, gameY: number) {
   img.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-out';
   img.style.transform = 'scale(0.8)';
 
-  // ゲーム座標をスクリーン座標に変換
-  const screenX = rect.left + gameX;
-  const screenY = rect.top + gameY;
+  // ゲーム座標をスクリーン座標に変換（スケールを考慮）
+  const screenX = rect.left + gameX * scaleX;
+  const screenY = rect.top + gameY * scaleY;
+  const offsetY = 60 * scaleY;
   img.style.left = `${screenX}px`;
-  img.style.top = `${screenY - 60}px`;
+  img.style.top = `${screenY - offsetY}px`;
 
   document.body.appendChild(img);
 
@@ -317,7 +325,7 @@ function showHuntedImage(imageUrl: string, gameX: number, gameY: number) {
   img.onload = () => {
     // 位置を中央揃え
     img.style.left = `${screenX - img.offsetWidth / 2}px`;
-    img.style.top = `${screenY - 60 - img.offsetHeight / 2}px`;
+    img.style.top = `${screenY - offsetY - img.offsetHeight / 2}px`;
 
     // フェードイン
     requestAnimationFrame(() => {
