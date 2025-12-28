@@ -269,24 +269,30 @@ export class VirtualJoystick {
     const clampedDist = Math.min(dist, maxDist);
     let angle = Math.atan2(dy, dx);
 
-    // 4方向スナップ: 上下左右のみに制限
+    // 8方向スナップ: 上下左右＋斜め4方向
     // 角度を度数に変換（0〜360度）
     let deg = angle * (180 / Math.PI);
     if (deg < 0) deg += 360;
 
-    // 各方向に±45度の範囲でスナップ（斜めを排除）
-    // 右: 315〜45度 → 0度
-    // 下: 45〜135度 → 90度
-    // 左: 135〜225度 → 180度
-    // 上: 225〜315度 → 270度（-90度）
-    if (deg >= 315 || deg < 45) {
+    // 各方向の中心角度（22.5度ずつの範囲でスナップ）
+    // 右: 0度、右下: 45度、下: 90度、左下: 135度
+    // 左: 180度、左上: 225度、上: 270度、右上: 315度
+    if (deg >= 337.5 || deg < 22.5) {
       angle = 0; // 右
-    } else if (deg >= 45 && deg < 135) {
+    } else if (deg >= 22.5 && deg < 67.5) {
+      angle = Math.PI / 4; // 右下
+    } else if (deg >= 67.5 && deg < 112.5) {
       angle = Math.PI / 2; // 下
-    } else if (deg >= 135 && deg < 225) {
+    } else if (deg >= 112.5 && deg < 157.5) {
+      angle = 3 * Math.PI / 4; // 左下
+    } else if (deg >= 157.5 && deg < 202.5) {
       angle = Math.PI; // 左
-    } else {
+    } else if (deg >= 202.5 && deg < 247.5) {
+      angle = -3 * Math.PI / 4; // 左上
+    } else if (deg >= 247.5 && deg < 292.5) {
       angle = -Math.PI / 2; // 上
+    } else {
+      angle = -Math.PI / 4; // 右上
     }
 
     // ノブ位置更新
