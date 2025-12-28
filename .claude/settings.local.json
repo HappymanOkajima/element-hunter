@@ -11,7 +11,8 @@
       "Bash(npm run crawl:*)",
       "Bash(cat:*)",
       "Bash(node -e:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(node check-texts.js:*)"
     ]
   }
 }

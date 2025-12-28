@@ -227,37 +227,45 @@ function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string
   }
   // サンプルテキストがあれば表示（空文字列は除外）
   else if (sampleText && sampleText.trim().length > 0) {
-    const textEffect = k.add([
-      k.text(`"${sampleText}"`, { size: 12 }),
-      k.pos(x, y - 40),
-      k.anchor('center'),
-      k.color(200, 220, 255),
-      k.opacity(0),
-    ]);
+    // 表示用テキストを準備（制御文字を除去）
+    const displayText = sampleText.trim().replace(/[\x00-\x1F\x7F]/g, '');
+    if (displayText.length === 0) return;  // 制御文字のみだった場合はスキップ
 
-    // ふわっと表示してフェードアウト
-    let time = 0;
-    textEffect.onUpdate(() => {
-      time += k.dt();
+    try {
+      const textEffect = k.add([
+        k.text(`"${displayText}"`, { size: 12 }),
+        k.pos(x, y - 40),
+        k.anchor('center'),
+        k.color(200, 220, 255),
+        k.opacity(0),
+      ]);
 
-      // 最初の0.3秒でフェードイン
-      if (time < 0.3) {
-        textEffect.opacity = time / 0.3;
-      }
-      // 0.3〜1.5秒は表示
-      else if (time < 1.5) {
-        textEffect.opacity = 1;
-        textEffect.pos.y -= 10 * k.dt();  // ゆっくり上昇
-      }
-      // 1.5秒以降でフェードアウト
-      else {
-        textEffect.opacity -= 1.5 * k.dt();
-        textEffect.pos.y -= 20 * k.dt();
-        if (textEffect.opacity <= 0) {
-          k.destroy(textEffect);
+      // ふわっと表示してフェードアウト
+      let time = 0;
+      textEffect.onUpdate(() => {
+        time += k.dt();
+
+        // 最初の0.3秒でフェードイン
+        if (time < 0.3) {
+          textEffect.opacity = time / 0.3;
         }
-      }
-    });
+        // 0.3〜1.5秒は表示
+        else if (time < 1.5) {
+          textEffect.opacity = 1;
+          textEffect.pos.y -= 10 * k.dt();  // ゆっくり上昇
+        }
+        // 1.5秒以降でフェードアウト
+        else {
+          textEffect.opacity -= 1.5 * k.dt();
+          textEffect.pos.y -= 20 * k.dt();
+          if (textEffect.opacity <= 0) {
+            k.destroy(textEffect);
+          }
+        }
+      });
+    } catch {
+      // テキスト描画に失敗した場合は無視
+    }
   }
 }
 
