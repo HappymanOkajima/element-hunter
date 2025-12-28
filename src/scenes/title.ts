@@ -268,7 +268,7 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
 
   // 選択ラベル説明
   k.add([
-    k.text('SELECT MODE:', { size: 14 }),
+    k.text('CHOOSE MODE, THEN PRESS SPACE', { size: 14 }),
     k.pos(k.width() / 2, yOffset),
     k.anchor('center'),
     k.color(150, 150, 150),
