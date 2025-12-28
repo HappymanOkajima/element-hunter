@@ -216,19 +216,13 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   ]);
   yOffset += 22;
 
-  // タッチデバイスかどうかで操作説明を切り替え
+  // 操作説明（デバイス共通）
   const isTouch = isTouchDevice();
-  const manualLines = isTouch
-    ? [
-        'MOVE ........ JOYSTICK (LEFT)',
-        'FIRE ........ FIRE BTN (RIGHT)',
-        'BOOST ....... SPEED = POWER!',
-      ]
-    : [
-        'MOVE ........ ARROW KEYS',
-        'FIRE ........ SPACE KEY',
-        'BOOST ....... SPEED = POWER!',
-      ];
+  const manualLines = [
+    'HUNT ........ SHOOT ELEMENTS',
+    'CLEAR ....... VISIT ALL PAGES',
+    'BOOST ....... SPEED = POWER!',
+  ];
   for (const line of manualLines) {
     k.add([
       k.text(line, { size: 11 }),
