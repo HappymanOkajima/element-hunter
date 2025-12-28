@@ -36,6 +36,15 @@ const RARITY_SPEED: Record<number, number> = {
   5: 30,
 };
 
+// レアリティに対応するサイズ（フォントサイズ）
+const RARITY_SIZE: Record<number, number> = {
+  1: 14,   // 小さい
+  2: 16,   // 標準
+  3: 20,   // やや大きい
+  4: 24,   // 大きい
+  5: 28,   // 最大
+};
+
 // タグの基本レアリティ
 const TAG_RARITY: Record<string, number> = {
   // ★1 (白) - 一般的な要素
@@ -120,6 +129,7 @@ export function getEnemyConfig(tag: string, statRarity?: number): EnemyConfig | 
     hp,
     damage: RARITY_DAMAGE[rarity] || 1,
     speed: RARITY_SPEED[rarity] || 60,
+    size: RARITY_SIZE[rarity] || 16,
     behavior,
   };
 }

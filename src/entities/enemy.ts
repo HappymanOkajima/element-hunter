@@ -65,12 +65,12 @@ export function createEnemy(
   let orbitIndex = Math.floor(Math.random() * ORBIT_POINTS.length);  // ランダムな初期位置
   const originPos = { x: startX, y: startY };
 
-  // 当たり判定は固定サイズ（見た目より小さめ）
-  const hitboxSize = 20;
+  // 当たり判定はサイズに比例（見た目より小さめ）
+  const hitboxSize = Math.max(16, config.size * 0.8);
 
-  // 敵オブジェクト
+  // 敵オブジェクト（レアリティに応じたサイズ）
   const enemy = k.add([
-    k.text(config.displayName, { size: 16 }),
+    k.text(config.displayName, { size: config.size }),
     k.pos(startX, startY),
     k.area({ shape: new k.Rect(k.vec2(-hitboxSize / 2, -hitboxSize / 2), hitboxSize, hitboxSize) }),
     k.anchor('center'),

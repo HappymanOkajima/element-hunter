@@ -13,6 +13,7 @@ export interface EnemyConfig {
   hp: number;
   damage: number;
   speed: number;
+  size: number;  // フォントサイズ
   behavior: EnemyBehavior;
 }
 
