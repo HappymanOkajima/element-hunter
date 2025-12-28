@@ -269,27 +269,23 @@ export class VirtualJoystick {
     const clampedDist = Math.min(dist, maxDist);
     let angle = Math.atan2(dy, dx);
 
-    // 軸スナップ: 水平・垂直方向に入力しやすくする
-    // 角度が軸から±22.5度以内なら軸にスナップ（45度の半分）
-    const SNAP_THRESHOLD = 22.5 * (Math.PI / 180);
+    // 4方向スナップ: 上下左右のみに制限
+    // 角度を度数に変換（0〜360度）
+    let deg = angle * (180 / Math.PI);
+    if (deg < 0) deg += 360;
 
-    // 角度を0〜2PIに正規化
-    let normalizedAngle = angle;
-    while (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
-    while (normalizedAngle >= 2 * Math.PI) normalizedAngle -= 2 * Math.PI;
-
-    // 8方向のうち4方向（上下左右）にスナップ
-    // 右: 0度（337.5〜22.5度）
-    // 下: 90度（67.5〜112.5度）
-    // 左: 180度（157.5〜202.5度）
-    // 上: 270度（247.5〜292.5度）
-    if (normalizedAngle < SNAP_THRESHOLD || normalizedAngle >= 2 * Math.PI - SNAP_THRESHOLD) {
+    // 各方向に±45度の範囲でスナップ（斜めを排除）
+    // 右: 315〜45度 → 0度
+    // 下: 45〜135度 → 90度
+    // 左: 135〜225度 → 180度
+    // 上: 225〜315度 → 270度（-90度）
+    if (deg >= 315 || deg < 45) {
       angle = 0; // 右
-    } else if (Math.abs(normalizedAngle - Math.PI / 2) < SNAP_THRESHOLD) {
+    } else if (deg >= 45 && deg < 135) {
       angle = Math.PI / 2; // 下
-    } else if (Math.abs(normalizedAngle - Math.PI) < SNAP_THRESHOLD) {
+    } else if (deg >= 135 && deg < 225) {
       angle = Math.PI; // 左
-    } else if (Math.abs(normalizedAngle - 3 * Math.PI / 2) < SNAP_THRESHOLD) {
+    } else {
       angle = -Math.PI / 2; // 上
     }
 
