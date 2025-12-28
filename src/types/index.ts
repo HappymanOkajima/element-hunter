@@ -21,6 +21,7 @@ export interface EnemySpawn {
   x: number;
   y: number;
   sampleText?: string;  // この敵が持つテキスト
+  sampleImageUrl?: string;  // imgタグ用: 画像URL
 }
 
 export interface PortalSpawn {
@@ -86,6 +87,7 @@ export interface ElementCount {
   tag: string;
   count: number;
   sampleTexts: string[];  // サンプルテキスト（最大5個、各30文字まで）
+  sampleImageUrls?: string[];  // imgタグ用: 画像URL（最大5個）
 }
 
 export interface ElementStat {

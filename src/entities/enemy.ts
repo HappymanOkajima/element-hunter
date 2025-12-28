@@ -45,7 +45,8 @@ export function createEnemy(
   startY: number,
   getPlayer: () => PlayerObject | null,
   stageWidth: number = 800,
-  sampleText?: string
+  sampleText?: string,
+  sampleImageUrl?: string
 ): EnemyObject | null {
   // タグから設定を取得
   const config = getEnemyConfig(tag);
@@ -121,8 +122,8 @@ export function createEnemy(
       enemy.color = k.rgb(100, 100, 100);  // グレー化
       enemy.opacity = 0.5;
 
-      // 停止エフェクト（サンプルテキストがあれば表示）
-      spawnStopEffect(k, enemy.pos.x, enemy.pos.y, sampleText);
+      // 停止エフェクト（サンプルテキスト/画像があれば表示）
+      spawnStopEffect(k, enemy.pos.x, enemy.pos.y, sampleText, sampleImageUrl);
     }
   };
 
@@ -196,8 +197,8 @@ export function createEnemy(
   return enemy;
 }
 
-// ハントエフェクト（サンプルテキストがあれば表示）
-function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string) {
+// ハントエフェクト（サンプルテキスト/画像があれば表示）
+function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string, sampleImageUrl?: string) {
   // HUNT!ラベル
   const huntLabel = k.add([
     k.text('HUNT!', { size: 14 }),
@@ -216,8 +217,16 @@ function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string
     }
   });
 
+  // 画像があれば表示（imgタグ用）
+  if (sampleImageUrl) {
+    // カメラ位置を考慮してスクリーン座標を計算
+    const cam = k.camPos();
+    const screenX = x - cam.x + k.width() / 2;
+    const screenY = y - cam.y + k.height() / 2;
+    showHuntedImage(sampleImageUrl, screenX, screenY);
+  }
   // サンプルテキストがあれば表示
-  if (sampleText) {
+  else if (sampleText) {
     const textEffect = k.add([
       k.text(`"${sampleText}"`, { size: 12 }),
       k.pos(x, y - 40),
@@ -250,4 +259,65 @@ function spawnStopEffect(k: KaboomCtx, x: number, y: number, sampleText?: string
       }
     });
   }
+}
+
+// ハントした画像をDOM上に表示（Kaboomではなく実際の画像）
+function showHuntedImage(imageUrl: string, gameX: number, gameY: number) {
+  // ゲームエリアの位置を取得
+  const gameArea = document.getElementById('game-area');
+  if (!gameArea) return;
+
+  const rect = gameArea.getBoundingClientRect();
+
+  // 画像要素を作成
+  const img = document.createElement('img');
+  img.src = imageUrl;
+  img.style.position = 'fixed';
+  img.style.maxWidth = '150px';
+  img.style.maxHeight = '100px';
+  img.style.borderRadius = '8px';
+  img.style.boxShadow = '0 4px 12px rgba(0, 200, 255, 0.5)';
+  img.style.border = '2px solid rgba(0, 200, 255, 0.8)';
+  img.style.zIndex = '1000';
+  img.style.pointerEvents = 'none';
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-out';
+  img.style.transform = 'scale(0.8)';
+
+  // ゲーム座標をスクリーン座標に変換
+  const screenX = rect.left + gameX;
+  const screenY = rect.top + gameY;
+  img.style.left = `${screenX}px`;
+  img.style.top = `${screenY - 60}px`;
+
+  document.body.appendChild(img);
+
+  // 画像読み込み後にアニメーション開始
+  img.onload = () => {
+    // 位置を中央揃え
+    img.style.left = `${screenX - img.offsetWidth / 2}px`;
+    img.style.top = `${screenY - 60 - img.offsetHeight / 2}px`;
+
+    // フェードイン
+    requestAnimationFrame(() => {
+      img.style.opacity = '1';
+      img.style.transform = 'scale(1)';
+    });
+
+    // 2秒後にフェードアウト
+    setTimeout(() => {
+      img.style.opacity = '0';
+      img.style.transform = 'scale(0.8) translateY(-20px)';
+
+      // 完全に消えたら削除
+      setTimeout(() => {
+        img.remove();
+      }, 300);
+    }, 2000);
+  };
+
+  // 読み込みエラー時は削除
+  img.onerror = () => {
+    img.remove();
+  };
 }

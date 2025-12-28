@@ -142,12 +142,12 @@ export function gameScene(k: KaboomCtx) {
     hpLabel.text = `HP: ${hearts}`;
   }
 
-  // 敵カウント更新（停止数/全数）
+  // 敵カウント更新（ハント数/全数）
   function updateEnemyCount() {
     const enemies = k.get('enemy') as EnemyObject[];
-    const stoppedCount = enemies.filter(e => e.isStopped()).length;
+    const huntedCount = enemies.filter(e => e.isStopped()).length;
     const totalCount = enemies.length;
-    enemyCountLabel.text = `Stopped: ${stoppedCount}/${totalCount}`;
+    enemyCountLabel.text = `Hunted: ${huntedCount}/${totalCount}`;
   }
 
   // ページクリア判定
@@ -258,7 +258,8 @@ export function gameScene(k: KaboomCtx) {
         enemyData.y,
         () => player,
         stage.width,
-        enemyData.sampleText
+        enemyData.sampleText,
+        enemyData.sampleImageUrl
       );
     });
   }

@@ -17,6 +17,7 @@ export interface ElementCount {
   tag: string;
   count: number;
   sampleTexts: string[];  // サンプルテキスト（最大5個、各30文字まで）
+  sampleImageUrls?: string[];  // imgタグ用: 画像URL（最大5個）
 }
 
 // ページデータ（クロール中）

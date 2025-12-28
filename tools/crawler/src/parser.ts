@@ -17,10 +17,11 @@ export interface ParseResult {
 // ページのDOMを解析
 export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> {
   const result = await page.evaluate(() => {
-    // 全要素を取得してタグをカウント + サンプルテキスト収集
+    // 全要素を取得してタグをカウント + サンプルテキスト/画像URL収集
     const allElements = document.querySelectorAll('*');
     const tagCount = new Map<string, number>();
     const tagTexts = new Map<string, string[]>();
+    const tagImageUrls = new Map<string, string[]>();  // imgタグ用
 
     allElements.forEach(el => {
       const tag = el.tagName.toLowerCase();
@@ -28,32 +29,71 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
       if (!['script', 'style', 'meta', 'link', 'noscript'].includes(tag)) {
         tagCount.set(tag, (tagCount.get(tag) || 0) + 1);
 
-        // テキストコンテンツを取得（直接の子テキストのみ、最大5サンプル）
-        const texts = tagTexts.get(tag) || [];
-        if (texts.length < 5) {
-          // 直接のテキストノードのみ取得（子要素のテキストは含まない）
-          let directText = '';
-          el.childNodes.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              directText += node.textContent || '';
+        // imgタグの場合はsrc属性を収集
+        if (tag === 'img') {
+          const imgUrls = tagImageUrls.get(tag) || [];
+          if (imgUrls.length < 5) {
+            const src = el.getAttribute('src');
+            const imgEl = el as HTMLImageElement;
+
+            // 除外パターン
+            const excludePatterns = [
+              'icon', 'logo', 'favicon', 'button', 'arrow', 'close',
+              'chevron', 'caret', 'spinner', 'loading', 'spacer',
+              'placeholder', 'blank', 'pixel', 'transparent', 'badge'
+            ];
+            const srcLower = (src || '').toLowerCase();
+            const isExcluded = excludePatterns.some(p => srcLower.includes(p));
+
+            // data:URI（スペーサーSVG等）は除外
+            const isDataUri = srcLower.startsWith('data:');
+
+            // SVGは装飾用が多いので除外（写真系のみ対象）
+            const isSvg = srcLower.endsWith('.svg') || srcLower.includes('.svg?');
+
+            // サイズチェック（属性 or 実際のサイズ）
+            const width = imgEl.naturalWidth || parseInt(el.getAttribute('width') || '0');
+            const height = imgEl.naturalHeight || parseInt(el.getAttribute('height') || '0');
+            const isTooSmall = (width > 0 && width < 100) || (height > 0 && height < 100);
+
+            // アスペクト比チェック（極端に細長いものは除外）
+            const aspectRatio = width > 0 && height > 0 ? Math.max(width, height) / Math.min(width, height) : 1;
+            const isTooNarrow = aspectRatio > 5;
+
+            if (src && !isExcluded && !isDataUri && !isSvg && !isTooSmall && !isTooNarrow) {
+              imgUrls.push(src);
+              tagImageUrls.set(tag, imgUrls);
             }
-          });
-          directText = directText.trim().replace(/\s+/g, ' ');
-          // 意味のあるテキストのみ（3文字以上）
-          if (directText.length >= 3) {
-            texts.push(directText.slice(0, 30));
-            tagTexts.set(tag, texts);
+          }
+        } else {
+          // テキストコンテンツを取得（直接の子テキストのみ、最大5サンプル）
+          const texts = tagTexts.get(tag) || [];
+          if (texts.length < 5) {
+            // 直接のテキストノードのみ取得（子要素のテキストは含まない）
+            let directText = '';
+            el.childNodes.forEach(node => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                directText += node.textContent || '';
+              }
+            });
+            directText = directText.trim().replace(/\s+/g, ' ');
+            // 意味のあるテキストのみ（3文字以上）
+            if (directText.length >= 3) {
+              texts.push(directText.slice(0, 30));
+              tagTexts.set(tag, texts);
+            }
           }
         }
       }
     });
 
-    // 要素カウントを配列に変換（サンプルテキスト付き）
+    // 要素カウントを配列に変換（サンプルテキスト/画像URL付き）
     const elements = Array.from(tagCount.entries())
       .map(([tag, count]) => ({
         tag,
         count,
-        sampleTexts: tagTexts.get(tag) || []
+        sampleTexts: tagTexts.get(tag) || [],
+        sampleImageUrls: tagImageUrls.get(tag) || undefined
       }))
       .sort((a, b) => b.count - a.count);
 
@@ -156,8 +196,21 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
     }
   }
 
+  // 要素内のsampleImageUrlsを絶対URLに変換
+  const elementsWithAbsoluteUrls = result.elements.map(el => ({
+    ...el,
+    sampleImageUrls: el.sampleImageUrls?.map(src => {
+      try {
+        return new URL(src, baseUrl.origin).href;
+      } catch {
+        return src;
+      }
+    })
+  }));
+
   return {
     ...result,
+    elements: elementsWithAbsoluteUrls,
     links: normalizedLinks,
     imageUrls: absoluteImageUrls,
     ogImage: absoluteOgImage,
