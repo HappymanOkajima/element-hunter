@@ -278,7 +278,7 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
 
   // 選択ラベル説明（タッチデバイスでは異なる説明）
   const modeInstructionText = isTouch
-    ? 'TAP MODE TO SELECT & START'
+    ? 'TAP LEFT=EASY / RIGHT=NORMAL'
     : 'CHOOSE MODE, THEN PRESS SPACE';
   k.add([
     k.text(modeInstructionText, { size: 14 }),
@@ -288,10 +288,9 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
   ]);
   yOffset += 25;
 
-  // モード選択肢（タッチ用にareaを追加）
+  // モード選択肢
   const modeSpacing = 140;
   const easyButtonX = k.width() / 2 - modeSpacing / 2;
-  const modeButtonY = yOffset; // ボタンのY位置を保存
   const easyLabel = k.add([
     k.text('EASY', { size: 18 }),
     k.pos(easyButtonX, yOffset),
@@ -447,25 +446,17 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     k.onTouchStart((pos) => {
       if (isStarting) return;
 
-      // EASYボタン判定
-      const easyDx = pos.x - easyButtonX;
-      const easyDy = pos.y - modeButtonY;
-      if (Math.abs(easyDx) < 50 && Math.abs(easyDy) < 30) {
-        selectedMode = 'easy';
-        updateModeSelection();
-        startGame();
-        return;
-      }
+      // 画面の左半分タップ → EASY
+      // 画面の右半分タップ → NORMAL
+      const screenCenterX = k.width() / 2;
 
-      // NORMALボタン判定
-      const normalDx = pos.x - normalButtonX;
-      const normalDy = pos.y - modeButtonY;
-      if (Math.abs(normalDx) < 55 && Math.abs(normalDy) < 30) {
+      if (pos.x < screenCenterX) {
+        selectedMode = 'easy';
+      } else {
         selectedMode = 'normal';
-        updateModeSelection();
-        startGame();
-        return;
       }
+      updateModeSelection();
+      startGame();
     });
   }
 
