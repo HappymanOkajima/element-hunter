@@ -30,8 +30,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          BASE_URL: /element-hunter/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 
-export default defineConfig({
-  base: process.env.BASE_URL || '/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/element-hunter/' : '/',
   build: {
     assetsInlineLimit: 0,
   },
-})
+}))
