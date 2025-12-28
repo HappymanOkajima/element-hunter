@@ -66,11 +66,11 @@ export function createPlayer(k: KaboomCtx, stageWidth: number = 800, initialHp: 
   let isInvincible = false;
   let blinkTimer: ReturnType<typeof setInterval> | null = null;
 
-  // プレイヤーオブジェクト
+  // プレイヤーオブジェクト（当たり判定は見た目より小さく）
   const player = k.add([
     k.text('>', { size: 32 }),
     k.pos(100, 300),
-    k.area({ shape: new k.Rect(k.vec2(-12, -12), 24, 24) }),
+    k.area({ shape: new k.Rect(k.vec2(-4, -4), 8, 8) }),
     k.anchor('center'),
     k.color(255, 255, 255),
     'player',
