@@ -24,7 +24,11 @@
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" workflow run deploy.yml --repo HappymanOkajima/element-hunter)",
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo HappymanOkajima/element-hunter --limit 2)",
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20553427929 --repo HappymanOkajima/element-hunter)",
-      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo HappymanOkajima/element-hunter --limit 1)"
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo HappymanOkajima/element-hunter --limit 1)",
+      "Bash(if exist node_modules.vite rmdir /s /q node_modules.vite)",
+      "Bash(node check-reachability.js:*)",
+      "Bash(node check-reachability.cjs:*)",
+      "Bash(npm run dev:*)"
     ]
   }
 }

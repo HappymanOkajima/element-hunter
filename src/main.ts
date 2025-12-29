@@ -26,6 +26,9 @@ const k = kaboom({
 const crawlData = agileStudioData as CrawlOutput;
 setCrawlData(crawlData);
 
+// ベースURLを設定
+gameState.setBaseUrl(crawlData.baseUrl);
+
 // コンテンツパネルに全ページデータを設定
 contentPanel.setAllPages(crawlData.pages);
 

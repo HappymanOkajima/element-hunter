@@ -32,6 +32,9 @@ export class GameState {
   // 現在のゲームモード
   private currentMode: 'easy' | 'normal' = 'normal';
 
+  // サイトのベースURL（リンク生成用）
+  private baseUrl: string = '';
+
   // ターゲットページをランダム選択（ポータル制限を考慮した到達可能性で検証）
   selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
     const MAX_PORTALS = 8;
@@ -417,6 +420,23 @@ export class GameState {
       hash = hash & hash; // Convert to 32bit integer
     }
     return Math.abs(hash).toString(36);
+  }
+
+  // --- 訪問ページ機能 ---
+
+  // ベースURLを設定
+  setBaseUrl(url: string): void {
+    this.baseUrl = url;
+  }
+
+  // ベースURLを取得
+  getBaseUrl(): string {
+    return this.baseUrl;
+  }
+
+  // 訪問ページ履歴を取得（重複除去）
+  getVisitedPages(): string[] {
+    return [...new Set(this.pageHistory)];
   }
 }
 

@@ -177,12 +177,32 @@ export class ContentPanel {
         }
       }
 
+      // 訪問ページ一覧を生成
+      const visitedPages = gameState.getVisitedPages();
+      const baseUrl = gameState.getBaseUrl();
+      const visitedLinksHtml = visitedPages.length > 0 ? `
+        <div style="border-top:1px solid #444;margin-top:20px;padding-top:15px;">
+          <div style="font-size:11px;color:#888;margin-bottom:10px;letter-spacing:1px;">VISITED PAGES</div>
+          <div style="text-align:left;font-size:11px;max-height:150px;overflow-y:auto;">
+            ${visitedPages.map(path => {
+              const fullUrl = baseUrl + path;
+              // ページタイトルを取得（なければパスを使用）
+              const page = this.allPages.find(p => p.path === path);
+              const title = page?.title || path;
+              const displayTitle = title.length > 30 ? title.slice(0, 27) + '...' : title;
+              return `<div style="margin-bottom:6px;"><a href="${fullUrl}" target="_blank" rel="noopener noreferrer" style="color:#88ccff;text-decoration:none;">${displayTitle} ↗</a></div>`;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+
       this.pageContentEl.innerHTML = `
         <div style="text-align:center;padding:20px;">
           <div style="font-size:24px;color:#4caf50;margin-bottom:10px;">🎉 COMPLETE!</div>
           <div style="font-size:18px;color:#ffcc00;margin-bottom:10px;">TIME: ${finalTime}</div>
           ${bestTimeHtml}
           <div style="font-size:14px;color:#aaa;margin-top:15px;">ALL TARGET PAGES CLEARED!</div>
+          ${visitedLinksHtml}
         </div>
       `;
     }
