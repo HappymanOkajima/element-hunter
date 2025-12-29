@@ -80,7 +80,7 @@ export class ContentPanel {
     }
 
     if (this.progressTextEl) {
-      this.progressTextEl.textContent = `${progress.cleared} / ${progress.total} pages`;
+      this.progressTextEl.textContent = `${progress.cleared} / ${progress.total} PAGES`;
     }
   }
 
@@ -122,7 +122,7 @@ export class ContentPanel {
       if (isUnlocked) {
         // 許可されたタグのみ表示（XSS対策）
         const safeHtml = this.sanitizeHtml(page.textContent || '');
-        this.pageContentEl.innerHTML = `<div class="content">${safeHtml || 'No content available'}</div>`;
+        this.pageContentEl.innerHTML = `<div class="content">${safeHtml || 'NO CONTENT AVAILABLE'}</div>`;
       } else {
         this.pageContentEl.innerHTML = '<div class="locked">HUNT ALL ELEMENTS TO UNLOCK CONTENT</div>';
       }
@@ -160,16 +160,29 @@ export class ContentPanel {
   }
 
   // ゲーム完了時
-  showGameComplete(): void {
+  showGameComplete(siteName?: string, mode?: 'easy' | 'normal', isNewRecord?: boolean): void {
     this.stopTimer();
 
     if (this.pageContentEl) {
       const finalTime = gameState.getFormattedTime();
+
+      // ベストタイム取得（引数がある場合のみ）
+      let bestTimeHtml = '';
+      if (siteName && mode) {
+        const bestTime = gameState.formatBestTime(siteName, mode);
+        if (isNewRecord) {
+          bestTimeHtml = `<div style="font-size:16px;color:#ff6b6b;font-weight:bold;margin-top:10px;">★ NEW RECORD! ★</div>`;
+        } else if (bestTime) {
+          bestTimeHtml = `<div style="font-size:12px;color:#888;margin-top:10px;">BEST: ${bestTime}</div>`;
+        }
+      }
+
       this.pageContentEl.innerHTML = `
         <div style="text-align:center;padding:20px;">
           <div style="font-size:24px;color:#4caf50;margin-bottom:10px;">🎉 COMPLETE!</div>
-          <div style="font-size:18px;color:#ffcc00;margin-bottom:10px;">Time: ${finalTime}</div>
-          <div style="font-size:14px;color:#aaa;">All target pages cleared!</div>
+          <div style="font-size:18px;color:#ffcc00;margin-bottom:10px;">TIME: ${finalTime}</div>
+          ${bestTimeHtml}
+          <div style="font-size:14px;color:#aaa;margin-top:15px;">ALL TARGET PAGES CLEARED!</div>
         </div>
       `;
     }
@@ -188,8 +201,24 @@ export class ContentPanel {
       if (h3) h3.style.display = 'none';
     }
 
-    // コンテンツ: ストーリー + TODAY'S STAGE
+    // コンテンツ: ストーリー + TODAY'S STAGE + BEST TIME
     if (this.pageContentEl) {
+      // ベストタイムを取得
+      const easyBest = gameState.formatBestTime(siteName, 'easy');
+      const normalBest = gameState.formatBestTime(siteName, 'normal');
+      const hasBestTime = easyBest || normalBest;
+
+      // ベストタイムセクションのHTML
+      const bestTimeHtml = hasBestTime ? `
+        <div style="border-top:1px solid #444;padding-top:15px;margin-top:15px;">
+          <div style="font-size:11px;color:#888;margin-bottom:8px;letter-spacing:1px;">BEST TIME</div>
+          <div style="display:flex;justify-content:center;gap:20px;font-size:12px;">
+            ${easyBest ? `<div><span style="color:#8bc34a;">EASY:</span> <span style="color:#ffcc00;font-family:monospace;">${easyBest}</span></div>` : ''}
+            ${normalBest ? `<div><span style="color:#ff9800;">NORMAL:</span> <span style="color:#ffcc00;font-family:monospace;">${normalBest}</span></div>` : ''}
+          </div>
+        </div>
+      ` : '';
+
       this.pageContentEl.innerHTML = `
         <div style="padding:20px;text-align:center;">
           <div style="font-size:18px;color:#64b5f6;font-weight:bold;margin-bottom:15px;letter-spacing:1px;">
@@ -207,6 +236,7 @@ export class ContentPanel {
             <div style="font-size:11px;color:#888;margin-bottom:8px;letter-spacing:1px;">TODAY'S STAGE</div>
             <div style="font-size:13px;color:#88ccff;font-weight:bold;line-height:1.6;">${siteName}</div>
           </div>
+          ${bestTimeHtml}
         </div>
       `;
     }

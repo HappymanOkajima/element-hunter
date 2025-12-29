@@ -29,6 +29,9 @@ export class GameState {
   // 累計コンボ数（統計用）
   private totalCombos: number = 0;
 
+  // 現在のゲームモード
+  private currentMode: 'easy' | 'normal' = 'normal';
+
   // ターゲットページをランダム選択（到達可能なページのみ）
   selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
     // 到達可能なページを探索（トップページから辿れるページ）
@@ -263,6 +266,67 @@ export class GameState {
   // 累計コンボ数を取得
   getTotalCombos(): number {
     return this.totalCombos;
+  }
+
+  // ゲームモードを設定
+  setGameMode(mode: 'easy' | 'normal'): void {
+    this.currentMode = mode;
+  }
+
+  // ゲームモードを取得
+  getGameMode(): 'easy' | 'normal' {
+    return this.currentMode;
+  }
+
+  // --- ベストタイム機能 ---
+
+  // ベストタイムを保存（新記録の場合のみ）
+  // 戻り値: 新記録かどうか
+  saveBestTime(siteName: string, mode: 'easy' | 'normal', timeMs: number): boolean {
+    const key = this.getBestTimeKey(siteName, mode);
+    const current = localStorage.getItem(key);
+
+    if (!current || timeMs < parseFloat(current)) {
+      localStorage.setItem(key, timeMs.toString());
+      return true; // 新記録
+    }
+    return false;
+  }
+
+  // ベストタイムを取得
+  getBestTime(siteName: string, mode: 'easy' | 'normal'): number | null {
+    const key = this.getBestTimeKey(siteName, mode);
+    const value = localStorage.getItem(key);
+    return value ? parseFloat(value) : null;
+  }
+
+  // ベストタイムをフォーマット
+  formatBestTime(siteName: string, mode: 'easy' | 'normal'): string | null {
+    const ms = this.getBestTime(siteName, mode);
+    if (ms === null) return null;
+
+    const minutes = Math.floor(ms / 60000);
+    const seconds = Math.floor((ms % 60000) / 1000);
+    const millis = Math.floor(ms % 1000);
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${millis.toString().padStart(3, '0')}`;
+  }
+
+  // localStorageのキーを生成
+  private getBestTimeKey(siteName: string, mode: 'easy' | 'normal'): string {
+    // siteNameをハッシュ化してキーに使う（長すぎる場合に対応）
+    const siteHash = this.hashString(siteName);
+    return `element-hunter-best-${mode}-${siteHash}`;
+  }
+
+  // 簡易ハッシュ関数
+  private hashString(str: string): string {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash).toString(36);
   }
 }
 

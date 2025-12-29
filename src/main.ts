@@ -31,6 +31,9 @@ contentPanel.setAllPages(crawlData.pages);
 
 // ゲーム初期化処理
 function initGame(mode: GameMode) {
+  // ゲームモードを保存
+  gameState.setGameMode(mode);
+
   // モードに応じてターゲットページを選択
   if (mode === 'easy') {
     gameState.selectEasyTargetPages(crawlData.pages, crawlData.commonLinks);
@@ -81,7 +84,7 @@ k.scene('gameover', () => {
   const isTouch = isTouchDevice();
   if (!isTouch) {
     k.add([
-      k.text('Press SPACE to return to title', { size: 20 }),
+      k.text('PRESS SPACE TO RETURN TO TITLE', { size: 20 }),
       k.pos(k.width() / 2, k.height() / 2 + 50),
       k.anchor('center'),
       k.color(200, 200, 200),
@@ -101,9 +104,15 @@ k.scene('gameover', () => {
 
 // ゲーム完了シーン
 k.scene('complete', () => {
-  contentPanel.showGameComplete();
-
+  const finalTimeMs = gameState.getElapsedTime();
   const finalTime = gameState.getFormattedTime();
+  const mode = gameState.getGameMode();
+
+  // ベストタイムを保存し、新記録かどうか判定
+  const isNewRecord = gameState.saveBestTime(crawlData.siteName, mode, finalTimeMs);
+
+  // コンテンツパネルに結果を表示
+  contentPanel.showGameComplete(crawlData.siteName, mode, isNewRecord);
 
   k.add([
     k.text('COMPLETE!', { size: 48 }),
@@ -113,16 +122,43 @@ k.scene('complete', () => {
   ]);
 
   k.add([
-    k.text(`Time: ${finalTime}`, { size: 32 }),
-    k.pos(k.width() / 2, k.height() / 2),
+    k.text(`TIME: ${finalTime}`, { size: 32 }),
+    k.pos(k.width() / 2, k.height() / 2 - 20),
     k.anchor('center'),
     k.color(255, 204, 0),
   ]);
 
+  // 新記録表示
+  if (isNewRecord) {
+    const recordLabel = k.add([
+      k.text('NEW RECORD!', { size: 24 }),
+      k.pos(k.width() / 2, k.height() / 2 + 30),
+      k.anchor('center'),
+      k.color(255, 100, 100),
+      k.opacity(1),
+    ]);
+
+    // 点滅エフェクト
+    recordLabel.onUpdate(() => {
+      recordLabel.opacity = 0.6 + Math.sin(k.time() * 8) * 0.4;
+    });
+  } else {
+    // ベストタイムとの差を表示
+    const bestTime = gameState.formatBestTime(crawlData.siteName, mode);
+    if (bestTime) {
+      k.add([
+        k.text(`BEST: ${bestTime}`, { size: 18 }),
+        k.pos(k.width() / 2, k.height() / 2 + 30),
+        k.anchor('center'),
+        k.color(150, 150, 150),
+      ]);
+    }
+  }
+
   const isTouch = isTouchDevice();
   if (!isTouch) {
     k.add([
-      k.text('Press SPACE to play again', { size: 20 }),
+      k.text('PRESS SPACE TO PLAY AGAIN', { size: 20 }),
       k.pos(k.width() / 2, k.height() / 2 + 80),
       k.anchor('center'),
       k.color(200, 200, 200),
