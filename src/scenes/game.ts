@@ -270,9 +270,14 @@ export function gameScene(k: KaboomCtx) {
     k.fixed(),
   ]);
 
-  // 現在のページパス表示（下部に配置）
+  // 現在のページURL表示（下部に配置）
+  const currentPagePath = crawlData?.pages[currentPageIndex]?.path || '/';
+  const fullUrl = crawlData ? `${crawlData.baseUrl}${currentPagePath}` : stage.name;
+  // 長すぎるURLは末尾を省略
+  const maxUrlLen = 70;
+  const displayUrl = fullUrl.length > maxUrlLen ? fullUrl.slice(0, maxUrlLen) + '...' : fullUrl;
   k.add([
-    k.text(stage.name, { size: 12 }),
+    k.text(displayUrl, { size: 10 }),
     k.pos(k.width() / 2, k.height() - 10),
     k.anchor('bot'),
     k.color(100, 180, 220),
