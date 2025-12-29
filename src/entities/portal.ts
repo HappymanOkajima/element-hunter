@@ -65,7 +65,7 @@ export function createPortal(
   const portal = k.add([
     k.text(displayText, { size: fontSize }),
     k.pos(startX, startY),
-    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -fontSize / 2), textWidth, fontSize) }),
+    k.area({ shape: new k.Rect(k.vec2(0, 0), textWidth, fontSize) }),
     k.anchor('center'),
     k.color(...color),
     k.opacity(1),

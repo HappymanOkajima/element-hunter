@@ -293,7 +293,7 @@ export function gameScene(k: KaboomCtx) {
     const enemies = k.get('enemy') as EnemyObject[];
     const huntedCount = enemies.filter(e => e.isStopped()).length;
     const totalCount = enemies.length;
-    enemyCountLabel.text = `Hunted: ${huntedCount}/${totalCount}`;
+    enemyCountLabel.text = `HUNTED: ${huntedCount}/${totalCount}`;
   }
 
   // ページクリア判定
