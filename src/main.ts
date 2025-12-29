@@ -38,6 +38,9 @@ function initGame(mode: GameMode) {
     gameState.selectTargetPages(crawlData.pages, 5, crawlData.commonLinks);
   }
 
+  // コンテンツパネルをゲーム用レイアウトに切り替え
+  contentPanel.showGameLayout();
+
   // コンテンツパネルの初期表示
   contentPanel.updateTargetList();
   contentPanel.updateProgress();
@@ -76,13 +79,14 @@ k.scene('gameover', () => {
   ]);
 
   const isTouch = isTouchDevice();
-  const returnText = isTouch ? 'Tap to return to title' : 'Press SPACE to return to title';
-  k.add([
-    k.text(returnText, { size: 20 }),
-    k.pos(k.width() / 2, k.height() / 2 + 50),
-    k.anchor('center'),
-    k.color(200, 200, 200),
-  ]);
+  if (!isTouch) {
+    k.add([
+      k.text('Press SPACE to return to title', { size: 20 }),
+      k.pos(k.width() / 2, k.height() / 2 + 50),
+      k.anchor('center'),
+      k.color(200, 200, 200),
+    ]);
+  }
 
   const returnToTitle = () => {
     k.go('title');
@@ -116,13 +120,14 @@ k.scene('complete', () => {
   ]);
 
   const isTouch = isTouchDevice();
-  const playAgainText = isTouch ? 'Tap to play again' : 'Press SPACE to play again';
-  k.add([
-    k.text(playAgainText, { size: 20 }),
-    k.pos(k.width() / 2, k.height() / 2 + 80),
-    k.anchor('center'),
-    k.color(200, 200, 200),
-  ]);
+  if (!isTouch) {
+    k.add([
+      k.text('Press SPACE to play again', { size: 20 }),
+      k.pos(k.width() / 2, k.height() / 2 + 80),
+      k.anchor('center'),
+      k.color(200, 200, 200),
+    ]);
+  }
 
   const returnToTitle = () => {
     k.go('title');

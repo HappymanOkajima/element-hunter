@@ -1,6 +1,7 @@
 import type { KaboomCtx } from 'kaboom';
 import { playSelectSound, playStartSound } from '../systems/sound';
 import { isTouchDevice, getVirtualJoystick, clearVirtualJoystick, type VirtualJoystick } from '../ui/VirtualJoystick';
+import { contentPanel } from '../ui/ContentPanel';
 
 // 方向に対応するベクトル
 const DIRECTION_VECTORS: Record<string, { x: number; y: number }> = {
@@ -19,6 +20,9 @@ const DIRECTIONS = ['up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-
 export type GameMode = 'easy' | 'normal';
 
 export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameMode) => void) {
+  // コンテンツパネルにタイトル画面用の表示
+  contentPanel.showTitleScreen(siteName);
+
   // 背景（ベース）
   k.add([
     k.rect(k.width(), k.height()),
@@ -48,120 +52,116 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     ]);
   }
 
-  // --- AIハンター（デモ用宇宙船） ---
-  const shipSize = 16;
-  const shipPoints = [
-    k.vec2(shipSize, 0),
-    k.vec2(-shipSize, -shipSize * 0.7),
-    k.vec2(-shipSize * 0.5, 0),
-    k.vec2(-shipSize, shipSize * 0.7),
-  ];
-
+  // --- デモ用ハンター（AI操作）---
   const demoShip = k.add([
-    k.polygon(shipPoints),
-    k.pos(150, 400),
+    k.polygon([
+      k.vec2(16, 0),
+      k.vec2(-12, 10),
+      k.vec2(-6, 0),
+      k.vec2(-12, -10),
+    ]),
+    k.pos(k.width() / 2, k.height() / 2 + 100),
     k.anchor('center'),
     k.color(100, 200, 255),
     k.rotate(0),
-    k.opacity(0.7),
-    k.outline(2, k.rgb(200, 230, 255)),
+    k.opacity(0.6),
     k.z(-50),
   ]);
 
-  // エンジン噴射
+  // スラスター
   const demoThruster = k.add([
     k.polygon([
       k.vec2(0, 0),
-      k.vec2(-12, -5),
       k.vec2(-12, 5),
+      k.vec2(-12, -5),
     ]),
-    k.pos(demoShip.pos.x, demoShip.pos.y),
+    k.pos(demoShip.pos.x - 6, demoShip.pos.y),
     k.anchor('center'),
     k.color(255, 150, 50),
     k.rotate(0),
-    k.opacity(0.6),
+    k.opacity(0.4),
     k.z(-51),
   ]);
 
   // AI状態
-  let aiVelocityX = 80;
-  let aiVelocityY = 0;
-  let aiDirection = 'right';
-  let aiChangeTime = 0;
-  let aiFireTime = 0;
+  let aiDirection = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+  let aiSpeed = 0;
+  let aiTargetSpeed = 80 + Math.random() * 60;
+  let aiChangeTimer = 2 + Math.random() * 2;
+  let aiFireTimer = 0.5 + Math.random() * 1;
 
-  // AI更新
   demoShip.onUpdate(() => {
     const dt = k.dt();
 
-    // ランダムに方向変更（2-4秒ごと）
-    aiChangeTime += dt;
-    if (aiChangeTime > 2 + Math.random() * 2) {
-      aiChangeTime = 0;
+    // 方向変更タイマー
+    aiChangeTimer -= dt;
+    if (aiChangeTimer <= 0) {
       aiDirection = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+      aiTargetSpeed = 60 + Math.random() * 80;
+      aiChangeTimer = 1.5 + Math.random() * 2;
     }
 
-    // 目標方向に加速
-    const targetVec = DIRECTION_VECTORS[aiDirection];
-    const speed = 120;
-    const targetVx = targetVec.x * speed;
-    const targetVy = targetVec.y * speed;
-
-    // 緩やかに目標速度に近づく
-    aiVelocityX += (targetVx - aiVelocityX) * 2 * dt;
-    aiVelocityY += (targetVy - aiVelocityY) * 2 * dt;
-
-    // 位置更新
-    demoShip.pos.x += aiVelocityX * dt;
-    demoShip.pos.y += aiVelocityY * dt;
-
-    // 画面端で跳ね返り
-    if (demoShip.pos.x < 50) {
-      demoShip.pos.x = 50;
-      aiVelocityX = Math.abs(aiVelocityX);
-      aiDirection = 'right';
-    }
-    if (demoShip.pos.x > k.width() - 50) {
-      demoShip.pos.x = k.width() - 50;
-      aiVelocityX = -Math.abs(aiVelocityX);
-      aiDirection = 'left';
-    }
-    if (demoShip.pos.y < 50) {
-      demoShip.pos.y = 50;
-      aiVelocityY = Math.abs(aiVelocityY);
-      aiDirection = 'down';
-    }
-    if (demoShip.pos.y > k.height() - 50) {
-      demoShip.pos.y = k.height() - 50;
-      aiVelocityY = -Math.abs(aiVelocityY);
-      aiDirection = 'up';
+    // 速度を目標に近づける
+    if (aiSpeed < aiTargetSpeed) {
+      aiSpeed = Math.min(aiSpeed + 100 * dt, aiTargetSpeed);
+    } else {
+      aiSpeed = Math.max(aiSpeed - 50 * dt, aiTargetSpeed);
     }
 
-    // 向きを速度方向に合わせる
-    const currentSpeed = Math.sqrt(aiVelocityX * aiVelocityX + aiVelocityY * aiVelocityY);
-    if (currentSpeed > 10) {
-      demoShip.angle = Math.atan2(aiVelocityY, aiVelocityX) * (180 / Math.PI);
+    // 移動
+    const dir = DIRECTION_VECTORS[aiDirection];
+    demoShip.pos.x += dir.x * aiSpeed * dt;
+    demoShip.pos.y += dir.y * aiSpeed * dt;
+
+    // 画面端で反射
+    const margin = 50;
+    if (demoShip.pos.x < margin) {
+      demoShip.pos.x = margin;
+      if (dir.x < 0) {
+        aiDirection = aiDirection.replace('left', 'right') as typeof aiDirection;
+      }
+    }
+    if (demoShip.pos.x > k.width() - margin) {
+      demoShip.pos.x = k.width() - margin;
+      if (dir.x > 0) {
+        aiDirection = aiDirection.replace('right', 'left') as typeof aiDirection;
+      }
+    }
+    if (demoShip.pos.y < margin + 180) {
+      demoShip.pos.y = margin + 180;
+      if (dir.y < 0) {
+        aiDirection = aiDirection.replace('up', 'down') as typeof aiDirection;
+      }
+    }
+    if (demoShip.pos.y > k.height() - margin) {
+      demoShip.pos.y = k.height() - margin;
+      if (dir.y > 0) {
+        aiDirection = aiDirection.replace('down', 'up') as typeof aiDirection;
+      }
     }
 
-    // エンジン噴射更新
+    // 回転
+    const targetAngle = Math.atan2(dir.y, dir.x) * (180 / Math.PI);
+    let angleDiff = targetAngle - demoShip.angle;
+    while (angleDiff > 180) angleDiff -= 360;
+    while (angleDiff < -180) angleDiff += 360;
+    demoShip.angle += angleDiff * 5 * dt;
+
+    // スラスター位置更新
     const angleRad = demoShip.angle * (Math.PI / 180);
-    demoThruster.pos.x = demoShip.pos.x - Math.cos(angleRad) * shipSize;
-    demoThruster.pos.y = demoShip.pos.y - Math.sin(angleRad) * shipSize;
+    demoThruster.pos.x = demoShip.pos.x - Math.cos(angleRad) * 10;
+    demoThruster.pos.y = demoShip.pos.y - Math.sin(angleRad) * 10;
     demoThruster.angle = demoShip.angle;
-    demoThruster.opacity = 0.4 + Math.random() * 0.3;
 
-    const thrustLength = 8 + Math.random() * 6;
-    demoThruster.pts = [
-      k.vec2(0, 0),
-      k.vec2(-thrustLength, -4),
-      k.vec2(-thrustLength, 4),
-    ];
+    // スラスターの明滅
+    const speedRatio = aiSpeed / 140;
+    demoThruster.opacity = 0.3 + speedRatio * 0.4 + Math.sin(k.time() * 15) * 0.1;
 
-    // たまにレーザーを撃つ（1-3秒ごと）
-    aiFireTime += dt;
-    if (aiFireTime > 1 + Math.random() * 2) {
-      aiFireTime = 0;
-      fireDemoLaser(k, demoShip.pos.x, demoShip.pos.y, demoShip.angle, currentSpeed / speed);
+    // レーザー発射
+    aiFireTimer -= dt;
+    if (aiFireTimer <= 0 && aiSpeed > 40) {
+      fireDemoLaser(k, demoShip.pos.x, demoShip.pos.y, demoShip.angle, speedRatio);
+      aiFireTimer = 0.3 + Math.random() * 0.5;
     }
   });
 
@@ -180,101 +180,123 @@ export function titleScene(k: KaboomCtx, siteName: string, onStart: (mode: GameM
     k.color(255, 200, 100),
   ]);
 
-  // ストーリーテキスト（80年代風：英語大文字）
-  const storyLines = [
-    'I AM THE ELEMENT HUNTER.',
-    'MY JOB IS TO HUNT ESCAPED HTML ELEMENTS.',
-    '',
-    "LET'S CATCH THEM ALL",
-    'AND RECLAIM THE CONTENTS!',
-    '',
-    `TODAY'S STAGE: ${siteName.toUpperCase()}`,
-  ];
+  // 操作説明（カード風デザイン）
+  let yOffset = 215;
+  const isTouch = isTouchDevice();
+  const centerX = k.width() / 2;
 
-  let yOffset = 240;
-  for (const line of storyLines) {
-    if (line === '') {
-      yOffset += 10;
-      continue;
-    }
-    k.add([
-      k.text(line, { size: 16 }),
-      k.pos(k.width() / 2, yOffset),
-      k.anchor('center'),
-      k.color(200, 200, 200),
-    ]);
-    yOffset += 28;
-  }
-
-  // 操作説明（80's風マニュアル）
-  yOffset += 15;
+  // マニュアルパネル背景
+  const panelWidth = 340;
+  const panelHeight = 140;
   k.add([
-    k.text("---- HUNTER'S MANUAL ----", { size: 14 }),
-    k.pos(k.width() / 2, yOffset),
+    k.rect(panelWidth, panelHeight, { radius: 8 }),
+    k.pos(centerX, yOffset + panelHeight / 2),
+    k.anchor('center'),
+    k.color(30, 30, 45),
+    k.opacity(0.8),
+    k.outline(2, k.rgb(60, 80, 120)),
+  ]);
+
+  // ヘッダー
+  k.add([
+    k.text("HUNTER'S MANUAL", { size: 12 }),
+    k.pos(centerX, yOffset + 12),
     k.anchor('center'),
     k.color(100, 200, 255),
   ]);
-  yOffset += 22;
 
-  // 操作説明（左揃えで全体を中央配置）
-  const isTouch = isTouchDevice();
-  const manualLeftX = k.width() / 2 - 130;  // 左端位置
-
-  const manualLines = [
-    'MOVE .... ARROW KEYS / STICK',
-    'FIRE .... SPACE KEY / BUTTON',
-  ];
-  for (const line of manualLines) {
-    k.add([
-      k.text(line, { size: 11 }),
-      k.pos(manualLeftX, yOffset),
-      k.anchor('left'),
-      k.color(150, 150, 150),
-    ]);
-    yOffset += 16;
-  }
-
-  // HINTは[PORTALS]部分だけ別色＆点滅
-  yOffset += 4;
+  // 区切り線
   k.add([
-    k.text('HINT .... SHOOT ', { size: 11 }),
-    k.pos(manualLeftX, yOffset),
-    k.anchor('left'),
+    k.rect(panelWidth - 40, 1),
+    k.pos(centerX, yOffset + 28),
+    k.anchor('center'),
+    k.color(60, 80, 120),
+    k.opacity(0.5),
+  ]);
+
+  // 操作説明（2列レイアウト）
+  const col1X = centerX - 80;
+  const col2X = centerX + 80;
+  let rowY = yOffset + 48;
+
+  // MOVE
+  k.add([
+    k.text('MOVE', { size: 14 }),
+    k.pos(col1X, rowY),
+    k.anchor('center'),
+    k.color(255, 200, 100),
+  ]);
+  k.add([
+    k.text(isTouch ? 'STICK' : 'ARROW KEYS', { size: 10 }),
+    k.pos(col1X, rowY + 16),
+    k.anchor('center'),
+    k.color(150, 150, 150),
+  ]);
+
+  // FIRE
+  k.add([
+    k.text('FIRE', { size: 14 }),
+    k.pos(col2X, rowY),
+    k.anchor('center'),
+    k.color(255, 100, 100),
+  ]);
+  k.add([
+    k.text(isTouch ? 'BUTTON' : 'SPACE KEY', { size: 10 }),
+    k.pos(col2X, rowY + 16),
+    k.anchor('center'),
+    k.color(150, 150, 150),
+  ]);
+
+  // HINTS セクション
+  rowY += 45;
+  k.add([
+    k.rect(panelWidth - 40, 1),
+    k.pos(centerX, rowY - 8),
+    k.anchor('center'),
+    k.color(60, 80, 120),
+    k.opacity(0.3),
+  ]);
+
+  // HINT 1: ポータル
+  k.add([
+    k.text('SHOOT', { size: 10 }),
+    k.pos(centerX - 60, rowY),
+    k.anchor('center'),
     k.color(150, 150, 150),
   ]);
   const portalLabel = k.add([
-    k.text('[PORTALS]', { size: 11 }),
-    k.pos(manualLeftX + 107, yOffset),
-    k.anchor('left'),
-    k.color(0, 200, 255),  // ポータルと同じ水色
+    k.text('PORTALS', { size: 10 }),
+    k.pos(centerX, rowY),
+    k.anchor('center'),
+    k.color(0, 200, 255),
     k.opacity(1),
   ]);
   k.add([
-    k.text(' TO WARP', { size: 11 }),
-    k.pos(manualLeftX + 170, yOffset),
-    k.anchor('left'),
+    k.text('TO WARP', { size: 10 }),
+    k.pos(centerX + 60, rowY),
+    k.anchor('center'),
     k.color(150, 150, 150),
   ]);
-  yOffset += 16;
 
-  // HINT2: SPEED = POWER!
+  // HINT 2: 速度
+  rowY += 18;
   k.add([
-    k.text('HINT .... SPEED = POWER!', { size: 11 }),
-    k.pos(manualLeftX, yOffset),
-    k.anchor('left'),
-    k.color(150, 150, 150),
+    k.text('SPEED = POWER!', { size: 10 }),
+    k.pos(centerX, rowY),
+    k.anchor('center'),
+    k.color(255, 150, 50),
   ]);
-  yOffset += 18;
 
-  // ポータルラベル点滅（実際のポータルと同じ動き）
+  // ポータルラベル点滅
   let portalTime = 0;
   portalLabel.onUpdate(() => {
     portalTime += k.dt() * 3;
     portalLabel.opacity = 0.7 + Math.sin(portalTime * 1.5) * 0.3;
   });
 
+  yOffset += panelHeight + 15;
+
   // --- モード選択UI ---
-  yOffset += 25;
 
   // 選択状態
   let selectedMode: GameMode = 'normal';

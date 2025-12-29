@@ -11,6 +11,12 @@ export class ContentPanel {
   private targetListEl: HTMLElement | null;
   private pageContentEl: HTMLElement | null;
 
+  // セクション要素（表示/非表示切替用）
+  private headerSection: HTMLElement | null;
+  private progressSection: HTMLElement | null;
+  private targetsSection: HTMLElement | null;
+  private textSection: HTMLElement | null;
+
   private timerInterval: ReturnType<typeof setInterval> | null = null;
   private allPages: CrawlPage[] = [];
 
@@ -22,6 +28,12 @@ export class ContentPanel {
     this.timerEl = document.getElementById('timer');
     this.targetListEl = document.getElementById('target-list');
     this.pageContentEl = document.getElementById('page-content');
+
+    // セクション要素を取得（親要素）
+    this.headerSection = this.pageTitleEl?.closest('.panel-header') as HTMLElement | null;
+    this.progressSection = this.progressFillEl?.closest('.panel-progress') as HTMLElement | null;
+    this.targetsSection = this.targetListEl?.closest('.panel-targets') as HTMLElement | null;
+    this.textSection = this.pageContentEl?.closest('.panel-text') as HTMLElement | null;
   }
 
   // 全ページデータを設定
@@ -160,6 +172,55 @@ export class ContentPanel {
           <div style="font-size:14px;color:#aaa;">All target pages cleared!</div>
         </div>
       `;
+    }
+  }
+
+  // タイトル画面用の初期表示
+  showTitleScreen(siteName: string): void {
+    // ヘッダー、プログレス、ターゲットを非表示
+    if (this.headerSection) this.headerSection.style.display = 'none';
+    if (this.progressSection) this.progressSection.style.display = 'none';
+    if (this.targetsSection) this.targetsSection.style.display = 'none';
+
+    // テキストセクションのヘッダーも非表示
+    if (this.textSection) {
+      const h3 = this.textSection.querySelector('h3');
+      if (h3) h3.style.display = 'none';
+    }
+
+    // コンテンツ: ストーリー + TODAY'S STAGE
+    if (this.pageContentEl) {
+      this.pageContentEl.innerHTML = `
+        <div style="padding:20px;text-align:center;">
+          <div style="font-size:18px;color:#64b5f6;font-weight:bold;margin-bottom:15px;letter-spacing:1px;">
+            I AM THE ELEMENT HUNTER.
+          </div>
+          <div style="font-size:14px;color:#aaa;line-height:1.8;margin-bottom:20px;">
+            MY JOB IS TO HUNT<br>
+            ESCAPED HTML ELEMENTS.
+          </div>
+          <div style="font-size:15px;color:#ffcc00;font-weight:bold;letter-spacing:0.5px;margin-bottom:25px;">
+            LET'S HUNT THEM ALL BY FIRE<br>
+            AND RECLAIM THE CONTENTS!
+          </div>
+          <div style="border-top:1px solid #444;padding-top:20px;margin-top:10px;">
+            <div style="font-size:11px;color:#888;margin-bottom:8px;letter-spacing:1px;">TODAY'S STAGE</div>
+            <div style="font-size:13px;color:#88ccff;font-weight:bold;line-height:1.6;">${siteName}</div>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // ゲーム画面用の表示（セクションを再表示）
+  showGameLayout(): void {
+    if (this.headerSection) this.headerSection.style.display = '';
+    if (this.progressSection) this.progressSection.style.display = '';
+    if (this.targetsSection) this.targetsSection.style.display = '';
+
+    if (this.textSection) {
+      const h3 = this.textSection.querySelector('h3');
+      if (h3) h3.style.display = '';
     }
   }
 }
