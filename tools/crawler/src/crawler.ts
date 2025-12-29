@@ -55,9 +55,8 @@ export async function crawl(options: CrawlOptions): Promise<CrawlOutput> {
         console.log(`Site style: bg=${siteStyle.backgroundColor}, primary=${siteStyle.primaryColor}`);
       }
     } catch (e) {
-      if (options.verbose) {
-        console.log('Failed to parse site style, using defaults');
-      }
+      console.log('Failed to parse site style, using defaults');
+      console.log('Error:', e);
     }
 
     // クロール開始（トップページは既に読み込み済みなので特別処理）

@@ -43,9 +43,16 @@ export function convertPageToStage(
 
   // 最大数を設定（ステージ幅が広くても上限あり）
   const widthMultiplier = Math.min(stageWidth / 800, 2);  // 最大2倍まで
-  // テスト用: 敵を1体のみに制限
-  const MAX_ENEMIES = 1;  // TODO: テスト後に戻す → Math.min(Math.floor(12 * widthMultiplier), 20)
-  const MAX_ENEMIES_PER_TAG = 3;  // 1タグあたり最大3体
+  const gameMode = gameState.getGameMode();
+
+  // モード別の敵数設定
+  // EASY: 3-4体（1分クリア想定、展示会向け）
+  // NORMAL: 12-20体（やりごたえ重視）
+  const baseEnemies = gameMode === 'easy' ? 4 : 12;
+  const maxEnemiesLimit = gameMode === 'easy' ? 6 : 20;
+  const MAX_ENEMIES = Math.min(Math.floor(baseEnemies * widthMultiplier), maxEnemiesLimit);
+
+  const MAX_ENEMIES_PER_TAG = gameMode === 'easy' ? 2 : 3;  // 1タグあたりの最大数
   const MAX_PORTALS = Math.min(Math.floor(5 * widthMultiplier), 8);  // 最大8個
 
   // 要素を敵として配置（aタグはポータルなので除外）

@@ -255,34 +255,24 @@ function normalizeLinks(links: string[], baseUrl: URL): string[] {
 }
 
 // サイトスタイル情報を取得（トップページから）
+// Note: page.evaluate内の関数はブラウザコンテキストで実行されるため、
+// esbuild/tsxの__name変換を避けるために文字列で評価する
 export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
-  const result = await page.evaluate(() => {
-    // ヘルパー: RGB文字列をHexに変換
-    function rgbToHex(rgb: string): string {
-      const match = rgb.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+  const result = await page.evaluate(`(() => {
+    // ヘルパー関数
+    const rgbToHex = (rgb) => {
+      const match = rgb.match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/);
       if (match) {
         const r = parseInt(match[1]).toString(16).padStart(2, '0');
         const g = parseInt(match[2]).toString(16).padStart(2, '0');
         const b = parseInt(match[3]).toString(16).padStart(2, '0');
-        return `#${r}${g}${b}`;
+        return '#' + r + g + b;
       }
       return rgb;
-    }
+    };
 
-    // ヘルパー: 色が明るいかどうか判定
-    function isLightColor(hex: string): boolean {
-      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-      if (!match) return true;
-      const r = parseInt(match[1], 16);
-      const g = parseInt(match[2], 16);
-      const b = parseInt(match[3], 16);
-      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-      return luminance > 0.5;
-    }
-
-    // ヘルパー: 色の彩度を計算（0-1）
-    function getSaturation(hex: string): number {
-      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+    const getSaturation = (hex) => {
+      const match = hex.match(/^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i);
       if (!match) return 0;
       const r = parseInt(match[1], 16) / 255;
       const g = parseInt(match[2], 16) / 255;
@@ -291,19 +281,17 @@ export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
       const min = Math.min(r, g, b);
       if (max === 0) return 0;
       return (max - min) / max;
-    }
+    };
 
-    // ヘルパー: 無彩色（白、黒、グレー）かどうか判定
-    function isNeutralColor(hex: string): boolean {
-      const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+    const isNeutralColor = (hex) => {
+      const match = hex.match(/^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i);
       if (!match) return true;
       const r = parseInt(match[1], 16);
       const g = parseInt(match[2], 16);
       const b = parseInt(match[3], 16);
-      // RGB値が近ければグレー系
       const diff = Math.max(r, g, b) - Math.min(r, g, b);
-      return diff < 30;  // 差が30未満ならほぼ無彩色
-    }
+      return diff < 30;
+    };
 
     // body/htmlの背景色を取得
     const bodyStyle = getComputedStyle(document.body);
@@ -326,7 +314,7 @@ export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
     const themeColor = themeColorMeta?.getAttribute('content') || null;
 
     // 鮮やかな色を収集（彩度でスコアリング）
-    const colorScores = new Map<string, number>();
+    const colorScores = new Map();
 
     // 1. ボタン、CTA、アクセント要素から背景色を優先的に収集
     const accentSelectors = [
@@ -417,7 +405,7 @@ export async function parseSiteStyle(page: Page): Promise<SiteStyle> {
       textColor,
       themeColor
     };
-  });
+  })()`);
 
-  return result;
+  return result as SiteStyle;
 }

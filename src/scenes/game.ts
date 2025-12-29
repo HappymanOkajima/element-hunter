@@ -152,18 +152,18 @@ export function gameScene(k: KaboomCtx) {
     // プライマリカラーをベースに暗い背景を作成
     const primary = hexToRgb(style.primaryColor) || defaultGrid;
 
-    // 背景: プライマリカラーを非常に暗くして青みを加える
+    // 背景: プライマリカラーを非常に暗くする（色味を維持）
     const bg: [number, number, number] = [
-      Math.floor(primary[0] * 0.08) + 10,
-      Math.floor(primary[1] * 0.08) + 10,
-      Math.floor(primary[2] * 0.15) + 20,  // 青みを強調
+      Math.floor(primary[0] * 0.12) + 10,
+      Math.floor(primary[1] * 0.10) + 10,
+      Math.floor(primary[2] * 0.10) + 15,
     ];
 
-    // グリッド: プライマリカラーを暗めに
+    // グリッド: プライマリカラーを暗めに（色味を維持）
     const grid: [number, number, number] = [
-      Math.floor(primary[0] * 0.4),
+      Math.floor(primary[0] * 0.5),
       Math.floor(primary[1] * 0.4),
-      Math.floor(primary[2] * 0.6),
+      Math.floor(primary[2] * 0.4),
     ];
 
     return { bg, grid };
