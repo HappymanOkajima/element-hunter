@@ -31,6 +31,8 @@ export interface PortalSpawn {
   pageTitle: string;  // リンク先ページのタイトル
   x: number;
   y: number;
+  isTarget: boolean;       // このポータルがターゲットページへ直接導くか
+  leadsToTarget: boolean;  // このポータル先からターゲットに到達できるか
 }
 
 export interface StageConfig {

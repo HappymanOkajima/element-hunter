@@ -13,6 +13,8 @@ export interface PortalObject extends PortalBaseObj {
 const PORTAL_COLOR_UNVISITED: [number, number, number] = [0, 200, 255];  // 水色（未訪問）
 const PORTAL_COLOR_VISITED: [number, number, number] = [180, 100, 255];  // 紫（訪問済み）
 const PORTAL_COLOR_INACCESSIBLE: [number, number, number] = [100, 100, 100];  // グレー（遷移不可）
+const PORTAL_COLOR_TARGET: [number, number, number] = [255, 215, 0];  // 金色（ターゲット）
+const PORTAL_COLOR_LEADS_TO_TARGET: [number, number, number] = [100, 255, 100];  // 黄緑（ターゲットへ導く）
 
 // ポータルの速度
 const PORTAL_SPEED = 40;
@@ -25,7 +27,9 @@ export function createPortal(
   startY: number,
   stageWidth: number = 800,
   isVisited: boolean = false,
-  pageTitle: string = ''
+  pageTitle: string = '',
+  isTarget: boolean = false,
+  leadsToTarget: boolean = false
 ): PortalObject {
   const accessible = targetPageIndex !== null;
   // タイトルがあればタイトルを表示、なければURLを表示
@@ -33,22 +37,35 @@ export function createPortal(
   const rawText = (pageTitle || link || '???')
     .replace(/[\u200B-\u200D\uFEFF]/g, '')  // ゼロ幅文字を除去
     .trim() || '?';
-  const truncated = rawText.slice(0, 12) || '?';
-  const displayText = `[${truncated}${rawText.length > 12 ? '..' : ''}]`;
+  const truncated = rawText.slice(0, 24) || '?';
 
-  // 色を決定: アクセス不可 → グレー、訪問済み → 紫、未訪問 → 水色
+  // ターゲットまたは導くページには★マークを付ける
+  const prefix = isTarget ? '★' : (leadsToTarget ? '☆' : '');
+  const displayText = `${prefix}[${truncated}${rawText.length > 24 ? '..' : ''}]`;
+
+  // 色を決定:
+  // - 訪問済み → 紫（マーク付きでも紫にする）
+  // - 未訪問 + ターゲット → 金
+  // - 未訪問 + 導く → 黄緑
+  // - 未訪問 → 水色
+  // - アクセス不可 → グレー
   const color = !accessible
     ? PORTAL_COLOR_INACCESSIBLE
     : isVisited
-      ? PORTAL_COLOR_VISITED
-      : PORTAL_COLOR_UNVISITED;
+      ? PORTAL_COLOR_VISITED  // 訪問済みは紫（マークは別途表示）
+      : isTarget
+        ? PORTAL_COLOR_TARGET
+        : leadsToTarget
+          ? PORTAL_COLOR_LEADS_TO_TARGET
+          : PORTAL_COLOR_UNVISITED;
 
-  const textWidth = displayText.length * 8;
+  const fontSize = 14;
+  const textWidth = displayText.length * (fontSize * 0.6);
 
   const portal = k.add([
-    k.text(displayText, { size: 12 }),
+    k.text(displayText, { size: fontSize }),
     k.pos(startX, startY),
-    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -10), textWidth, 20) }),
+    k.area({ shape: new k.Rect(k.vec2(-textWidth / 2, -fontSize / 2), textWidth, fontSize) }),
     k.anchor('center'),
     k.color(...color),
     k.opacity(1),

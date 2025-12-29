@@ -455,7 +455,9 @@ export function gameScene(k: KaboomCtx) {
       portalData.y,
       stage.width,
       isVisited,
-      portalData.pageTitle
+      portalData.pageTitle,
+      portalData.isTarget,
+      portalData.leadsToTarget
     );
   });
 

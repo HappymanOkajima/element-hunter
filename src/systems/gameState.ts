@@ -32,19 +32,43 @@ export class GameState {
   // 現在のゲームモード
   private currentMode: 'easy' | 'normal' = 'normal';
 
-  // ターゲットページをランダム選択（到達可能なページのみ）
+  // ターゲットページをランダム選択（ポータル制限を考慮した到達可能性で検証）
   selectTargetPages(allPages: CrawlPage[], count: number = 5, commonLinks: string[] = []): void {
-    // 到達可能なページを探索（トップページから辿れるページ）
-    const reachable = this.findReachablePages(allPages, commonLinks);
+    const MAX_PORTALS = 8;
+    const MAX_ATTEMPTS = 10;  // 無限ループ防止
 
-    // 到達可能なページをフィルタ（トップページも含む）
+    // 基本的な到達可能ページを探索
+    const reachable = this.findReachablePages(allPages, commonLinks);
     const candidates = allPages.filter(p => reachable.has(p.path));
 
-    // シャッフル
-    const shuffled = [...candidates].sort(() => Math.random() - 0.5);
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+      // シャッフルして選択
+      const shuffled = [...candidates].sort(() => Math.random() - 0.5);
+      this.targetPages = shuffled.slice(0, count).map(p => p.path);
 
-    // 指定数を選択
-    this.targetPages = shuffled.slice(0, count).map(p => p.path);
+      // ポータル制限を考慮した到達可能性を検証
+      const reachableWithLimit = this.findReachableWithPortalLimit(
+        allPages,
+        commonLinks,
+        this.targetPages,
+        MAX_PORTALS
+      );
+
+      // 全ターゲットが到達可能なら成功
+      if (this.targetPages.every(target => reachableWithLimit.has(target))) {
+        break;
+      }
+
+      // 到達不可能なターゲットがある場合、再試行
+      if (attempt === MAX_ATTEMPTS - 1) {
+        // 最終手段: commonLinksのみから選択
+        const safeCandidates = allPages.filter(p =>
+          p.path === '/' || commonLinks.includes(p.path)
+        );
+        const safeShuffled = [...safeCandidates].sort(() => Math.random() - 0.5);
+        this.targetPages = safeShuffled.slice(0, count).map(p => p.path);
+      }
+    }
 
     // 状態リセット
     this.resetState();
@@ -125,6 +149,72 @@ export class GameState {
     }
 
     return reachable;
+  }
+
+  // ポータル制限を考慮した到達可能性チェック（BFS）
+  // ターゲットページが優先表示されることを考慮し、実際のゲームプレイでの到達可能性を判定
+  private findReachableWithPortalLimit(
+    allPages: CrawlPage[],
+    commonLinks: string[],
+    targetPages: string[],
+    maxPortals: number = 8
+  ): Set<string> {
+    const reachable = new Set<string>();
+    const pageMap = new Map(allPages.map(p => [p.path, p]));
+    const targetSet = new Set(targetPages);
+    const queue: string[] = ['/'];
+
+    reachable.add('/');
+
+    while (queue.length > 0) {
+      const currentPath = queue.shift()!;
+      const currentPage = pageMap.get(currentPath);
+
+      if (!currentPage) continue;
+
+      // このページから表示されるポータルをシミュレート
+      // stageLoaderと同じロジック: ページリンク + commonLinks → 重複除去 → ターゲット優先
+      const allLinksForPortal = [...currentPage.links, ...commonLinks];
+      const uniqueLinks = [...new Set(allLinksForPortal)];
+
+      // クロール済みページのみ、かつ現在ページ以外
+      let accessibleLinks = uniqueLinks.filter(link =>
+        link !== currentPath && pageMap.has(link)
+      );
+
+      // ターゲットページを先頭に配置（優先表示）
+      const targetLinks = accessibleLinks.filter(link => targetSet.has(link));
+      const otherLinks = accessibleLinks.filter(link => !targetSet.has(link));
+      accessibleLinks = [...targetLinks, ...otherLinks];
+
+      // 最大ポータル数で制限
+      const visiblePortals = accessibleLinks.slice(0, maxPortals);
+
+      for (const link of visiblePortals) {
+        if (!reachable.has(link)) {
+          reachable.add(link);
+          queue.push(link);
+        }
+      }
+    }
+
+    return reachable;
+  }
+
+  // ターゲットページがすべて到達可能かチェック
+  validateTargetReachability(
+    allPages: CrawlPage[],
+    commonLinks: string[],
+    maxPortals: number = 8
+  ): boolean {
+    const reachable = this.findReachableWithPortalLimit(
+      allPages,
+      commonLinks,
+      this.targetPages,
+      maxPortals
+    );
+
+    return this.targetPages.every(target => reachable.has(target));
   }
 
   // ターゲットページ一覧を取得

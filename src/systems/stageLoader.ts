@@ -43,7 +43,8 @@ export function convertPageToStage(
 
   // 最大数を設定（ステージ幅が広くても上限あり）
   const widthMultiplier = Math.min(stageWidth / 800, 2);  // 最大2倍まで
-  const MAX_ENEMIES = Math.min(Math.floor(12 * widthMultiplier), 20);  // 最大20体
+  // テスト用: 敵を1体のみに制限
+  const MAX_ENEMIES = 1;  // TODO: テスト後に戻す → Math.min(Math.floor(12 * widthMultiplier), 20)
   const MAX_ENEMIES_PER_TAG = 3;  // 1タグあたり最大3体
   const MAX_PORTALS = Math.min(Math.floor(5 * widthMultiplier), 8);  // 最大8個
 
@@ -130,11 +131,37 @@ export function convertPageToStage(
     link !== page.path && findPageIndex(allPages, link) !== null
   );
 
-  // EASYモードの場合、ターゲットページへのリンクのみ表示
+  // ターゲットページへのリンクを優先
   const targetPages = gameState.getTargetPages();
+
+  // EASYモードの場合、ターゲットページへのリンクのみ表示
   if (targetPages.length === 2) {  // EASYモード判定（2ページのみ）
     accessibleLinks = accessibleLinks.filter(link => targetPages.includes(link));
+  } else {
+    // NORMALモード: ターゲットページを先頭に配置（優先表示）
+    const targetLinks = accessibleLinks.filter(link => targetPages.includes(link));
+    const otherLinks = accessibleLinks.filter(link => !targetPages.includes(link));
+    accessibleLinks = [...targetLinks, ...otherLinks];
   }
+
+  // ターゲットページのセット（未クリア分のみ）
+  const targetSet = new Set(
+    targetPages.filter(t => !gameState.isPageCleared(t))
+  );
+
+  // 各ページがターゲットへ導くかどうかを判定するヘルパー
+  // commonLinksは全ページから到達可能なので、ページ固有のリンクのみでチェック
+  const pageLeadsToTarget = (pagePath: string): boolean => {
+    const linkPage = allPages.find(p => p.path === pagePath);
+    if (!linkPage) return false;
+
+    // ページ固有のリンクにターゲットが含まれるか（commonLinksは除外）
+    const pageLinks = new Set(linkPage.links);
+    for (const target of targetSet) {
+      if (pageLinks.has(target)) return true;
+    }
+    return false;
+  };
 
   let portalCount = 0;
 
@@ -148,6 +175,10 @@ export function convertPageToStage(
     const targetPage = targetPageIndex !== null ? allPages[targetPageIndex] : null;
     const pageTitle = targetPage?.title || link;
 
+    // ターゲット判定
+    const isTarget = targetSet.has(link);
+    const leadsToTarget = !isTarget && pageLeadsToTarget(link);
+
     // X座標: ステージ全体に分散
     const x = MARGIN_LEFT + (portalCount / MAX_PORTALS) * playAreaWidth;
     // Y座標: 上下にばらつかせる
@@ -159,6 +190,8 @@ export function convertPageToStage(
       pageTitle,
       x: Math.round(x),
       y: Math.round(y),
+      isTarget,
+      leadsToTarget,
     });
 
     portalCount++;
