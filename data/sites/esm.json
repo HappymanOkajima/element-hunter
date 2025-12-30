@@ -1,0 +1,6255 @@
+{
+  "siteId": "esm-co",
+  "siteName": "株式会社永和システムマネジメント",
+  "baseUrl": "https://esm.co.jp",
+  "metadata": {
+    "crawledAt": "2025-12-30T09:43:59.375Z",
+    "crawlerVersion": "0.1.0",
+    "totalPages": 42,
+    "totalElements": 9825,
+    "maxDepth": 3,
+    "crawlDuration": 118975
+  },
+  "siteStyle": {
+    "backgroundColor": "#f8f9ff",
+    "primaryColor": "#ff8800",
+    "accentColor": "#ff8800",
+    "textColor": "#333333",
+    "themeColor": null
+  },
+  "pages": [
+    {
+      "path": "/",
+      "depth": 0,
+      "title": "株式会社永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 180,
+          "sampleTexts": [
+            "株式会社永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 81,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 66,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1799x402_4fe7a5e5-4477-4a6c-94d8-a563b49470a6.webp"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 50,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 20,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 16,
+          "sampleTexts": [
+            "#PermanentAgility",
+            "経営ビジョン",
+            "会社概要",
+            "ESM people",
+            "DEI 宣言"
+          ]
+        },
+        {
+          "tag": "span",
+          "count": 8,
+          "sampleTexts": [
+            "News",
+            "お知らせ",
+            "About us",
+            "ESM について",
+            "Work Environment"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 4,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 4,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "株式会社永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": [
+            "PermanentAgility"
+          ]
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 448,
+      "links": [
+        "/news/20251224-01",
+        "/news/20251208-01",
+        "/news/20251104-01",
+        "/photogallery"
+      ],
+      "parentLink": null,
+      "contentLength": 255582,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>News</span><span>お知らせ</span></h2><div><div><div><div><p>2025.12.24</p></div><div><p>イベント</p><p>Regional Scrum Gathering Tokyo 2026 に代表の平鍋と弊社メンバーが登壇します！</p><p>Agile Studioは、2026年1月7日(水)～9日(金)に ベルサール羽...</p></div></div><div></div><div><div><p>2025.12.08</p></div><div><p>プレスリリース</p><p>地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』が3団体と実証実験に向け協定締結しました</p><p>株式会社永和システムマネジメントは、『新宿町五丁目自治会』、『一般社団法人ヒトナ...</p></div></div><div></div><div><div><p>2025.11.04</p></div><div><p>イベント</p><p>仙台国際センターで開催の「TOHOKU DX GATEWAY 2025」に出展します。（タウンデジボ）</p><p>2025年11月26日(水)に仙台国際センター 展示棟で開催の「TOHOKU D...</p></div></div><div></div></div><p>お知らせ一覧</p><div></div></div></div><div><h2><span>About us</span><span>ESM について</span></h2><div><h3>#PermanentAgility</h3><p>福井の地に起業し、ソフトウェアを生業として45年。わたしたちは、新たな経営ビジョン（北極星）として「Permanent Agility（パーマネント・アジリティ）」を掲げました。アジャイルはわたしたちの原点であり、目指す方向でもあります。アジリティの高い経営を実現し、わたしたちの社名にある「永和」のスピリットとソフトウェア技術で、日本の社会に永く和をもって寄与していくことを追求していきます。<br></p></div><div><div></div><div><p>Vision</p><h3>経営ビジョン</h3><p>Permanent Agility について</p></div><div></div><div><p>Agile Consulting and Development</p><p>アジャイルに関する情報発信やイベント案内</p></div><div></div><div><p>Sakinokoto</p><p>社会課題に挑戦する弊社の取組み<br></p></div><div></div><div><p>Company Profile</p><h3>会社概要</h3><p>永和システムマネジメントについて</p></div><div></div><div><p>Organization</p><h3>組織</h3><p>当社の事業部門について</p></div><div></div><div><p>People</p><h3>ESM people</h3><p>役員と永和が誇るエンジニアの紹介</p></div></div></div><div><h2><span>Work Environment<br></span><span>働く環境</span></h2><div><p>当社の Diversity, Equity &amp; Inclusion 状況、性差ギャップ年収、働き方の多様性と制度などについて公開します。<br></p></div><div><div></div><div><p>Diversity, Equity &amp; Inclusion statement</p><h3>DEI 宣言</h3><p>弊社は DEI を推進していきます</p></div><div></div><div><p>Work Environment for Diversity</p><h3>働き方の多様性への挑戦</h3><p>働きやすい環境をつくる取組みに挑戦しています</p></div><div></div><div><p>Photo Gallery</p><h3>フォトギャラリー</h3><p>社員や社内の様子です</p></div></div></div><div><h2><span>Services<br></span><span>サービス</span></h2><div><div><div><div><p>Agile Consulting and Develo",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision",
+      "depth": 1,
+      "title": "経営ビジョン ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 119,
+          "sampleTexts": [
+            "経営ビジョン ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 73,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 38,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 34,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 34,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 12,
+          "sampleTexts": [
+            "Our vision",
+            "わたしたちのビジョン",
+            "Vision",
+            "経営ビジョン",
+            "Message"
+          ]
+        },
+        {
+          "tag": "h3",
+          "count": 7,
+          "sampleTexts": [
+            "担当役員インタビュー",
+            "さきのこと",
+            "担当役員インタビュー",
+            "アジプラ",
+            "担当役員インタビュー"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "i",
+          "count": 3,
+          "sampleTexts": [
+            "navigate_next",
+            "navigate_next",
+            "navigate_next"
+          ]
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "経営ビジョン ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h4",
+          "count": 1,
+          "sampleTexts": [
+            "平鍋 健児"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 351,
+      "links": [
+        "/vision/understanding-of-policy",
+        "/vision/interview-wkwk-henkaku",
+        "/vision/interview-sakinokoto",
+        "/vision/interview-agility-platform",
+        "/vision/overview-wkwk-soshiki"
+      ],
+      "parentLink": "/",
+      "contentLength": 214873,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Vision</span><span>経営ビジョン<br></span></h2><div><p>Permanent Agility</p><p>福井の地に起業し、ソフトウェアを生業として45年。わたしたちは、新たな経営ビジョン（北極星）として「Permanent Agility（パーマネント・アジリティ）」を掲げました。アジャイルはわたしたちの原点であり、目指す方向でもあります。アジリティの高い経営を実現し、わたしたちの社名にある「永和」のスピリットとソフトウェア技術で、日本の社会に永く和をもって寄与していくことを追求していきます。<br></p></div></div><div><h2><span>Message</span><span>代表メッセージ<br></span></h2><div><div><div><div><p>株式会社永和システムマネジメント<br></p><p>代表取締役社長<br></p></div><h4>平鍋 健児</h4><p>BLOG \"AN AGILE WAY\"<br></p><div></div></div></div><div><p>ビジネスにおけるソフトウェアの重要性がますます大きくなり、Web やクラウド、AI による基盤技術のアップデート、アジャイル開発の浸透とともに、ソフトウェアエンジニアとビジネスが手を取り合ってチームワークで価値創造する時代が到来したと言えるでしょう。</p><p>私たちは、ビジネスでのソフトウェア活用を考えるお客さまに伴走し、技術サイドからのビジネス提案ができる会社として成長していきたいと考えています。1980年創業以来、金融システム構築、地域の医療機関へのシステム導入サポートに始まり、東京で Ruby コミュニティを愛する技術者集団、アジャイルのコンサルティングファームとして知名度を上げ、自動車をはじめとする組込み技術分野にも進出してきました。さらに、医学教育を支援する製品開発・販売（F.CESS）、そして、情報発信源として Agile Studio（アジャイルスタジオ）を立ち上げて成長を続けています。</p><p>ソフトウェアは人が人のためにつくるもの。人のチカラを信じ、お客さまのビジネスにチームで価値を届けること。その過程でともに共感・成長できる情熱を持った仲間がこの会社であり、また、会社を超えてコミュニティづくり、仲間づくりができるチームでありたい。</p><p>そして、自社自身もアジャイルなマインドセットを持った経営でありたいと考え、「ワクワクヘンカク」という全社テーマで組織改革を進めています。<br></p><div><p>ワクワクヘンカク</p><div><div><i>navigate_next</i><p>さきのこと - 社会課題に挑戦する</p></div><div><i>navigate_next</i><p>ワクワクソシキ - 組織がアジャイルになる</p></div><div><i>navigate_next</i><p>アジプラ - Agile Studio から社外へ発信、社内のマーケティング育成</p></div></div></div><p>社会課題に挑戦する「さきのこと」、アジャイルなマネジメントを目指す「ワクワクソシキ」、社内の人材育成と外部への広報を担う「アジプラ」（Agile Studio）、を三本柱に社内外に変化を生み出します。</p><p>顧客に密着した事業部門としては、アジャイル事業部、ITサービス事業部、医療システム事業部、組込み技術事業部、医学教育支援室の５事業部門によって顧客満足をさらに向上する活動をしています。</p><p>アジャイルはわたしたちの原点であり、方向でもあります。Permanent Agility（パーマネント・アジリティ）を自身の北極星として指差しながら、アジャイルを社内に、社外に、そして社会課題の解決に積極的に取り入れて活動していきます。</p></div></div></div><div><h2><span>Policy</span><span>社是<br></span></h2><div><div><div><p>1<br></p></div><p>会社の繁栄と社員全員の幸福が常に一致する経営を行う。<br></p></div><div><div><p>2<br></p></div><p>少数精鋭主義を貫くユニークな集団を目指し、ソフトウェア開発を通じ、社会に貢献する。<br></p></div><div><div><p>3<br></p></div><p>和を重んじ、チームプレーを中心に高能率・高利益をあげ、信用の増大を図る。<br></p></di",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/company",
+      "depth": 2,
+      "title": "会社情報 ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 153,
+          "sampleTexts": [
+            "会社情報 ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 133,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 80,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 55,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 51,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 37,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 15,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 6,
+          "sampleTexts": [
+            "About us",
+            "会社情報",
+            "Company Profile",
+            "会社概要",
+            "Related Links"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "会社情報 ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "strong",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 549,
+      "links": [
+        "/company/history",
+        "/company/publications"
+      ],
+      "parentLink": "/",
+      "contentLength": 245571,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Company Profile</span><span>会社概要</span></h2><div><div><div><p>商号<br></p><p>Company Name<br></p></div><div><p>株式会社永和システムマネジメント<br></p></div><div><p>ESM, Inc.<br></p></div></div><div><div><p>本社<br></p><p>Headquarters<br></p></div><div><p>〒918-8231<br>福井県福井市問屋町3丁目111番地<br></p><p>Google Map で見る<br></p><div></div></div><div><p>3-111 Toiya-cho, Fukui city, Fukui<br>918-8231, Japan<br></p><p>View on Google Map<br></p><div></div></div></div><div><div><p>東京支社<br></p><p>Tokyo Office<br></p><p>※コーポレート機能は本社に集約しました。</p></div><div><p>〒104-0031<br>東京都中央区京橋3-1-1<br>東京スクエアガーデン 14F WeWork<br></p><p>Google Map で見る<br></p><div></div></div><div><p>TOKYO SQUARE GARDEN BLD 14F WeWork,<br>3-1-1 Kyoubashi,<br>Chuo-ku,Tokyo,104-0031,JAPAN<br></p><p>View on Google Map<br></p><div></div></div></div><div><div><p>Agile Studio Park<br>&nbsp;FUKUI BASE<br></p><p><br></p></div><div><p>〒910-0006<br>福井県福井市中央1丁目3番5号 <br>FUKUMACHI BLOCK Office 8階 804<br></p><p>Google Map で見る<br></p><div></div></div><div><p>FUKUMACHI BLOCK Office 8F 804,<br>1-3-5 Chuou,<br>Fukui city,Fukui,910-0006,JAPAN<br></p><p>View on Google Map<br></p><div></div></div></div><div><div><p>設立<br></p><p>Founded<br></p></div><div><p>1980年8月11日<br></p></div><div><p>August 11th, 1980<br></p></div></div><div><div><p>資本金<br></p><p>Capital<br></p></div><div><p>61百万円<br></p></div><div><p>61 million yen<br></p></div></div><div><div><p>従業員数<br></p><p>Number of Employees<br></p></div><div><p>213名（2025年7月現在）<br></p></div><div><p>213 ( as of July 2025 )<br></p></div></div><div><div><p>年商<br></p><p>Annual Business<br></p></div><div><p>30億円（2025年7月現在）<br></p></div><div><p>3.0 billion yen ( as of July 2025 )<br></p></div></div><div><div><p>事業内容<br></p><p>Business Activities<br></p></div><div><div><ul><li><p>情報システム開発および構築</p></li><li><p>パッケージの開発および販売</p></li><li><p>コンピュータおよび周辺機器の販売</p></li><li><p>ソフトウェア開発技術に関するコンサルティングおよび教育</p></li></ul></div></div><div><div><ul><li><p>Development and construction of information system.</p></li><li><p>D",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/company/organization",
+      "depth": 3,
+      "title": "組織 ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 188,
+          "sampleTexts": [
+            "組織 ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 116,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 58,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 51,
+          "sampleTexts": [
+            "Top",
+            "About us"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 32,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 8,
+          "sampleTexts": [
+            "Organization",
+            "Business Divisions",
+            "事業部門",
+            "Our Beliefs and Principles",
+            "私たちの信念と行動原則"
+          ]
+        },
+        {
+          "tag": "h3",
+          "count": 6,
+          "sampleTexts": [
+            "ITサービス事業部",
+            "アジャイル事業部",
+            "組込み技術事業部",
+            "医療システム事業部",
+            "医学教育支援室"
+          ]
+        },
+        {
+          "tag": "i",
+          "count": 6,
+          "sampleTexts": [
+            "pool",
+            "public",
+            "people",
+            "settings_input_antenna",
+            "trending_up"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h4",
+          "count": 5,
+          "sampleTexts": [
+            "関連サイト",
+            "関連サイト",
+            "関連サイト",
+            "関連サイト",
+            "関連サイト"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "組織 ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 498,
+      "links": [
+        "/news/20250730-01"
+      ],
+      "parentLink": "/company",
+      "contentLength": 319491,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Business Divisions</span><span>事業部門</span></h2><div><div><div></div><div><div><p>社会課題を持っている方に、私たちがこれまで培ってきた ICT 技術を、 Agility を持って、本気で届ける活動です。<br></p></div><h4>関連サイト<br></h4><div><div><p>Sakinokoto</p><p>社会課題に挑戦する弊社の取組み</p></div><div></div></div></div></div><div><div></div><div><div><p>Agile Studio で培ったノウハウをベースに、永和システムマネジメント各部門のマーケティング・広報・人材育成を伴走支援しています。<br></p></div><h4>関連サイト<br></h4><div><div><p>Agile Studio</p><p>アジャイル開発に関する情報発信</p></div><div></div></div></div></div><div><div></div><div><div><h3>ITサービス事業部<br></h3><p>お客様のニーズに合わせたモダンな開発技術と、アジャイルな開発手法によって、顧客体験価値のあるプロダクトや開発支援サービスを提供しています。<br></p></div><h4>関連サイト<br></h4><div><div><p>wkwk-soshiki</p><p>組織アジャイルの社内事例</p></div><div></div><div><p>Agile Studio</p><p>アジャイル開発支援サービス</p></div><div></div></div></div></div><div><div></div><div><div><h3>アジャイル事業部<br></h3><p>Ruby を使ったアジャイルなソフトウェア開発やアジャイル開発のコンサルティングサービスを提供し、お客さまに価値を届けています。<br></p></div><h4>関連サイト<br></h4><div><div><p>Ruby x Agile</p><p>Rubyアジャイル受託開発</p></div><div></div><div><p>Agile Studio</p><p>アジャイル開発コンサルティング</p></div><div></div></div></div></div><div><div></div><div><div><h3>組込み技術事業部</h3><p>より良いものづくりのために、組込みシステム開発を効率化するサービス・ソリューションを提供しています。<br></p></div><div><p>サービスページを見る<br></p><div></div></div></div></div><div><div></div><div><div><h3>医療システム事業部</h3><p>医療・介護の明日を支える為、多くの実績から培った知識・技術・経験を活用し、安心と信頼の ICT サービスを提供しています。<br></p></div><div><p>Web サイトを見る<br></p><div></div></div></div></div><div><div></div><div><div><h3>医学教育支援室<br></h3><p>臨床教育支援システム「F.CESS」を中心に、『医学教育』に焦点を絞ってIT導入を推進しています。<br></p></div><h4>関連サイト<br></h4><div><div><p>Clinical Education</p><p>臨床教育支援システム</p></div><div></div></div></div></div><div><div></div><div><div><h3>管理部</h3><p>「働きやすい会社」から「働きがいのある会社へ」。組織の安定と成長を支えています。<br></p></div></div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/contact",
+      "depth": 3,
+      "title": "お問い合わせ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 63,
+          "sampleTexts": [
+            "お問い合わせ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 59,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 27,
+          "sampleTexts": [
+            "Top",
+            "個人情報の取扱い"
+          ]
+        },
+        {
+          "tag": "input",
+          "count": 19,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 16,
+          "sampleTexts": [
+            "Contact",
+            "お問い合わせ",
+            "アジャイル開発",
+            "Ruby",
+            "クラウド"
+          ]
+        },
+        {
+          "tag": "label",
+          "count": 14,
+          "sampleTexts": []
+        },
+        {
+          "tag": "img",
+          "count": 10,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 6,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "option",
+          "count": 5,
+          "sampleTexts": [
+            "内容を選択",
+            "アジャイル開発に関するお問い合わせ",
+            "サービス・取扱商品に関するお問い合わせ",
+            "弊社ウェブサイトに関するお問い合わせ",
+            "その他"
+          ]
+        },
+        {
+          "tag": "textarea",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "お問い合わせ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "form",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "select",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "i",
+          "count": 1,
+          "sampleTexts": [
+            "keyboard_arrow_down"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 245,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 125181,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><p>こちらのフォームにお問い合わせ内容をご記入ください。<br>入力いただいたメールアドレスに、後日こちらからご連絡させていただきます。<br></p><div><p>*</p><p>必須の質問です</p></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/company/history",
+      "depth": 3,
+      "title": "沿革 ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 80,
+          "sampleTexts": [
+            "沿革 ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 77,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 54,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 30,
+          "sampleTexts": [
+            "Top",
+            "About us"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "History"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "沿革 ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 280,
+      "links": [],
+      "parentLink": "/company",
+      "contentLength": 141726,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><div><p>1980<br></p><p>&nbsp;- 昭和55年<br></p></div><div><div><p>1980<br></p><p>資本金500万円で設立創業（福井市加茂河原）<br></p></div><div><p>1982<br></p><p>金融機関向けシステム事業を開始<br></p></div><div><p>1984<br></p><p>資本金1000万円に増資<br>本社新築移転（福井市花堂）<br></p></div><div><p>1988<br></p><p>オープンシステム事業を開始<br></p></div><div><p>1989<br></p><p>資本金2000万円に増資<br>医療機関向けシステム事業を開始<br></p></div></div></div><div><div><p>1990<br></p><p>&nbsp;- 平成2年〜<br></p></div><div><div><p>1990<br></p><p>資本金5000万円に増資<br>本社新築移転（福井市問屋町）<br></p></div><div><p>1999<br></p><p>資本金6168万円に増資<br></p></div></div></div><div><div><p>2000<br></p><p> - 平成12年〜<br></p></div><div><div><p>2000<br></p><p>本社増築<br></p></div><div><p>2002<br></p><p>東京事務所開設（田町）<br></p></div><div><p>2003<br></p><p>東京事務所を東京支社に改称し移転（品川）<br></p></div><div><p>2006<br></p><p>組込みソフトウェア事業を開始<br>Ruby × アジャイル事業を開始<br>関連会社 株式会社チェンジビジョン、株式会社アフレルを設立<br></p></div><div><p>2009<br></p><p>東京支社を移転（上野）<br></p></div></div></div><div><div><p>2010<br></p><p> - 平成22年〜<br></p></div><div><div><p>2015<br></p><p>東京支社を移転（神田）<br>クラウド × アジャイル事業を開始<br></p></div><div><p>2018<br></p><p>Agile Studio Fukui（アジャイルスタジオ福井）を開設<br></p></div><div><p>2019<br></p><p>KDDI株式会社と米国Scrum Inc. と共に合弁会社 Scrum Inc.Japan株式会社を設立<br></p></div></div></div><div><div><p>2020<br></p><p> - 令和2年〜<br></p></div><div><div><p>2020<br></p><p>総合アジャイルサービス「Agile Studio」をリリース<br></p></div><div><p>2022<br></p><p>東京支社を移転（京橋）<br></p></div><div><p>2023<br></p><p>合同会社箱庭ラボ設立<br></p></div></div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/company/publications",
+      "depth": 3,
+      "title": "出版・著作物 ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 88,
+          "sampleTexts": [
+            "出版・著作物 ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 68,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 54,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-341x499_webp_b74ad571-99f7-4251-a74e-7388d2251367.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-291x407_webp_3e03a8b6-06c2-4f6c-915d-90fdc153f460.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-291x407_webp_f9f92dbb-3795-4afe-a2e2-4ba2ba39ff2b.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-291x407_webp_89f4cc5b-5bdc-4be8-a32e-6b941520a4a8.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-291x407_webp_d477d4bb-ddf8-469d-84a8-e1305b7468e7.webp"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 42,
+          "sampleTexts": [
+            "Top",
+            "About us"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 36,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Publications",
+            "出版・著作物"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "出版・著作物 ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 312,
+      "links": [],
+      "parentLink": "/company",
+      "contentLength": 110487,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><div><div><p>アジャイル開発とスクラム 第2版</p></div><p>アジャイル開発とスクラム 第2版</p><p>平鍋 健児（著）<br>野中 郁次郎（著）<br>及部 敬雄（著）</p></div><div><div><p>アジャイル開発とスクラム</p></div><p>アジャイル開発とスクラム</p><p>平鍋 健児（著）<br>野中 郁次郎（著）</p></div><div><div><p>アジャイルサムライ</p></div><p>アジャイルサムライ</p><p>Jonathan Rasmusson（著）<br>西村直人（監訳）<br>角谷信太郎（監訳）<br>近藤修平（翻訳）<br>角掛拓未（翻訳）</p></div><div><div><p>アート・オブ・アジャイル デベロップメント</p></div><p>アート・オブ・アジャイル デベロップメント</p><p>James Shore（著）<br>Shane Warden（著）<br>木下 史彦（監訳）<br>平鍋 健児（監訳）<br>笹井 崇司（翻訳）</p></div><div><div><p>アジャイルプラクティス</p></div><p>アジャイルプラクティス</p><p>Jim Highsmith（原著）<br>平鍋 健児（翻訳）<br>小野 剛（翻訳）<br>高嶋 優子（翻訳）</p></div><div><div><p>アジャイルプロジェクトマネジメント</p></div><p>アジャイルプロジェクトマネジメント</p><p>Jim Highsmith（原著）<br>平鍋 健児（翻訳）<br>小野 剛（翻訳）<br>高嶋 優子（翻訳）</p></div><div><div><p>アジャイルな見積りと計画づくり</p></div><p>アジャイルな見積りと計画づくり</p><p>Mike Cohn（著）<br>安井 力（翻訳）<br>角谷 信太郎（翻訳）</p></div><div><div><p>最短最速で目標を達成するOKRマネジメント入門</p></div><p>最短最速で目標を達成するOKRマネジメント入門</p><p>天野 勝（著）</p></div><div><div><p>CakePHPで学ぶ継続的インテグレーション</p></div><p>CakePHPで学ぶ継続的インテグレーション</p><p>渡辺 一宏（著）<br>吉羽 龍太郎（著）<br>岸田 健一郎（著）<br>穴澤 康裕（著）<br>丸山 弘詩（編集）</p></div><div><div><p>パーフェクトRuby</p></div><p>パーフェクトRuby</p><p>Rubyサポーターズ（著）<br>すがわら まさのり（著）<br>寺田 玄太郎（著）<br>三村 益隆（著）<br>近藤 宇智朗（著）<br>橋立 友宏（著）<br>関口 亮一（著）</p></div><div><div><p>スクラム実践入門</p></div><p>スクラム実践入門</p><p>貝瀬 岳志（著）<br>原田 勝信（著）<br>和島 史典（著） <br>栗林 健太郎（著）<br>柴田 博志（著）<br>家永 英治（著）</p></div><div><div><p>LEADER’s KPT</p></div><p>LEADER’s KPT</p><p>天野 勝（著）</p></div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/people",
+      "depth": 3,
+      "title": "ESM people ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 113,
+          "sampleTexts": [
+            "ESM people ｜永和システムマネジメント 読み込まれ"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 68,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 42,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-512x512_webp_26494d47-8114-424d-8873-87537d712beb.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-512x512_webp_0592098a-3427-4012-b4c0-862038958641.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-512x512_webp_23af13b6-aa07-4291-92b9-b56f007ac168.webp",
+            "https://storage.googleapis.com/studio-cms-assets/projects/moWv0N9xq6/s-512x512_webp_16a0874e-c1a6-4398-a950-42635b831649.webp"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 38,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 7,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 6,
+          "sampleTexts": [
+            "People",
+            "ESM people",
+            "Board of directors",
+            "Distinguished Engineers",
+            "ディスティングイッシュト・エンジニア"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "ESM people ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h4",
+          "count": 1,
+          "sampleTexts": [
+            "岡島 幸男"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 299,
+      "links": [
+        "/people/KenjiHiranabe",
+        "/people/YoshioKoyama",
+        "/people/KazuhisaMiyashita",
+        "/people/YukioOkajima",
+        "/people/MasaruAmano",
+        "/people/KoichiIto",
+        "/people/KenichirouKishida",
+        "/people/FumihikoKinoshita"
+      ],
+      "parentLink": "/",
+      "contentLength": 133275,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Board of directors</span><span>役員</span></h2><div><div><div><div><p>代表取締役社長</p><p>平鍋 健児</p><p>Kenji Hiranabe</p></div><div><p>more</p></div></div><div></div><div><div><p>代表取締役副社長</p><p>小山 嘉雄</p><p>Yoshio Koyama</p></div><div><p>more</p></div></div><div></div><div><div><p>常務取締役</p><p>宮下 和久</p><p>Kazuhisa Miyashita</p></div><div><p>more</p></div></div><div></div><div><div><p>取締役CTO</p><p>岡島 幸男</p><p>Yukio Okajima</p></div><div><p>more</p></div></div><div></div></div></div></div><div><h2><span>Distinguished Engineers</span><span>ディスティングイッシュト・エンジニア</span></h2><div><div><div><div><p>株式会社永和システムマネジメント<br></p><p>取締役CTO<br></p></div><h4>岡島 幸男</h4><p>BLOG \" Be Happyman!! \"<br></p><div></div></div></div><div><p>永和システムマネジメントは、ソフトウェア業界やコミュニティへの貢献を重要視しています。ディスティングイッシュト・エンジニアとは、その技術力と実績で外部から評価されていると、当社が認めるエンジニアです。<br></p><p>岡島 幸男</p></div><div><div><div><p>Distinguished Facilitator</p><p>天野 勝</p><p>Masaru Amano</p></div><div><p>more</p></div></div><div></div><div><div><p>Distinguished Engineer</p><p>伊藤 浩一</p><p>Koichi Ito</p></div><div><p>more</p></div></div><div></div><div><div><p>Distinguished Creator</p><p>岸田 健一郎</p><p>Kenichirou Kishida</p></div><div><p>more</p></div></div><div></div><div><div><p>Distinguished Consultant</p><p>木下 史彦</p><p>Fumihiko Kinoshita</p></div><div><p>more</p></div></div><div></div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/dei",
+      "depth": 3,
+      "title": "DEI 宣言｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "p",
+          "count": 193,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "div",
+          "count": 181,
+          "sampleTexts": [
+            "DEI 宣言｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 113,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 29,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 11,
+          "sampleTexts": [
+            "Diversity, Equity & Inclusion ",
+            "DEI 宣言",
+            "DEI Activities Status",
+            "DEI 活動状況",
+            "Gender Balance"
+          ]
+        },
+        {
+          "tag": "li",
+          "count": 6,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 2,
+          "sampleTexts": [
+            "永和システムマネジメント DEI 宣言"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "DEI 宣言｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ol",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 574,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 332503,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><h2>永和システムマネジメント DEI 宣言</h2><p>永和システムマネジメントは『Permanent Agility』という経営ビジョンを掲げています。私たち自身がアジリティの高い組織になり、日本の社会がアジャイルになることに寄与していくことが、私たちの目標です。</p><p>私たちのお客さまは、個人ではなく、さまざまな企業や団体です。しかし、”その先”には、さまざまな多様性にあふれた、個人のお客さまが存在します。私たちは、”その先”のお客さまにも、喜んでもらえるような仕事がしたいと考えています。</p><p>多様な人材を確保し、組織変革やイノベーション創出を促進していくためにも、『多様な経験、知識、考え方、意見を持つメンバーが、自分らしさと可能性を発揮できる組織を目指すという永和システムマネジメントの「Diversity, Equity &amp; Inclusion」の考え方』は、私たちの経営ビジョンを実現するために必要不可欠です。</p><p>継続的、持続的に変化し、一歩先を行く、永和システムマネジメントらしい「Diversity, Equity &amp; Inclusion」を推進していきます。</p><p>私たちは、ジェンダー・アイデンティティー、性表現、性的指向、宗教、信条、障がい、国籍、人種、年齢など、さまざまなバックグラウンドによって個人が決めつけられることのない平等な機会を提供し、一人ひとりがバリューを発揮できるような組織や環境を目指します。</p><p>私たちは、DEI への取り組みのスタートとして、もっとも身近なジェンダーギャップの問題から取り組みます。</p><p>私たちは、以下のことを約束します。</p><ol><li><p>さまざまなバックグラウンドにかかわらず、フェアな機会を提供します</p></li><li><p>さまざまなバックグラウンドにかかわらず、可能性を発揮するための、成長機会と学びの文化を創造します</p></li><li><p>誰もが、自分らしさと可能性を発揮して働くことができるよう、信頼でつながる組織をつくります</p></li></ol><p>ここに集うメンバーの考えや行動に「Diversity, Equity &amp; Inclusion」が根付き、私たちのお客さま、そしてその先のお客さまに届くことが、私たちが目指すゴールです。</p></div></div></div><div><h2><span>DEI Activities Status</span><span>DEI 活動状況</span></h2><div><p>当社の活動状況を公開しています。<br></p><p>（2025年8月1日現在）<br></p></div><div><div><div><h3><span>Gender Balance<br></span><span>ジェンダーバランス</span></h3><div><p>女性のさらなる活躍に向けて、女性リーダーを育成し、ジェンダーバランスを実現します。<br></p><p>まずは、マネージャー・シニアエンジニアの女性比率向上に力を入れていきます。<br></p></div></div><div><p>女性比率<br></p><p>社員における<br>女性比率との差</p></div><div><p>社員における女性比率</p><div><div><p>28.2<br></p><p>%<br></p></div><p>女性比率<br></p></div></div><div><div><p>新卒採用における女性比率</p><p>過去5年間</p></div><div><p>女性比率<br></p><div><p>23.8<br></p><p>%<br></p></div></div><div><p>社員における女性比率との差</p><div><p>-4.4<br></p><p>P<br></p></div></div></div><div><div><p>採用（新卒、中途）における女性比率</p><p>過去5年間</p></div><div><p>女性比率<br></p><div><p>34.2<br></p><p>%<br></p></div></div><div><p>社員における女性比率との差</p><div><p>6.0<br></p><p>P<br></p></div></div></div><div><p>取締役における女性比率</p><div><p>女性比率<br></p><div><p>0.0</p><p>%<br></p></div></div></div><div><p>事業部門長における女性比",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/workstyles",
+      "depth": 3,
+      "title": "働き方の多様性への挑戦｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 88,
+          "sampleTexts": [
+            "働き方の多様性への挑戦｜永和システムマネジメント 読み込まれ"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 83,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 41,
+          "sampleTexts": [
+            "Top",
+            "技術パフォーマンス職",
+            "事業部評価プラグイン",
+            "特命係",
+            "技能表彰"
+          ]
+        },
+        {
+          "tag": "span",
+          "count": 35,
+          "sampleTexts": [
+            "Our Journey to Workstyle Diver",
+            "働き方の多様性への挑戦",
+            "Introduction",
+            "はじめに",
+            "Our Company's Initiatives"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 22,
+          "sampleTexts": []
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 14,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 10,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 7,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "働き方の多様性への挑戦｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ol",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 333,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 196838,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Introduction</span><span>はじめに</span></h2><div><div><p>私たちの掲げる「アジャイルなマインドセットを持った経営」を実現するには、社員の働き方の多様性を大切にすることが必要であり、重要だと考えています。</p><p>やりがいを持って、会社に対する安心感を持って、より働きやすい環境になるかに、私たちは真摯に向き合ってきました。そして、これからの更なる外部環境・価値観の変化に機敏に対応していくためには、従来の社内規程では限界があると考え、2022年に全面刷新を行いました。刷新にあたり、社員にワーキンググループに参加してもらい、規程ひとつひとつに込められた意味を共有しました。<br><br>私たちが重視するポイントは2つです。</p><ol><li><p>技術者を大切にし、ビジネス(事業部)ごとの特性と個人の成長を一致させること</p></li><li><p>社会環境の変化に柔軟・迅速に適応し、多様な年齢層が長く働けること</p></li></ol><p>地方の中小企業として、実現できていない働き方も多くありますが、「だからこそできる働き方」もあるはずです。以下に、近年行われた制度の変遷について紹介します。私たちは、ひとつ先行く働き方の多様性にこれからも挑戦していきます。</p></div></div></div><div><h2><span>Our Company's Initiatives</span><span>当社の取組み</span></h2><div><p>当社の取組み状況を公開しています。<br></p><p>（2024年8月1日現在）<br></p></div><div><div><div><p>技術の尊重と<br>個人と事業の成長の一致</p><p>技術の尊重と個人と事業の成長の一致</p><div>技術パフォーマンス職事業部評価プラグイン<br>特命係<br>技能表彰<br><span><br></span></div></div><div><p>働き方の多様性と<br>社会環境への適応</p><p>働き方の多様性と社会環境への適応</p><div>育児支援・介護支援定年退職の延長<br>就業開始時間の柔軟化在宅勤務リモート勤務</div></div></div><div><p>上記を支える<br>基礎制度</p><p>上記を支える基礎制度</p><div><div>初任給の画一化有給休暇の早期付与ルール<br>年収配分の変更</div></div></div></div><div><div><h3><span>技術の尊重と個人と事業の成長の一致</span><span>技術パフォーマンス職</span></h3><div><p>従来型の課長・部長といった管理職になることを目指す制度に加え、技術そのもので評価される職制を設けて、管理職と同じレベルの年収を得られる制度設計としています。</p><p>技術パフォーマンス職の要件は、それぞれのビジネス（事業部）にあわせて定め、下記の【事業部評価プラグイン】としてビジネス特性に合わせて運用しています。</p><p>2024年8月1日時点で、全社で管理職12名に対して技術パフォーマンス職が12名と、技術職のキャリアパスを描く社員が多くなっています。</p></div></div><div><h3><span>技術の尊重と個人と事業の成長の一致</span><span>事業部評価プラグイン</span></h3><div><p>私たちの会社の中には、複数のビジネス（事業部）が存在しています。私たちは、「突出した技術成長」を重視していきたいため、ビジネス（事業部）ごとに、人事評価制度を作成し、それを【事業部評価プラグイン】と呼んで活用しています。</p><p>私たちの人事評価制度は、人事評価が一番の目的ではなく、技術的に成長してほしい方向を、ビジネス(事業部)と個人で意識合わせすることを大切にしています。</p><p>そして、技術の目覚ましい進歩についていくため、定期的に内容の見直しを行っています。</p></div></div><div><h3><span>技術の尊重と個人と事業の成長の一致</span><span>特命係</span></h3><div><p>【事業部評価プラグイン】は現状ビジネスに最適化されており、新しいチャレンジに向いていない部分もあります。「経営、ビジネス、意思決定のスピードアップ」・「新しいリーダー人材の発掘、登用」の目的のもと、【特命係】という制度を採用しました。</p><p>任命されたメンバーは、チャレンジ性の高い具体的にミッションに向けて、使命感を持って活動していま",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/news",
+      "depth": 3,
+      "title": "お知らせ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 122,
+          "sampleTexts": [
+            "お知らせ｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 80,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 42,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 41,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "News",
+            "お知らせ"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "お知らせ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 310,
+      "links": [
+        "/news/20251224-01",
+        "/news/20251208-01",
+        "/news/20251104-01",
+        "/news/20251030-1",
+        "/news/20251024-01",
+        "/news/20251010-01",
+        "/news/20251007-01",
+        "/news/20250909-01",
+        "/news/20250807-01",
+        "/news/20250730-01",
+        "/news/20250605-01",
+        "/news/20250520-01"
+      ],
+      "parentLink": "/",
+      "contentLength": 122690,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><div><p>2025.12.24</p></div><div><p>イベント</p><p>Regional Scrum Gathering Tokyo 2026 に代表の平鍋と弊社メンバーが登壇します！</p><p>Agile Studioは、2026年1月7日(水)～9日(金)に ベルサール羽...</p></div></div><div></div><div><div><p>2025.12.08</p></div><div><p>プレスリリース</p><p>地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』が3団体と実証実験に向け協定締結しました</p><p>株式会社永和システムマネジメントは、『新宿町五丁目自治会』、『一般社団法人ヒトナ...</p></div></div><div></div><div><div><p>2025.11.04</p></div><div><p>イベント</p><p>仙台国際センターで開催の「TOHOKU DX GATEWAY 2025」に出展します。（タウンデジボ）</p><p>2025年11月26日(水)に仙台国際センター 展示棟で開催の「TOHOKU D...</p></div></div><div></div><div><div><p>2025.10.30</p></div><div><p>イベント</p><p>TSKaigi Hokuriku 2025 にゴールドスポンサーとして参加します！</p><p>Agile Studioは、2025年11月23日（日）に ホテル金沢 で開催さ...</p></div></div><div></div><div><div><p>2025.10.24</p></div><div><p>イベント</p><p>第2回 Agile X Conference（アジャイル クロス カンファレンス）を開催します！</p><p>2025年12月9日(火)に大崎ブライトコアホールで&nbsp;Agile X ...</p></div></div><div></div><div><div><p>2025.10.10</p></div><div><p>イベント</p><p>Agile Japan 2025 のクロージングキーノートに代表の平鍋が登壇します！</p><p>2025年11月13日(木)～14日（金）にベルサール新宿セントラルパークおよび...</p></div></div><div></div><div><div><p>2025.10.07</p></div><div><p>プレスリリース</p><p>電子回覧板サービス「タウンデジボ」が福井市で採択されました</p><p>当社が提供する電子回覧板サービス「タウンデジボ」が、このたび福井市の公募型プロポ...</p></div></div><div></div><div><div><p>2025.09.09</p></div><div><p>イベント</p><p>「H.C.R.2025 第52回国際福祉機器展&amp;フォーラム」に出展します。（いろどり＋）</p><p>当社で開発公開している「着信気づかせアプリ『いろどり＋』」を2025年10月8日...</p></div></div><div></div><div><div><p>2025.08.07</p></div><div><p>イベント</p><p>Scrum Fest Mikawa 2025 にゴールドスポンサーとして参加します！</p><p>2025年9月5日（金）～6日（土）に&nbsp;emCAMPUS STUDIO...</p></div></div><div></div><div><div><p>2025.07.30</p></div><div><p>プレスリリース</p><p>福井県が主催する『ふくい Girls 未来のテックリーダー』プロジェクトに参加</p><p>未来のテックリーダー育成に向けて女子高校生にプログラミングとデータ分析講座！一昨...</p></div></div><div></div><div><div><p>2025.06.05</p></div><div><p>イベント</p><p>東京ビッグサイトで開催の「自治体・公共Week2025」に出展します。（タウンデジボ、いろどり＋）</p><p>2025年7月2日(水)～4日(金) 東京ビッグサイト (南展示棟)で開催の「自...</p></div></div><div></div><div><div><p>2025.05.20</p></div><div><p>イベント</p><p>Scrum Fest Kana",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/embedded",
+      "depth": 3,
+      "title": "組込みソリューション ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 74,
+          "sampleTexts": [
+            "組込みソリューション ｜永和システムマネジメント 読み込まれ"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 40,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 33,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 24,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 12,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 4,
+          "sampleTexts": [
+            "Embedded",
+            "組込みソリューション",
+            "Services",
+            "サービス"
+          ]
+        },
+        {
+          "tag": "h3",
+          "count": 4,
+          "sampleTexts": [
+            "組込みシステムソリューション",
+            "AUTOSAR 開発支援",
+            "Platforming サービス",
+            "組込みフルスタックエンジニアリング"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "組込みソリューション ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 213,
+      "links": [
+        "/embedded/etec",
+        "/embedded/autosar",
+        "/embedded/platforming",
+        "/embedded/fullstack"
+      ],
+      "parentLink": "/",
+      "contentLength": 136243,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h2><span>Services</span><span>サービス</span></h2><p>大規模・複雑化するリアルタイムシステム開発に対応した各種エンジニアリングサービスを提供します。<br></p><div><div><div><p>Embedded TEchnology Center<br></p><h3>組込みシステムソリューション</h3><p>複雑化した組込みシステム開発に対応するエンジニアリングの実施・支援サービス<br></p></div><div></div></div><div></div><div><div><p>AUTomotive Open System ARchitecture<br></p><h3>AUTOSAR 開発支援</h3><p>AUTOSAR規格に準拠したアプリケーション部品開発を支援するソリューション<br></p></div><div></div></div><div></div><div><div><p>Platforming Service<br></p><h3>Platforming サービス</h3><p>開発対象製品に最適化した開発プラットフォームの提案・構築サービス<br></p></div><div></div></div><div></div><div><div><p>Embedded Full-stack Engineering<br></p><h3>組込みフルスタックエンジニアリング</h3><p>組込み/IoT、クラウド、モバイルアプリといった横断的な技術が求められるサービスシステムの設計・開発サービス<br></p></div><div></div></div><div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/security-policy",
+      "depth": 3,
+      "title": "情報セキュリティの取組み｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "情報セキュリティの取組み｜永和システムマネジメント 読み込ま"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 42,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 29,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 14,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 9,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Security Policy",
+            "情報セキュリティの取組み"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "情報セキュリティの取組み｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 1,
+          "sampleTexts": [
+            "情報セキュリティポリシー"
+          ]
+        },
+        {
+          "tag": "ol",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 180,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 100590,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><p>株式会社永和システムマネジメント（以下「当社」）は、会社が保有する情報資産を様々な脅威から防御し、情報資産の機密性・完全性及び可用性を維持するため、情報セキュリティ対策の基本的方策を定め、社内における情報資産を管理し、信頼と品質の向上を目指します。</p></div><div><h2>情報セキュリティポリシー</h2><p>当社は、情報資産に対する確かな管理を行い、漏洩リスクに対する抜本的・ハイレベルな対策を講じて、お客さまや取引関係各位並びに社会から安心される企業に成長したいと考えております。</p><p>当社はこの成長を続けていくために、基本的かつ絶対的な文化とする目的で、その方針を明文化した「情報セキュリティポリシー」を定め、これを遵守し、高度な情報セキュリティ管理体制を維持していくことに努めます。</p><ol><li><p>情報セキュリティ管理体制の構築<br><br>当社が保有する全ての情報資産の保護に努め、情報セキュリティに関する法令その他の規範を遵守し、社会からの信頼を常に得られるよう情報セキュリティ管理体制を構築します。その体制は、「情報セキュリティ管理責任者（CISO）」を設置すると共に、情報セキュリティ委員会を組織します。</p></li><li><p>情報セキュリティに関する内部規程の整備<br><br>情報セキュリティポリシーに基づいた内部規程を整備し、情報資産全般の取り扱いについて明確な方針を示すと共に、法令を遵守し適正かつ合理的な情報セキュリティ対策を講じます。</p></li><li><p>外部委託先の管理体制強化<br><br>外部委託を行う際には、外部委託先としての適格性を十分に審査し、当社の保有する情報資産を第三者へ委託する場合は、適正に監督を行います。</p></li><li><p>情報セキュリティポリシーの対象<br><br>対象とする「情報資産」は、当社の企業活動において入手および知り得た情報、並びに当社が業務上で保有する全ての情報であり、この情報資産の取り扱いに携わる当社の役員、社員、派遣社員および「業務委託先とその社員」が遵守していきます。</p></li><li><p>個人情報の保護<br><br>当社は、当社が保有する個人情報について、当社の定める個人情報保護方針および情報セキュリティポリシーに従って管理します。</p></li><li><p>情報セキュリティポリシーの見直し<br><br>当社は、本方針に従って、情報セキュリティ管理の仕組を継続的に見直し、その改善に努めます。</p></li></ol></div><div><p>制定日：2006年2月14日</p><p>株式会社永和システムマネジメント<br>代表取締役社長 平鍋 健児</p></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/privacy-policy",
+      "depth": 3,
+      "title": "個人情報保護の取組み｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 95,
+          "sampleTexts": [
+            "個人情報保護の取組み｜永和システムマネジメント 読み込まれま"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 84,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 35,
+          "sampleTexts": []
+        },
+        {
+          "tag": "a",
+          "count": 30,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "span",
+          "count": 26,
+          "sampleTexts": [
+            "Privacy Policy",
+            "個人情報保護の取組み",
+            "個人情報相談窓口",
+            "開示等請求書の入手",
+            "開示等請求書の送付先"
+          ]
+        },
+        {
+          "tag": "li",
+          "count": 19,
+          "sampleTexts": []
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ol",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 2,
+          "sampleTexts": [
+            "個人情報に関する相談窓口",
+            "個人情報の取扱いについて"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "個人情報保護の取組み｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 1,
+          "sampleTexts": [
+            "個人情報保護方針"
+          ]
+        },
+        {
+          "tag": "i",
+          "count": 1,
+          "sampleTexts": [
+            "picture_as_pdf"
+          ]
+        },
+        {
+          "tag": "strong",
+          "count": 1,
+          "sampleTexts": [
+            "法令に基づく場合"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 333,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 163410,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><h2>個人情報保護方針</h2><p>株式会社永和システムマネジメント（以下「当社」）は、情報化技術を通じて社会と共生することを企業理念とした、ソフトウェア開発企業であります。</p><p>当社は、個人情報の保護を企業活動の最優先事項のひとつとして捉え、個人情報の適切な取扱い並びに安全管理に取り組むことが重要な社会的責任であると認識しています。</p><p>当社は、この責任を果たしていくために、個人情報保護方針を定め、当社の役員及び従業員は、この方針に従って、個人情報の適正な取扱い・管理・維持に努めてまいります。</p><ol><li><p>当社は、お客様から個人情報の取得・利用・提供を行う場合、個人情報を取扱う事業の内容及び規模を考慮した適切な目的を定め、これを明示しお客様ご本人の同意の下で行います。お客様から同意いただいた利用目的以外で個人情報を利用することや、第三者へ提供することはありません。</p></li><li><p>当社は、お客様から取得した個人情報を厳正な管理の下で保管し、個人情報の漏えい、滅失又はき損に対して、適切な予防ならびに是正措置を実施します。</p></li><li><p>当社は、個人情報保護に関する法令、国が定める指針及びその他の規範を遵守し、適切な管理・運営を行います。</p></li><li><p>当社は、個人情報保護に関するマネジメントシステムを定め、全社員に徹底するほか、これを定期的に見直し改善を実施します。</p></li><li><p>当社は、お客様の個人情報を取得する場合、利用目的を特定し、当社の個人情報に関する苦情、相談及び問合せ窓口等をあらかじめ明示します。お客様からお問合せいただいた場合は、誠実かつ適切に対応します。</p></li></ol></div><div><p>制定日：2004年12月13日<br>改定日：2008年7月1日</p><p>株式会社永和システムマネジメント<br>代表取締役社長 平鍋 健児</p></div></div></div><div><div><h3>個人情報に関する相談窓口</h3><div><p>当社の個人情報の取扱いおよび個人情報保護マネジメントシステムに関する苦情・相談、当社の保有個人データに関する開示等（①利用目的の通知、②開示、③内容の訂正、追加、または削除、④利用の停止、または消去、⑤第三者への提供の停止、⑥第三者提供記録の開示）の請求等があったときには、個人情報保護法の定めに基づいて適切に対応させていただきます。</p><p>以下に手続方法をご案内致します。</p><p>尚、電話や来社等でのお問合せは、業務の都合等によりご迷惑をお掛けする可能性がございますので、ご遠慮いただきますようお願い申し上げます。</p><p>また、開示等の請求等にお答えする場合、手数料を徴収させていただきますので、予めご了承ください。<br></p></div><div><div><span>1.</span><span>個人情報相談窓口</span></div><div><p>〒918-8231 福井市問屋町3丁目111番地<br>株式会社 永和システムマネジメント<br>管理部 個人情報保護担当<br></p><p>メールアドレス：privacy＠esm.co.jp （※＠を半角に直してお送りください）<br>TEL：0776-25-8488（代表）／ FAX：0776-25-8499<br></p></div></div><div><div><span>2.</span><span>開示等請求書の入手</span></div><div><p>下記の様式をダウンロード／印刷してご利用ください。<br></p><i>picture_as_pdf</i><div><p>個人情報開示等請求書（PDF形式）</p></div><p>事情により上記方法による入手が困難である場合には、上記の個人情報相談窓口へご連絡いただいた上で、開示等請求書をお送りするためにご氏名、ご住所をお伝えください。<br></p><p>なお電話を頂いた際に、その場で個人情報の開示等請求にお答えすることは致しかねますので、予めご了承ください。<br></p></div></div><div><div><span>3.</span><span>開示等請求書の送付先</span></div><div><p>当社所定用紙に必要事項を記入いただき、添付資料と併せて上記の当社個人情報相談窓口へご郵送ください。<br></p><p>なお、その際日本郵便株式会社の発行した未使用の普通切手1000円分以上（例：350円切手を2枚、300円切手を1枚）を同封いただけますようお願",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/environment-policy",
+      "depth": 3,
+      "title": "環境保護活動の取組み｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48,
+          "sampleTexts": [
+            "環境保護活動の取組み｜永和システムマネジメント 読み込まれま"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 47,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 29,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 9,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 4,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Environment Policy",
+            "環境保護活動の取組み"
+          ]
+        },
+        {
+          "tag": "h3",
+          "count": 2,
+          "sampleTexts": [
+            "1.基本理念",
+            "2. 基本方針"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "環境保護活動の取組み｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 1,
+          "sampleTexts": [
+            "環境方針について"
+          ]
+        },
+        {
+          "tag": "ol",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 177,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 98616,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><h2>環境方針について</h2><p>世界的な環境問題への取組みが高まる中、豊かな自然と地球を将来に亘り残していくよう、当社ならびに社員一人ひとりが環境保全活動に取り組みます。</p><h3>1.基本理念</h3><p>株式会社永和システムマネジメント（以下「当社」）は「環境負荷の低減活動を通じて経営基盤の充実と地球環境保全に貢献する」という基本理念のもとに、企業活動を通じて人々の健康と豊かな社会の実現を目指すことを目的として、下記の基本方針を定める。</p><h3>2. 基本方針</h3><p>当社は、事業主体であるコンピュータソフトウェアの設計・開発、販売、保守を通じて社会に貢献するとともに、これらの活動が環境に与える影響を認識し、環境マネジメントシステムを構築・実施・維持し、継続的改善に努めます。</p><ol><li><p>当社の事業活動、事務活動、および当社の製品・サービスが環境に与える影響を確実に把握し、当社にふさわしい以下の環境管理活動を実施します。<br><br>1) 情報技術をいかした環境にやさしい製品、サービスの提供</p><p>2) 開発、事務の効率化による電気使用量抑制（省エネルギー）推進</p><p>3) 紙使用量の削減による省資源の推進</p><p>4) 産業廃棄物の適正な管理およびリサイクルの推進</p><p>5) グリーン購入の推進</p><p>6) 環境美化活動の推進</p></li><li><p>環境目的および目標を設定し、妥当性を毎年見直すとともに環境経営システムを継続的に改善し汚染の予防に努めます。</p></li><li><p>環境関連法を含む法令と当社が同意するその他の要求事項を順守し、お取引先のご要望にお応えできるよう、最大限の努力をいたします。</p></li><li><p>全社員が環境管理活動方針を理解し、本方針に則した活動が行えるよう環境教育を促進します。</p></li><li><p>地球誕生以来育まれてきた自然の営みや、生態系が与えてくれる無償の恩恵を十分認識し、「自然循環機能と事業活動との調和を目指す」「地域社会との連携を図る」を中心に、生物多様性の保全に取り組みます。</p></li><li><p>本方針を広く公開するとともに、適切な情報提供に努めます。</p></li></ol></div><div><p>2011年9月1日</p><p>株式会社永和システムマネジメント<br>代表取締役社長 平鍋 健児</p></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/action-plan",
+      "depth": 3,
+      "title": "一般事業主行動計画｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 48,
+          "sampleTexts": [
+            "一般事業主行動計画｜永和システムマネジメント 読み込まれまし"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 42,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 29,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 16,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h3",
+          "count": 4,
+          "sampleTexts": [
+            "目標1：計画期間中に女性を8名採用する。",
+            "目標2：男性の育児休業取得率を50%とし、平均取得期間を2か",
+            "目標3：全社の有給休暇取得率を75％とする。"
+          ]
+        },
+        {
+          "tag": "strong",
+          "count": 4,
+          "sampleTexts": [
+            "取組み｜2022年4月～",
+            "取組み｜2022年4月～",
+            "取組み｜各年4月～",
+            "目標1～3までの取組みを継続的に実施し、目標を達成する。自社"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "General Business Owner Action ",
+            "次世代育成支援対策推進法に基づく一般事業主行動計画"
+          ]
+        },
+        {
+          "tag": "h2",
+          "count": 2,
+          "sampleTexts": [
+            "計画期間"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "一般事業主行動計画｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 168,
+      "links": [],
+      "parentLink": "/",
+      "contentLength": 98342,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><p>社員がその能力を発揮し、仕事と生活の調和を図り働きやすい雇用環境の整備を行うため、次のように行動計画を策定する。</p></div><div><h2>計画期間</h2><p>2022年4月1日～2027年3月31日までの5年間</p><h2>内容</h2><h3>目標1：計画期間中に女性を8名採用する。</h3><p><strong>取組み｜2022年4月～</strong></p><p>自社について、仕事と生活を両立しライフステージに応じた働きやすさについて紹介するとともに、男女が性別に関係なく活躍できる環境風土であることを伝える。</p><p>採用選考過程において、（女性）応募者と（女性）社員とがキャリアプラン、ワークライフバランスなどについて対話できる場を設ける。</p><h3>目標2：男性の育児休業取得率を50%とし、平均取得期間を2か月とする。</h3><p><strong>取組み｜2022年4月～</strong></p><p>子どもが生まれる社員と所属長等との面談を通し、育児休業の取得勧奨と男性の取得をより浸透させる休暇/休業制度の正しい理解を促す。</p><p>制度内容や取得できる要件等、利用手順について社内ポータル等で周知を行い育児休業の取得促進を図る。</p><h3>目標3：全社の有給休暇取得率を75％とする。</h3><p><strong>取組み｜各年4月～</strong></p><p>計画期間中、有給休暇の取得状況を定期的に把握し、状況に応じた利用を促す。</p><p>夏季や年末年始等、取得しやすい時節に連続取得を含めた利用奨励の案内をする。</p><h3><strong>目標1～3までの取組みを継続的に実施し、目標を達成する。自社の両立支援制度の利用状況、取組みの成果等を把握し、検討・改善を続ける。</strong></h3></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/understanding-of-policy",
+      "depth": 2,
+      "title": "社是の解釈｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 68,
+          "sampleTexts": [
+            "社是の解釈｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 46,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 30,
+          "sampleTexts": [
+            "Top",
+            "Our vision"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 17,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-751x821_v-fs_webp_e90b680c-83ed-427a-9404-ab4bbb9edad7_small.webp"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 14,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Understanding of Policy",
+            "社是の解釈"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "社是の解釈｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 200,
+      "links": [],
+      "parentLink": "/vision",
+      "contentLength": 125955,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><p>永和の社是は、故小山創業社長が掲げたものです。１つ１つの言葉が生きていて、1980年（45年前）創業当初に書かれたものなのに、現在でも十分通用する理念だと考えています。</p><p>時代が進み、2025年になった現在、ぼくたちはこれをどのように解釈すべきだろうか？永和の未来に向けた課題・機会を検討する中で、現在の解釈として、自分たちが大切にすること・ありたい姿を、もう少し掘り下げて言葉にしてみよう。そんな思いから、新たな解釈をまとめました。</p></div></div></div><div><div><div><div><p>1<br></p></div><p>会社の繁栄と社員全員の幸福が常に一致する経営を行う。<br></p></div><div><div><div><p>私たちが考える会社の繁栄は、事業拡大ではなく持続的な成長である。そして、社員の幸福は、働きやすさと働きがいと考える。そのために、社員の働く環境・待遇の向上、顧客や、共に働く仲間から感謝される仕事を創り出す。<br></p><p>これらを循環させることによって、永和の存在意義を示すインパクトを、社会に提示することで誇れる会社にしたい。<br></p></div></div></div><div><div><p>2<br></p></div><p>少数精鋭主義を貫くユニークな集団を目指し、ソフトウェア開発を通じ、社会に貢献する。<br></p></div><div><div><div><p>ソフトウェア開発をより広く捉えよう。情報化技術の利用や適用に関わるさまざまな仕事を、高いプロフェッショナリズム（専門性と倫理感）を持った個人が集まったチームを強みとし、一人ひとりが輝く、他社に真似できない仕事をしよう。<br></p><p>その結果として、社会によい変化を生み出すことが社会貢献。<br></p></div></div></div><div><div><p>3<br></p></div><p>和を重んじ、チームプレーを中心に高能率・高利益をあげ、信用の増大を図る。<br></p></div><div><div><div><p>和とチームは社内に閉じない。チーム力を活かし、社会の信頼を得る活動をしよう。<br></p><p>プロジェクト内だけでなく、社内の他の組織や、社外の人々と、役割や職種を越えたチームワークで、社会からの信用を作ろう。周りを巻き込んで仕事をしていこう。<br></p></div></div></div></div></div><div><div><div><p>この社是を通じて、社員の和、さまざまな職種・役割の和、顧客との和から、社会との和、そしてそこから生まれる機会と信頼を大切にしたい。</p></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/interview-wkwk-henkaku",
+      "depth": 2,
+      "title": "インタビュー｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 109,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 73,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 36,
+          "sampleTexts": [
+            "Top",
+            "Our vision",
+            "さきのこと",
+            "ワクワクソシキ",
+            "アジプラ"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 19,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_793cc2d1-8286-4508-ab26-ab5191b45201_small.webp",
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_1fc289d7-b203-4c1e-93ed-b0e7c114fc01_small.webp"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Leadership Interviews",
+            "ワクワクヘンカク"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 265,
+      "links": [
+        "/vision/interview-sakinokoto",
+        "/vision/interview-wkwk-soshiki",
+        "/vision/interview-agility-platform"
+      ],
+      "parentLink": "/vision",
+      "contentLength": 151386,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><p>永和システムマネジメントは、アジャイル開発を日本に広めることを先取りして活動してきました。顧客との開発はアジャイルに大きくシフトしています。しかし、内部の組織運営は、必ずしもアジャイルではありません。「ワクワクヘンカク」は、永和システムマネジメントがアジリティを内部および外部に広げるための変革（ヘンカク）活動です。その活動を、参加する社員全体がワクワクする気持ちを持って進めたい、という思いです。<br></p><p>この活動について、社長の平鍋が小山副社長にインタビューしました。<br></p></div><div><div><div><p>聞き手</p><p>代表取締役社長</p><p>平鍋 健児</p></div></div><div><div><p>話し手</p><p>代表取締役副社長</p><p>小山 嘉雄</p></div></div></div><div><div><div><div><p>平鍋</p></div><div><p>永和システムマネジメントの歴史について教えてください。</p></div></div><div><div><p>当社は1980年に創業し、金融機関向けのシステム開発からスタートしました。当時の金融業界では第三次オンラインの開発が行われている時期で、多くの金融機関で新規システムの構築が行われ、そこに携わることで当社も大きく成長できました。</p><p>次に金融事業一本だけでなく、新チャレンジ事業として福井（北陸）地域に密着した市場開拓を目指し、医療分野での事業に取り組みました。当社のソフトウェア開発力を活かし、病医院のコンピュータ利活用を推進するシステムの導入販売を行ってきました。</p><p>1990年からシステムのオープン化が始まり、UNIX から組込み技術に関する事業に参画、また Java、 eXtreme Programming を中心としたオブジェクト指向に関する取り組みを行い、10年以上にわたり日本全国にアジャイルの普及活動を行い、Ruby とアジャイルを中心とした開発に取り組んできました。</p><p>こう振り返ると、新しい事にチャレンジすること、変化をし続ける事は、創業当初からの文化なんだと感じます。現在、金融機関から様々な業態の企業までアジャイルへとシフトしてきており、より一層社会に対しアジャイルへの普及に取り組んでいます。</p></div><div><p>小山</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>今回、Permanent Agility（パーマネントアジリティ）を活動の北極星としています。この意味はなんでしょう？</p></div></div><div><div><p>今回私たちはパーマネントアジリティを経営ビジョンとして掲げました。このビジョンには大きく二つの意味が込められています。</p><p>一つ目は私たち組織がアジャイルになること、それはつまりアジリティの高い組織になることです。昨今のビジネス環境の変化のスピードにおいて、デジタル技術の急速な進歩はもちろん、国際情勢の変化、自然災害、パンデミックなどビジネスに様々な影響をもたらしています。そのような変化に迅速に適応し、効果的に成果を出す能力を持つ組織になっていく必要があります。</p><p>二つ目は、これまでアジャイル開発事業に取り組んできた経緯から、私たちはアジャイルに馴染んでいますが、まだまだアジャイルに対する理解や解釈に誤解があったり、適応できていない企業も多くあります。私たちは、アジャイルを普及してきたパイオニアとして、日本の様々な領域の組織やチームがアジャイルになることを支援したいと考えています。</p><p>創業時から常に新しい事にチャレンジし続け、半歩一歩先へ技術的に進み、行動してきたこと、これからも未来に向かって同じマインドを持って進んでいくことへの想いからこの経営ビジョンの活動を北極星として取り組んでいこうと思っています。</p></div><div><p>小山</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>永和という社名ですが、創業者の小山宏一相談役は、どんな思いを持ってこの名前を付けられたのでしょう？</p></div></div><div><div><p>創業時から一緒に働く社員（家族）を大切にしながら仕事をしたいと考えてきたと思います。その中にはどこの企業もそうだと思いますが、会社だけ突然発展するということはなく、社員が成長してしっかり仕事ができることが会社の成長発展に繋がることだと思っています。社是にもありま",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/interview-sakinokoto",
+      "depth": 3,
+      "title": "インタビュー｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 111,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 74,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Our vision",
+            "https://sakinokoto.esm.co.jp"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 21,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_fc08bce0-76d6-4ca8-96df-cc2361feeb34_small.webp",
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_f80923cb-49e4-45be-a53b-dc09a02fc325_small.webp"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 1,
+          "sampleTexts": [
+            "Leadership Interviews"
+          ]
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 264,
+      "links": [],
+      "parentLink": "/vision",
+      "contentLength": 152420,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><p>「さきのこと」は、当社が取り組む社会課題解決チームです。私たちがこれまで培ってきたICT技術を、社会課題を持っている方に、Agility を持って本気で届けることをミッションにしています。<br></p><p>この活動について、社長の平鍋が宮下取締役にインタビューしました。<br></p></div><div><div><div><p>聞き手</p><p>代表取締役社長</p><p>平鍋 健児</p></div></div><div><div><p>話し手</p><p>常務取締役</p><p>宮下 和久</p></div></div></div><div><div><div><div><p>平鍋</p></div><div><p>この活動の発案は、宮下さんですが、最初の動機はどんなところにありましたか？</p></div></div><div><div><p>そうですね。最初は、ここ数年の好調な経営状況、社員の年齢構成、取り組みなど、社内の課題意識から思考がスタートしました。そしてポスト資本主義という大きなテーマに、当社なりに取り組む方法がないか、、とも考えていました。そして私たちの挑戦が、結果だけでなく、挑戦の過程から社会の役に立てれば良いな、、とも考えてました。</p><p>その３つの思考から、「さきのこと」という活動にいきつきました。</p></div><div><p>宮下</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>社会をどのように変えたいと思っていますか？</p></div></div><div><div><p>身近な課題を解決するために、ICTを使うなんて、手段的にも、予算的にも思いもしなかった人たちに、私たちのICT技術が届き、それが直接的・間接的に生活の豊かさに繋がっていくような変化を起こせたら良いな、と考えています。</p><p>「さきのこと」の活動の中には、上手くいかないプロジェクトも数多く出てくるはずですが、それすらも社会貢献の糧にできるような企業活動があることを発信し、次のチャレンジに繋がっていけると良いな、と考えています。</p></div><div><p>宮下</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>今は途中だと思いますが、どんな企画や具体的活動がありましたか？</p></div></div><div><div><div><p>2023年8月から8名で活動をスタートしました。企画テーマは、自治体向け、地域コミュニティ向け、高齢者向け、教育機関向けと多岐に渡っています。</p><p>（11月末時点で）私たちが【 Just Idea 】と呼んでいる企画の種を50以上作成し、【 Planning 】と呼ばれる企画の深掘りを4つ行いました。そのうち3つは、プロトタイプのシステム開発を行っています。</p><p>企画から、開発過程まで、ほぼ全ての情報を公開することを心掛けていますので、ご興味があれば、是非、「さきのこと」のホームページ（リンク: https://sakinokoto.esm.co.jp&nbsp;）をご覧ください。</p></div><div><p>さきのことの活動（Webサイトより）</p></div></div><div><p>宮下</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>この活動が目指している、キーとなる成果はどこにおいていますか？</p></div></div><div><div><p>難しい質問ですね。</p><p>実は「さきのこと」では、収益化することを最初に考えないことを大前提としています。なのでビジネス的な成功を「キーとなる成果」においていません。また企画によっても、ゴール設定を変更できますし、、、</p><p>敢えて「キーとなる成果」を決めるのであれば、私たち「さきのこと」のメンバーが関わっていく全ての人に、この活動に興味・関心を持って貰うことでしょうか。まだ３ヵ月も経っていませんが、これまで関わった方は、かなりの確率で「さきのこと」の活動に関心を持って頂いています。定性的ですみません。</p></div><div><p>宮下</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>どんなメンバーが参加していますか？</p></div></div><div><div><p>なるべくこれまでの当社ビジネスを網羅したメンバーとなることを意識しました。その他にも年齢・職",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/interview-wkwk-soshiki",
+      "depth": 3,
+      "title": "お探しのページは見つかりませんでした｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 44,
+          "sampleTexts": [
+            "お探しのページは見つかりませんでした｜永和システムマネジメン"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 29,
+          "sampleTexts": []
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 3,
+          "sampleTexts": [
+            "SORRY...",
+            "404",
+            "Not Found"
+          ]
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "お探しのページは見つかりませんでした｜永和システムマネジメン"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 147,
+      "links": [],
+      "parentLink": "/vision",
+      "contentLength": 93942,
+      "estimatedWidth": 4000,
+      "textContent": "<div><h1><span>SORRY...</span><span>404</span><span>Not Found</span></h1><p>お探しのページは削除されたか、一時的にご利用できない可能性があります。<br>お探しのページのURLが正しいかご確認ください。</p><div></div><p>TOP へ</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/interview-agility-platform",
+      "depth": 3,
+      "title": "インタビュー｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 101,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 65,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 33,
+          "sampleTexts": [
+            "Top",
+            "Our vision",
+            "Agile Studio (アジャイルスタジオ）"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 20,
+          "sampleTexts": [],
+          "sampleImageUrls": [
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_9d92edd4-5cb2-46a7-b7af-d28b274e9958_small.webp",
+            "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-1024x1024_v-fs_webp_8bea6403-5aba-4b63-b103-5b09f74f2ed9_small.webp"
+          ]
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "u",
+          "count": 2,
+          "sampleTexts": [
+            "右腕タイプ",
+            "ふくい Girls 未来のテックリーダー"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "インタビュー｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 1,
+          "sampleTexts": [
+            "Leadership Interviews"
+          ]
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 246,
+      "links": [],
+      "parentLink": "/vision",
+      "contentLength": 143631,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><p>当社は Agile Studio (アジャイルスタジオ）を2018年にスタートし、アジャイルに関心のある企業に向けて最新の情報や事例などを発信してきました。さらに2023年からは、Agile Studio で培ったマーケティングや広報のノウハウを社内全体に広めようとしています。</p><p>この活動について、社長の平鍋が岡島取締役にインタビューしました。</p></div></div><div><div><div><p>聞き手</p><p>代表取締役社長</p><p>平鍋 健児</p></div></div><div><div><p>話し手</p><p>取締役CTO</p><p>岡島 幸男</p></div></div></div><div><div><div><div><p>平鍋</p></div><div><p>アジャイルスタジオのオープンから5年たちました。現在の反響を教えてください。</p></div></div><div><div><p>コロナ禍の2020年、リモートワーク時代の到来に対応し「Agile Studio Fukui」 から「Agile Studio」に改名しました。そのころから、Zoom での見学やウェビナーなど、オンラインで参加できるイベントを多数実施した効果もあり、ファン（メルマガ登録者）の数や見学に来てくださる方が圧倒的に増えました。今ではいずれも2,000人を超えていて、Agile Studio というブランドが確立しつつある手ごたえを感じています。当社の社員の10倍にあたる2,000人もの方が、Agile Studio のオフィスやそこでの働き方を見てくださっているって、よく考えたらすごいことだなと。</p></div><div><p>岡島</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>ほんとですね。どんな方々がファンやリピーターになってくれていますか？</p></div></div><div><div><p>データを分析してみると、ファンの方としては、「アジャイルを始めたばかり」「エンジニア・スクラムマスター」「ソフトウェア開発・製造・金融ドメイン」の方が多いですね。熱心なリピーターの方も多数いらっしゃって、毎回のようにウェビナーに参加くださる方も複数いらっしゃいます。おかげさまで、毎月開催しているのウェビナーには少なくとも150名以上のお申し込みがあります。</p></div><div><p>岡島</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>社内では「アジプラ」という活動がはじまりました。この活動は岡島さん発案ですが、動機はどんなところにありましたか？</p></div></div><div><div><p>Agile Studio での活動で掴んできたマーケティングや広報のノウハウを、全社に広げたいというのが直接的な動機です。アジャイル開発以外にも、永和には医療や組込み、社会課題解決（さきのこと）などの領域があるわけで、それをもっと知ってもらいたい、ということですね。</p><p>ただ、私たちアジプラは便利屋になりたいわけではないんですよ。事業部門に伴走し、一緒にマーケティングや広報について考えて活動する中で、Agile Studio で培ったアジリティの高い働き方（Ways of Working）を背中を見せながら伝えていきたい。ファンクションではなく、プラットフォームになりたいんですよね。アジプラとは、「アジリティプラットフォーム」の略なんです。</p><p>あと、個人的な話をさせていただくと、私が50歳の時に立てたライフビジョンは「人の潜在能力を引き出して、世の中をもっと Happy にする」なんです。私は副業で自治体の DX 支援（CDO 補佐官）をしていますが、自分で何かを作って生み出すというよりは、人に関わり、能力やモチベーションを引き出していく仕事であり、それがすごく性に合っている。私は性格的に「右腕タイプ」なんですよね。</p><p>本業でも、会社や社員の良い意味で右腕になりたいと思っていて、アジプラは、その具現系という言い方もできるかもしれません。</p></div><div><p>岡島</p></div></div></div><div><div><div><p>平鍋</p></div><div><p>どんなチームでやっていますか？</p></div></div><div><div><p>部門としてのアジプラは、私ともう一人の2名だけです。ただ、必要に応じて支援が必要な部門の人たちと一緒に",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/vision/overview-wkwk-soshiki",
+      "depth": 2,
+      "title": "オーバービュー｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 57,
+          "sampleTexts": [
+            "オーバービュー｜永和システムマネジメント 読み込まれました"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 53,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Our vision"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "strong",
+          "count": 11,
+          "sampleTexts": [
+            "なぜやるか",
+            "どうやるか",
+            "Stream Cluster チーム：",
+            "Scrum of Stream や Scrum of Gui",
+            "Guild Cluster チーム："
+          ]
+        },
+        {
+          "tag": "li",
+          "count": 11,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 8,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h2",
+          "count": 3,
+          "sampleTexts": [
+            "現在の形"
+          ]
+        },
+        {
+          "tag": "button",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "オーバービュー｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 1,
+          "sampleTexts": [
+            "Overview"
+          ]
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ol",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "u",
+          "count": 1,
+          "sampleTexts": [
+            "Agile Studio"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 214,
+      "links": [],
+      "parentLink": "/vision",
+      "contentLength": 104456,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><p>ワクワクソシキは、全社のワクワクヘンカクの中心に位置付けられる、組織のアジャイル変革です。アジャイルの考え方を、開発現場だけではなくマネジメントレベルや組織全体にも適用することによって、環境の変化に対して感度を高くして、状況に応じて柔軟にかつ機敏に適応していく組織づくりを行おう、という試みです。お客様や社員など、当社にかかわるステークホルダーの体験価値を高めていく「場」づくりを目指して活動します。</p></div><div><h2><strong>なぜやるか</strong></h2><p>当社は、モダン技術へシフトしながら、事業変革に取り組んできました。収益力はかなり向上したと思いますが、一方で、変化が激しく、先が読めない経営環境の中で、これからも持続的に、組織として存続していけるか、という危機感がありました。</p><p>具体的には、当社はアジャイル開発を強みにしていますが、実際にアジャイルが浸透しているのは開発の現場だけでした。アジャイルを売りにしている当社が、本当にそれでいいのだろうか？という疑問から、私たちが生き残っていくためにも、もっと組織全体が感度を高くしていく必要があります。そのために、マネジメントレベルや組織全体でアジリティを高めていく活動を推進します。</p></div><div><h2><strong>どうやるか</strong></h2><p>スクラムの考えをベースに、社員の意見をいれてプロセスと組織構造を作っていきます。『ワクワクソシキ』の活動は、全社の施策ではあるのですが、まずは社員の半数を占めるITサービス事業部から先行して取り組み始めています。開発の現場の多くにスクラムが浸透しているので、マネジメントレベルや組織全体に対してもスクラムの考えを取り入れるのが素直だろうと考えました。</p><p>Scrum@Scale および、Team Topologies を元に、受託開発を生業とする組織として顧客と開発チームを繋ぐ活動だけではなく、組織の学びの蓄積や、マーケティング・営業活動、業務プロセスなども、全体を自己組織化されたアジャイルな活動体として有機的に構成しています。また、野中郁次郎先生のオリジナルスクラムには「学びの組織的伝達」という考え方があり、組織学習の視点が入っているのも特徴です。</p></div><div><h2>現在の形</h2><p>試行錯誤しながら、ようやく8つの活動を見つけました。各活動は、アジャイルチームで運営しています。</p><ol><li><p><strong>Stream Cluster チーム：</strong></p><p>お客さまの最前線で開発を行っている実際のスクラムチーム。これが当社の価値を顧客に届けるバリュー・ストリームとなる。</p></li><li><p><strong>Scrum of Stream や Scrum of Guild チーム：</strong></p><p>アジャイルチーム間の問題解決や学びを組織に蓄積する。</p></li><li><p><strong>Guild Cluster チーム：<br></strong>Stream Cluster に対してアジリティの向上を目的に技術支援を行う。</p></li><li><p><strong>Customer Success Biz チーム：</strong><br>お客さまや開発チームとかかわりながら、顧客満足を高め、営業機能を持つ。</p></li><li><p><strong>Operation Biz チーム：</strong><br>社内業務を担ったり、社内の業務プロセスの効率化を進める。</p></li><li><p><strong>Core Cluster チーム：</strong><br>組織の戦略や重要な施策、また Scrum of Stream や Scrum of Guild では解決できない問題を扱い、意思決定を行う。</p></li><li><p><strong>Solution Cluster チーム：<br></strong>Core Cluster で扱うイシューを、仮説検証しながら最適解を探していく。</p></li><li><p><strong>Owner Cluster チーム：</strong></p><p>組織のさまざまな施策（1on1やエンゲージメント向上など）を運営する。</p></li></ol><p>これらの8つの活動がそれぞれ連携し合って、アジャイルな組織を作っています。今後は、各活動を行うチームの強化を進めながら、組織全体のアジリティをあげていくことが課題です。</p></div></div><d",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/news/20251224-01",
+      "depth": 1,
+      "title": "Regional Scrum Gathering Tokyo 2026 に代表の平鍋と弊社メンバーが登壇します！ ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Regional Scrum Gathering Tokyo"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 34,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 33,
+          "sampleTexts": [
+            "Top",
+            "News",
+            "https://www.agile-studio.jp/po"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "2025/12/24",
+            "Regional Scrum Gathering Tokyo"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Regional Scrum Gathering Tokyo"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "u",
+          "count": 1,
+          "sampleTexts": [
+            "Regional Scrum Gathering Tokyo"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 161,
+      "links": [],
+      "parentLink": "/news",
+      "contentLength": 102506,
+      "estimatedWidth": 4000,
+      "textContent": "<div><p>Agile Studioは、2026年1月7日(水)～9日(金)に ベルサール羽田空港 で開催されるRegional Scrum Gathering Tokyo 2026に、ゴールドスポンサーとして参加します。<br>ナイトセッション、公募セッションに代表の平鍋が、スポンサーセッションに、弊社エンジニア3名が登壇します。</p><p>https://www.agile-studio.jp/post/rsgt2026</p></div><div><div></div><p>お知らせ<br></p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/news/20251208-01",
+      "depth": 1,
+      "title": "地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』が3団体と実証実験に向け協定締結しました ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 37,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 33,
+          "sampleTexts": [
+            "Top",
+            "News",
+            "https://prtimes.jp/main/html/r",
+            "https://sakinokoto.esm.co.jp/p"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "2025/12/8",
+            "地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "地域の助け合いをデジタルで支えるWebサービス『ゆいまゎす』"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 162,
+      "links": [],
+      "parentLink": "/news",
+      "contentLength": 102646,
+      "estimatedWidth": 4000,
+      "textContent": "<div><p>株式会社永和システムマネジメントは、『新宿町五丁目自治会』、『一般社団法人ヒトナリ』、『一般社団法人わくわくの村』の3団体と、地域の相互扶助を促進するWebサービス『ゆいまゎす』の実証実験に向けた包括連携協定を締結いたしました。</p><p>https://prtimes.jp/main/html/rd/p/000000028.000028561.html</p><p>ゆいまゎす企画書：https://sakinokoto.esm.co.jp/plan-detail/yuimawasu</p></div><div><div></div><p>お知らせ<br></p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/news/20251104-01",
+      "depth": 1,
+      "title": "仙台国際センターで開催の「TOHOKU DX GATEWAY 2025」に出展します。（タウンデジボ） ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "仙台国際センターで開催の「TOHOKU DX GATEWAY"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 36,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 33,
+          "sampleTexts": [
+            "Top",
+            "News",
+            "TOHOKU DX GATEWAY 2025"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "2025/11/4",
+            "仙台国際センターで開催の「TOHOKU DX GATEWAY"
+          ]
+        },
+        {
+          "tag": "br",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "仙台国際センターで開催の「TOHOKU DX GATEWAY"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "u",
+          "count": 1,
+          "sampleTexts": [
+            "https://sakinokoto.esm.co.jp/t"
+          ]
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 162,
+      "links": [],
+      "parentLink": "/news",
+      "contentLength": 102468,
+      "estimatedWidth": 4000,
+      "textContent": "<div><p>2025年11月26日(水)に仙台国際センター 展示棟で開催の「TOHOKU DX GATEWAY 2025」に出展します。(小間番号：059)</p><p>ご来場の際はぜひブースにお立ち寄りください。</p><p>タウンデジボ https://sakinokoto.esm.co.jp/town-digibo</p></div><div><div></div><p>お知らせ<br></p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery",
+      "depth": 1,
+      "title": "Photo Gallery｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 130,
+          "sampleTexts": [
+            "Photo Gallery｜永和システムマネジメント 読み込"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 48,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 45,
+          "sampleTexts": [
+            "Top"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 2,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "フォトギャラリー"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "section",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 266,
+      "links": [
+        "/photogallery/8wLNEn6L",
+        "/photogallery/YTAGBri4",
+        "/photogallery/iV5gq_AR",
+        "/photogallery/PsIdYvHU",
+        "/photogallery/52VS5eXu",
+        "/photogallery/CFN6cmCw",
+        "/photogallery/O-6CN4eR",
+        "/photogallery/CFyTYpV_",
+        "/photogallery/uf6EGOWB",
+        "/photogallery/CIC0E8nk",
+        "/photogallery/_mC_TDgE",
+        "/photogallery/3jvB8eqV",
+        "/photogallery/eoQrKxOB",
+        "/photogallery/LU-MWNJM",
+        "/photogallery/KWx1R38b",
+        "/photogallery/NLuKQTxP"
+      ],
+      "parentLink": "/",
+      "contentLength": 121666,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div><div><div><p>社会課題に取り組む「さきのこと」チー...</p></div></div><div></div><div><div><p>同志でリレーマラソン</p></div></div><div></div><div><div><p>Agile Japan 2023 ス...</p></div></div><div></div><div><div><p>スクラム研修でキャンプ</p></div></div><div></div><div><div><p>スクラムマスター研修の参加者と</p></div></div><div></div><div><div><p>Agile Japan 北陸サテライ...</p></div></div><div></div><div><div><p>お客さまと合宿</p></div></div><div></div><div><div><p>受託開発のお客さまの看板</p></div></div><div></div><div><div><p>Agile Studio 見学にはお...</p></div></div><div></div><div><div><p>Agile Studio の活動</p></div></div><div></div><div><div><p>自動運転プロジェクト</p></div></div><div></div><div><div><p>組込み技術の開発</p></div></div><div></div><div><div><p>「和じゃ」スペースで会議</p></div></div><div></div><div><div><p>壁を使ってふりかえり</p></div></div><div></div><div><div><p>IdeaHack. 部屋で「ふりかえ...</p></div></div><div></div><div><div><p>越前カニの会</p></div></div><div></div></div></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/8wLNEn6L",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "社会課題に取り組む「さきのこと」チーム"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99145,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/YTAGBri4",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "同志でリレーマラソン"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99116,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/iV5gq_AR",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "Agile Japan 2023 スポンサー"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99123,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/PsIdYvHU",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "スクラム研修でキャンプ"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99103,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/52VS5eXu",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "スクラムマスター研修の参加者と"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99083,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/CFN6cmCw",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "Agile Japan 北陸サテライト"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99117,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/O-6CN4eR",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "お客さまと合宿"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99093,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/CFyTYpV_",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "受託開発のお客さまの看板"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99103,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/uf6EGOWB",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "Agile Studio 見学にはお客さまも"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99140,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/CIC0E8nk",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "Agile Studio の活動"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99113,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/_mC_TDgE",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "自動運転プロジェクト"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99131,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/3jvB8eqV",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 4,
+          "sampleTexts": [
+            "Photo Gallery",
+            "組込み技術の開発",
+            "0 0",
+            "0 0"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 156,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99133,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/eoQrKxOB",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 4,
+          "sampleTexts": [
+            "Photo Gallery",
+            "「和じゃ」スペースで会議",
+            "0 0",
+            "0 0"
+          ]
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 156,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99128,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/LU-MWNJM",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "壁を使ってふりかえり"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99116,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/KWx1R38b",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "IdeaHack. 部屋で「ふりかえり」"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99151,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    },
+    {
+      "path": "/photogallery/NLuKQTxP",
+      "depth": 2,
+      "title": "Photo Gallery ｜永和システムマネジメント",
+      "elements": [
+        {
+          "tag": "div",
+          "count": 49,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント 読み"
+          ]
+        },
+        {
+          "tag": "p",
+          "count": 32,
+          "sampleTexts": [
+            "経営ビジョン",
+            "働く環境",
+            "サービス",
+            "会社概要",
+            "採用情報"
+          ]
+        },
+        {
+          "tag": "a",
+          "count": 31,
+          "sampleTexts": [
+            "Top",
+            "Photo Gallery"
+          ]
+        },
+        {
+          "tag": "img",
+          "count": 18,
+          "sampleTexts": []
+        },
+        {
+          "tag": "ul",
+          "count": 5,
+          "sampleTexts": []
+        },
+        {
+          "tag": "nav",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "li",
+          "count": 3,
+          "sampleTexts": []
+        },
+        {
+          "tag": "span",
+          "count": 2,
+          "sampleTexts": [
+            "Photo Gallery",
+            "越前カニの会"
+          ]
+        },
+        {
+          "tag": "html",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "head",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "title",
+          "count": 1,
+          "sampleTexts": [
+            "Photo Gallery ｜永和システムマネジメント"
+          ]
+        },
+        {
+          "tag": "body",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "header",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "button",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "h1",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "main",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "article",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "footer",
+          "count": 1,
+          "sampleTexts": []
+        },
+        {
+          "tag": "br",
+          "count": 1,
+          "sampleTexts": []
+        }
+      ],
+      "totalElementCount": 154,
+      "links": [
+        "/photogallery"
+      ],
+      "parentLink": "/photogallery",
+      "contentLength": 99117,
+      "estimatedWidth": 4000,
+      "textContent": "<div><div></div><p>フォトギャラリー</p></div>",
+      "imageUrls": [
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_b2049bea-d62f-4db9-8a06-5909aaa51b32.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-156x141_7991dd1c-8dbf-42e7-9de9-9bb5c710febf.svg",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/moWv0N9xq6/s-300x85_35be5fe2-5088-41ed-8d2b-ff3d1f2d0bea.svg",
+        "data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E",
+        "https://storage.googleapis.com/studio-design-asset-files/projects/bXqz83lDWD/s-10x10_90c84b56-e3a9-4571-a8f3-a97123ce9a17.svg"
+      ],
+      "ogImage": "https://storage.googleapis.com/production-os-assets/assets/e31270c5-86c7-4de4-825a-606e3202dc99"
+    }
+  ],
+  "deepestPages": [
+    "/company/organization",
+    "/contact",
+    "/company/history",
+    "/company/publications",
+    "/people",
+    "/dei",
+    "/workstyles",
+    "/news",
+    "/embedded",
+    "/security-policy",
+    "/privacy-policy",
+    "/environment-policy",
+    "/action-plan",
+    "/vision/interview-sakinokoto",
+    "/vision/interview-wkwk-soshiki",
+    "/vision/interview-agility-platform"
+  ],
+  "rareElements": [
+    "form",
+    "option",
+    "select",
+    "textarea",
+    "u"
+  ],
+  "commonLinks": [
+    "/",
+    "/vision",
+    "/company",
+    "/company/organization",
+    "/contact",
+    "/news",
+    "/people",
+    "/dei",
+    "/workstyles",
+    "/embedded",
+    "/security-policy",
+    "/privacy-policy",
+    "/environment-policy",
+    "/action-plan"
+  ],
+  "elementStats": {
+    "div": {
+      "totalCount": 3240,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "p": {
+      "totalCount": 2296,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "img": {
+      "totalCount": 966,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "a": {
+      "totalCount": 1422,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "br": {
+      "totalCount": 532,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "h3": {
+      "totalCount": 60,
+      "pageCount": 10,
+      "rarity": 3
+    },
+    "span": {
+      "totalCount": 198,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "ul": {
+      "totalCount": 222,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "section": {
+      "totalCount": 34,
+      "pageCount": 15,
+      "rarity": 3
+    },
+    "h2": {
+      "totalCount": 29,
+      "pageCount": 13,
+      "rarity": 3
+    },
+    "li": {
+      "totalCount": 206,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "nav": {
+      "totalCount": 123,
+      "pageCount": 42,
+      "rarity": 3
+    },
+    "html": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "head": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "title": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "body": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "header": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "button": {
+      "totalCount": 47,
+      "pageCount": 42,
+      "rarity": 2
+    },
+    "h1": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 3
+    },
+    "main": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "footer": {
+      "totalCount": 42,
+      "pageCount": 42,
+      "rarity": 1
+    },
+    "i": {
+      "totalCount": 11,
+      "pageCount": 4,
+      "rarity": 4
+    },
+    "h4": {
+      "totalCount": 7,
+      "pageCount": 3,
+      "rarity": 4
+    },
+    "strong": {
+      "totalCount": 17,
+      "pageCount": 4,
+      "rarity": 4
+    },
+    "input": {
+      "totalCount": 19,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "label": {
+      "totalCount": 14,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "option": {
+      "totalCount": 5,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "textarea": {
+      "totalCount": 3,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "form": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "select": {
+      "totalCount": 1,
+      "pageCount": 1,
+      "rarity": 4
+    },
+    "ol": {
+      "totalCount": 8,
+      "pageCount": 6,
+      "rarity": 3
+    },
+    "article": {
+      "totalCount": 23,
+      "pageCount": 23,
+      "rarity": 3
+    },
+    "u": {
+      "totalCount": 5,
+      "pageCount": 4,
+      "rarity": 4
+    }
+  }
+}

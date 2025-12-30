@@ -1,4 +1,5 @@
 import type { CrawlPage } from '../types';
+import type { SiteInfo } from '../data/siteLoader';
 import { gameState } from '../systems/gameState';
 
 // コンテンツパネルのUI管理
@@ -272,6 +273,77 @@ export class ContentPanel {
       const h3 = this.textSection.querySelector('h3');
       if (h3) h3.style.display = '';
     }
+  }
+
+  // サイト選択画面用の表示
+  showSiteSelectScreen(sites: SiteInfo[], selectedIndex: number): void {
+    // ヘッダー、プログレス、ターゲットを非表示
+    if (this.headerSection) this.headerSection.style.display = 'none';
+    if (this.progressSection) this.progressSection.style.display = 'none';
+    if (this.targetsSection) this.targetsSection.style.display = 'none';
+
+    // テキストセクションのヘッダーも非表示
+    if (this.textSection) {
+      const h3 = this.textSection.querySelector('h3');
+      if (h3) h3.style.display = 'none';
+    }
+
+    if (!this.pageContentEl) return;
+
+    const selectedSite = sites[selectedIndex];
+
+    // ドメイン名を抽出
+    const extractDomain = (name: string): string => {
+      const parts = name.split('|');
+      if (parts.length > 1) {
+        return parts[parts.length - 1].trim();
+      }
+      return name.slice(0, 30);
+    };
+
+    // 選択中サイトのベストタイムを取得
+    const easyBest = gameState.formatBestTime(selectedSite.name, 'easy');
+    const normalBest = gameState.formatBestTime(selectedSite.name, 'normal');
+    const hasBestTime = easyBest || normalBest;
+
+    const bestTimeHtml = hasBestTime ? `
+      <div style="border-top:1px solid #444;padding-top:15px;margin-top:20px;">
+        <div style="font-size:11px;color:#888;margin-bottom:8px;letter-spacing:1px;">BEST TIME</div>
+        <div style="display:flex;justify-content:center;gap:20px;font-size:12px;">
+          ${easyBest ? `<div><span style="color:#8bc34a;">EASY:</span> <span style="color:#ffcc00;font-family:monospace;">${easyBest}</span></div>` : ''}
+          ${normalBest ? `<div><span style="color:#ff9800;">NORMAL:</span> <span style="color:#ffcc00;font-family:monospace;">${normalBest}</span></div>` : ''}
+        </div>
+      </div>
+    ` : '';
+
+    // サイト一覧HTML
+    const siteListHtml = sites.map((site, index) => {
+      const isSelected = index === selectedIndex;
+      const domain = extractDomain(site.name);
+      return `
+        <div style="padding:8px 12px;margin-bottom:6px;background:${isSelected ? '#2a3040' : 'transparent'};border-radius:6px;border:${isSelected ? '1px solid #4488ff' : '1px solid transparent'};">
+          <div style="font-size:13px;color:${isSelected ? '#88ccff' : '#888'};">${domain}</div>
+          <div style="font-size:10px;color:${isSelected ? '#666' : '#555'};margin-top:2px;">${site.pageCount} pages</div>
+        </div>
+      `;
+    }).join('');
+
+    this.pageContentEl.innerHTML = `
+      <div style="padding:20px;">
+        <div style="font-size:18px;color:#64b5f6;font-weight:bold;margin-bottom:15px;letter-spacing:1px;text-align:center;">
+          SELECT YOUR STAGE
+        </div>
+        <div style="margin-bottom:20px;">
+          ${siteListHtml}
+        </div>
+        <div style="border-top:1px solid #444;padding-top:15px;">
+          <div style="font-size:11px;color:#888;margin-bottom:8px;letter-spacing:1px;text-align:center;">SELECTED</div>
+          <div style="font-size:14px;color:#ffcc00;font-weight:bold;text-align:center;">${extractDomain(selectedSite.name)}</div>
+          <div style="font-size:11px;color:#666;text-align:center;margin-top:4px;">${selectedSite.pageCount} pages available</div>
+        </div>
+        ${bestTimeHtml}
+      </div>
+    `;
   }
 }
 
