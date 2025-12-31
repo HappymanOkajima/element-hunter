@@ -402,3 +402,62 @@ export function stopBossLoopSound(): void {
     bossLoopGainNode = null;
   }, 350);
 }
+
+// =====================
+// ボス攻撃SE
+// =====================
+
+// <hr> 攻撃: 警告音（チャージ中）
+export function playHrWarningSound(): void {
+  if (!sfxEnabled) return;
+
+  const ctx = getAudioContext();
+
+  // ピリピリした警告音
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'square';
+  // 高速で周波数を上下させて緊迫感
+  osc.frequency.setValueAtTime(800, ctx.currentTime);
+
+  gain.gain.setValueAtTime(0.15 * masterVolume, ctx.currentTime);
+  gain.gain.linearRampToValueAtTime(0.2 * masterVolume, ctx.currentTime + 0.5);
+  gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.0);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + 1.0);
+
+  // トレモロ効果を追加
+  const lfo = ctx.createOscillator();
+  const lfoGain = ctx.createGain();
+  lfo.type = 'square';
+  lfo.frequency.setValueAtTime(20, ctx.currentTime);  // 高速振動
+  lfoGain.gain.setValueAtTime(100, ctx.currentTime);
+  lfo.connect(lfoGain);
+  lfoGain.connect(osc.frequency);
+  lfo.start(ctx.currentTime);
+  lfo.stop(ctx.currentTime + 1.0);
+}
+
+// <hr> 攻撃: レーザー発射音
+export function playHrFireSound(): void {
+  if (!sfxEnabled) return;
+
+  // 横一線のビーム音（低→高で威圧感）
+  playFrequencySweep(100, 400, 0.3, 'sawtooth', 0.5);
+
+  // ノイズを重ねる
+  setTimeout(() => playNoise(0.2, 0.3), 50);
+}
+
+// <br> 攻撃: 落下弾SE
+export function playBrDropSound(): void {
+  if (!sfxEnabled) return;
+
+  // ひゅーんと落ちる音
+  playFrequencySweep(600, 200, 0.3, 'triangle', 0.25);
+}

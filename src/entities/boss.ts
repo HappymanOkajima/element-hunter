@@ -3,6 +3,7 @@ import type { BossSpawn } from '../types';
 import type { PlayerObject } from './player';
 import { isGamePaused } from '../scenes/game';
 import { playHuntSound, stopBossLoopSound } from '../systems/sound';
+import { createHrAttack, createBrAttack, type BossAttack } from './bossAttack';
 
 // ボスパーツの型
 interface BossPart {
@@ -74,6 +75,12 @@ export function createBoss(
   const rotationSpeed = 0.8;  // 回転速度（ラジアン/秒）
   const moveSpeed = 40;  // 移動速度
   let moveDirection = { x: 1, y: 0.5 };  // 移動方向
+
+  // 攻撃パターン用の状態
+  let attackCooldown = 3.0;  // 最初の攻撃までの待機時間
+  const ATTACK_INTERVAL = 2.5;  // 攻撃間隔
+  const activeAttacks: BossAttack[] = [];
+  let nextAttackType: 'hr' | 'br' = 'hr';  // 交互に攻撃
 
   // 円の半径（パーツ数に応じて調整）
   const radius = Math.min(60 + parts.length * 8, 120);
@@ -166,6 +173,10 @@ export function createBoss(
       // ハント音
       playHuntSound();
 
+      // 全ての攻撃を停止
+      activeAttacks.forEach(attack => attack.destroy());
+      activeAttacks.length = 0;
+
       // 撃破エフェクト
       spawnBossDefeatEffect(k, boss.pos.x, boss.pos.y);
     }
@@ -210,6 +221,34 @@ export function createBoss(
       part.obj.pos.y = boss.pos.y + radius * Math.sin(currentAngle);
       part.angle = currentAngle;
     });
+
+    // 攻撃パターン更新
+    attackCooldown -= k.dt();
+    if (attackCooldown <= 0) {
+      // 攻撃を発動
+      let newAttack: BossAttack | null = null;
+      if (nextAttackType === 'hr') {
+        newAttack = createHrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth);
+        nextAttackType = 'br';
+      } else {
+        newAttack = createBrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth);
+        nextAttackType = 'hr';
+      }
+      if (newAttack) {
+        activeAttacks.push(newAttack);
+      }
+      attackCooldown = ATTACK_INTERVAL;
+    }
+
+    // アクティブな攻撃を更新
+    for (let i = activeAttacks.length - 1; i >= 0; i--) {
+      const attack = activeAttacks[i];
+      attack.update();
+      if (!attack.isActive()) {
+        attack.destroy();
+        activeAttacks.splice(i, 1);
+      }
+    }
   });
 
   return boss;
