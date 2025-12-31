@@ -16,7 +16,7 @@ async function main() {
     width: 800,
     height: 600,
     background: [20, 20, 30],
-    debug: false,
+    debug: true,  // F1でヒットボックス表示
     global: false,
     root: gameArea || undefined,
   });
@@ -95,7 +95,7 @@ async function main() {
     const isTouch = isTouchDevice();
     if (!isTouch) {
       k.add([
-        k.text('PRESS SPACE TO RETURN TO TITLE', { size: 20 }),
+        k.text('PRESS Z TO RETURN TO TITLE', { size: 20 }),
         k.pos(k.width() / 2, k.height() / 2 + 50),
         k.anchor('center'),
         k.color(200, 200, 200),
@@ -106,7 +106,7 @@ async function main() {
       k.go('title');
     };
 
-    k.onKeyPress('space', returnToTitle);
+    k.onKeyPress('z', returnToTitle);
 
     if (isTouch) {
       k.onTouchStart(returnToTitle);
@@ -171,7 +171,7 @@ async function main() {
     const isTouch = isTouchDevice();
     if (!isTouch) {
       k.add([
-        k.text('PRESS SPACE TO PLAY AGAIN', { size: 20 }),
+        k.text('PRESS Z TO PLAY AGAIN', { size: 20 }),
         k.pos(k.width() / 2, k.height() / 2 + 80),
         k.anchor('center'),
         k.color(200, 200, 200),
@@ -182,7 +182,7 @@ async function main() {
       k.go('title');
     };
 
-    k.onKeyPress('space', returnToTitle);
+    k.onKeyPress('z', returnToTitle);
 
     if (isTouch) {
       k.onTouchStart(returnToTitle);

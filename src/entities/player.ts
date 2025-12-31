@@ -100,7 +100,7 @@ export function createPlayer(
   const player = k.add([
     k.polygon(shipPoints),
     k.pos(100, 300),
-    k.area({ shape: new k.Rect(k.vec2(-8, -8), 16, 16) }),
+    k.area(),
     k.anchor('center'),
     k.color(100, 200, 255),
     k.rotate(0),
@@ -178,11 +178,11 @@ export function createPlayer(
       inputDir.x = touchInput.moveX;
       inputDir.y = touchInput.moveY;
     } else {
-      // 8方向キーボード入力チェック
-      if (k.isKeyDown('left') || k.isKeyDown('a')) inputDir.x -= 1;
-      if (k.isKeyDown('right') || k.isKeyDown('d')) inputDir.x += 1;
-      if (k.isKeyDown('up') || k.isKeyDown('w')) inputDir.y -= 1;
-      if (k.isKeyDown('down') || k.isKeyDown('s')) inputDir.y += 1;
+      // 8方向キーボード入力チェック（矢印キーのみ）
+      if (k.isKeyDown('left')) inputDir.x -= 1;
+      if (k.isKeyDown('right')) inputDir.x += 1;
+      if (k.isKeyDown('up')) inputDir.y -= 1;
+      if (k.isKeyDown('down')) inputDir.y += 1;
     }
 
     // 入力がある場合は加速
@@ -311,13 +311,35 @@ export function createPlayer(
     playLaserSound(isPiercing);
 
     // レーザービーム生成
+    // 方向に応じてレーザーの向きを変更（矩形自体を回転させる代わりに描画サイズを変更）
+    const isVertical = state.direction === 'up' || state.direction === 'down';
+    const isDiagonal = state.direction.includes('-');  // 斜め方向
+
+    // 描画サイズ（視覚的な向き）
+    let drawWidth: number;
+    let drawHeight: number;
+
+    if (isDiagonal) {
+      // 斜め: 横長の矩形を回転させる
+      drawWidth = laserLength;
+      drawHeight = laserWidth;
+    } else if (isVertical) {
+      // 上下: 幅と高さを入れ替え
+      drawWidth = laserWidth;
+      drawHeight = laserLength;
+    } else {
+      // 左右: そのまま
+      drawWidth = laserLength;
+      drawHeight = laserWidth;
+    }
+
     const laser = k.add([
-      k.rect(laserLength, laserWidth),
+      k.rect(drawWidth, drawHeight),
       k.pos(laserX, laserY),
       k.area(),
       k.anchor('center'),
       k.color(laserR, laserG, laserB),
-      k.rotate(DIRECTION_ANGLES[state.direction]),
+      k.rotate(isDiagonal ? DIRECTION_ANGLES[state.direction] : 0),
       k.opacity(1),
       k.outline(isPiercing ? 2 : 1, k.rgb(255, 200, 50)),
       isPiercing ? 'sword-piercing' : 'sword',
@@ -326,11 +348,11 @@ export function createPlayer(
 
     // レーザーのグロー効果
     const glow = k.add([
-      k.rect(laserLength + 8, laserWidth + 8),
+      k.rect(drawWidth + 8, drawHeight + 8),
       k.pos(laserX, laserY),
       k.anchor('center'),
       k.color(laserR, laserG, Math.min(200, laserB + 100)),
-      k.rotate(DIRECTION_ANGLES[state.direction]),
+      k.rotate(isDiagonal ? DIRECTION_ANGLES[state.direction] : 0),
       k.opacity(isPiercing ? 0.6 : 0.4),
       k.z(-1),
     ]);
@@ -420,8 +442,7 @@ export function createPlayer(
     });
   }
 
-  // 攻撃入力
-  k.onKeyPress('space', attack);
+  // 攻撃入力（Zキーのみ：キーボードゴースト回避のためスペース無効）
   k.onKeyPress('z', attack);
 
   // タッチ攻撃入力をチェック（毎フレーム）

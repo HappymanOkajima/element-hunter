@@ -77,7 +77,7 @@ export function createEnemy(
   const enemy = k.add([
     k.text(config.displayName, { size: config.size }),
     k.pos(startX, startY),
-    k.area({ shape: new k.Rect(k.vec2(-hitboxWidth / 2, -hitboxHeight / 2), hitboxWidth, hitboxHeight) }),
+    k.area(),
     k.anchor('center'),
     k.color(...hexToRgb(config.color)),
     k.opacity(1),

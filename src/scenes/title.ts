@@ -262,14 +262,6 @@ export function titleScene(
       ]));
     });
 
-    // 操作説明
-    const helpY = yOffset + sites.length * 45 + 20;
-    siteSelectContainer.push(k.add([
-      k.text(isTouch ? '[↑↓: SELECT]  [FIRE: OK]' : '[↑↓: SELECT]  [SPACE: OK]', { size: 12 }),
-      k.pos(centerX, helpY),
-      k.anchor('center'),
-      k.color(100, 100, 100),
-    ]));
   }
 
   // === モード選択UI ===
@@ -294,7 +286,7 @@ export function titleScene(
 
     // マニュアルパネル背景
     const panelWidth = 340;
-    const panelHeight = 120;
+    const panelHeight = 80;
     modeSelectContainer.push(k.add([
       k.rect(panelWidth, panelHeight, { radius: 8 }),
       k.pos(centerX, yOffset + panelHeight / 2),
@@ -306,7 +298,7 @@ export function titleScene(
 
     // ヘッダー
     modeSelectContainer.push(k.add([
-      k.text("HUNTER'S MANUAL", { size: 12 }),
+      k.text("HUNTER'S TIPS", { size: 12 }),
       k.pos(centerX, yOffset + 12),
       k.anchor('center'),
       k.color(100, 200, 255),
@@ -321,53 +313,49 @@ export function titleScene(
       k.opacity(0.5),
     ]));
 
-    // 操作説明（2列レイアウト）
-    const col1X = centerX - 80;
-    const col2X = centerX + 80;
-    let rowY = yOffset + 48;
+    // TIPS（[PORTAL]をポータル色で表示）
+    let rowY = yOffset + 45;
+    // "SHOOT" + "[PORTAL]" + "TO WARP" を分割して表示
+    const shootText = 'SHOOT ';
+    const portalText = '[PORTAL]';  // 実際のポータルと同じ[]形式
+    const warpText = ' TO WARP';
+    const tipFontSize = 10;
+    const charWidth = tipFontSize * 0.6;  // 概算の文字幅
+    const totalWidth = (shootText.length + portalText.length + warpText.length) * charWidth;
+    const startX = centerX - totalWidth / 2;
 
-    // MOVE
     modeSelectContainer.push(k.add([
-      k.text('MOVE', { size: 14 }),
-      k.pos(col1X, rowY),
-      k.anchor('center'),
-      k.color(255, 200, 100),
-    ]));
-    modeSelectContainer.push(k.add([
-      k.text(isTouch ? 'STICK' : 'ARROW KEYS', { size: 10 }),
-      k.pos(col1X, rowY + 16),
+      k.text(shootText, { size: tipFontSize }),
+      k.pos(startX + shootText.length * charWidth / 2, rowY),
       k.anchor('center'),
       k.color(150, 150, 150),
     ]));
 
-    // FIRE
-    modeSelectContainer.push(k.add([
-      k.text('FIRE', { size: 14 }),
-      k.pos(col2X, rowY),
+    // [PORTAL]（水色 + 点滅：実際のポータルと同じ）
+    const portalLabel = k.add([
+      k.text(portalText, { size: tipFontSize }),
+      k.pos(startX + shootText.length * charWidth + portalText.length * charWidth / 2, rowY),
       k.anchor('center'),
-      k.color(255, 100, 100),
-    ]));
+      k.color(0, 200, 255),  // 水色（実際のポータルと同じ）
+    ]);
+    modeSelectContainer.push(portalLabel);
+
+    // 点滅エフェクト（実際のポータルと同じ）
+    portalLabel.onUpdate(() => {
+      const t = k.time() * 3;
+      portalLabel.opacity = 0.7 + Math.sin(t * 1.5) * 0.3;
+    });
+
     modeSelectContainer.push(k.add([
-      k.text(isTouch ? 'BUTTON' : 'SPACE KEY', { size: 10 }),
-      k.pos(col2X, rowY + 16),
+      k.text(warpText, { size: tipFontSize }),
+      k.pos(startX + (shootText.length + portalText.length) * charWidth + warpText.length * charWidth / 2, rowY),
       k.anchor('center'),
       k.color(150, 150, 150),
     ]));
 
-    // HINTS セクション
-    rowY += 40;
     modeSelectContainer.push(k.add([
-      k.rect(panelWidth - 40, 1),
-      k.pos(centerX, rowY - 8),
-      k.anchor('center'),
-      k.color(60, 80, 120),
-      k.opacity(0.3),
-    ]));
-
-    // HINT
-    modeSelectContainer.push(k.add([
-      k.text('SHOOT PORTALS TO WARP  /  SPEED = POWER!', { size: 9 }),
-      k.pos(centerX, rowY + 4),
+      k.text('SPEED = POWER!', { size: 10 }),
+      k.pos(centerX, rowY + 16),
       k.anchor('center'),
       k.color(150, 150, 150),
     ]));
@@ -448,8 +436,8 @@ export function titleScene(
 
     yOffset += 50;
 
-    // "PRESS SPACE TO START"
-    const startLabelText = isTouch ? '' : '[ PRESS SPACE TO START ]';
+    // "PRESS Z TO START"
+    const startLabelText = isTouch ? '' : '[ PRESS Z TO START ]';
     const startLabel = k.add([
       k.text(startLabelText, { size: 18 }),
       k.pos(centerX, yOffset),
@@ -475,6 +463,14 @@ export function titleScene(
   } else {
     createModeSelectUI();
   }
+
+  // 画面下部に常時表示の操作ガイド（タッチ/キーボード両対応）
+  k.add([
+    k.text('[↑↓←→] MOVE / SELECT    [Z] OK / FIRE', { size: 12 }),
+    k.pos(centerX, k.height() - 20),
+    k.anchor('center'),
+    k.color(150, 150, 150),
+  ]);
 
   // カーソル点滅処理
   k.onUpdate(() => {
@@ -584,7 +580,7 @@ export function titleScene(
     }
   });
 
-  k.onKeyPress('space', () => {
+  k.onKeyPress('z', () => {
     if (isStarting) return;
     if (phase === 'site') {
       switchToModeSelect();
