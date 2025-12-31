@@ -337,6 +337,7 @@ export function titleScene(
       k.pos(startX + shootText.length * charWidth + portalText.length * charWidth / 2, rowY),
       k.anchor('center'),
       k.color(0, 200, 255),  // 水色（実際のポータルと同じ）
+      k.opacity(1),
     ]);
     modeSelectContainer.push(portalLabel);
 

@@ -69,10 +69,6 @@ export function createEnemy(
   let orbitIndex = Math.floor(Math.random() * ORBIT_POINTS.length);  // ランダムな初期位置
   const originPos = { x: startX, y: startY };
 
-  // 当たり判定はサイズに比例（テキスト幅を考慮して横長に）
-  const hitboxHeight = Math.max(20, config.size);
-  const hitboxWidth = Math.max(40, config.size * 2.5);  // テキストは横に長い
-
   // 敵オブジェクト（レアリティに応じたサイズ）
   const enemy = k.add([
     k.text(config.displayName, { size: config.size }),

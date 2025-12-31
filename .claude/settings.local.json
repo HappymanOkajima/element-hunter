@@ -28,7 +28,13 @@
       "Bash(if exist node_modules.vite rmdir /s /q node_modules.vite)",
       "Bash(node check-reachability.js:*)",
       "Bash(node check-reachability.cjs:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(del \"c:\\\\home\\\\project\\\\element-hunter\\\\data\\\\sites\\\\tutorial.json\")",
+      "Bash(del \"c:\\\\home\\\\project\\\\element-hunter\\\\data\\\\sites\\\\esm.json\")",
+      "Bash(rm:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20615342362 --repo HappymanOkajima/element-hunter --log-failed)"
     ]
   }
 }
