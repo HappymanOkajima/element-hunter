@@ -15,9 +15,6 @@ export async function getSiteList(): Promise<SiteInfo[]> {
   const sites: SiteInfo[] = [];
 
   for (const path in siteModules) {
-    // tutorial.json は構造が異なるため除外
-    if (path.includes('tutorial')) continue;
-
     try {
       const mod = await siteModules[path]();
       const data = mod.default;

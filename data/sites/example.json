@@ -1,115 +1,148 @@
 {
-  "siteId": "example",
-  "siteName": "Example Domain",
+  "siteId": "example-domain",
+  "siteName": "Example Domain | example.com",
   "baseUrl": "https://example.com",
   "metadata": {
-    "crawledAt": "2025-12-27T11:33:45.031Z",
+    "crawledAt": "2025-01-01T00:00:00.000Z",
     "crawlerVersion": "0.1.0",
-    "totalPages": 1,
-    "totalElements": 9,
-    "maxDepth": 0,
-    "crawlDuration": 5203
+    "totalPages": 3,
+    "totalElements": 150,
+    "maxDepth": 1,
+    "crawlDuration": 3000
   },
   "pages": [
     {
       "path": "/",
       "depth": 0,
-      "title": "Example Domain",
+      "title": "Example Domain - Home",
       "elements": [
-        {
-          "tag": "p",
-          "count": 2
-        },
-        {
-          "tag": "html",
-          "count": 1
-        },
-        {
-          "tag": "head",
-          "count": 1
-        },
-        {
-          "tag": "title",
-          "count": 1
-        },
-        {
-          "tag": "body",
-          "count": 1
-        },
-        {
-          "tag": "div",
-          "count": 1
-        },
-        {
-          "tag": "h1",
-          "count": 1
-        },
-        {
-          "tag": "a",
-          "count": 1
-        }
+        { "tag": "h1", "count": 1, "sampleTexts": ["Welcome to Example Domain"] },
+        { "tag": "h2", "count": 2, "sampleTexts": ["Our Services", "Latest News"] },
+        { "tag": "p", "count": 5, "sampleTexts": ["This domain is for use in illustrative examples.", "You may use this domain in literature.", "Learn more about our amazing products.", "Contact us for any questions.", "We provide the best solutions."] },
+        { "tag": "img", "count": 3, "sampleTexts": [], "sampleImageUrls": ["https://via.placeholder.com/300x200/4a90d9/ffffff?text=Hero", "https://via.placeholder.com/150x150/5cb85c/ffffff?text=Service1", "https://via.placeholder.com/150x150/f0ad4e/ffffff?text=Service2"] },
+        { "tag": "a", "count": 4, "sampleTexts": ["About Us", "Products", "Contact", "More info..."] },
+        { "tag": "div", "count": 4, "sampleTexts": ["Loading...", "Please wait"] },
+        { "tag": "span", "count": 3, "sampleTexts": ["New!", "Featured", "Popular"] },
+        { "tag": "ul", "count": 1, "sampleTexts": [] },
+        { "tag": "li", "count": 4, "sampleTexts": ["Home", "About Us", "Products", "Contact"] },
+        { "tag": "nav", "count": 1, "sampleTexts": [] },
+        { "tag": "header", "count": 1, "sampleTexts": [] },
+        { "tag": "footer", "count": 1, "sampleTexts": [] },
+        { "tag": "section", "count": 2, "sampleTexts": [] },
+        { "tag": "article", "count": 1, "sampleTexts": [] }
       ],
-      "totalElementCount": 9,
-      "links": [],
+      "totalElementCount": 33,
+      "links": ["/about", "/products", "/contact"],
       "parentLink": null,
-      "contentLength": 126,
-      "estimatedWidth": 858
+      "contentLength": 800,
+      "estimatedWidth": 1200,
+      "textContent": "<h1>Welcome to Example Domain</h1><p>This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination.</p><section><h2>Our Services</h2><p>We provide the best solutions for your needs.</p></section><section><h2>Latest News</h2><p>Contact us for any questions.</p></section>",
+      "imageUrls": ["https://via.placeholder.com/300x200/4a90d9/ffffff?text=Hero"],
+      "ogImage": null
+    },
+    {
+      "path": "/about",
+      "depth": 1,
+      "title": "About Us - Example Domain",
+      "elements": [
+        { "tag": "h1", "count": 1, "sampleTexts": ["About Example Domain"] },
+        { "tag": "h2", "count": 3, "sampleTexts": ["Our Mission", "Our Team", "Our History"] },
+        { "tag": "h3", "count": 2, "sampleTexts": ["Leadership", "Values"] },
+        { "tag": "p", "count": 6, "sampleTexts": ["Example Domain was established for illustrative examples.", "Our mission is to make the internet better.", "We believe in quality and innovation.", "Meet our dedicated team.", "Our history spans two decades.", "Join us on our journey."] },
+        { "tag": "img", "count": 4, "sampleTexts": [], "sampleImageUrls": ["https://via.placeholder.com/400x250/6c757d/ffffff?text=About+Us", "https://via.placeholder.com/100x100/17a2b8/ffffff?text=CEO", "https://via.placeholder.com/100x100/28a745/ffffff?text=CTO", "https://via.placeholder.com/100x100/dc3545/ffffff?text=CFO"] },
+        { "tag": "a", "count": 4, "sampleTexts": ["Home", "Products", "Team", "History"] },
+        { "tag": "div", "count": 3, "sampleTexts": [] },
+        { "tag": "span", "count": 2, "sampleTexts": ["20+ years", "100+ employees"] },
+        { "tag": "ul", "count": 2, "sampleTexts": [] },
+        { "tag": "li", "count": 6, "sampleTexts": ["John Doe - CEO", "Jane Smith - CTO", "Bob Johnson - CFO", "Quality First", "Customer Focus", "Innovation"] },
+        { "tag": "section", "count": 3, "sampleTexts": [] },
+        { "tag": "article", "count": 2, "sampleTexts": [] },
+        { "tag": "aside", "count": 1, "sampleTexts": [] },
+        { "tag": "blockquote", "count": 1, "sampleTexts": ["Excellence is a continuous journey."] },
+        { "tag": "strong", "count": 2, "sampleTexts": ["20+ years", "100+ employees"] },
+        { "tag": "em", "count": 1, "sampleTexts": ["leading the industry"] }
+      ],
+      "totalElementCount": 43,
+      "links": ["/", "/products", "/team", "/history"],
+      "parentLink": "/",
+      "contentLength": 1200,
+      "estimatedWidth": 1400,
+      "textContent": "<h1>About Example Domain</h1><section><h2>Our Mission</h2><p>Our mission is to make the internet better. We believe in quality and innovation.</p></section><section><h2>Our Team</h2><h3>Leadership</h3><ul><li>John Doe - CEO</li><li>Jane Smith - CTO</li></ul></section><section><h2>Our History</h2><p>Our history spans two decades.</p><blockquote>Excellence is a continuous journey.</blockquote></section>",
+      "imageUrls": ["https://via.placeholder.com/400x250/6c757d/ffffff?text=About+Us"],
+      "ogImage": null
+    },
+    {
+      "path": "/products",
+      "depth": 1,
+      "title": "Products - Example Domain",
+      "elements": [
+        { "tag": "h1", "count": 1, "sampleTexts": ["Our Products"] },
+        { "tag": "h2", "count": 4, "sampleTexts": ["Featured Products", "New Arrivals", "Best Sellers", "Compare Plans"] },
+        { "tag": "h3", "count": 3, "sampleTexts": ["Product Alpha", "Product Beta", "Product Gamma"] },
+        { "tag": "p", "count": 8, "sampleTexts": ["Discover our amazing products.", "Product Alpha is our flagship.", "Product Beta has advanced features.", "Product Gamma is for beginners.", "30-day money-back guarantee.", "Free shipping over $50.", "Subscribe for updates.", "Contact sales for pricing."] },
+        { "tag": "img", "count": 6, "sampleTexts": [], "sampleImageUrls": ["https://via.placeholder.com/400x300/007bff/ffffff?text=Products", "https://via.placeholder.com/200x200/28a745/ffffff?text=Alpha", "https://via.placeholder.com/200x200/17a2b8/ffffff?text=Beta", "https://via.placeholder.com/200x200/ffc107/333333?text=Gamma", "https://via.placeholder.com/150x150/6f42c1/ffffff?text=Feature1", "https://via.placeholder.com/150x150/e83e8c/ffffff?text=Feature2"] },
+        { "tag": "a", "count": 6, "sampleTexts": ["Home", "About", "Alpha", "Beta", "Gamma", "Cart"] },
+        { "tag": "div", "count": 5, "sampleTexts": ["Loading products..."] },
+        { "tag": "span", "count": 4, "sampleTexts": ["$99.99", "$149.99", "$49.99", "SALE!"] },
+        { "tag": "ul", "count": 1, "sampleTexts": [] },
+        { "tag": "li", "count": 5, "sampleTexts": ["Fast delivery", "24/7 support", "Money-back guarantee", "Free updates", "Premium quality"] },
+        { "tag": "section", "count": 4, "sampleTexts": [] },
+        { "tag": "article", "count": 3, "sampleTexts": [] },
+        { "tag": "figure", "count": 3, "sampleTexts": [] },
+        { "tag": "figcaption", "count": 3, "sampleTexts": ["Alpha - Enterprise", "Beta - Professional", "Gamma - Starter"] },
+        { "tag": "button", "count": 2, "sampleTexts": ["Add to Cart", "Learn More"] },
+        { "tag": "form", "count": 1, "sampleTexts": [] },
+        { "tag": "input", "count": 2, "sampleTexts": [] },
+        { "tag": "label", "count": 2, "sampleTexts": ["Email", "Quantity"] },
+        { "tag": "table", "count": 1, "sampleTexts": [] },
+        { "tag": "tr", "count": 3, "sampleTexts": [] },
+        { "tag": "td", "count": 6, "sampleTexts": ["Basic", "Pro", "Enterprise", "$9/mo", "$29/mo", "$99/mo"] },
+        { "tag": "code", "count": 2, "sampleTexts": ["npm install alpha", "import { alpha } from 'alpha'"] },
+        { "tag": "pre", "count": 1, "sampleTexts": [] }
+      ],
+      "totalElementCount": 74,
+      "links": ["/", "/about", "/products/alpha", "/products/beta", "/products/gamma", "/cart"],
+      "parentLink": "/",
+      "contentLength": 2000,
+      "estimatedWidth": 1600,
+      "textContent": "<h1>Our Products</h1><p>Discover our amazing products. 30-day money-back guarantee.</p><section><h2>Featured Products</h2><article><h3>Product Alpha</h3><p>Product Alpha is our flagship.</p><span>$99.99</span></article><article><h3>Product Beta</h3><p>Product Beta has advanced features.</p><span>$149.99</span></article><article><h3>Product Gamma</h3><p>Product Gamma is for beginners.</p><span>$49.99</span><span>SALE!</span></article></section><section><h2>Compare Plans</h2><table><tr><td>Basic</td><td>Pro</td><td>Enterprise</td></tr></table></section>",
+      "imageUrls": ["https://via.placeholder.com/400x300/007bff/ffffff?text=Products"],
+      "ogImage": null
     }
   ],
-  "deepestPages": [
-    "/"
-  ],
-  "rareElements": [
-    "a",
-    "body",
-    "div",
-    "h1",
-    "head",
-    "html",
-    "p",
-    "title"
-  ],
-  "commonLinks": [],
+  "deepestPages": ["/about", "/products"],
+  "rareElements": ["blockquote", "figcaption", "code", "pre", "aside", "table", "form"],
+  "commonLinks": ["/", "/about", "/products"],
   "elementStats": {
-    "p": {
-      "totalCount": 2,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "html": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "head": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "title": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "body": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "div": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    },
-    "h1": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 3
-    },
-    "a": {
-      "totalCount": 1,
-      "pageCount": 1,
-      "rarity": 1
-    }
+    "h1": { "totalCount": 3, "pageCount": 3, "rarity": 3 },
+    "h2": { "totalCount": 9, "pageCount": 3, "rarity": 2 },
+    "h3": { "totalCount": 5, "pageCount": 2, "rarity": 2 },
+    "p": { "totalCount": 19, "pageCount": 3, "rarity": 1 },
+    "img": { "totalCount": 13, "pageCount": 3, "rarity": 2 },
+    "a": { "totalCount": 14, "pageCount": 3, "rarity": 1 },
+    "div": { "totalCount": 12, "pageCount": 3, "rarity": 1 },
+    "span": { "totalCount": 9, "pageCount": 3, "rarity": 1 },
+    "ul": { "totalCount": 4, "pageCount": 3, "rarity": 2 },
+    "li": { "totalCount": 15, "pageCount": 3, "rarity": 1 },
+    "nav": { "totalCount": 1, "pageCount": 1, "rarity": 3 },
+    "header": { "totalCount": 1, "pageCount": 1, "rarity": 3 },
+    "footer": { "totalCount": 1, "pageCount": 1, "rarity": 3 },
+    "section": { "totalCount": 9, "pageCount": 3, "rarity": 2 },
+    "article": { "totalCount": 6, "pageCount": 3, "rarity": 2 },
+    "aside": { "totalCount": 1, "pageCount": 1, "rarity": 4 },
+    "blockquote": { "totalCount": 1, "pageCount": 1, "rarity": 4 },
+    "strong": { "totalCount": 2, "pageCount": 1, "rarity": 3 },
+    "em": { "totalCount": 1, "pageCount": 1, "rarity": 3 },
+    "figure": { "totalCount": 3, "pageCount": 1, "rarity": 3 },
+    "figcaption": { "totalCount": 3, "pageCount": 1, "rarity": 4 },
+    "button": { "totalCount": 2, "pageCount": 1, "rarity": 3 },
+    "form": { "totalCount": 1, "pageCount": 1, "rarity": 4 },
+    "input": { "totalCount": 2, "pageCount": 1, "rarity": 3 },
+    "label": { "totalCount": 2, "pageCount": 1, "rarity": 3 },
+    "table": { "totalCount": 1, "pageCount": 1, "rarity": 4 },
+    "tr": { "totalCount": 3, "pageCount": 1, "rarity": 3 },
+    "td": { "totalCount": 6, "pageCount": 1, "rarity": 3 },
+    "code": { "totalCount": 2, "pageCount": 1, "rarity": 4 },
+    "pre": { "totalCount": 1, "pageCount": 1, "rarity": 4 }
   }
 }
