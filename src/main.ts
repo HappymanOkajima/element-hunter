@@ -4,7 +4,7 @@ import { titleScene, type GameMode } from './scenes/title';
 import { loadStageFromCrawl } from './systems/stageLoader';
 import { gameState } from './systems/gameState';
 import { contentPanel } from './ui/ContentPanel';
-import { playGameOverSound } from './systems/sound';
+import { playGameOverSound, stopBossLoopSound } from './systems/sound';
 import { isTouchDevice } from './ui/VirtualJoystick';
 import type { CrawlOutput } from './types';
 import { getSiteList, loadSite } from './data/siteLoader';
@@ -82,6 +82,7 @@ async function main() {
 
   // ゲームオーバーシーン
   k.scene('gameover', () => {
+    stopBossLoopSound();  // ボスループSE停止
     playGameOverSound();
 
     k.add([
