@@ -52,13 +52,24 @@ export function convertPageToStage(
   const maxEnemiesLimit = gameMode === 'easy' ? 6 : 20;
   const MAX_ENEMIES = Math.min(Math.floor(baseEnemies * widthMultiplier), maxEnemiesLimit);
 
-  const MAX_ENEMIES_PER_TAG = gameMode === 'easy' ? 2 : 3;  // 1タグあたりの最大数
+  // タグごとの最大出現数
+  // img: 上限なし（できるだけ多く）
+  // div: 最小限（他で埋まらない場合のみ）
+  // その他: 通常上限
+  const getMaxPerTag = (tag: string): number => {
+    if (tag === 'img') return MAX_ENEMIES;  // 上限なし（全体上限まで）
+    if (tag === 'div') return 1;  // 最小限
+    return gameMode === 'easy' ? 2 : 3;  // 通常
+  };
+
   const MAX_PORTALS = Math.min(Math.floor(5 * widthMultiplier), 8);  // 最大8個
 
   // 要素を敵として配置（aタグはポータルなので除外）
+  // 元のJSON順序（DOM出現順）を維持しつつ、タグごとの上限で制御
   let enemyCount = 0;
   let xOffset = 0;
   const usedImageUrls = new Set<string>();  // 使用済み画像URLを追跡
+  const tagCounts = new Map<string, number>();  // タグごとの配置数を追跡
 
   for (const element of page.elements) {
     if (!isValidEnemyTag(element.tag)) continue;
@@ -78,11 +89,18 @@ export function convertPageToStage(
 
     if (enemyCount >= MAX_ENEMIES) break;
 
+    // タグごとの上限チェック
+    const currentTagCount = tagCounts.get(element.tag) || 0;
+    const maxForThisTag = getMaxPerTag(element.tag);
+    if (currentTagCount >= maxForThisTag) continue;
+
     // imgタグ: ユニークな画像URLごとに1体ずつ配置
     // その他タグ: 従来通りspawnCount体配置
     if (isImg) {
       for (const imageUrl of validImageUrls) {
         if (enemyCount >= MAX_ENEMIES) break;
+        const imgCount = tagCounts.get('img') || 0;
+        if (imgCount >= getMaxPerTag('img')) break;
         if (usedImageUrls.has(imageUrl)) continue;  // 既に使用済みの画像はスキップ
 
         usedImageUrls.add(imageUrl);
@@ -98,11 +116,13 @@ export function convertPageToStage(
           sampleImageUrl: imageUrl,
         });
 
+        tagCounts.set('img', imgCount + 1);
         enemyCount++;
       }
     } else {
       // このタグの配置数（実際のcount数まで、ただしタグ毎上限あり）
-      const spawnCount = Math.min(element.count, MAX_ENEMIES_PER_TAG);
+      const remainingForTag = maxForThisTag - currentTagCount;
+      const spawnCount = Math.min(element.count, remainingForTag);
 
       for (let i = 0; i < spawnCount; i++) {
         if (enemyCount >= MAX_ENEMIES) break;
@@ -122,6 +142,7 @@ export function convertPageToStage(
           sampleText,
         });
 
+        tagCounts.set(element.tag, (tagCounts.get(element.tag) || 0) + 1);
         enemyCount++;
       }
     }

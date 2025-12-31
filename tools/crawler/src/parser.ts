@@ -28,6 +28,10 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
     const tagTexts = new Map<string, string[]>();
     const tagImageUrls = new Map<string, string[]>();  // imgタグ用
 
+    // サンプル収集の設定
+    const MAX_SAMPLES = 30;      // タグごとの最大サンプル数
+    const MAX_TEXT_LENGTH = 50;  // 各テキストの最大文字数
+
     allElements.forEach(el => {
       const tag = el.tagName.toLowerCase();
       // script, style, meta等は除外
@@ -37,7 +41,7 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
         // imgタグの場合はsrc属性を収集
         if (tag === 'img') {
           const imgUrls = tagImageUrls.get(tag) || [];
-          if (imgUrls.length < 5) {
+          if (imgUrls.length < MAX_SAMPLES) {
             const src = el.getAttribute('src');
             const imgEl = el as HTMLImageElement;
 
@@ -66,14 +70,17 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
             const isTooNarrow = aspectRatio > 5;
 
             if (src && !isExcluded && !isDataUri && !isSvg && !isTooSmall && !isTooNarrow) {
-              imgUrls.push(src);
-              tagImageUrls.set(tag, imgUrls);
+              // 重複チェック（ユニークなURLのみ収集）
+              if (!imgUrls.includes(src)) {
+                imgUrls.push(src);
+                tagImageUrls.set(tag, imgUrls);
+              }
             }
           }
         } else {
-          // テキストコンテンツを取得（直接の子テキストのみ、最大5サンプル）
+          // テキストコンテンツを取得（直接の子テキストのみ、最大20サンプル）
           const texts = tagTexts.get(tag) || [];
-          if (texts.length < 5) {
+          if (texts.length < MAX_SAMPLES) {
             // 直接のテキストノードのみ取得（子要素のテキストは含まない）
             let directText = '';
             el.childNodes.forEach(node => {
@@ -84,8 +91,14 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
             directText = directText.trim().replace(/\s+/g, ' ');
             // 意味のあるテキストのみ（3文字以上）
             if (directText.length >= 3) {
-              texts.push(directText.slice(0, 30));
-              tagTexts.set(tag, texts);
+              const truncated = directText.length > MAX_TEXT_LENGTH
+                ? directText.slice(0, MAX_TEXT_LENGTH) + '…'
+                : directText;
+              // 重複チェック（ユニークなテキストのみ収集）
+              if (!texts.includes(truncated)) {
+                texts.push(truncated);
+                tagTexts.set(tag, texts);
+              }
             }
           }
         }
@@ -93,6 +106,7 @@ export async function parsePage(page: Page, baseUrl: URL): Promise<ParseResult> 
     });
 
     // 要素カウントを配列に変換（サンプルテキスト/画像URL付き）
+    // 収集した全サンプルをそのまま保持（ゲーム側でランダム選択）
     const elements = Array.from(tagCount.entries())
       .map(([tag, count]) => ({
         tag,
