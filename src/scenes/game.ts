@@ -1,12 +1,13 @@
 import type { KaboomCtx } from 'kaboom';
 import { createPlayer, type PlayerObject } from '../entities/player';
 import { createEnemy, type EnemyObject } from '../entities/enemy';
+import { createBoss, destroyBoss, type BossObject } from '../entities/boss';
 import { createPortal, type PortalObject } from '../entities/portal';
 import type { StageConfig, CrawlOutput, EnemySnapshot } from '../types';
 import { loadStageFromCrawl } from '../systems/stageLoader';
 import { gameState } from '../systems/gameState';
 import { contentPanel } from '../ui/ContentPanel';
-import { playWarpSound, playPageClearSound, playGameClearSound } from '../systems/sound';
+import { playWarpSound, playPageClearSound, playGameClearSound, playBossWarningSound, startBossLoopSound, stopBossLoopSound } from '../systems/sound';
 import { isTouchDevice, getVirtualJoystick, type VirtualJoystick } from '../ui/VirtualJoystick';
 
 // 現在のステージ設定（外部から設定可能）
@@ -47,6 +48,7 @@ const DEFAULT_STAGE: StageConfig = {
     { type: 'h1', x: 650, y: 300 },
   ],
   portals: [],
+  boss: null,
   goalX: 770,
 };
 
@@ -58,6 +60,8 @@ export function gameScene(k: KaboomCtx) {
   gamePaused = false;
   let isWarping = false;  // ワープ中フラグ
   let player: PlayerObject | null = null;
+  let boss: BossObject | null = null;  // ボスオブジェクト
+  let bossSpawned = false;  // ボスが出現済みか
 
   // カメラのオフセット（横スクロール用）
   let cameraX = 0;
@@ -77,8 +81,15 @@ export function gameScene(k: KaboomCtx) {
     // ワープ音
     playWarpSound();
 
+    // ボスループSE停止
+    stopBossLoopSound();
+
     // 現在のページの状態を保存
     saveCurrentPageStates();
+
+    // ボスを破棄
+    destroyBoss(boss);
+    boss = null;
 
     // 履歴にプッシュ
     gameState.pushPage(targetPath);
@@ -293,24 +304,52 @@ export function gameScene(k: KaboomCtx) {
     hpLabel.text = `HP: ${hearts}`;
   }
 
-  // 敵カウント更新（ハント数/全数）
+  // 敵カウント更新（ハント数/全数）- ボス出現後のみボスを含める
   function updateEnemyCount() {
     const enemies = k.get('enemy') as EnemyObject[];
     const huntedCount = enemies.filter(e => e.isStopped()).length;
     const totalCount = enemies.length;
-    enemyCountLabel.text = `HUNTED: ${huntedCount}/${totalCount}`;
+
+    // ボスが出現済みの場合のみカウントに含める
+    if (bossSpawned && boss) {
+      const bossHunted = boss.isStopped() ? 1 : 0;
+      enemyCountLabel.text = `HUNTED: ${huntedCount + bossHunted}/${totalCount + 1}`;
+    } else {
+      enemyCountLabel.text = `HUNTED: ${huntedCount}/${totalCount}`;
+    }
   }
 
-  // ページクリア判定
+  // ページクリア判定（2段階制: 通常敵 → ボス）
   let pageCleared = false;
+  let bossWarningShown = false;  // WARNING演出中フラグ
+
   function checkPageClear() {
     if (pageCleared) return;
 
     const enemies = k.get('enemy') as EnemyObject[];
-    if (enemies.length === 0) return;
 
-    const allStopped = enemies.every(e => e.isStopped());
-    if (!allStopped) return;
+    // 通常敵が全て停止しているか
+    const allEnemiesStopped = enemies.length === 0 || enemies.every(e => e.isStopped());
+
+    // フェーズ1: 通常敵を全て倒したらボス出現
+    if (allEnemiesStopped && !bossSpawned && stage.boss && !bossWarningShown) {
+      bossWarningShown = true;
+      showBossWarning(() => {
+        bossSpawned = true;
+        boss = createBoss(k, stage.boss!, () => player, stage.width);
+      });
+      return;
+    }
+
+    // ボス出現条件を満たさないページ、または既にボスを倒した場合
+    // ボスがいないページは通常敵だけでクリア
+    const hasBoss = stage.boss !== null;
+    const bossDefeated = !hasBoss || (bossSpawned && boss && boss.isStopped());
+
+    // 敵もボスもいない場合はスキップ
+    if (enemies.length === 0 && !hasBoss) return;
+
+    if (!allEnemiesStopped || !bossDefeated) return;
 
     // ページクリア！
     pageCleared = true;
@@ -341,6 +380,74 @@ export function gameScene(k: KaboomCtx) {
         k.go('complete');
       }, 1000);
     }
+  }
+
+  // ボス出現WARNING演出
+  function showBossWarning(onComplete: () => void) {
+    // 一時停止
+    gamePaused = true;
+
+    // 警告SE開始
+    playBossWarningSound();
+
+    // 暗いオーバーレイ
+    const overlay = k.add([
+      k.rect(k.width(), k.height()),
+      k.pos(0, 0),
+      k.color(0, 0, 0),
+      k.opacity(0),
+      k.fixed(),
+      k.z(50),
+      'bossWarning',
+    ]);
+
+    // WARNING!テキスト
+    const warning = k.add([
+      k.text('WARNING!', { size: 48 }),
+      k.pos(k.width() / 2, k.height() / 2),
+      k.anchor('center'),
+      k.color(255, 50, 50),
+      k.opacity(0),
+      k.fixed(),
+      k.z(51),
+      'bossWarning',
+    ]);
+
+    // フェードイン
+    k.tween(0, 0.7, 0.3, (val) => {
+      overlay.opacity = val;
+    });
+    k.tween(0, 1, 0.3, (val) => {
+      warning.opacity = val;
+    });
+
+    // 点滅アニメーション
+    let blinkTime = 0;
+    const blinkHandler = warning.onUpdate(() => {
+      blinkTime += k.dt() * 8;
+      warning.opacity = 0.5 + Math.sin(blinkTime) * 0.5;
+    });
+
+    // 2秒後にボス出現
+    k.wait(2.0, () => {
+      blinkHandler.cancel();
+
+      // フェードアウト
+      k.tween(overlay.opacity, 0, 0.3, (val) => {
+        overlay.opacity = val;
+      });
+      k.tween(warning.opacity, 0, 0.3, (val) => {
+        warning.opacity = val;
+      }).onEnd(() => {
+        k.get('bossWarning').forEach(obj => k.destroy(obj));
+        gamePaused = false;
+
+        // ボスループSE開始
+        startBossLoopSound();
+
+        onComplete();
+      });
+    });
   }
 
   // 現在のページの状態を保存（敵 + プレイヤーHP）
@@ -442,6 +549,9 @@ export function gameScene(k: KaboomCtx) {
     });
   }
 
+  // --- ボス生成は通常敵を全て倒した後 ---
+  // (checkPageClear内で行う)
+
   // --- コンテンツパネル初期更新 ---
   const currentPage = crawlData?.pages[currentPageIndex];
   if (currentPage) {
@@ -498,12 +608,28 @@ export function gameScene(k: KaboomCtx) {
     }
   });
 
+  // プレイヤー vs ボスパーツ
+  k.onCollide('player', 'bossPart', () => {
+    if (player && boss && !boss.isStopped()) {
+      player.takeDamage(2);  // ボスは2ダメージ
+    }
+  });
+
   // 剣 vs 敵（通常レーザー）
   k.onCollide('sword', 'enemy', (s, e) => {
     const enemy = e as EnemyObject;
     const laserData = s as unknown as { damage?: number };
     const damage = laserData.damage || 1;
     enemy.takeDamage(damage);
+  });
+
+  // 剣 vs ボスパーツ（通常レーザー）
+  k.onCollide('sword', 'bossPart', (s) => {
+    if (boss && !boss.isStopped()) {
+      const laserData = s as unknown as { damage?: number };
+      const damage = laserData.damage || 1;
+      boss.takeDamage(damage);
+    }
   });
 
   // 貫通レーザー vs 敵（同じ敵には1回だけダメージ）
@@ -527,6 +653,20 @@ export function gameScene(k: KaboomCtx) {
     if (beforeHp > 0 && afterHp <= 0) {
       laserData.killedEnemies.add(enemyId);
     }
+  });
+
+  // 貫通レーザー vs ボスパーツ（1回だけダメージ）
+  k.onCollide('sword-piercing', 'bossPart', (s) => {
+    if (!boss || boss.isStopped()) return;
+
+    const laserData = s as unknown as { hitEnemies: Set<string>; damage: number };
+
+    // ボス用のヒット判定（ボスは1つなので固定ID）
+    const bossId = 'boss';
+    if (laserData.hitEnemies.has(bossId)) return;
+
+    laserData.hitEnemies.add(bossId);
+    boss.takeDamage(laserData.damage);
   });
 
   // 剣 vs ポータル（アクセス可能）→ ページ遷移

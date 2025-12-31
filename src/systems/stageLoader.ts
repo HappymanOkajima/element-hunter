@@ -1,4 +1,4 @@
-import type { CrawlOutput, CrawlPage, StageConfig, EnemySpawn, PortalSpawn } from '../types';
+import type { CrawlOutput, CrawlPage, StageConfig, EnemySpawn, PortalSpawn, BossSpawn } from '../types';
 import { isValidEnemyTag } from '../data/elements';
 import { gameState } from './gameState';
 
@@ -204,11 +204,33 @@ export function convertPageToStage(
     portalCount++;
   }
 
+  // ボス出現判定: sampleTextsが空の要素（img, div除く）をカウント
+  const bossElements = page.elements.filter(e =>
+    (!e.sampleTexts || e.sampleTexts.length === 0) &&
+    e.tag !== 'img' &&
+    e.tag !== 'div' &&
+    e.tag !== 'a'  // aタグはポータルとして使用
+  );
+  const totalBossCount = bossElements.reduce((sum, e) => sum + e.count, 0);
+
+  // 10以上ならボス生成（EASYはHP軽め）
+  let boss: BossSpawn | null = null;
+  if (totalBossCount >= 10) {
+    const bossHpMultiplier = gameMode === 'easy' ? 1 : 2;  // EASY: ×1, NORMAL: ×2
+    boss = {
+      parts: bossElements.map(e => e.tag),
+      x: stageWidth / 2,
+      y: 300,
+      hp: bossElements.length * bossHpMultiplier,
+    };
+  }
+
   return {
     name: `${siteName} - ${page.path}`,
     width: stageWidth,
     enemies,
     portals,
+    boss,
     goalX: stageWidth - 30,
   };
 }

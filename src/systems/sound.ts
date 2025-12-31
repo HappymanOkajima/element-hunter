@@ -256,3 +256,149 @@ export function playStartSound(): void {
 export function playMenuMoveSound(): void {
   playTone(500, 0.05, 'square', 0.2);
 }
+
+// ボス警告音（WARNING!表示時）
+// 甲高くねじれた警告アラーム
+export function playBossWarningSound(): void {
+  if (!sfxEnabled) return;
+
+  const ctx = getAudioContext();
+
+  // ねじれた警告音を生成
+  const playTwistedWarning = (delay: number) => {
+    setTimeout(() => {
+      // メインオシレーター（高音）
+      const osc1 = ctx.createOscillator();
+      const osc2 = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc1.type = 'sawtooth';
+      osc2.type = 'square';
+
+      // 周波数を上下にうねらせる（ねじり効果）
+      osc1.frequency.setValueAtTime(1000, ctx.currentTime);
+      osc1.frequency.linearRampToValueAtTime(1400, ctx.currentTime + 0.15);
+      osc1.frequency.linearRampToValueAtTime(800, ctx.currentTime + 0.3);
+
+      // 2つ目はわずかにずらして不協和音
+      osc2.frequency.setValueAtTime(1050, ctx.currentTime);
+      osc2.frequency.linearRampToValueAtTime(1350, ctx.currentTime + 0.15);
+      osc2.frequency.linearRampToValueAtTime(850, ctx.currentTime + 0.3);
+
+      gain.gain.setValueAtTime(0.35 * masterVolume, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc1.start(ctx.currentTime);
+      osc2.start(ctx.currentTime);
+      osc1.stop(ctx.currentTime + 0.3);
+      osc2.stop(ctx.currentTime + 0.3);
+    }, delay);
+  };
+
+  // 6回繰り返し（約2秒間、より密に）
+  playTwistedWarning(0);
+  playTwistedWarning(300);
+  playTwistedWarning(600);
+  playTwistedWarning(900);
+  playTwistedWarning(1200);
+  playTwistedWarning(1500);
+}
+
+// ボス存在中のドローン音（ループ）
+// アンドアジェネシス風の不穏なドローン
+let bossLoopOscillators: OscillatorNode[] = [];
+let bossLoopGainNode: GainNode | null = null;
+
+export function startBossLoopSound(): void {
+  if (!sfxEnabled) return;
+
+  // 既に再生中なら何もしない
+  if (bossLoopOscillators.length > 0) return;
+
+  const ctx = getAudioContext();
+
+  // マスターゲイン
+  bossLoopGainNode = ctx.createGain();
+  bossLoopGainNode.gain.setValueAtTime(0, ctx.currentTime);
+  bossLoopGainNode.gain.linearRampToValueAtTime(0.15 * masterVolume, ctx.currentTime + 0.5);
+  bossLoopGainNode.connect(ctx.destination);
+
+  // 低音ドローン（複数のオシレーターで厚みを出す）
+  const frequencies = [55, 82.5, 110];  // A1, E2, A2 (不協和音的に)
+  const detunes = [0, 5, -3];  // わずかにデチューンして不穏さを演出
+
+  frequencies.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+    osc.detune.setValueAtTime(detunes[i], ctx.currentTime);
+
+    // LFOで周波数を微妙に揺らす
+    const lfo = ctx.createOscillator();
+    const lfoGain = ctx.createGain();
+    lfo.type = 'sine';
+    lfo.frequency.setValueAtTime(0.3 + i * 0.1, ctx.currentTime);  // ゆっくり揺らす
+    lfoGain.gain.setValueAtTime(2, ctx.currentTime);  // 揺れ幅
+    lfo.connect(lfoGain);
+    lfoGain.connect(osc.frequency);
+    lfo.start();
+
+    osc.connect(bossLoopGainNode!);
+    osc.start();
+
+    bossLoopOscillators.push(osc);
+    bossLoopOscillators.push(lfo);
+  });
+
+  // パルス的なアクセント音（周期的に鳴る）
+  const pulseLoop = () => {
+    if (bossLoopOscillators.length === 0) return;
+
+    const pulseOsc = ctx.createOscillator();
+    const pulseGain = ctx.createGain();
+
+    pulseOsc.type = 'square';
+    pulseOsc.frequency.setValueAtTime(80, ctx.currentTime);
+    pulseOsc.frequency.linearRampToValueAtTime(60, ctx.currentTime + 0.3);
+
+    pulseGain.gain.setValueAtTime(0.08 * masterVolume, ctx.currentTime);
+    pulseGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+
+    pulseOsc.connect(pulseGain);
+    pulseGain.connect(ctx.destination);
+
+    pulseOsc.start();
+    pulseOsc.stop(ctx.currentTime + 0.3);
+
+    // 次のパルス（ボスループが続いている間）
+    setTimeout(pulseLoop, 800);
+  };
+
+  // 少し遅れてパルス開始
+  setTimeout(pulseLoop, 500);
+}
+
+export function stopBossLoopSound(): void {
+  if (bossLoopGainNode) {
+    const ctx = getAudioContext();
+    // フェードアウト
+    bossLoopGainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+  }
+
+  // 少し待ってからオシレーターを停止
+  setTimeout(() => {
+    bossLoopOscillators.forEach(osc => {
+      try {
+        osc.stop();
+      } catch (e) {
+        // 既に停止している場合は無視
+      }
+    });
+    bossLoopOscillators = [];
+    bossLoopGainNode = null;
+  }, 350);
+}

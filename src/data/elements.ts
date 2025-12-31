@@ -9,13 +9,13 @@ export const RARITY_COLORS: Record<number, string> = {
   5: '#FFD700',  // 金
 };
 
-// レアリティに対応するHP範囲
-const RARITY_HP: Record<number, [number, number]> = {
-  1: [1, 2],
-  2: [3, 5],
-  3: [5, 10],
-  4: [8, 15],
-  5: [15, 25],
+// レアリティに対応するHP（固定値）
+const RARITY_HP: Record<number, number> = {
+  1: 1,   // ★1: 通常1発
+  2: 2,   // ★2: 通常2発 or 中バースト1発
+  3: 3,   // ★3: MAXバースト1発
+  4: 6,   // ★4: MAXバースト2発
+  5: 9,   // ★5: MAXバースト3発
 };
 
 // レアリティに対応するダメージ
@@ -114,9 +114,8 @@ export function getEnemyConfig(tag: string, statRarity?: number): EnemyConfig | 
   // レアリティを決定（statsから取得 or デフォルト）
   const rarity = statRarity || TAG_RARITY[normalizedTag] || 1;
 
-  // HP範囲からランダムに決定
-  const hpRange = RARITY_HP[rarity] || RARITY_HP[1];
-  const hp = Math.floor(Math.random() * (hpRange[1] - hpRange[0] + 1)) + hpRange[0];
+  // HP（固定値）
+  const hp = RARITY_HP[rarity] || RARITY_HP[1];
 
   // 行動パターンを決定
   const behavior = TAG_BEHAVIOR[normalizedTag] || 'patrol';

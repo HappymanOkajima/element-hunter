@@ -35,11 +35,19 @@ export interface PortalSpawn {
   leadsToTarget: boolean;  // このポータル先からターゲットに到達できるか
 }
 
+export interface BossSpawn {
+  parts: string[];  // タグ名の配列
+  x: number;
+  y: number;
+  hp: number;
+}
+
 export interface StageConfig {
   name: string;
   width: number;
   enemies: EnemySpawn[];
   portals: PortalSpawn[];
+  boss: BossSpawn | null;
   goalX: number;
 }
 
