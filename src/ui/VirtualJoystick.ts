@@ -34,7 +34,7 @@ export class VirtualJoystick {
   // 設定
   private readonly JOYSTICK_SIZE = 100;
   private readonly KNOB_SIZE = 40;
-  private readonly BUTTON_SIZE = 60;
+  private readonly BUTTON_SIZE = 80;
   private readonly DEAD_ZONE = 10;
 
   constructor(k: KaboomCtx) {
@@ -50,7 +50,7 @@ export class VirtualJoystick {
   // UIを作成
   create(): void {
     const k = this.k;
-    const padding = 30;
+    const padding = 15;  // 画面端に近づける
 
     // ジョイスティックベース（左下）
     const baseX = padding + this.JOYSTICK_SIZE / 2;
@@ -97,7 +97,7 @@ export class VirtualJoystick {
 
     // FIREラベル
     k.add([
-      k.text('FIRE', { size: 14 }),
+      k.text('FIRE', { size: 18 }),
       k.pos(fireX, fireY),
       k.anchor('center'),
       k.color(255, 255, 255),
