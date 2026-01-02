@@ -461,3 +461,67 @@ export function playBrDropSound(): void {
   // ひゅーんと落ちる音
   playFrequencySweep(600, 200, 0.3, 'triangle', 0.25);
 }
+
+// <table> 攻撃: グリッド警告音（複数レーザーのチャージ）
+export function playTableWarningSound(): void {
+  if (!sfxEnabled) return;
+
+  const ctx = getAudioContext();
+
+  // 複数のレーザーが同時にチャージする感じ
+  // 低音と高音を組み合わせた警告音
+  const osc1 = ctx.createOscillator();
+  const osc2 = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc1.type = 'square';
+  osc2.type = 'sawtooth';
+
+  // 低音のうなり
+  osc1.frequency.setValueAtTime(100, ctx.currentTime);
+  osc1.frequency.linearRampToValueAtTime(150, ctx.currentTime + 1.2);
+
+  // 高音の警告トーン
+  osc2.frequency.setValueAtTime(600, ctx.currentTime);
+
+  gain.gain.setValueAtTime(0.12 * masterVolume, ctx.currentTime);
+  gain.gain.linearRampToValueAtTime(0.25 * masterVolume, ctx.currentTime + 1.0);
+  gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.2);
+
+  osc1.connect(gain);
+  osc2.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc1.start(ctx.currentTime);
+  osc2.start(ctx.currentTime);
+  osc1.stop(ctx.currentTime + 1.2);
+  osc2.stop(ctx.currentTime + 1.2);
+
+  // 高速トレモロ（格子をイメージ）
+  const lfo = ctx.createOscillator();
+  const lfoGain = ctx.createGain();
+  lfo.type = 'square';
+  lfo.frequency.setValueAtTime(15, ctx.currentTime);  // グリッド感
+  lfoGain.gain.setValueAtTime(80, ctx.currentTime);
+  lfo.connect(lfoGain);
+  lfoGain.connect(osc2.frequency);
+  lfo.start(ctx.currentTime);
+  lfo.stop(ctx.currentTime + 1.2);
+}
+
+// <table> 攻撃: グリッドレーザー発射音
+export function playTableFireSound(): void {
+  if (!sfxEnabled) return;
+
+  // 縦横同時発射の重厚な音
+  // 横レーザー音
+  playFrequencySweep(80, 300, 0.4, 'sawtooth', 0.4);
+
+  // 縦レーザー音（少しずらして）
+  setTimeout(() => {
+    playFrequencySweep(120, 350, 0.35, 'square', 0.35);
+  }, 30);
+
+  // ノイズで迫力追加
+  setTimeout(() => playNoise(0.25, 0.35), 50);
+}

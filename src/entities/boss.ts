@@ -3,7 +3,7 @@ import type { BossSpawn } from '../types';
 import type { PlayerObject } from './player';
 import { isGamePaused } from '../scenes/game';
 import { playHuntSound, stopBossLoopSound } from '../systems/sound';
-import { createHrAttack, createBrAttack, type BossAttack } from './bossAttack';
+import { createHrAttack, createBrAttack, createTableAttack, type BossAttack } from './bossAttack';
 
 // ボスパーツの型
 interface BossPart {
@@ -18,6 +18,7 @@ export interface BossObject extends GameObj<PosComp | AreaComp | AnchorComp | Co
   getHp: () => number;
   getMaxHp: () => number;
   getParts: () => BossPart[];
+  getAttackLabel: () => GameObj | null;
 }
 
 // 16進数カラーをRGBに変換
@@ -80,7 +81,7 @@ export function createBoss(
   let attackCooldown = 3.0;  // 最初の攻撃までの待機時間
   const ATTACK_INTERVAL = 2.5;  // 攻撃間隔
   const activeAttacks: BossAttack[] = [];
-  let nextAttackType: 'hr' | 'br' = 'hr';  // 交互に攻撃
+  let attackIndex = 0;  // 攻撃パターンのインデックス（hr → br → table でローテーション）
 
   // 円の半径（パーツ数に応じて調整）
   const radius = Math.min(60 + parts.length * 8, 120);
@@ -94,6 +95,17 @@ export function createBoss(
     k.opacity(0),  // 中心は見えない
     'boss',
   ]) as unknown as BossObject;
+
+  // 攻撃タイプ表示用のラベル（ボス中心に配置）
+  const ATTACK_LABELS = ['<hr>', '<br>', '<table>'];
+  const attackLabel = k.add([
+    k.text(ATTACK_LABELS[0], { size: 16 }),
+    k.pos(startX, startY),
+    k.anchor('center'),
+    k.color(255, 200, 100),
+    k.opacity(0.8),
+    k.z(100),  // パーツより前面に表示
+  ]);
 
   // パーツを円形に配置
   const angleStep = (2 * Math.PI) / parts.length;
@@ -133,6 +145,7 @@ export function createBoss(
   boss.getHp = () => hp;
   boss.getMaxHp = () => maxHp;
   boss.getParts = () => bossParts;
+  boss.getAttackLabel = () => attackLabel.exists() ? attackLabel : null;
 
   boss.takeDamage = (amount: number) => {
     if (stopped) return;
@@ -166,6 +179,11 @@ export function createBoss(
         part.obj.color = k.rgb(100, 100, 100);
         part.obj.opacity = 0.5;
       });
+
+      // 攻撃ラベルを非表示
+      if (attackLabel.exists()) {
+        k.destroy(attackLabel);
+      }
 
       // ボスループSE停止
       stopBossLoopSound();
@@ -222,18 +240,33 @@ export function createBoss(
       part.angle = currentAngle;
     });
 
+    // 攻撃ラベルの位置を更新（ボス中心に追従）
+    attackLabel.pos.x = boss.pos.x;
+    attackLabel.pos.y = boss.pos.y;
+
     // 攻撃パターン更新
     attackCooldown -= k.dt();
     if (attackCooldown <= 0) {
-      // 攻撃を発動
+      // 攻撃を発動（hr → br → table のローテーション）
       let newAttack: BossAttack | null = null;
-      if (nextAttackType === 'hr') {
-        newAttack = createHrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth);
-        nextAttackType = 'br';
-      } else {
-        newAttack = createBrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth);
-        nextAttackType = 'hr';
+      const stageHeight = 600;
+
+      // 現在の攻撃ラベルを表示（発動する攻撃）
+      attackLabel.text = ATTACK_LABELS[attackIndex % 3];
+      attackLabel.opacity = 1.0;  // 攻撃発動時は明るく
+
+      switch (attackIndex % 3) {
+        case 0:
+          newAttack = createHrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth, stageHeight);
+          break;
+        case 1:
+          newAttack = createBrAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth);
+          break;
+        case 2:
+          newAttack = createTableAttack(k, boss.pos.x, boss.pos.y, getPlayer, stageWidth, stageHeight);
+          break;
       }
+      attackIndex++;
       if (newAttack) {
         activeAttacks.push(newAttack);
       }
@@ -241,14 +274,23 @@ export function createBoss(
     }
 
     // アクティブな攻撃を更新
+    let hasActiveAttack = false;
     for (let i = activeAttacks.length - 1; i >= 0; i--) {
       const attack = activeAttacks[i];
       attack.update();
       if (!attack.isActive()) {
         attack.destroy();
         activeAttacks.splice(i, 1);
+      } else {
+        hasActiveAttack = true;
       }
     }
+
+    // ラベルを常に点滅
+    if (!hasActiveAttack) {
+      attackLabel.text = ATTACK_LABELS[attackIndex % 3];
+    }
+    attackLabel.opacity = 0.5 + Math.sin(Date.now() / 100) * 0.4;
   });
 
   return boss;
@@ -312,6 +354,12 @@ export function destroyBoss(boss: BossObject | null) {
       part.obj.destroy();
     }
   });
+
+  // 攻撃ラベルを破棄
+  const label = boss.getAttackLabel();
+  if (label && label.exists()) {
+    label.destroy();
+  }
 
   // 中心を破棄
   if (boss.exists()) {
