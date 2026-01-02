@@ -34,7 +34,8 @@
       "Bash(rm:*)",
       "Bash(tasklist:*)",
       "Bash(findstr:*)",
-      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20615342362 --repo HappymanOkajima/element-hunter --log-failed)"
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20615342362 --repo HappymanOkajima/element-hunter --log-failed)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run view 20615447036 --repo HappymanOkajima/element-hunter)"
     ]
   }
 }

@@ -742,7 +742,7 @@ export function gameScene(k: KaboomCtx) {
       ]);
 
       k.add([
-        k.text('PAUSED', { size: 48 }),
+        k.text('PAUSE', { size: 48 }),
         k.pos(k.width() / 2, k.height() / 2),
         k.anchor('center'),
         k.color(255, 255, 255),
@@ -750,7 +750,7 @@ export function gameScene(k: KaboomCtx) {
         'pauseOverlay',
       ]);
 
-      const resumeText = isTouchDevice() ? 'Tap pause button to resume' : 'Press ESC to resume';
+      const resumeText = isTouchDevice() ? 'TAP PAUSE TO RESUME' : 'PRESS ESC TO RESUME';
       k.add([
         k.text(resumeText, { size: 20 }),
         k.pos(k.width() / 2, k.height() / 2 + 60),
