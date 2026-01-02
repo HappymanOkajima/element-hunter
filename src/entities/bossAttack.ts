@@ -2,6 +2,30 @@ import type { GameObj, KaboomCtx } from 'kaboom';
 import type { PlayerObject } from './player';
 import { isGamePaused } from '../scenes/game';
 import { playHrWarningSound, playHrFireSound, playBrDropSound, playTableWarningSound, playTableFireSound } from '../systems/sound';
+import { gameState } from '../systems/gameState';
+
+// モード別攻撃パラメータ
+interface AttackParams {
+  hrChargeTime: number;      // <hr> 警告時間
+  brBulletCount: number;     // <br> 弾数
+  brFallSpeed: number;       // <br> 落下速度
+  tableChargeTime: number;   // <table> 警告時間
+}
+
+const ATTACK_PARAMS: Record<'easy' | 'normal', AttackParams> = {
+  easy: {
+    hrChargeTime: 1.0,
+    brBulletCount: 5,
+    brFallSpeed: 200,
+    tableChargeTime: 1.2,
+  },
+  normal: {
+    hrChargeTime: 0.7,
+    brBulletCount: 9,
+    brFallSpeed: 280,
+    tableChargeTime: 0.9,
+  },
+};
 
 // ボス攻撃の基本インターフェース
 export interface BossAttack {
@@ -19,6 +43,9 @@ export function createHrAttack(
   stageWidth: number = 800,
   stageHeight: number = 600
 ): BossAttack {
+  const mode = gameState.getGameMode();
+  const params = ATTACK_PARAMS[mode];
+
   let active = true;
   const objects: GameObj[] = [];
 
@@ -38,7 +65,7 @@ export function createHrAttack(
   playHrWarningSound();
 
   let warningTime = 0;
-  const CHARGE_TIME = 1.0;  // 警告時間
+  const CHARGE_TIME = params.hrChargeTime;
   let fired = false;
 
   // レーザー本体
@@ -136,15 +163,18 @@ export function createBrAttack(
   getPlayer: () => PlayerObject | null,
   stageWidth: number = 800
 ): BossAttack {
+  const mode = gameState.getGameMode();
+  const params = ATTACK_PARAMS[mode];
+
   let active = true;
   let bulletsSpawned = 0;  // 生成された弾の数
   let endingStarted = false;  // 終了処理開始フラグ
   const objects: GameObj[] = [];
   const bullets: Array<{ obj: GameObj; vy: number }> = [];
 
-  // 弾の数と配置
-  const BULLET_COUNT = 5;
-  const FALL_SPEED = 200;
+  // 弾の数と配置（モード別）
+  const BULLET_COUNT = params.brBulletCount;
+  const FALL_SPEED = params.brFallSpeed;
   const SPREAD = 150;
 
   // 発射位置を決定（ボス位置を中心に広がる）
@@ -251,6 +281,9 @@ export function createTableAttack(
   stageWidth: number = 800,
   stageHeight: number = 600
 ): BossAttack {
+  const mode = gameState.getGameMode();
+  const params = ATTACK_PARAMS[mode];
+
   let active = true;
   const objects: GameObj[] = [];
 
@@ -259,7 +292,7 @@ export function createTableAttack(
   const playerY = player?.pos.y ?? stageHeight / 2;
 
   // グリッド設定（横2本、縦2本で3x3の格子）
-  const CHARGE_TIME = 1.2;  // 警告時間（少し長め）
+  const CHARGE_TIME = params.tableChargeTime;
   const LASER_DURATION = 0.6;  // レーザー持続時間
 
   // プレイヤー位置を基準にレーザー配置（挟み込むように）

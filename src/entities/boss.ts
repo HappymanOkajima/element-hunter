@@ -4,6 +4,27 @@ import type { PlayerObject } from './player';
 import { isGamePaused } from '../scenes/game';
 import { playHuntSound, stopBossLoopSound } from '../systems/sound';
 import { createHrAttack, createBrAttack, createTableAttack, type BossAttack } from './bossAttack';
+import { gameState } from '../systems/gameState';
+
+// モード別ボスパラメータ
+interface BossParams {
+  attackInterval: number;  // 攻撃間隔（秒）
+  moveSpeed: number;       // 移動速度
+  rotationSpeed: number;   // 回転速度（ラジアン/秒）
+}
+
+const BOSS_PARAMS: Record<'easy' | 'normal', BossParams> = {
+  easy: {
+    attackInterval: 2.5,
+    moveSpeed: 40,
+    rotationSpeed: 0.8,
+  },
+  normal: {
+    attackInterval: 2.0,
+    moveSpeed: 55,
+    rotationSpeed: 1.2,
+  },
+};
 
 // ボスパーツの型
 interface BossPart {
@@ -71,15 +92,19 @@ export function createBoss(
   let hp = maxHp;
   let stopped = false;
 
+  // モード別パラメータを取得
+  const mode = gameState.getGameMode();
+  const params = BOSS_PARAMS[mode];
+
   // 回転・移動用の状態
   let rotationAngle = 0;
-  const rotationSpeed = 0.8;  // 回転速度（ラジアン/秒）
-  const moveSpeed = 40;  // 移動速度
+  const rotationSpeed = params.rotationSpeed;
+  const moveSpeed = params.moveSpeed;
   let moveDirection = { x: 1, y: 0.5 };  // 移動方向
 
   // 攻撃パターン用の状態
   let attackCooldown = 3.0;  // 最初の攻撃までの待機時間
-  const ATTACK_INTERVAL = 2.5;  // 攻撃間隔
+  const ATTACK_INTERVAL = params.attackInterval;
   const activeAttacks: BossAttack[] = [];
   let attackIndex = 0;  // 攻撃パターンのインデックス（hr → br → table でローテーション）
 
